@@ -15,7 +15,7 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import { Datetime } from 'vue-datetime';
+import Datepicker from 'vuejs-datepicker';
 import VueRouter from 'vue-router';
 import Octicon from 'vue-octicon/components/Octicon.vue';
 import 'vue-octicon/icons';
@@ -25,7 +25,8 @@ Vue.component('task-form', require('./components/TaskFormComponent.vue'));
 Vue.component('calendar-view', require('./components/CalendarViewComponent.vue'));
 Vue.component('list-view', require('./components/ListViewComponent.vue'));
 Vue.component('alert-messages', require('./components/AlertMessagesComponent.vue'));
-Vue.component('datetime', Datetime)
+Vue.component('vuejs-datepicker', Datepicker)
+
 Vue.component('octicon', Octicon);
 
 Vue.use(VueRouter);

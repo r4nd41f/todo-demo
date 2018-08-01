@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 140);
+/******/ 	return __webpack_require__(__webpack_require__.s = 141);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,13 +70,13 @@
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(177)
+  __webpack_require__(178)
 }
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(180)
+var __vue_script__ = __webpack_require__(181)
 /* template */
-var __vue_template__ = __webpack_require__(182)
+var __vue_template__ = __webpack_require__(183)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -1953,7 +1953,7 @@ module.exports = Component.exports
             try {
                 oldLocale = globalLocale._abbr;
                 var aliasedRequire = require;
-                __webpack_require__(364)("./" + name);
+                __webpack_require__(365)("./" + name);
                 getSetGlobalLocale(oldLocale);
             } catch (e) {}
         }
@@ -4625,7 +4625,7 @@ module.exports = Component.exports
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)(module)))
 
 /***/ }),
 /* 2 */
@@ -4634,8 +4634,8 @@ module.exports = Component.exports
 "use strict";
 
 
-var bind = __webpack_require__(12);
-var isBuffer = __webpack_require__(147);
+var bind = __webpack_require__(13);
+var isBuffer = __webpack_require__(148);
 
 /*global toString:true*/
 
@@ -5066,7 +5066,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(179)
+var listToStyles = __webpack_require__(180)
 
 /*
 type StyleObject = {
@@ -5391,7 +5391,7 @@ module.exports = function normalizeComponent (
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(2);
-var normalizeHeaderName = __webpack_require__(149);
+var normalizeHeaderName = __webpack_require__(150);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -5407,10 +5407,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(13);
+    adapter = __webpack_require__(14);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(13);
+    adapter = __webpack_require__(14);
   }
   return adapter;
 }
@@ -5679,6 +5679,23 @@ process.umask = function() { return 0; };
 
 /***/ }),
 /* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// message service
+/* harmony default export */ __webpack_exports__["a"] = ({
+  messages: [],
+  errors: [],
+  pushMessage: function pushMessage(message) {
+    this.messages.push(message);
+  },
+  pushError: function pushError(error) {
+    this.errors.push(error);
+  }
+});
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -5706,7 +5723,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8235,7 +8252,7 @@ Popper.Defaults = Defaults;
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(3)))
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -18606,7 +18623,7 @@ return jQuery;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18624,19 +18641,19 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(2);
-var settle = __webpack_require__(150);
-var buildURL = __webpack_require__(152);
-var parseHeaders = __webpack_require__(153);
-var isURLSameOrigin = __webpack_require__(154);
-var createError = __webpack_require__(14);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(155);
+var settle = __webpack_require__(151);
+var buildURL = __webpack_require__(153);
+var parseHeaders = __webpack_require__(154);
+var isURLSameOrigin = __webpack_require__(155);
+var createError = __webpack_require__(15);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(156);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -18733,7 +18750,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(156);
+      var cookies = __webpack_require__(157);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -18811,13 +18828,13 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var enhanceError = __webpack_require__(151);
+var enhanceError = __webpack_require__(152);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -18836,7 +18853,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18848,7 +18865,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18874,7 +18891,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -18951,7 +18968,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19090,7 +19107,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19153,7 +19170,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19216,7 +19233,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19342,7 +19359,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19405,7 +19422,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19513,7 +19530,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19576,7 +19593,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19685,7 +19702,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19821,7 +19838,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19915,7 +19932,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19977,7 +19994,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20100,7 +20117,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20223,7 +20240,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20335,7 +20352,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20490,7 +20507,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20582,7 +20599,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20765,7 +20782,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20832,7 +20849,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20916,7 +20933,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20980,7 +20997,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21060,7 +21077,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21140,7 +21157,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21220,7 +21237,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21323,7 +21340,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21427,7 +21444,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21498,7 +21515,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21565,7 +21582,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21636,7 +21653,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21707,7 +21724,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21773,7 +21790,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21844,7 +21861,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21919,7 +21936,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22015,7 +22032,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22111,7 +22128,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22198,7 +22215,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22282,7 +22299,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22352,7 +22369,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22462,7 +22479,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22575,7 +22592,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22639,7 +22656,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22726,7 +22743,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22804,7 +22821,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22886,7 +22903,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22965,7 +22982,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23045,7 +23062,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23126,7 +23143,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23253,7 +23270,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23381,7 +23398,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23482,7 +23499,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23610,7 +23627,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23768,7 +23785,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23882,7 +23899,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23981,7 +23998,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24067,7 +24084,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24203,7 +24220,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24276,7 +24293,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24372,7 +24389,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24458,7 +24475,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24551,7 +24568,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24642,7 +24659,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24756,7 +24773,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24886,7 +24903,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24971,7 +24988,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25062,7 +25079,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25202,7 +25219,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25276,7 +25293,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25398,7 +25415,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25499,7 +25516,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25615,7 +25632,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25683,7 +25700,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25777,7 +25794,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25862,7 +25879,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25970,7 +25987,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26134,7 +26151,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26220,7 +26237,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26306,7 +26323,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26370,7 +26387,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26467,7 +26484,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26533,7 +26550,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26660,7 +26677,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26751,7 +26768,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26842,7 +26859,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26906,7 +26923,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27034,7 +27051,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27164,7 +27181,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27233,7 +27250,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27298,7 +27315,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27377,7 +27394,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27563,7 +27580,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27665,7 +27682,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27729,7 +27746,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27804,7 +27821,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27964,7 +27981,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28141,7 +28158,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28213,7 +28230,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28328,7 +28345,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28443,7 +28460,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28535,7 +28552,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28608,7 +28625,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28671,7 +28688,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28804,7 +28821,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28897,7 +28914,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28968,7 +28985,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29088,7 +29105,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29159,7 +29176,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29225,7 +29242,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29351,7 +29368,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -29449,7 +29466,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29544,7 +29561,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29606,7 +29623,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29668,7 +29685,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js language configuration
@@ -29791,7 +29808,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29946,7 +29963,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30048,7 +30065,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30110,7 +30127,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30172,7 +30189,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30255,7 +30272,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30327,7 +30344,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30391,7 +30408,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30505,7 +30522,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30612,7 +30629,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30719,25 +30736,24 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(141);
-module.exports = __webpack_require__(382);
+__webpack_require__(142);
+module.exports = __webpack_require__(387);
 
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_datetime__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_datetime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_datetime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuejs_datepicker__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(177);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_octicon_components_Octicon_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_octicon_components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_octicon_components_Octicon_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_octicon_icons__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_octicon_icons__ = __webpack_require__(184);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -30745,9 +30761,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(142);
+__webpack_require__(143);
 
-window.Vue = __webpack_require__(164);
+window.Vue = __webpack_require__(165);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30760,12 +30776,13 @@ window.Vue = __webpack_require__(164);
 
 
 
-Vue.component('task-list', __webpack_require__(360));
-Vue.component('task-form', __webpack_require__(366));
+Vue.component('task-list', __webpack_require__(361));
+Vue.component('task-form', __webpack_require__(367));
 Vue.component('calendar-view', __webpack_require__(372));
 Vue.component('list-view', __webpack_require__(377));
-Vue.component('alert-messages', __webpack_require__(387));
-Vue.component('datetime', __WEBPACK_IMPORTED_MODULE_0_vue_datetime__["Datetime"]);
+Vue.component('alert-messages', __webpack_require__(382));
+Vue.component('vuejs-datepicker', __WEBPACK_IMPORTED_MODULE_0_vuejs_datepicker__["a" /* default */]);
+
 Vue.component('octicon', __WEBPACK_IMPORTED_MODULE_2_vue_octicon_components_Octicon_vue___default.a);
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
@@ -30784,12 +30801,12 @@ var app = new Vue({
 });
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(143);
-window.Popper = __webpack_require__(10).default;
+window._ = __webpack_require__(144);
+window.Popper = __webpack_require__(11).default;
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -30798,9 +30815,9 @@ window.Popper = __webpack_require__(10).default;
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(11);
+  window.$ = window.jQuery = __webpack_require__(12);
 
-  __webpack_require__(144);
+  __webpack_require__(145);
 } catch (e) {}
 
 /**
@@ -30809,7 +30826,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(145);
+window.axios = __webpack_require__(146);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -30845,7 +30862,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -47955,10 +47972,10 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(9)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(10)(module)))
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -47967,7 +47984,7 @@ if (token) {
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
-   true ? factory(exports, __webpack_require__(11), __webpack_require__(10)) :
+   true ? factory(exports, __webpack_require__(12), __webpack_require__(11)) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'popper.js'], factory) :
   (factory((global.bootstrap = {}),global.jQuery,global.Popper));
 }(this, (function (exports,$,Popper) { 'use strict';
@@ -51908,21 +51925,21 @@ if (token) {
 
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(146);
+module.exports = __webpack_require__(147);
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(2);
-var bind = __webpack_require__(12);
-var Axios = __webpack_require__(148);
+var bind = __webpack_require__(13);
+var Axios = __webpack_require__(149);
 var defaults = __webpack_require__(7);
 
 /**
@@ -51956,15 +51973,15 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(16);
-axios.CancelToken = __webpack_require__(162);
-axios.isCancel = __webpack_require__(15);
+axios.Cancel = __webpack_require__(17);
+axios.CancelToken = __webpack_require__(163);
+axios.isCancel = __webpack_require__(16);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(163);
+axios.spread = __webpack_require__(164);
 
 module.exports = axios;
 
@@ -51973,7 +51990,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports) {
 
 /*!
@@ -52000,7 +52017,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52008,8 +52025,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(7);
 var utils = __webpack_require__(2);
-var InterceptorManager = __webpack_require__(157);
-var dispatchRequest = __webpack_require__(158);
+var InterceptorManager = __webpack_require__(158);
+var dispatchRequest = __webpack_require__(159);
 
 /**
  * Create a new instance of Axios
@@ -52086,7 +52103,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52105,13 +52122,13 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createError = __webpack_require__(14);
+var createError = __webpack_require__(15);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -52138,7 +52155,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 151 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52166,7 +52183,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 152 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52239,7 +52256,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52299,7 +52316,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52374,7 +52391,7 @@ module.exports = (
 
 
 /***/ }),
-/* 155 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52417,7 +52434,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 156 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52477,7 +52494,7 @@ module.exports = (
 
 
 /***/ }),
-/* 157 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52536,18 +52553,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(2);
-var transformData = __webpack_require__(159);
-var isCancel = __webpack_require__(15);
+var transformData = __webpack_require__(160);
+var isCancel = __webpack_require__(16);
 var defaults = __webpack_require__(7);
-var isAbsoluteURL = __webpack_require__(160);
-var combineURLs = __webpack_require__(161);
+var isAbsoluteURL = __webpack_require__(161);
+var combineURLs = __webpack_require__(162);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -52629,7 +52646,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52656,7 +52673,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 160 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52677,7 +52694,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52698,13 +52715,13 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 162 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Cancel = __webpack_require__(16);
+var Cancel = __webpack_require__(17);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -52762,7 +52779,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 163 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52796,7 +52813,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 164 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63759,10 +63776,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(165).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(166).setImmediate))
 
 /***/ }),
-/* 165 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -63818,7 +63835,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(166);
+__webpack_require__(167);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -63832,7 +63849,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 166 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -64025,8771 +64042,16 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(8)))
 
 /***/ }),
-/* 167 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*!
- * vue-datetime v1.0.0-beta.6
- * (c) 2018 Mario Juárez
- * Released under the MIT License.
- */
-
-(function (global, factory) {
-	 true ? factory(exports, __webpack_require__(168)) :
-	typeof define === 'function' && define.amd ? define(['exports', 'luxon'], factory) :
-	(factory((global.VueDatetime = global.VueDatetime || {}),global.luxon));
-}(this, (function (exports,luxon) { 'use strict';
-
-var FlowManager = function FlowManager (flow, endStatus) {
-  if ( flow === void 0 ) flow = [];
-  if ( endStatus === void 0 ) endStatus = null;
-
-  this.flow = flow;
-  this.endStatus = endStatus;
-  this.diversionNext = null;
-};
-
-FlowManager.prototype.step = function step (index) {
-  return this.flow.length > index ? this.flow[index] : this.endStatus
-};
-
-FlowManager.prototype.first = function first () {
-  return this.step(0)
-};
-
-FlowManager.prototype.next = function next (current) {
-  if (this.diversionNext) {
-    var next = this.diversionNext;
-    this.diversionNext = null;
-
-    return next
-  }
-
-  return this.step(this.flow.indexOf(current) + 1)
-};
-
-FlowManager.prototype.diversion = function diversion (next) {
-  this.diversionNext = next;
-};
-
-function capitalize (string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
-}
-
-function datetimeFromISO (string) {
-  var datetime = luxon.DateTime.fromISO(string).toUTC();
-
-  return datetime.isValid ? datetime : null
-}
-
-function monthDays (year, month, weekStart) {
-  var monthDate = luxon.DateTime.local(year, month, 1);
-  var firstDay = monthDate.weekday - weekStart;
-
-  if (firstDay < 0) {
-    firstDay += 7;
-  }
-  var lastDay = (weekStart - monthDate.weekday - monthDate.daysInMonth) % 7;
-  if (lastDay < 0) {
-    lastDay += 7;
-  }
-
-  return new Array(monthDate.daysInMonth + firstDay + lastDay)
-    .fill(null)
-    .map(function (value, index) { return (index + 1 <= firstDay || index >= firstDay + monthDate.daysInMonth) ? null : (index + 1 - firstDay); }
-    )
-}
-
-function monthDayIsDisabled (minDate, maxDate, year, month, day) {
-  var date = luxon.DateTime.fromObject({ year: year, month: month, day: day });
-
-  minDate = minDate ? startOfDay(minDate) : null;
-  maxDate = maxDate ? startOfDay(maxDate) : null;
-
-  return (minDate && date < minDate) ||
-         (maxDate && date > maxDate)
-}
-
-function timeComponentIsDisabled (min, max, component) {
-  return (min && component < min) ||
-         (max && component > max)
-}
-
-function weekdays (weekStart) {
-  if (--weekStart < 0) {
-    weekStart = 6;
-  }
-
-  var weekDays = luxon.Info.weekdays('short').map(function (weekday) { return capitalize(weekday); });
-
-  weekDays = weekDays.concat(weekDays.splice(0, weekStart));
-
-  return weekDays
-}
-
-function months () {
-  return luxon.Info.months().map(function (month) { return capitalize(month); })
-}
-
-function hours (step) {
-  return new Array(Math.ceil(24 / step)).fill(null).map(function (item, index) { return index * step; })
-}
-
-function minutes (step) {
-  return new Array(Math.ceil(60 / step)).fill(null).map(function (item, index) { return index * step; })
-}
-
-function years (current) {
-  return new Array(201).fill(null).map(function (item, index) { return current - 100 + index; })
-}
-
-function pad (number) {
-  return number < 10 ? '0' + number : number
-}
-
-function startOfDay (datetime) {
-  return datetime.startOf('day')
-}
-
-function createFlowManagerFromType (type) {
-  var flow = [];
-
-  switch (type) {
-    case 'datetime':
-      flow = ['date', 'time'];
-      break
-    default:
-      flow = ['date'];
-  }
-
-  return new FlowManager(flow, 'end')
-}
-
-function weekStart () {
-  var weekstart;
-
-  try {
-    weekstart = __webpack_require__(172);
-  } catch (e) {
-    weekstart = window.weekstart;
-  }
-
-  var firstDay = weekstart ? weekstart.getWeekStartByLocale(luxon.Settings.defaultLocale) : 1;
-
-  return firstDay === 0 ? 7 : firstDay
-}
-
-var DatetimeCalendar = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vdatetime-calendar"},[_c('div',{staticClass:"vdatetime-calendar__navigation"},[_c('div',{staticClass:"vdatetime-calendar__navigation--previous",on:{"click":_vm.previousMonth}},[_c('svg',{attrs:{"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 61.3 102.8"}},[_c('path',{attrs:{"fill":"none","stroke":"#444","stroke-width":"14","stroke-miterlimit":"10","d":"M56.3 97.8L9.9 51.4 56.3 5"}})])]),_vm._v(" "),_c('div',{staticClass:"vdatetime-calendar__current--month"},[_vm._v(_vm._s(_vm.monthName)+" "+_vm._s(_vm.newYear))]),_vm._v(" "),_c('div',{staticClass:"vdatetime-calendar__navigation--next",on:{"click":_vm.nextMonth}},[_c('svg',{attrs:{"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 61.3 102.8"}},[_c('path',{attrs:{"fill":"none","stroke":"#444","stroke-width":"14","stroke-miterlimit":"10","d":"M56.3 97.8L9.9 51.4 56.3 5"}})])])]),_vm._v(" "),_c('div',{staticClass:"vdatetime-calendar__month"},[_vm._l((_vm.weekdays),function(weekday){return _c('div',{staticClass:"vdatetime-calendar__month__weekday"},[_vm._v(_vm._s(weekday))])}),_vm._v(" "),_vm._l((_vm.days),function(day){return _c('div',{staticClass:"vdatetime-calendar__month__day",class:{'vdatetime-calendar__month__day--selected': day.selected, 'vdatetime-calendar__month__day--disabled': day.disabled},on:{"click":function($event){_vm.selectDay(day);}}},[_c('span',[_c('span',[_vm._v(_vm._s(day.number))])])])})],2)])},staticRenderFns: [],
-  props: {
-    year: {
-      type: Number,
-      required: true
-    },
-    month: {
-      type: Number,
-      required: true
-    },
-    day: {
-      type: Number,
-      default: null
-    },
-    disabled: {
-      type: Array
-    },
-    minDate: {
-      type: luxon.DateTime,
-      default: null
-    },
-    maxDate: {
-      type: luxon.DateTime,
-      default: null
-    },
-    weekStart: {
-      type: Number,
-      default: 1
-    }
-  },
-
-  data: function data () {
-    return {
-      newDate: luxon.DateTime.fromObject({ year: this.year, month: this.month, timeZone: 'UTC' }),
-      weekdays: weekdays(this.weekStart),
-      months: months()
-    }
-  },
-
-  computed: {
-    newYear: function newYear () {
-      return this.newDate.year
-    },
-    newMonth: function newMonth () {
-      return this.newDate.month
-    },
-    monthName: function monthName () {
-      return this.months[this.newMonth - 1]
-    },
-    days: function days () {
-      var this$1 = this;
-
-      return monthDays(this.newYear, this.newMonth, this.weekStart).map(function (day) { return ({
-        number: day,
-        selected: day && this$1.year === this$1.newYear && this$1.month === this$1.newMonth && this$1.day === day,
-        disabled: !day || monthDayIsDisabled(this$1.minDate, this$1.maxDate, this$1.newYear, this$1.newMonth, day)
-      }); })
-    }
-  },
-
-  methods: {
-    selectDay: function selectDay (day) {
-      if (day.disabled) {
-        return
-      }
-
-      this.$emit('change', this.newYear, this.newMonth, day.number);
-    },
-    previousMonth: function previousMonth () {
-      this.newDate = this.newDate.minus({ months: 1 });
-    },
-    nextMonth: function nextMonth () {
-      this.newDate = this.newDate.plus({ months: 1 });
-    }
-  }
-};
-
-var DatetimeTimePicker = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:{'vdatetime-time-picker': true, 'vdatetime-time-picker__with-suffix': _vm.use12Hour}},[_c('div',{ref:"hourList",staticClass:"vdatetime-time-picker__list vdatetime-time-picker__list--hours"},_vm._l((_vm.hours),function(hour){return _c('div',{staticClass:"vdatetime-time-picker__item",class:{'vdatetime-time-picker__item--selected': hour.selected, 'vdatetime-time-picker__item--disabled': hour.disabled},on:{"click":function($event){_vm.selectHour(hour);}}},[_vm._v(_vm._s(_vm.formatHour(hour.number)))])})),_vm._v(" "),_c('div',{ref:"minuteList",staticClass:"vdatetime-time-picker__list vdatetime-time-picker__list--minutes"},_vm._l((_vm.minutes),function(minute){return _c('div',{staticClass:"vdatetime-time-picker__item",class:{'vdatetime-time-picker__item--selected': minute.selected, 'vdatetime-time-picker__item--disabled': minute.disabled},on:{"click":function($event){_vm.selectMinute(minute);}}},[_vm._v(_vm._s(minute.number))])})),_vm._v(" "),(_vm.use12Hour)?_c('div',{ref:"suffixList",staticClass:"vdatetime-time-picker__list vdatetime-time-picker__list--suffix"},[_c('div',{staticClass:"vdatetime-time-picker__item",class:{'vdatetime-time-picker__item--selected': _vm.hour < 12},on:{"click":function($event){_vm.selectSuffix('am');}}},[_vm._v("am")]),_vm._v(" "),_c('div',{staticClass:"vdatetime-time-picker__item",class:{'vdatetime-time-picker__item--selected': _vm.hour >= 12},on:{"click":function($event){_vm.selectSuffix('pm');}}},[_vm._v("pm")])]):_vm._e()])},staticRenderFns: [],
-  props: {
-    hour: {
-      type: Number,
-      required: true
-    },
-    minute: {
-      type: Number,
-      required: true
-    },
-    use12Hour: {
-      type: Boolean,
-      default: false
-    },
-    hourStep: {
-      type: Number,
-      default: 1
-    },
-    minuteStep: {
-      type: Number,
-      default: 1
-    },
-    minTime: {
-      type: String,
-      default: null
-    },
-    maxTime: {
-      type: String,
-      default: null
-    }
-  },
-
-  computed: {
-    hours: function hours$1 () {
-      var this$1 = this;
-
-      return hours(this.hourStep).filter(function (hour) {
-        if (!this$1.use12Hour) {
-          return true
-        } else {
-          if (this$1.hour < 12) {
-            return hour < 12
-          } else {
-            return hour >= 12
-          }
-        }
-      }).map(function (hour) { return ({
-        number: pad(hour),
-        selected: hour === this$1.hour,
-        disabled: timeComponentIsDisabled(this$1.minHour, this$1.maxHour, hour)
-      }); })
-    },
-    minutes: function minutes$1 () {
-      var this$1 = this;
-
-      return minutes(this.minuteStep).map(function (minute) { return ({
-        number: pad(minute),
-        selected: minute === this$1.minute,
-        disabled: timeComponentIsDisabled(this$1.minMinute, this$1.maxMinute, minute)
-      }); })
-    },
-    minHour: function minHour () {
-      return this.minTime ? parseInt(this.minTime.split(':')[0]) : null
-    },
-    minMinute: function minMinute () {
-      return this.minTime && this.minHour === this.hour ? parseInt(this.minTime.split(':')[1]) : null
-    },
-    maxHour: function maxHour () {
-      return this.maxTime ? parseInt(this.maxTime.split(':')[0]) : null
-    },
-    maxMinute: function maxMinute () {
-      return this.maxTime && this.maxHour === this.hour ? parseInt(this.maxTime.split(':')[1]) : null
-    }
-  },
-
-  methods: {
-    selectHour: function selectHour (hour) {
-      if (hour.disabled) {
-        return
-      }
-
-      this.$emit('change', { hour: parseInt(hour.number) });
-    },
-    selectMinute: function selectMinute (minute) {
-      if (minute.disabled) {
-        return
-      }
-
-      this.$emit('change', { minute: parseInt(minute.number) });
-    },
-    selectSuffix: function selectSuffix (suffix) {
-      if (suffix === 'am') {
-        if (this.hour >= 12) {
-          this.$emit('change', { hour: parseInt(this.hour - 12), suffixTouched: true });
-        }
-      }
-      if (suffix === 'pm') {
-        if (this.hour < 12) {
-          this.$emit('change', { hour: parseInt(this.hour + 12), suffixTouched: true });
-        }
-      }
-    },
-    formatHour: function formatHour (hour) {
-      var numHour = Number(hour);
-      if (this.use12Hour) {
-        if (numHour === 0) {
-          return 12
-        }
-        if (numHour > 12) {
-          return numHour - 12
-        }
-        return numHour
-      }
-      return hour
-    }
-  },
-
-  mounted: function mounted () {
-    var selectedHour = this.$refs.hourList.querySelector('.vdatetime-time-picker__item--selected');
-    var selectedMinute = this.$refs.minuteList.querySelector('.vdatetime-time-picker__item--selected');
-    this.$refs.hourList.scrollTop = selectedHour ? selectedHour.offsetTop - 250 : 0;
-    this.$refs.minuteList.scrollTop = selectedMinute ? selectedMinute.offsetTop - 250 : 0;
-  }
-};
-
-var DatetimeYearPicker = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vdatetime-year-picker"},[_c('div',{ref:"yearList",staticClass:"vdatetime-year-picker__list vdatetime-year-picker__list"},_vm._l((_vm.years),function(year){return _c('div',{staticClass:"vdatetime-year-picker__item",class:{'vdatetime-year-picker__item--selected': year.selected},on:{"click":function($event){_vm.select(year.number);}}},[_vm._v(_vm._s(year.number))])}))])},staticRenderFns: [],
-  props: {
-    year: {
-      type: Number,
-      required: true
-    }
-  },
-
-  computed: {
-    years: function years$1 () {
-      var this$1 = this;
-
-      return years(this.year).map(function (year) { return ({
-        number: year,
-        selected: year === this$1.year
-      }); })
-    }
-  },
-
-  methods: {
-    select: function select (year) {
-      this.$emit('change', parseInt(year));
-    },
-
-    scrollToCurrent: function scrollToCurrent () {
-      var selectedYear = this.$refs.yearList.querySelector('.vdatetime-year-picker__item--selected');
-      this.$refs.yearList.scrollTop = selectedYear ? selectedYear.offsetTop - 250 : 0;
-    }
-  },
-
-  mounted: function mounted () {
-    this.scrollToCurrent();
-  },
-
-  updated: function updated () {
-    this.scrollToCurrent();
-  }
-};
-
-var KEY_TAB = 9;
-var KEY_ENTER = 13;
-var KEY_ESC = 27;
-
-var DatetimePopup = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vdatetime-popup"},[_c('div',{staticClass:"vdatetime-popup__header"},[_c('div',{staticClass:"vdatetime-popup__year",on:{"click":_vm.showYear}},[_vm._v(_vm._s(_vm.year))]),_vm._v(" "),_c('div',{staticClass:"vdatetime-popup__date"},[_vm._v(_vm._s(_vm.dateFormatted))])]),_vm._v(" "),_c('div',{staticClass:"vdatetime-popup__body"},[(_vm.step === 'year')?_c('datetime-year-picker',{attrs:{"year":_vm.year},on:{"change":_vm.onChangeYear}}):_vm._e(),_vm._v(" "),(_vm.step === 'date')?_c('datetime-calendar',{attrs:{"year":_vm.year,"month":_vm.month,"day":_vm.day,"min-date":_vm.minDatetime,"max-date":_vm.maxDatetime,"week-start":_vm.weekStart},on:{"change":_vm.onChangeDate}}):_vm._e(),_vm._v(" "),(_vm.step === 'time')?_c('datetime-time-picker',{attrs:{"hour":_vm.hour,"minute":_vm.minute,"use12-hour":_vm.use12Hour,"hour-step":_vm.hourStep,"minute-step":_vm.minuteStep,"min-time":_vm.minTime,"max-time":_vm.maxTime},on:{"change":_vm.onChangeTime}}):_vm._e()],1),_vm._v(" "),_c('div',{staticClass:"vdatetime-popup__actions"},[_c('div',{staticClass:"vdatetime-popup__actions__button vdatetime-popup__actions__button--cancel",on:{"click":_vm.cancel}},[_vm._v(_vm._s(_vm.phrases.cancel))]),_vm._v(" "),_c('div',{staticClass:"vdatetime-popup__actions__button vdatetime-popup__actions__button--confirm",on:{"click":_vm.confirm}},[_vm._v(_vm._s(_vm.phrases.ok))])])])},staticRenderFns: [],
-  components: {
-    DatetimeCalendar: DatetimeCalendar,
-    DatetimeTimePicker: DatetimeTimePicker,
-    DatetimeYearPicker: DatetimeYearPicker
-  },
-
-  props: {
-    datetime: {
-      type: luxon.DateTime,
-      required: true
-    },
-    phrases: {
-      type: Object,
-      default: function default$1 () {
-        return {
-          cancel: 'Cancel',
-          ok: 'Ok'
-        }
-      }
-    },
-    type: {
-      type: String,
-      default: 'date'
-    },
-    use12Hour: {
-      type: Boolean,
-      default: false
-    },
-    hourStep: {
-      type: Number,
-      default: 1
-    },
-    minuteStep: {
-      type: Number,
-      default: 1
-    },
-    minDatetime: {
-      type: luxon.DateTime,
-      default: null
-    },
-    maxDatetime: {
-      type: luxon.DateTime,
-      default: null
-    },
-    auto: {
-      type: Boolean,
-      default: false
-    },
-    weekStart: {
-      type: Number,
-      default: 1
-    }
-  },
-
-  data: function data () {
-    var flow = createFlowManagerFromType(this.type);
-
-    return {
-      newDatetime: this.datetime,
-      flow: flow,
-      step: flow.first(),
-      timePartsTouched: []
-    }
-  },
-
-  created: function created () {
-    document.addEventListener('keydown', this.onKeyDown);
-  },
-
-  beforeDestroy: function beforeDestroy () {
-    document.removeEventListener('keydown', this.onKeyDown);
-  },
-
-  computed: {
-    year: function year () {
-      return this.newDatetime.year
-    },
-    month: function month () {
-      return this.newDatetime.month
-    },
-    day: function day () {
-      return this.newDatetime.day
-    },
-    hour: function hour () {
-      return this.newDatetime.hour
-    },
-    minute: function minute () {
-      return this.newDatetime.minute
-    },
-    dateFormatted: function dateFormatted () {
-      return this.newDatetime.toLocaleString({
-        month: 'long',
-        day: 'numeric'
-      })
-    },
-    minTime: function minTime () {
-      return (
-        this.minDatetime &&
-        this.minDatetime.year === this.year &&
-        this.minDatetime.month === this.month &&
-        this.minDatetime.day === this.day
-      ) ? this.minDatetime.toFormat('HH:mm') : null
-    },
-    maxTime: function maxTime () {
-      return (
-        this.maxDatetime &&
-        this.maxDatetime.year === this.year &&
-        this.maxDatetime.month === this.month &&
-        this.maxDatetime.day === this.day
-      ) ? this.maxDatetime.toFormat('HH:mm') : null
-    }
-  },
-
-  methods: {
-    nextStep: function nextStep () {
-      this.step = this.flow.next(this.step);
-      this.timePartsTouched = [];
-
-      if (this.step === 'end') {
-        this.$emit('confirm', this.newDatetime);
-      }
-    },
-    showYear: function showYear () {
-      this.step = 'year';
-      this.flow.diversion('date');
-    },
-    confirm: function confirm () {
-      this.nextStep();
-    },
-    cancel: function cancel () {
-      this.$emit('cancel');
-    },
-    onChangeYear: function onChangeYear (year) {
-      this.newDatetime = this.newDatetime.set({ year: year });
-
-      if (this.auto) {
-        this.nextStep();
-      }
-    },
-    onChangeDate: function onChangeDate (year, month, day) {
-      this.newDatetime = this.newDatetime.set({ year: year, month: month, day: day });
-
-      if (this.auto) {
-        this.nextStep();
-      }
-    },
-    onChangeTime: function onChangeTime (ref) {
-      var hour = ref.hour;
-      var minute = ref.minute;
-      var suffixTouched = ref.suffixTouched;
-
-      if (suffixTouched) {
-        this.timePartsTouched['suffix'] = true;
-      }
-
-      if (Number.isInteger(hour)) {
-        this.newDatetime = this.newDatetime.set({ hour: hour });
-        this.timePartsTouched['hour'] = true;
-      }
-
-      if (Number.isInteger(minute)) {
-        this.newDatetime = this.newDatetime.set({ minute: minute });
-        this.timePartsTouched['minute'] = true;
-      }
-
-      var goNext = this.auto && this.timePartsTouched['hour'] && this.timePartsTouched['minute'] && (
-        this.timePartsTouched['suffix'] ||
-        !this.use12Hour
-      );
-
-      if (goNext) {
-        this.nextStep();
-      }
-    },
-    onKeyDown: function onKeyDown (event) {
-      switch (event.keyCode) {
-        case KEY_ESC:
-        case KEY_TAB:
-          this.cancel();
-          break
-
-        case KEY_ENTER:
-          this.nextStep();
-          break
-      }
-    }
-  }
-};
-
-var Datetime = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vdatetime"},[_c('input',_vm._g(_vm._b({staticClass:"vdatetime-input",class:_vm.inputClass,attrs:{"id":_vm.inputId,"type":"text"},domProps:{"value":_vm.inputValue},on:{"click":_vm.open,"focus":_vm.open}},'input',_vm.$attrs,false),_vm.$listeners)),_vm._v(" "),(_vm.hiddenName)?_c('input',{attrs:{"type":"hidden","name":_vm.hiddenName},domProps:{"value":_vm.value}}):_vm._e(),_vm._v(" "),_c('transition-group',{attrs:{"name":"vdatetime-fade","tag":"div"}},[(_vm.isOpen)?_c('div',{key:"overlay",staticClass:"vdatetime-overlay",on:{"click":function($event){if($event.target !== $event.currentTarget){ return null; }_vm.cancel($event);}}}):_vm._e(),_vm._v(" "),(_vm.isOpen)?_c('datetime-popup',{key:"popup",attrs:{"type":_vm.type,"datetime":_vm.popupDate,"phrases":_vm.phrases,"use12-hour":_vm.use12Hour,"hour-step":_vm.hourStep,"minute-step":_vm.minuteStep,"min-datetime":_vm.popupMinDatetime,"max-datetime":_vm.popupMaxDatetime,"auto":_vm.auto,"week-start":_vm.weekStart},on:{"confirm":_vm.confirm,"cancel":_vm.cancel}}):_vm._e()],1)],1)},staticRenderFns: [],
-  components: {
-    DatetimePopup: DatetimePopup
-  },
-
-  props: {
-    value: {
-      type: String
-    },
-    valueZone: {
-      type: String,
-      default: 'UTC'
-    },
-    inputId: {
-      type: String,
-      default: ''
-    },
-    inputClass: {
-      type: String,
-      default: ''
-    },
-    hiddenName: {
-      type: String
-    },
-    zone: {
-      type: String,
-      default: 'local'
-    },
-    format: {
-      type: [Object, String],
-      default: null
-    },
-    type: {
-      type: String,
-      default: 'date'
-    },
-    phrases: {
-      type: Object,
-      default: function default$1 () {
-        return {
-          cancel: 'Cancel',
-          ok: 'Ok'
-        }
-      }
-    },
-    use12Hour: {
-      type: Boolean,
-      default: false
-    },
-    hourStep: {
-      type: Number,
-      default: 1
-    },
-    minuteStep: {
-      type: Number,
-      default: 1
-    },
-    minDatetime: {
-      type: String,
-      default: null
-    },
-    maxDatetime: {
-      type: String,
-      default: null
-    },
-    auto: {
-      type: Boolean,
-      default: false
-    },
-    weekStart: {
-      type: Number,
-      default: function default$2 () {
-        return weekStart()
-      }
-    }
-  },
-
-  data: function data () {
-    return {
-      isOpen: false,
-      datetime: datetimeFromISO(this.value)
-    }
-  },
-
-  watch: {
-    value: function value (newValue) {
-      this.datetime = datetimeFromISO(newValue);
-    }
-  },
-
-  created: function created () {
-    this.emitInput();
-  },
-
-  computed: {
-    inputValue: function inputValue () {
-      var format = this.format || (this.type === 'date' ? luxon.DateTime.DATE_MED : luxon.DateTime.DATETIME_MED);
-
-      if (typeof format === 'string') {
-        return this.datetime ? luxon.DateTime.fromISO(this.datetime).setZone(this.zone).toFormat(format) : ''
-      } else {
-        return this.datetime ? this.datetime.setZone(this.zone).toLocaleString(format) : ''
-      }
-    },
-    popupDate: function popupDate () {
-      return this.datetime ? this.datetime.setZone(this.zone) : this.newPopupDatetime()
-    },
-    popupMinDatetime: function popupMinDatetime () {
-      return this.minDatetime ? luxon.DateTime.fromISO(this.minDatetime) : null
-    },
-    popupMaxDatetime: function popupMaxDatetime () {
-      return this.maxDatetime ? luxon.DateTime.fromISO(this.maxDatetime) : null
-    }
-  },
-
-  methods: {
-    emitInput: function emitInput () {
-      var datetime = this.datetime ? this.datetime.setZone(this.valueZone) : null;
-
-      if (datetime && this.type === 'date') {
-        datetime = startOfDay(datetime);
-      }
-
-      this.$emit('input', datetime ? datetime.toISO() : '');
-    },
-    open: function open (event) {
-      event.target.blur();
-
-      this.isOpen = true;
-    },
-    close: function close () {
-      this.isOpen = false;
-      this.$emit('close');
-    },
-    confirm: function confirm (datetime) {
-      this.datetime = datetime.toUTC();
-      this.emitInput();
-      this.close();
-    },
-    cancel: function cancel () {
-      this.close();
-    },
-    newPopupDatetime: function newPopupDatetime () {
-      var datetime = luxon.DateTime.utc().setZone(this.zone).set({ seconds: 0, milliseconds: 0 });
-
-      if (this.minuteStep === 1) {
-        return datetime
-      }
-
-      var roundedMinute = Math.round(datetime.minute / this.minuteStep) * this.minuteStep;
-
-      if (roundedMinute === 60) {
-        return datetime.plus({ hours: 1 }).set({ minute: 0 })
-      }
-
-      return datetime.set({ minute: roundedMinute })
-    }
-  }
-};
-
-function plugin (Vue) {
-  Vue.component('datetime', Datetime);
-}
-
-// Install by default if using the script tag
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(plugin);
-}
-
-var version = '1.0.0-beta.6';
-
-exports['default'] = plugin;
-exports.Datetime = Datetime;
-exports.version = version;
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-})));
-
-
-/***/ }),
-/* 168 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-/*
-  This is just a junk drawer, containing anything used across multiple classes.
-  Because Luxon is small(ish), this should stay small and we won't worry about splitting
-  it up into, say, parsingUtil.js and basicUtil.js and so on. But they are divided up by feature area.
-*/
-
-/**
- * @private
- */
-
-// TYPES
-
-function isUndefined(o) {
-  return typeof o === 'undefined';
-}
-
-function isNumber(o) {
-  return typeof o === 'number';
-}
-
-function isString(o) {
-  return typeof o === 'string';
-}
-
-function isDate(o) {
-  return Object.prototype.toString.call(o) === '[object Date]';
-}
-
-// CAPABILITIES
-
-function hasIntl() {
-  return typeof Intl !== 'undefined' && Intl.DateTimeFormat;
-}
-
-function hasFormatToParts() {
-  return !isUndefined(Intl.DateTimeFormat.prototype.formatToParts);
-}
-
-// OBJECTS AND ARRAYS
-
-function maybeArray(thing) {
-  return Array.isArray(thing) ? thing : [thing];
-}
-
-function bestBy(arr, by, compare) {
-  if (arr.length === 0) {
-    return undefined;
-  }
-  return arr.reduce(function (best, next) {
-    var pair = [by(next), next];
-    if (!best) {
-      return pair;
-    } else if (compare.apply(null, [best[0], pair[0]]) === best[0]) {
-      return best;
-    } else {
-      return pair;
-    }
-  }, null)[1];
-}
-
-function pick(obj, keys) {
-  return keys.reduce(function (a, k) {
-    a[k] = obj[k];
-    return a;
-  }, {});
-}
-
-// NUMBERS AND STRINGS
-
-function numberBetween(thing, bottom, top) {
-  return isNumber(thing) && thing >= bottom && thing <= top;
-}
-
-// x % n but takes the sign of n instead of x
-function floorMod(x, n) {
-  return x - n * Math.floor(x / n);
-}
-
-function padStart(input) {
-  var n = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
-
-  if (input.toString().length < n) {
-    return ('0'.repeat(n) + input).slice(-n);
-  } else {
-    return input.toString();
-  }
-}
-
-function parseMillis(fraction) {
-  if (isUndefined(fraction)) {
-    return NaN;
-  } else {
-    var f = parseFloat('0.' + fraction) * 1000;
-    return Math.floor(f);
-  }
-}
-
-function roundTo(number, digits) {
-  var factor = Math.pow(10, digits);
-  return Math.round(number * factor) / factor;
-}
-
-// DATE BASICS
-
-function isLeapYear(year) {
-  return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
-}
-
-function daysInYear(year) {
-  return isLeapYear(year) ? 366 : 365;
-}
-
-function daysInMonth(year, month) {
-  var modMonth = floorMod(month - 1, 12) + 1,
-      modYear = year + (month - modMonth) / 12;
-
-  if (modMonth === 2) {
-    return isLeapYear(modYear) ? 29 : 28;
-  } else {
-    return [31, null, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][modMonth - 1];
-  }
-}
-
-function weeksInWeekYear(weekYear) {
-  var p1 = (weekYear + Math.floor(weekYear / 4) - Math.floor(weekYear / 100) + Math.floor(weekYear / 400)) % 7,
-      last = weekYear - 1,
-      p2 = (last + Math.floor(last / 4) - Math.floor(last / 100) + Math.floor(last / 400)) % 7;
-  return p1 === 4 || p2 === 3 ? 53 : 52;
-}
-
-function untruncateYear(year) {
-  if (year > 99) {
-    return year;
-  } else return year > 60 ? 1900 + year : 2000 + year;
-}
-
-// PARSING
-
-function parseZoneInfo(ts, offsetFormat, locale) {
-  var timeZone = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
-
-  var date = new Date(ts),
-      intlOpts = {
-    hour12: false,
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit'
-  };
-
-  if (timeZone) {
-    intlOpts.timeZone = timeZone;
-  }
-
-  var modified = Object.assign({ timeZoneName: offsetFormat }, intlOpts),
-      intl = hasIntl();
-
-  if (intl && hasFormatToParts()) {
-    var parsed = new Intl.DateTimeFormat(locale, modified).formatToParts(date).find(function (m) {
-      return m.type.toLowerCase() === 'timezonename';
-    });
-    return parsed ? parsed.value : null;
-  } else if (intl) {
-    // this probably doesn't work for all locales
-    var without = new Intl.DateTimeFormat(locale, intlOpts).format(date),
-        included = new Intl.DateTimeFormat(locale, modified).format(date),
-        diffed = included.substring(without.length),
-        trimmed = diffed.replace(/^[, ]+/, '');
-    return trimmed;
-  } else {
-    return null;
-  }
-}
-
-// signedOffset('-5', '30') -> -330
-function signedOffset(offHourStr, offMinuteStr) {
-  var offHour = parseInt(offHourStr, 10) || 0,
-      offMin = parseInt(offMinuteStr, 10) || 0,
-      offMinSigned = offHour < 0 ? -offMin : offMin;
-  return offHour * 60 + offMinSigned;
-}
-
-// COERCION
-
-function normalizeObject(obj, normalizer) {
-  var ignoreUnknown = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
-  var normalized = {};
-  for (var u in obj) {
-    if (obj.hasOwnProperty(u)) {
-      var v = obj[u];
-      if (v !== null && !isUndefined(v) && !Number.isNaN(v)) {
-        var mapped = normalizer(u, ignoreUnknown);
-        if (mapped) {
-          normalized[mapped] = v;
-        }
-      }
-    }
-  }
-  return normalized;
-}
-
-function timeObject(obj) {
-  return pick(obj, ['hour', 'minute', 'second', 'millisecond']);
-}
-
-var customInspectSymbol = function () {
-  try {
-    return __webpack_require__(169).inspect.custom; // eslint-disable-line global-require
-  } catch (_err) {
-    return Symbol('util.inspect.custom');
-  }
-}();
-
-/**
- * @private
- */
-
-var n = 'numeric',
-    s = 'short',
-    l = 'long',
-    d2 = '2-digit';
-
-var DATE_SHORT = {
-  year: n,
-  month: n,
-  day: n
-};
-
-var DATE_MED = {
-  year: n,
-  month: s,
-  day: n
-};
-
-var DATE_FULL = {
-  year: n,
-  month: l,
-  day: n
-};
-
-var DATE_HUGE = {
-  year: n,
-  month: l,
-  day: n,
-  weekday: l
-};
-
-var TIME_SIMPLE = {
-  hour: n,
-  minute: d2
-};
-
-var TIME_WITH_SECONDS = {
-  hour: n,
-  minute: d2,
-  second: d2
-};
-
-var TIME_WITH_SHORT_OFFSET = {
-  hour: n,
-  minute: d2,
-  second: d2,
-  timeZoneName: s
-};
-
-var TIME_WITH_LONG_OFFSET = {
-  hour: n,
-  minute: d2,
-  second: d2,
-  timeZoneName: l
-};
-
-var TIME_24_SIMPLE = {
-  hour: n,
-  minute: d2,
-  hour12: false
-};
-
-/**
- * {@link toLocaleString}; format like '09:30:23', always 24-hour.
- */
-var TIME_24_WITH_SECONDS = {
-  hour: n,
-  minute: d2,
-  second: d2,
-  hour12: false
-};
-
-/**
- * {@link toLocaleString}; format like '09:30:23 EDT', always 24-hour.
- */
-var TIME_24_WITH_SHORT_OFFSET = {
-  hour: n,
-  minute: d2,
-  second: d2,
-  hour12: false,
-  timeZoneName: s
-};
-
-/**
- * {@link toLocaleString}; format like '09:30:23 Eastern Daylight Time', always 24-hour.
- */
-var TIME_24_WITH_LONG_OFFSET = {
-  hour: n,
-  minute: d2,
-  second: d2,
-  hour12: false,
-  timeZoneName: l
-};
-
-/**
- * {@link toLocaleString}; format like '10/14/1983, 9:30 AM'. Only 12-hour if the locale is.
- */
-var DATETIME_SHORT = {
-  year: n,
-  month: n,
-  day: n,
-  hour: n,
-  minute: d2
-};
-
-/**
- * {@link toLocaleString}; format like '10/14/1983, 9:30:33 AM'. Only 12-hour if the locale is.
- */
-var DATETIME_SHORT_WITH_SECONDS = {
-  year: n,
-  month: n,
-  day: n,
-  hour: n,
-  minute: d2,
-  second: d2
-};
-
-var DATETIME_MED = {
-  year: n,
-  month: s,
-  day: n,
-  hour: n,
-  minute: d2
-};
-
-var DATETIME_MED_WITH_SECONDS = {
-  year: n,
-  month: s,
-  day: n,
-  hour: n,
-  minute: d2,
-  second: d2
-};
-
-var DATETIME_FULL = {
-  year: n,
-  month: l,
-  day: n,
-  hour: n,
-  minute: d2,
-  timeZoneName: s
-};
-
-var DATETIME_FULL_WITH_SECONDS = {
-  year: n,
-  month: l,
-  day: n,
-  hour: n,
-  minute: d2,
-  second: d2,
-  timeZoneName: s
-};
-
-var DATETIME_HUGE = {
-  year: n,
-  month: l,
-  day: n,
-  weekday: l,
-  hour: n,
-  minute: d2,
-  timeZoneName: l
-};
-
-var DATETIME_HUGE_WITH_SECONDS = {
-  year: n,
-  month: l,
-  day: n,
-  weekday: l,
-  hour: n,
-  minute: d2,
-  second: d2,
-  timeZoneName: l
-};
-
-function stringify(obj) {
-  return JSON.stringify(obj, Object.keys(obj).sort());
-}
-
-/**
- * @private
- */
-
-var monthsLong = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-var monthsShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-var monthsNarrow = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
-
-function months(length) {
-  switch (length) {
-    case 'narrow':
-      return monthsNarrow;
-    case 'short':
-      return monthsShort;
-    case 'long':
-      return monthsLong;
-    case 'numeric':
-      return ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
-    case '2-digit':
-      return ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
-    default:
-      return null;
-  }
-}
-
-var weekdaysLong = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-
-var weekdaysShort = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
-var weekdaysNarrow = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
-
-function weekdays(length) {
-  switch (length) {
-    case 'narrow':
-      return weekdaysNarrow;
-    case 'short':
-      return weekdaysShort;
-    case 'long':
-      return weekdaysLong;
-    case 'numeric':
-      return ['1', '2', '3', '4', '5', '6', '7'];
-    default:
-      return null;
-  }
-}
-
-var meridiems = ['AM', 'PM'];
-
-var erasLong = ['Before Christ', 'Anno Domini'];
-
-var erasShort = ['BC', 'AD'];
-
-var erasNarrow = ['B', 'A'];
-
-function eras(length) {
-  switch (length) {
-    case 'narrow':
-      return erasNarrow;
-    case 'short':
-      return erasShort;
-    case 'long':
-      return erasLong;
-    default:
-      return null;
-  }
-}
-
-function meridiemForDateTime(dt) {
-  return meridiems[dt.hour < 12 ? 0 : 1];
-}
-
-function weekdayForDateTime(dt, length) {
-  return weekdays(length)[dt.weekday - 1];
-}
-
-function monthForDateTime(dt, length) {
-  return months(length)[dt.month - 1];
-}
-
-function eraForDateTime(dt, length) {
-  return eras(length)[dt.year < 0 ? 0 : 1];
-}
-
-function formatString(knownFormat) {
-  // these all have the offsets removed because we don't have access to them
-  // without all the intl stuff this is backfilling
-  var filtered = pick(knownFormat, ['weekday', 'era', 'year', 'month', 'day', 'hour', 'minute', 'second', 'timeZoneName', 'hour12']),
-      key = stringify(filtered),
-      dateTimeHuge = 'EEEE, LLLL d, yyyy, h:mm a';
-  switch (key) {
-    case stringify(DATE_SHORT):
-      return 'M/d/yyyy';
-    case stringify(DATE_MED):
-      return 'LLL d, yyyy';
-    case stringify(DATE_FULL):
-      return 'LLLL d, yyyy';
-    case stringify(DATE_HUGE):
-      return 'EEEE, LLLL d, yyyy';
-    case stringify(TIME_SIMPLE):
-      return 'h:mm a';
-    case stringify(TIME_WITH_SECONDS):
-      return 'h:mm:ss a';
-    case stringify(TIME_WITH_SHORT_OFFSET):
-      return 'h:mm a';
-    case stringify(TIME_WITH_LONG_OFFSET):
-      return 'h:mm a';
-    case stringify(TIME_24_SIMPLE):
-      return 'HH:mm';
-    case stringify(TIME_24_WITH_SECONDS):
-      return 'HH:mm:ss';
-    case stringify(TIME_24_WITH_SHORT_OFFSET):
-      return 'HH:mm';
-    case stringify(TIME_24_WITH_LONG_OFFSET):
-      return 'HH:mm';
-    case stringify(DATETIME_SHORT):
-      return 'M/d/yyyy, h:mm a';
-    case stringify(DATETIME_MED):
-      return 'LLL d, yyyy, h:mm a';
-    case stringify(DATETIME_FULL):
-      return 'LLLL d, yyyy, h:mm a';
-    case stringify(DATETIME_HUGE):
-      return dateTimeHuge;
-    case stringify(DATETIME_SHORT_WITH_SECONDS):
-      return 'M/d/yyyy, h:mm:ss a';
-    case stringify(DATETIME_MED_WITH_SECONDS):
-      return 'LLL d, yyyy, h:mm:ss a';
-    case stringify(DATETIME_FULL_WITH_SECONDS):
-      return 'LLLL d, yyyy, h:mm:ss a';
-    case stringify(DATETIME_HUGE_WITH_SECONDS):
-      return 'EEEE, LLLL d, yyyy, h:mm:ss a';
-    default:
-      return dateTimeHuge;
-  }
-}
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-  return typeof obj;
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-};
-
-var classCallCheck = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-
-var createClass = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-}();
-
-var inherits = function (subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      enumerable: false,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-};
-
-var possibleConstructorReturn = function (self, call) {
-  if (!self) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return call && (typeof call === "object" || typeof call === "function") ? call : self;
-};
-
-// these aren't really private, but nor are they really useful to document
-
-/**
- * @private
- */
-var LuxonError = function (_Error) {
-  inherits(LuxonError, _Error);
-
-  function LuxonError() {
-    classCallCheck(this, LuxonError);
-    return possibleConstructorReturn(this, _Error.apply(this, arguments));
-  }
-
-  return LuxonError;
-}(Error);
-
-/**
- * @private
- */
-
-
-var InvalidDateTimeError = function (_LuxonError) {
-  inherits(InvalidDateTimeError, _LuxonError);
-
-  function InvalidDateTimeError(reason) {
-    classCallCheck(this, InvalidDateTimeError);
-    return possibleConstructorReturn(this, _LuxonError.call(this, 'Invalid DateTime: ' + reason));
-  }
-
-  return InvalidDateTimeError;
-}(LuxonError);
-
-/**
- * @private
- */
-var InvalidIntervalError = function (_LuxonError2) {
-  inherits(InvalidIntervalError, _LuxonError2);
-
-  function InvalidIntervalError(reason) {
-    classCallCheck(this, InvalidIntervalError);
-    return possibleConstructorReturn(this, _LuxonError2.call(this, 'Invalid Interval: ' + reason));
-  }
-
-  return InvalidIntervalError;
-}(LuxonError);
-
-/**
- * @private
- */
-var InvalidDurationError = function (_LuxonError3) {
-  inherits(InvalidDurationError, _LuxonError3);
-
-  function InvalidDurationError(reason) {
-    classCallCheck(this, InvalidDurationError);
-    return possibleConstructorReturn(this, _LuxonError3.call(this, 'Invalid Duration: ' + reason));
-  }
-
-  return InvalidDurationError;
-}(LuxonError);
-
-/**
- * @private
- */
-var ConflictingSpecificationError = function (_LuxonError4) {
-  inherits(ConflictingSpecificationError, _LuxonError4);
-
-  function ConflictingSpecificationError() {
-    classCallCheck(this, ConflictingSpecificationError);
-    return possibleConstructorReturn(this, _LuxonError4.apply(this, arguments));
-  }
-
-  return ConflictingSpecificationError;
-}(LuxonError);
-
-/**
- * @private
- */
-var InvalidUnitError = function (_LuxonError5) {
-  inherits(InvalidUnitError, _LuxonError5);
-
-  function InvalidUnitError(unit) {
-    classCallCheck(this, InvalidUnitError);
-    return possibleConstructorReturn(this, _LuxonError5.call(this, 'Invalid unit ' + unit));
-  }
-
-  return InvalidUnitError;
-}(LuxonError);
-
-/**
- * @private
- */
-var InvalidArgumentError = function (_LuxonError6) {
-  inherits(InvalidArgumentError, _LuxonError6);
-
-  function InvalidArgumentError() {
-    classCallCheck(this, InvalidArgumentError);
-    return possibleConstructorReturn(this, _LuxonError6.apply(this, arguments));
-  }
-
-  return InvalidArgumentError;
-}(LuxonError);
-
-/**
- * @private
- */
-var ZoneIsAbstractError = function (_LuxonError7) {
-  inherits(ZoneIsAbstractError, _LuxonError7);
-
-  function ZoneIsAbstractError() {
-    classCallCheck(this, ZoneIsAbstractError);
-    return possibleConstructorReturn(this, _LuxonError7.call(this, 'Zone is an abstract class'));
-  }
-
-  return ZoneIsAbstractError;
-}(LuxonError);
-
-/* eslint no-unused-vars: "off" */
-
-/**
- * @interface
-*/
-
-var Zone = function () {
-  function Zone() {
-    classCallCheck(this, Zone);
-  }
-
-  /**
-   * Returns the offset's common name (such as EST) at the specified timestamp
-   * @abstract
-   * @param {number} ts - Epoch milliseconds for which to get the name
-   * @param {Object} opts - Options to affect the format
-   * @param {string} opts.format - What style of offset to return. Accepts 'long' or 'short'.
-   * @param {string} opts.locale - What locale to return the offset name in.
-   * @return {string}
-   */
-  Zone.prototype.offsetName = function offsetName(ts, opts) {
-    throw new ZoneIsAbstractError();
-  };
-
-  /**
-   * Return the offset in minutes for this zone at the specified timestamp.
-   * @abstract
-   * @param {number} ts - Epoch milliseconds for which to compute the offset
-   * @return {number}
-   */
-
-
-  Zone.prototype.offset = function offset(ts) {
-    throw new ZoneIsAbstractError();
-  };
-
-  /**
-   * Return whether this Zone is equal to another zoner
-   * @abstract
-   * @param {Zone} otherZone - the zone to compare
-   * @return {boolean}
-   */
-
-
-  Zone.prototype.equals = function equals(otherZone) {
-    throw new ZoneIsAbstractError();
-  };
-
-  /**
-   * Return whether this Zone is valid.
-   * @abstract
-   * @type {boolean}
-   */
-
-
-  createClass(Zone, [{
-    key: 'type',
-
-    /**
-     * The type of zone
-     * @abstract
-     * @type {string}
-     */
-    get: function get$$1() {
-      throw new ZoneIsAbstractError();
-    }
-
-    /**
-     * The name of this zone.
-     * @abstract
-     * @type {string}
-     */
-
-  }, {
-    key: 'name',
-    get: function get$$1() {
-      throw new ZoneIsAbstractError();
-    }
-
-    /**
-     * Returns whether the offset is known to be fixed for the whole year.
-     * @abstract
-     * @type {boolean}
-     */
-
-  }, {
-    key: 'universal',
-    get: function get$$1() {
-      throw new ZoneIsAbstractError();
-    }
-  }, {
-    key: 'isValid',
-    get: function get$$1() {
-      throw new ZoneIsAbstractError();
-    }
-  }]);
-  return Zone;
-}();
-
-var singleton = null;
-
-var LocalZone = function (_Zone) {
-  inherits(LocalZone, _Zone);
-
-  function LocalZone() {
-    classCallCheck(this, LocalZone);
-    return possibleConstructorReturn(this, _Zone.apply(this, arguments));
-  }
-
-  LocalZone.prototype.offsetName = function offsetName(ts, _ref) {
-    var format = _ref.format,
-        locale = _ref.locale;
-
-    return parseZoneInfo(ts, format, locale);
-  };
-
-  LocalZone.prototype.offset = function offset(ts) {
-    return -new Date(ts).getTimezoneOffset();
-  };
-
-  LocalZone.prototype.equals = function equals(otherZone) {
-    return otherZone.type === 'local';
-  };
-
-  createClass(LocalZone, [{
-    key: 'type',
-    get: function get$$1() {
-      return 'local';
-    }
-  }, {
-    key: 'name',
-    get: function get$$1() {
-      if (hasIntl()) {
-        return new Intl.DateTimeFormat().resolvedOptions().timeZone;
-      } else return 'local';
-    }
-  }, {
-    key: 'universal',
-    get: function get$$1() {
-      return false;
-    }
-  }, {
-    key: 'isValid',
-    get: function get$$1() {
-      return true;
-    }
-  }], [{
-    key: 'instance',
-    get: function get$$1() {
-      if (singleton === null) {
-        singleton = new LocalZone();
-      }
-      return singleton;
-    }
-  }]);
-  return LocalZone;
-}(Zone);
-
-var dtfCache = {};
-function makeDTF(zone) {
-  if (!dtfCache[zone]) {
-    dtfCache[zone] = new Intl.DateTimeFormat('en-US', {
-      hour12: false,
-      timeZone: zone,
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
-    });
-  }
-  return dtfCache[zone];
-}
-
-var typeToPos = {
-  year: 0,
-  month: 1,
-  day: 2,
-  hour: 3,
-  minute: 4,
-  second: 5
-};
-
-function hackyOffset(dtf, date) {
-  var formatted = dtf.format(date).replace(/\u200E/g, ''),
-      parsed = /(\d+)\/(\d+)\/(\d+),? (\d+):(\d+):(\d+)/.exec(formatted),
-      fMonth = parsed[1],
-      fDay = parsed[2],
-      fYear = parsed[3],
-      fHour = parsed[4],
-      fMinute = parsed[5],
-      fSecond = parsed[6];
-
-  return [fYear, fMonth, fDay, fHour, fMinute, fSecond];
-}
-
-function partsOffset(dtf, date) {
-  var formatted = dtf.formatToParts(date),
-      filled = [];
-  for (var i = 0; i < formatted.length; i++) {
-    var _formatted$i = formatted[i],
-        type = _formatted$i.type,
-        value = _formatted$i.value,
-        pos = typeToPos[type];
-
-
-    if (!isUndefined(pos)) {
-      filled[pos] = parseInt(value, 10);
-    }
-  }
-  return filled;
-}
-
-var IANAZone = function (_Zone) {
-  inherits(IANAZone, _Zone);
-
-  IANAZone.isValidSpecifier = function isValidSpecifier(s) {
-    return s && s.match(/^[a-z_+-]{1,256}\/[a-z_+-]{1,256}(\/[a-z_+-]{1,256})?$/i);
-  };
-
-  IANAZone.isValidZone = function isValidZone(zone) {
-    try {
-      new Intl.DateTimeFormat('en-US', { timeZone: zone }).format();
-      return true;
-    } catch (e) {
-      return false;
-    }
-  };
-
-  // Etc/GMT+8 -> 480
-
-
-  IANAZone.parseGMTOffset = function parseGMTOffset(specifier) {
-    if (specifier) {
-      var match = specifier.match(/^Etc\/GMT([+-]\d{1,2})$/i);
-      if (match) {
-        return 60 * parseInt(match[1]);
-      }
-    }
-    return null;
-  };
-
-  function IANAZone(name) {
-    classCallCheck(this, IANAZone);
-
-    var _this = possibleConstructorReturn(this, _Zone.call(this));
-
-    _this.zoneName = name;
-    _this.valid = IANAZone.isValidZone(name);
-    return _this;
-  }
-
-  IANAZone.prototype.offsetName = function offsetName(ts, _ref) {
-    var format = _ref.format,
-        locale = _ref.locale;
-
-    return parseZoneInfo(ts, format, locale, this.zoneName);
-  };
-
-  IANAZone.prototype.offset = function offset(ts) {
-    var date = new Date(ts),
-        dtf = makeDTF(this.zoneName),
-        _ref2 = dtf.formatToParts ? partsOffset(dtf, date) : hackyOffset(dtf, date),
-        fYear = _ref2[0],
-        fMonth = _ref2[1],
-        fDay = _ref2[2],
-        fHour = _ref2[3],
-        fMinute = _ref2[4],
-        fSecond = _ref2[5],
-        asUTC = Date.UTC(fYear, fMonth - 1, fDay, fHour, fMinute, fSecond);
-
-    var asTS = date.valueOf();
-    asTS -= asTS % 1000;
-    return (asUTC - asTS) / (60 * 1000);
-  };
-
-  IANAZone.prototype.equals = function equals(otherZone) {
-    return otherZone.type === 'iana' && otherZone.zoneName === this.zoneName;
-  };
-
-  createClass(IANAZone, [{
-    key: 'type',
-    get: function get$$1() {
-      return 'iana';
-    }
-  }, {
-    key: 'name',
-    get: function get$$1() {
-      return this.zoneName;
-    }
-  }, {
-    key: 'universal',
-    get: function get$$1() {
-      return false;
-    }
-  }, {
-    key: 'isValid',
-    get: function get$$1() {
-      return this.valid;
-    }
-  }]);
-  return IANAZone;
-}(Zone);
-
-var singleton$1 = null;
-
-function hoursMinutesOffset(z) {
-  var hours = Math.trunc(z.fixed / 60),
-      minutes = Math.abs(z.fixed % 60),
-      sign = hours > 0 ? '+' : '-',
-      base = sign + Math.abs(hours);
-  return minutes > 0 ? base + ':' + padStart(minutes, 2) : base;
-}
-
-var FixedOffsetZone = function (_Zone) {
-  inherits(FixedOffsetZone, _Zone);
-
-  FixedOffsetZone.instance = function instance(offset) {
-    return offset === 0 ? FixedOffsetZone.utcInstance : new FixedOffsetZone(offset);
-  };
-
-  FixedOffsetZone.parseSpecifier = function parseSpecifier(s) {
-    if (s) {
-      var r = s.match(/^utc(?:([+-]\d{1,2})(?::(\d{2}))?)?$/i);
-      if (r) {
-        return new FixedOffsetZone(signedOffset(r[1], r[2]));
-      }
-    }
-    return null;
-  };
-
-  createClass(FixedOffsetZone, null, [{
-    key: 'utcInstance',
-    get: function get$$1() {
-      if (singleton$1 === null) {
-        singleton$1 = new FixedOffsetZone(0);
-      }
-      return singleton$1;
-    }
-  }]);
-
-  function FixedOffsetZone(offset) {
-    classCallCheck(this, FixedOffsetZone);
-
-    var _this = possibleConstructorReturn(this, _Zone.call(this));
-
-    _this.fixed = offset;
-    return _this;
-  }
-
-  FixedOffsetZone.prototype.offsetName = function offsetName() {
-    return this.name;
-  };
-
-  FixedOffsetZone.prototype.offset = function offset() {
-    return this.fixed;
-  };
-
-  FixedOffsetZone.prototype.equals = function equals(otherZone) {
-    return otherZone.type === 'fixed' && otherZone.fixed === this.fixed;
-  };
-
-  createClass(FixedOffsetZone, [{
-    key: 'type',
-    get: function get$$1() {
-      return 'fixed';
-    }
-  }, {
-    key: 'name',
-    get: function get$$1() {
-      return this.fixed === 0 ? 'UTC' : 'UTC' + hoursMinutesOffset(this);
-    }
-  }, {
-    key: 'universal',
-    get: function get$$1() {
-      return true;
-    }
-  }, {
-    key: 'isValid',
-    get: function get$$1() {
-      return true;
-    }
-  }]);
-  return FixedOffsetZone;
-}(Zone);
-
-var singleton$2 = null;
-
-var InvalidZone = function (_Zone) {
-  inherits(InvalidZone, _Zone);
-
-  function InvalidZone() {
-    classCallCheck(this, InvalidZone);
-    return possibleConstructorReturn(this, _Zone.apply(this, arguments));
-  }
-
-  InvalidZone.prototype.offsetName = function offsetName() {
-    return null;
-  };
-
-  InvalidZone.prototype.offset = function offset() {
-    return NaN;
-  };
-
-  InvalidZone.prototype.equals = function equals() {
-    return false;
-  };
-
-  createClass(InvalidZone, [{
-    key: 'type',
-    get: function get$$1() {
-      return 'invalid';
-    }
-  }, {
-    key: 'name',
-    get: function get$$1() {
-      return null;
-    }
-  }, {
-    key: 'universal',
-    get: function get$$1() {
-      return false;
-    }
-  }, {
-    key: 'isValid',
-    get: function get$$1() {
-      return false;
-    }
-  }], [{
-    key: 'instance',
-    get: function get$$1() {
-      if (singleton$2 === null) {
-        singleton$2 = new InvalidZone();
-      }
-      return singleton$2;
-    }
-  }]);
-  return InvalidZone;
-}(Zone);
-
-/**
- * @private
- */
-
-function normalizeZone(input, defaultZone) {
-  var offset = void 0;
-  if (isUndefined(input) || input === null) {
-    return defaultZone;
-  } else if (input instanceof Zone) {
-    return input;
-  } else if (isString(input)) {
-    var lowered = input.toLowerCase();
-    if (lowered === 'local') return LocalZone.instance;else if (lowered === 'utc' || lowered === 'gmt') return FixedOffsetZone.utcInstance;else if ((offset = IANAZone.parseGMTOffset(input)) != null) {
-      // handle Etc/GMT-4, which V8 chokes on
-      return FixedOffsetZone.instance(offset);
-    } else if (IANAZone.isValidSpecifier(lowered)) return new IANAZone(input);else return FixedOffsetZone.parseSpecifier(lowered) || InvalidZone.instance;
-  } else if (isNumber(input)) {
-    return FixedOffsetZone.instance(input);
-  } else if ((typeof input === 'undefined' ? 'undefined' : _typeof(input)) === 'object' && input.offset) {
-    // This is dumb, but the instanceof check above doesn't seem to really work
-    // so we're duck checking it
-    return input;
-  } else {
-    return InvalidZone.instance;
-  }
-}
-
-var now = function now() {
-  return Date.now();
-},
-    defaultZone = null,
-    // not setting this directly to LocalZone.instance bc loading order issues
-defaultLocale = null,
-    defaultNumberingSystem = null,
-    defaultOutputCalendar = null,
-    throwOnInvalid = false;
-
-/**
- * Settings contains static getters and setters that control Luxon's overall behavior. Luxon is a simple library with few options, but the ones it does have live here.
- */
-
-var Settings = function () {
-  function Settings() {
-    classCallCheck(this, Settings);
-  }
-
-  /**
-   * Reset Luxon's global caches. Should only be necessary in testing scenarios.
-   * @return {void}
-   */
-  Settings.resetCaches = function resetCaches() {
-    Locale.resetCache();
-  };
-
-  createClass(Settings, null, [{
-    key: 'now',
-
-    /**
-     * Get the callback for returning the current timestamp.
-     * @type {function}
-     */
-    get: function get$$1() {
-      return now;
-    }
-
-    /**
-     * Set the callback for returning the current timestamp.
-     * @type {function}
-     */
-    ,
-    set: function set$$1(n) {
-      now = n;
-    }
-
-    /**
-     * Get the default time zone to create DateTimes in.
-     * @type {string}
-     */
-
-  }, {
-    key: 'defaultZoneName',
-    get: function get$$1() {
-      return (defaultZone || LocalZone.instance).name;
-    }
-
-    /**
-     * Set the default time zone to create DateTimes in. Does not affect existing instances.
-     * @type {string}
-     */
-    ,
-    set: function set$$1(z) {
-      if (!z) {
-        defaultZone = null;
-      } else {
-        defaultZone = normalizeZone(z);
-      }
-    }
-
-    /**
-     * Get the default time zone object to create DateTimes in. Does not affect existing instances.
-     * @type {Zone}
-     */
-
-  }, {
-    key: 'defaultZone',
-    get: function get$$1() {
-      return defaultZone || LocalZone.instance;
-    }
-
-    /**
-     * Get the default locale to create DateTimes with. Does not affect existing instances.
-     * @type {string}
-     */
-
-  }, {
-    key: 'defaultLocale',
-    get: function get$$1() {
-      return defaultLocale;
-    }
-
-    /**
-     * Set the default locale to create DateTimes with. Does not affect existing instances.
-     * @type {string}
-     */
-    ,
-    set: function set$$1(locale) {
-      defaultLocale = locale;
-    }
-
-    /**
-     * Get the default numbering system to create DateTimes with. Does not affect existing instances.
-     * @type {string}
-     */
-
-  }, {
-    key: 'defaultNumberingSystem',
-    get: function get$$1() {
-      return defaultNumberingSystem;
-    }
-
-    /**
-     * Set the default numbering system to create DateTimes with. Does not affect existing instances.
-     * @type {string}
-     */
-    ,
-    set: function set$$1(numberingSystem) {
-      defaultNumberingSystem = numberingSystem;
-    }
-
-    /**
-     * Get the default output calendar to create DateTimes with. Does not affect existing instances.
-     * @type {string}
-     */
-
-  }, {
-    key: 'defaultOutputCalendar',
-    get: function get$$1() {
-      return defaultOutputCalendar;
-    }
-
-    /**
-     * Set the default output calendar to create DateTimes with. Does not affect existing instances.
-     * @type {string}
-     */
-    ,
-    set: function set$$1(outputCalendar) {
-      defaultOutputCalendar = outputCalendar;
-    }
-
-    /**
-     * Get whether Luxon will throw when it encounters invalid DateTimes, Durations, or Intervals
-     * @type {boolean}
-     */
-
-  }, {
-    key: 'throwOnInvalid',
-    get: function get$$1() {
-      return throwOnInvalid;
-    }
-
-    /**
-     * Set whether Luxon will throw when it encounters invalid DateTimes, Durations, or Intervals
-     * @type {boolean}
-     */
-    ,
-    set: function set$$1(t) {
-      throwOnInvalid = t;
-    }
-  }]);
-  return Settings;
-}();
-
-function stringifyTokens(splits, tokenToString) {
-  var s = '';
-  for (var _iterator = splits, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-    var _ref;
-
-    if (_isArray) {
-      if (_i >= _iterator.length) break;
-      _ref = _iterator[_i++];
-    } else {
-      _i = _iterator.next();
-      if (_i.done) break;
-      _ref = _i.value;
-    }
-
-    var token = _ref;
-
-    if (token.literal) {
-      s += token.val;
-    } else {
-      s += tokenToString(token.val);
-    }
-  }
-  return s;
-}
-
-var tokenToObject = {
-  D: DATE_SHORT,
-  DD: DATE_MED,
-  DDD: DATE_FULL,
-  DDDD: DATE_HUGE,
-  t: TIME_SIMPLE,
-  tt: TIME_WITH_SECONDS,
-  ttt: TIME_WITH_SHORT_OFFSET,
-  tttt: TIME_WITH_LONG_OFFSET,
-  T: TIME_24_SIMPLE,
-  TT: TIME_24_WITH_SECONDS,
-  TTT: TIME_24_WITH_SHORT_OFFSET,
-  TTTT: TIME_24_WITH_LONG_OFFSET,
-  f: DATETIME_SHORT,
-  ff: DATETIME_MED,
-  fff: DATETIME_FULL,
-  ffff: DATETIME_HUGE,
-  F: DATETIME_SHORT_WITH_SECONDS,
-  FF: DATETIME_MED_WITH_SECONDS,
-  FFF: DATETIME_FULL_WITH_SECONDS,
-  FFFF: DATETIME_HUGE_WITH_SECONDS
-};
-
-/**
- * @private
- */
-
-var Formatter = function () {
-  Formatter.create = function create(locale) {
-    var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    var formatOpts = Object.assign({}, { round: true }, opts);
-    return new Formatter(locale, formatOpts);
-  };
-
-  Formatter.parseFormat = function parseFormat(fmt) {
-    var current = null,
-        currentFull = '',
-        bracketed = false;
-    var splits = [];
-    for (var i = 0; i < fmt.length; i++) {
-      var c = fmt.charAt(i);
-      if (c === "'") {
-        if (currentFull.length > 0) {
-          splits.push({ literal: bracketed, val: currentFull });
-        }
-        current = null;
-        currentFull = '';
-        bracketed = !bracketed;
-      } else if (bracketed) {
-        currentFull += c;
-      } else if (c === current) {
-        currentFull += c;
-      } else {
-        if (currentFull.length > 0) {
-          splits.push({ literal: false, val: currentFull });
-        }
-        currentFull = c;
-        current = c;
-      }
-    }
-
-    if (currentFull.length > 0) {
-      splits.push({ literal: bracketed, val: currentFull });
-    }
-
-    return splits;
-  };
-
-  function Formatter(locale, formatOpts) {
-    classCallCheck(this, Formatter);
-
-    this.opts = formatOpts;
-    this.loc = locale;
-    this.systemLoc = null;
-  }
-
-  Formatter.prototype.formatWithSystemDefault = function formatWithSystemDefault(dt, opts) {
-    if (this.systemLoc === null) {
-      this.systemLoc = this.loc.redefaultToSystem();
-    }
-    var df = this.systemLoc.dtFormatter(dt, Object.assign({}, this.opts, opts));
-    return df.format();
-  };
-
-  Formatter.prototype.formatDateTime = function formatDateTime(dt) {
-    var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    var df = this.loc.dtFormatter(dt, Object.assign({}, this.opts, opts));
-    return df.format();
-  };
-
-  Formatter.prototype.formatDateTimeParts = function formatDateTimeParts(dt) {
-    var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    var df = this.loc.dtFormatter(dt, Object.assign({}, this.opts, opts));
-    return df.formatToParts();
-  };
-
-  Formatter.prototype.resolvedOptions = function resolvedOptions(dt) {
-    var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    var df = this.loc.dtFormatter(dt, Object.assign({}, this.opts, opts));
-    return df.resolvedOptions();
-  };
-
-  Formatter.prototype.num = function num(n) {
-    var p = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-
-    // we get some perf out of doing this here, annoyingly
-    if (this.opts.forceSimple) {
-      return padStart(n, p);
-    }
-
-    var opts = Object.assign({}, this.opts);
-
-    if (p > 0) {
-      opts.padTo = p;
-    }
-
-    return this.loc.numberFormatter(opts).format(n);
-  };
-
-  Formatter.prototype.formatDateTimeFromString = function formatDateTimeFromString(dt, fmt) {
-    var _this = this;
-
-    var knownEnglish = this.loc.listingMode() === 'en';
-    var string = function string(opts, extract) {
-      return _this.loc.extract(dt, opts, extract);
-    },
-        formatOffset = function formatOffset(opts) {
-      if (dt.isOffsetFixed && dt.offset === 0 && opts.allowZ) {
-        return 'Z';
-      }
-
-      var hours = Math.trunc(dt.offset / 60),
-          minutes = Math.abs(dt.offset % 60),
-          sign = hours >= 0 ? '+' : '-',
-          base = '' + sign + Math.abs(hours);
-
-      switch (opts.format) {
-        case 'short':
-          return '' + sign + _this.num(Math.abs(hours), 2) + ':' + _this.num(minutes, 2);
-        case 'narrow':
-          return minutes > 0 ? base + ':' + minutes : base;
-        case 'techie':
-          return '' + sign + _this.num(Math.abs(hours), 2) + _this.num(minutes, 2);
-        default:
-          throw new RangeError('Value format ' + opts.format + ' is out of range for property format');
-      }
-    },
-        meridiem = function meridiem() {
-      return knownEnglish ? meridiemForDateTime(dt) : string({ hour: 'numeric', hour12: true }, 'dayperiod');
-    },
-        month = function month(length, standalone) {
-      return knownEnglish ? monthForDateTime(dt, length) : string(standalone ? { month: length } : { month: length, day: 'numeric' }, 'month');
-    },
-        weekday = function weekday(length, standalone) {
-      return knownEnglish ? weekdayForDateTime(dt, length) : string(standalone ? { weekday: length } : { weekday: length, month: 'long', day: 'numeric' }, 'weekday');
-    },
-        maybeMacro = function maybeMacro(token) {
-      var macro = tokenToObject[token];
-      if (macro) {
-        return _this.formatWithSystemDefault(dt, macro);
-      } else {
-        return token;
-      }
-    },
-        era = function era(length) {
-      return knownEnglish ? eraForDateTime(dt, length) : string({ era: length }, 'era');
-    },
-        tokenToString = function tokenToString(token) {
-      var outputCal = _this.loc.outputCalendar;
-
-      // Where possible: http://cldr.unicode.org/translation/date-time#TOC-Stand-Alone-vs.-Format-Styles
-      switch (token) {
-        // ms
-        case 'S':
-          return _this.num(dt.millisecond);
-        case 'u':
-        // falls through
-        case 'SSS':
-          return _this.num(dt.millisecond, 3);
-        // seconds
-        case 's':
-          return _this.num(dt.second);
-        case 'ss':
-          return _this.num(dt.second, 2);
-        // minutes
-        case 'm':
-          return _this.num(dt.minute);
-        case 'mm':
-          return _this.num(dt.minute, 2);
-        // hours
-        case 'h':
-          return _this.num(dt.hour % 12 === 0 ? 12 : dt.hour % 12);
-        case 'hh':
-          return _this.num(dt.hour % 12 === 0 ? 12 : dt.hour % 12, 2);
-        case 'H':
-          return _this.num(dt.hour);
-        case 'HH':
-          return _this.num(dt.hour, 2);
-        // offset
-        case 'Z':
-          // like +6
-          return formatOffset({ format: 'narrow', allowZ: _this.opts.allowZ });
-        case 'ZZ':
-          // like +06:00
-          return formatOffset({ format: 'short', allowZ: _this.opts.allowZ });
-        case 'ZZZ':
-          // like +0600
-          return formatOffset({ format: 'techie', allowZ: false });
-        case 'ZZZZ':
-          // like EST
-          return dt.offsetNameShort;
-        case 'ZZZZZ':
-          // like Eastern Standard Time
-          return dt.offsetNameLong;
-        // zone
-        case 'z':
-          // like America/New_York
-          return dt.zoneName;
-        // meridiems
-        case 'a':
-          return meridiem();
-        // dates
-        case 'd':
-          return outputCal ? string({ day: 'numeric' }, 'day') : _this.num(dt.day);
-        case 'dd':
-          return outputCal ? string({ day: '2-digit' }, 'day') : _this.num(dt.day, 2);
-        // weekdays - standalone
-        case 'c':
-          // like 1
-          return _this.num(dt.weekday);
-        case 'ccc':
-          // like 'Tues'
-          return weekday('short', true);
-        case 'cccc':
-          // like 'Tuesday'
-          return weekday('long', true);
-        case 'ccccc':
-          // like 'T'
-          return weekday('narrow', true);
-        // weekdays - format
-        case 'E':
-          // like 1
-          return _this.num(dt.weekday);
-        case 'EEE':
-          // like 'Tues'
-          return weekday('short', false);
-        case 'EEEE':
-          // like 'Tuesday'
-          return weekday('long', false);
-        case 'EEEEE':
-          // like 'T'
-          return weekday('narrow', false);
-        // months - standalone
-        case 'L':
-          // like 1
-          return outputCal ? string({ month: 'numeric', day: 'numeric' }, 'month') : _this.num(dt.month);
-        case 'LL':
-          // like 01, doesn't seem to work
-          return outputCal ? string({ month: '2-digit', day: 'numeric' }, 'month') : _this.num(dt.month, 2);
-        case 'LLL':
-          // like Jan
-          return month('short', true);
-        case 'LLLL':
-          // like January
-          return month('long', true);
-        case 'LLLLL':
-          // like J
-          return month('narrow', true);
-        // months - format
-        case 'M':
-          // like 1
-          return outputCal ? string({ month: 'numeric' }, 'month') : _this.num(dt.month);
-        case 'MM':
-          // like 01
-          return outputCal ? string({ month: '2-digit' }, 'month') : _this.num(dt.month, 2);
-        case 'MMM':
-          // like Jan
-          return month('short', false);
-        case 'MMMM':
-          // like January
-          return month('long', false);
-        case 'MMMMM':
-          // like J
-          return month('narrow', false);
-        // years
-        case 'y':
-          // like 2014
-          return outputCal ? string({ year: 'numeric' }, 'year') : _this.num(dt.year);
-        case 'yy':
-          // like 14
-          return outputCal ? string({ year: '2-digit' }, 'year') : _this.num(dt.year.toString().slice(-2), 2);
-        case 'yyyy':
-          // like 0012
-          return outputCal ? string({ year: 'numeric' }, 'year') : _this.num(dt.year, 4);
-        case 'yyyyyy':
-          // like 000012
-          return outputCal ? string({ year: 'numeric' }, 'year') : _this.num(dt.year, 6);
-        // eras
-        case 'G':
-          // like AD
-          return era('short');
-        case 'GG':
-          // like Anno Domini
-          return era('long');
-        case 'GGGGG':
-          return era('narrow');
-        case 'kk':
-          return _this.num(dt.weekYear.toString().slice(-2), 2);
-        case 'kkkk':
-          return _this.num(dt.weekYear, 4);
-        case 'W':
-          return _this.num(dt.weekNumber);
-        case 'WW':
-          return _this.num(dt.weekNumber, 2);
-        case 'o':
-          return _this.num(dt.ordinal);
-        case 'ooo':
-          return _this.num(dt.ordinal, 3);
-        case 'q':
-          // like 1
-          return _this.num(dt.quarter);
-        case 'qq':
-          // like 01
-          return _this.num(dt.quarter, 2);
-        default:
-          return maybeMacro(token);
-      }
-    };
-
-    return stringifyTokens(Formatter.parseFormat(fmt), tokenToString);
-  };
-
-  Formatter.prototype.formatDurationFromString = function formatDurationFromString(dur, fmt) {
-    var _this2 = this;
-
-    var tokenToField = function tokenToField(token) {
-      switch (token[0]) {
-        case 'S':
-          return 'millisecond';
-        case 's':
-          return 'second';
-        case 'm':
-          return 'minute';
-        case 'h':
-          return 'hour';
-        case 'd':
-          return 'day';
-        case 'M':
-          return 'month';
-        case 'y':
-          return 'year';
-        default:
-          return null;
-      }
-    },
-        tokenToString = function tokenToString(lildur) {
-      return function (token) {
-        var mapped = tokenToField(token);
-        if (mapped) {
-          return _this2.num(lildur.get(mapped), token.length);
-        } else {
-          return token;
-        }
-      };
-    },
-        tokens = Formatter.parseFormat(fmt),
-        realTokens = tokens.reduce(function (found, _ref2) {
-      var literal = _ref2.literal,
-          val = _ref2.val;
-      return literal ? found : found.concat(val);
-    }, []),
-        collapsed = dur.shiftTo.apply(dur, realTokens.map(tokenToField).filter(function (t) {
-      return t;
-    }));
-    return stringifyTokens(tokens, tokenToString(collapsed));
-  };
-
-  return Formatter;
-}();
-
-var sysLocaleCache = null;
-function systemLocale() {
-  if (sysLocaleCache) {
-    return sysLocaleCache;
-  } else if (hasIntl()) {
-    var computedSys = new Intl.DateTimeFormat().resolvedOptions().locale;
-    // node sometimes defaults to "und". Override that because that is dumb
-    sysLocaleCache = computedSys === 'und' ? 'en-US' : computedSys;
-    return sysLocaleCache;
-  } else {
-    sysLocaleCache = 'en-US';
-    return sysLocaleCache;
-  }
-}
-
-function intlConfigString(locale, numberingSystem, outputCalendar) {
-  if (hasIntl()) {
-    locale = Array.isArray(locale) ? locale : [locale];
-
-    if (outputCalendar || numberingSystem) {
-      locale = locale.map(function (l) {
-        l += '-u';
-
-        if (outputCalendar) {
-          l += '-ca-' + outputCalendar;
-        }
-
-        if (numberingSystem) {
-          l += '-nu-' + numberingSystem;
-        }
-        return l;
-      });
-    }
-    return locale;
-  } else {
-    return [];
-  }
-}
-
-function mapMonths(f) {
-  var ms = [];
-  for (var i = 1; i <= 12; i++) {
-    var dt = DateTime.utc(2016, i, 1);
-    ms.push(f(dt));
-  }
-  return ms;
-}
-
-function mapWeekdays(f) {
-  var ms = [];
-  for (var i = 1; i <= 7; i++) {
-    var dt = DateTime.utc(2016, 11, 13 + i);
-    ms.push(f(dt));
-  }
-  return ms;
-}
-
-function listStuff(loc, length, defaultOK, englishFn, intlFn) {
-  var mode = loc.listingMode(defaultOK);
-
-  if (mode === 'error') {
-    return null;
-  } else if (mode === 'en') {
-    return englishFn(length);
-  } else {
-    return intlFn(length);
-  }
-}
-
-function supportsFastNumbers(loc) {
-  if (loc.numberingSystem && loc.numberingSystem !== 'latn') {
-    return false;
-  } else {
-    return loc.numberingSystem === 'latn' || !loc.locale || loc.locale.startsWith('en') || hasIntl() && Intl.DateTimeFormat(loc.intl).resolvedOptions().numberingSystem === 'latn';
-  }
-}
-
-/**
- * @private
- */
-
-var SimpleNumberFormatter = function () {
-  function SimpleNumberFormatter(opts) {
-    classCallCheck(this, SimpleNumberFormatter);
-
-    this.padTo = opts.padTo || 0;
-    this.round = opts.round || false;
-    this.floor = opts.floor || false;
-  }
-
-  SimpleNumberFormatter.prototype.format = function format(i) {
-    // to match the browser's numberformatter defaults
-    var fixed = this.floor ? Math.floor(i) : roundTo(i, this.round ? 0 : 3);
-    return padStart(fixed, this.padTo);
-  };
-
-  return SimpleNumberFormatter;
-}();
-
-var IntlNumberFormatter = function () {
-  function IntlNumberFormatter(intl, opts) {
-    classCallCheck(this, IntlNumberFormatter);
-
-    var intlOpts = { useGrouping: false };
-
-    if (opts.padTo > 0) {
-      intlOpts.minimumIntegerDigits = opts.padTo;
-    }
-
-    if (opts.round) {
-      intlOpts.maximumFractionDigits = 0;
-    }
-
-    this.floor = opts.floor;
-    this.intl = new Intl.NumberFormat(intl, intlOpts);
-  }
-
-  IntlNumberFormatter.prototype.format = function format(i) {
-    var fixed = this.floor ? Math.floor(i) : i;
-    return this.intl.format(fixed);
-  };
-
-  return IntlNumberFormatter;
-}();
-
-/**
- * @private
- */
-
-var PolyDateFormatter = function () {
-  function PolyDateFormatter(dt, intl, opts) {
-    classCallCheck(this, PolyDateFormatter);
-
-    this.opts = opts;
-    this.hasIntl = hasIntl();
-
-    var z = void 0;
-    if (dt.zone.universal && this.hasIntl) {
-      // Chromium doesn't support fixed-offset zones like Etc/GMT+8 in its formatter,
-      // See https://bugs.chromium.org/p/chromium/issues/detail?id=364374.
-      // So we have to make do. Two cases:
-      // 1. The format options tell us to show the zone. We can't do that, so the best
-      // we can do is format the date in UTC.
-      // 2. The format options don't tell us to show the zone. Then we can adjust them
-      // the time and tell the formatter to show it to us in UTC, so that the time is right
-      // and the bad zone doesn't show up.
-      // We can clean all this up when Chrome fixes this.
-      z = 'UTC';
-      if (opts.timeZoneName) {
-        this.dt = dt;
-      } else {
-        this.dt = dt.offset === 0 ? dt : DateTime.fromMillis(dt.ts + dt.offset * 60 * 1000);
-      }
-    } else if (dt.zone.type === 'local') {
-      this.dt = dt;
-    } else {
-      this.dt = dt;
-      z = dt.zone.name;
-    }
-
-    if (this.hasIntl) {
-      var realIntlOpts = Object.assign({}, this.opts);
-      if (z) {
-        realIntlOpts.timeZone = z;
-      }
-      this.dtf = new Intl.DateTimeFormat(intl, realIntlOpts);
-    }
-  }
-
-  PolyDateFormatter.prototype.format = function format() {
-    if (this.hasIntl) {
-      return this.dtf.format(this.dt.toJSDate());
-    } else {
-      var tokenFormat = formatString(this.opts),
-          loc = Locale.create('en-US');
-      return Formatter.create(loc).formatDateTimeFromString(this.dt, tokenFormat);
-    }
-  };
-
-  PolyDateFormatter.prototype.formatToParts = function formatToParts() {
-    if (this.hasIntl && hasFormatToParts()) {
-      return this.dtf.formatToParts(this.dt.toJSDate());
-    } else {
-      // This is kind of a cop out. We actually could do this for English. However, we couldn't do it for intl strings
-      // and IMO it's too weird to have an uncanny valley like that
-      return [];
-    }
-  };
-
-  PolyDateFormatter.prototype.resolvedOptions = function resolvedOptions() {
-    if (this.hasIntl) {
-      return this.dtf.resolvedOptions();
-    } else {
-      return {
-        locale: 'en-US',
-        numberingSystem: 'latn',
-        outputCalendar: 'gregory'
-      };
-    }
-  };
-
-  return PolyDateFormatter;
-}();
-
-/**
- * @private
- */
-
-var Locale = function () {
-  Locale.fromOpts = function fromOpts(opts) {
-    return Locale.create(opts.locale, opts.numberingSystem, opts.outputCalendar, opts.defaultToEN);
-  };
-
-  Locale.create = function create(locale, numberingSystem, outputCalendar) {
-    var defaultToEN = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-
-    var specifiedLocale = locale || Settings.defaultLocale,
-
-    // the system locale is useful for human readable strings but annoying for parsing/formatting known formats
-    localeR = specifiedLocale || (defaultToEN ? 'en-US' : systemLocale()),
-        numberingSystemR = numberingSystem || Settings.defaultNumberingSystem,
-        outputCalendarR = outputCalendar || Settings.defaultOutputCalendar;
-    return new Locale(localeR, numberingSystemR, outputCalendarR, specifiedLocale);
-  };
-
-  Locale.resetCache = function resetCache() {
-    sysLocaleCache = null;
-  };
-
-  Locale.fromObject = function fromObject() {
-    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-        locale = _ref.locale,
-        numberingSystem = _ref.numberingSystem,
-        outputCalendar = _ref.outputCalendar;
-
-    return Locale.create(locale, numberingSystem, outputCalendar);
-  };
-
-  function Locale(locale, numbering, outputCalendar, specifiedLocale) {
-    classCallCheck(this, Locale);
-
-    this.locale = locale;
-    this.numberingSystem = numbering;
-    this.outputCalendar = outputCalendar;
-    this.intl = intlConfigString(this.locale, this.numberingSystem, this.outputCalendar);
-
-    this.weekdaysCache = { format: {}, standalone: {} };
-    this.monthsCache = { format: {}, standalone: {} };
-    this.meridiemCache = null;
-    this.eraCache = {};
-
-    this.specifiedLocale = specifiedLocale;
-    this.fastNumbersCached = null;
-  }
-
-  // todo: cache me
-  Locale.prototype.listingMode = function listingMode() {
-    var defaultOK = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-
-    var intl = hasIntl(),
-        hasFTP = intl && hasFormatToParts(),
-        isActuallyEn = this.locale === 'en' || this.locale.toLowerCase() === 'en-us' || intl && Intl.DateTimeFormat(this.intl).resolvedOptions().locale.startsWith('en-us'),
-        hasNoWeirdness = (this.numberingSystem === null || this.numberingSystem === 'latn') && (this.outputCalendar === null || this.outputCalendar === 'gregory');
-
-    if (!hasFTP && !(isActuallyEn && hasNoWeirdness) && !defaultOK) {
-      return 'error';
-    } else if (!hasFTP || isActuallyEn && hasNoWeirdness) {
-      return 'en';
-    } else {
-      return 'intl';
-    }
-  };
-
-  Locale.prototype.clone = function clone(alts) {
-    if (!alts || Object.getOwnPropertyNames(alts).length === 0) {
-      return this;
-    } else {
-      return Locale.create(alts.locale || this.specifiedLocale, alts.numberingSystem || this.numberingSystem, alts.outputCalendar || this.outputCalendar, alts.defaultToEN || false);
-    }
-  };
-
-  Locale.prototype.redefaultToEN = function redefaultToEN() {
-    var alts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    return this.clone(Object.assign({}, alts, { defaultToEN: true }));
-  };
-
-  Locale.prototype.redefaultToSystem = function redefaultToSystem() {
-    var alts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    return this.clone(Object.assign({}, alts, { defaultToEN: false }));
-  };
-
-  Locale.prototype.months = function months$$1(length) {
-    var _this = this;
-
-    var format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-    var defaultOK = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-    return listStuff(this, length, defaultOK, months, function () {
-      var intl = format ? { month: length, day: 'numeric' } : { month: length },
-          formatStr = format ? 'format' : 'standalone';
-      if (!_this.monthsCache[formatStr][length]) {
-        _this.monthsCache[formatStr][length] = mapMonths(function (dt) {
-          return _this.extract(dt, intl, 'month');
-        });
-      }
-      return _this.monthsCache[formatStr][length];
-    });
-  };
-
-  Locale.prototype.weekdays = function weekdays$$1(length) {
-    var _this2 = this;
-
-    var format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-    var defaultOK = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-    return listStuff(this, length, defaultOK, weekdays, function () {
-      var intl = format ? { weekday: length, year: 'numeric', month: 'long', day: 'numeric' } : { weekday: length },
-          formatStr = format ? 'format' : 'standalone';
-      if (!_this2.weekdaysCache[formatStr][length]) {
-        _this2.weekdaysCache[formatStr][length] = mapWeekdays(function (dt) {
-          return _this2.extract(dt, intl, 'weekday');
-        });
-      }
-      return _this2.weekdaysCache[formatStr][length];
-    });
-  };
-
-  Locale.prototype.meridiems = function meridiems$$1() {
-    var _this3 = this;
-
-    var defaultOK = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-
-    return listStuff(this, undefined, defaultOK, function () {
-      return meridiems;
-    }, function () {
-      // In theory there could be aribitrary day periods. We're gonna assume there are exactly two
-      // for AM and PM. This is probably wrong, but it's makes parsing way easier.
-      if (!_this3.meridiemCache) {
-        var intl = { hour: 'numeric', hour12: true };
-        _this3.meridiemCache = [DateTime.utc(2016, 11, 13, 9), DateTime.utc(2016, 11, 13, 19)].map(function (dt) {
-          return _this3.extract(dt, intl, 'dayperiod');
-        });
-      }
-
-      return _this3.meridiemCache;
-    });
-  };
-
-  Locale.prototype.eras = function eras$$1(length) {
-    var _this4 = this;
-
-    var defaultOK = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-
-    return listStuff(this, length, defaultOK, eras, function () {
-      var intl = { era: length };
-
-      // This is utter bullshit. Different calendars are going to define eras totally differently. What I need is the minimum set of dates
-      // to definitely enumerate them.
-      if (!_this4.eraCache[length]) {
-        _this4.eraCache[length] = [DateTime.utc(-40, 1, 1), DateTime.utc(2017, 1, 1)].map(function (dt) {
-          return _this4.extract(dt, intl, 'era');
-        });
-      }
-
-      return _this4.eraCache[length];
-    });
-  };
-
-  Locale.prototype.extract = function extract(dt, intlOpts, field) {
-    var df = this.dtFormatter(dt, intlOpts),
-        results = df.formatToParts(),
-        matching = results.find(function (m) {
-      return m.type.toLowerCase() === field;
-    });
-
-    return matching ? matching.value : null;
-  };
-
-  Locale.prototype.numberFormatter = function numberFormatter() {
-    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    // this forcesimple option is never used (the only caller short-circuits on it, but it seems safer to leave)
-    // (in contrast, the rest of the condition is used heavily)
-    if (opts.forceSimple || this.fastNumbers || !hasIntl()) {
-      return new SimpleNumberFormatter(opts);
-    } else {
-      return new IntlNumberFormatter(this.intl, opts);
-    }
-  };
-
-  Locale.prototype.dtFormatter = function dtFormatter(dt) {
-    var intlOpts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    return new PolyDateFormatter(dt, this.intl, intlOpts);
-  };
-
-  Locale.prototype.equals = function equals(other) {
-    return this.locale === other.locale && this.numberingSystem === other.numberingSystem && this.outputCalendar === other.outputCalendar;
-  };
-
-  createClass(Locale, [{
-    key: 'fastNumbers',
-    get: function get$$1() {
-      if (this.fastNumbersCached == null) {
-        this.fastNumbersCached = supportsFastNumbers(this);
-      }
-
-      return this.fastNumbersCached;
-    }
-  }]);
-  return Locale;
-}();
-
-/*
- * This file handles parsing for well-specified formats. Here's how it works:
- * Two things go into parsing: a regex to match with and an extractor to take apart the groups in the match.
- * An extractor is just a function that takes a regex match array and returns a { year: ..., month: ... } object
- * parse() does the work of executing the regex and applying the extractor. It takes multiple regex/extractor pairs to try in sequence.
- * Extractors can take a "cursor" representing the offset in the match to look at. This makes it easy to combine extractors.
- * combineExtractors() does the work of combining them, keeping track of the cursor through multiple extractions.
- * Some extractions are super dumb and simpleParse and fromStrings help DRY them.
- */
-
-function combineRegexes() {
-  for (var _len = arguments.length, regexes = Array(_len), _key = 0; _key < _len; _key++) {
-    regexes[_key] = arguments[_key];
-  }
-
-  var full = regexes.reduce(function (f, r) {
-    return f + r.source;
-  }, '');
-  return RegExp('^' + full + '$');
-}
-
-function combineExtractors() {
-  for (var _len2 = arguments.length, extractors = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-    extractors[_key2] = arguments[_key2];
-  }
-
-  return function (m) {
-    return extractors.reduce(function (_ref, ex) {
-      var mergedVals = _ref[0],
-          mergedZone = _ref[1],
-          cursor = _ref[2];
-
-      var _ex = ex(m, cursor),
-          val = _ex[0],
-          zone = _ex[1],
-          next = _ex[2];
-
-      return [Object.assign(mergedVals, val), mergedZone || zone, next];
-    }, [{}, null, 1]).slice(0, 2);
-  };
-}
-
-function parse(s) {
-  if (s == null) {
-    return [null, null];
-  }
-
-  for (var _len3 = arguments.length, patterns = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
-    patterns[_key3 - 1] = arguments[_key3];
-  }
-
-  for (var _iterator = patterns, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-    var _ref3;
-
-    if (_isArray) {
-      if (_i >= _iterator.length) break;
-      _ref3 = _iterator[_i++];
-    } else {
-      _i = _iterator.next();
-      if (_i.done) break;
-      _ref3 = _i.value;
-    }
-
-    var _ref2 = _ref3;
-    var regex = _ref2[0];
-    var extractor = _ref2[1];
-
-    var m = regex.exec(s);
-    if (m) {
-      return extractor(m);
-    }
-  }
-  return [null, null];
-}
-
-function simpleParse() {
-  for (var _len4 = arguments.length, keys = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-    keys[_key4] = arguments[_key4];
-  }
-
-  return function (match, cursor) {
-    var ret = {};
-    var i = void 0;
-
-    for (i = 0; i < keys.length; i++) {
-      ret[keys[i]] = parseInt(match[cursor + i]);
-    }
-    return [ret, null, cursor + i];
-  };
-}
-
-// ISO and SQL parsing
-var offsetRegex = /(?:(Z)|([+-]\d\d)(?::?(\d\d))?)/,
-    isoTimeBaseRegex = /(\d\d)(?::?(\d\d)(?::?(\d\d)(?:[.,](\d{1,9}))?)?)?/,
-    isoTimeRegex = RegExp('' + isoTimeBaseRegex.source + offsetRegex.source + '?'),
-    isoTimeExtensionRegex = RegExp('(?:T' + isoTimeRegex.source + ')?'),
-    isoYmdRegex = /([+-]\d{6}|\d{4})(?:-?(\d\d)(?:-?(\d\d))?)?/,
-    isoWeekRegex = /(\d{4})-?W(\d\d)-?(\d)/,
-    isoOrdinalRegex = /(\d{4})-?(\d{3})/,
-    extractISOWeekData = simpleParse('weekYear', 'weekNumber', 'weekDay'),
-    extractISOOrdinalData = simpleParse('year', 'ordinal'),
-    sqlYmdRegex = /(\d{4})-(\d\d)-(\d\d)/,
-    // dumbed-down version of the ISO one
-sqlTimeRegex = RegExp(isoTimeBaseRegex.source + ' ?(?:' + offsetRegex.source + '|([a-zA-Z_]{1,256}/[a-zA-Z_]{1,256}))?'),
-    sqlTimeExtensionRegex = RegExp('(?: ' + sqlTimeRegex.source + ')?');
-
-function extractISOYmd(match, cursor) {
-  var item = {
-    year: parseInt(match[cursor]),
-    month: parseInt(match[cursor + 1]) || 1,
-    day: parseInt(match[cursor + 2]) || 1
-  };
-
-  return [item, null, cursor + 3];
-}
-
-function extractISOTime(match, cursor) {
-  var item = {
-    hour: parseInt(match[cursor]) || 0,
-    minute: parseInt(match[cursor + 1]) || 0,
-    second: parseInt(match[cursor + 2]) || 0,
-    millisecond: parseMillis(match[cursor + 3])
-  };
-
-  return [item, null, cursor + 4];
-}
-
-function extractISOOffset(match, cursor) {
-  var local = !match[cursor] && !match[cursor + 1],
-      fullOffset = signedOffset(match[cursor + 1], match[cursor + 2]),
-      zone = local ? null : FixedOffsetZone.instance(fullOffset);
-  return [{}, zone, cursor + 3];
-}
-
-function extractIANAZone(match, cursor) {
-  var zone = match[cursor] ? new IANAZone(match[cursor]) : null;
-  return [{}, zone, cursor + 1];
-}
-
-// ISO duration parsing
-
-var isoDuration = /^P(?:(?:(\d{1,9})Y)?(?:(\d{1,9})M)?(?:(\d{1,9})D)?(?:T(?:(\d{1,9})H)?(?:(\d{1,9})M)?(?:(\d{1,9})(?:[.,](\d{1,9}))?S)?)?|(\d{1,9})W)$/;
-
-function extractISODuration(match) {
-  var yearStr = match[1],
-      monthStr = match[2],
-      dayStr = match[3],
-      hourStr = match[4],
-      minuteStr = match[5],
-      secondStr = match[6],
-      millisecondsStr = match[7],
-      weekStr = match[8];
-
-
-  return [{
-    years: parseInt(yearStr),
-    months: parseInt(monthStr),
-    weeks: parseInt(weekStr),
-    days: parseInt(dayStr),
-    hours: parseInt(hourStr),
-    minutes: parseInt(minuteStr),
-    seconds: parseInt(secondStr),
-    milliseconds: parseMillis(millisecondsStr)
-  }];
-}
-
-// These are a little braindead. EDT *should* tell us that we're in, say, America/New_York
-// and not just that we're in -240 *right now*. But since I don't think these are used that often
-// I'm just going to ignore that
-var obsOffsets = {
-  GMT: 0,
-  EDT: -4 * 60,
-  EST: -5 * 60,
-  CDT: -5 * 60,
-  CST: -6 * 60,
-  MDT: -6 * 60,
-  MST: -7 * 60,
-  PDT: -7 * 60,
-  PST: -8 * 60
-};
-
-function fromStrings(weekdayStr, yearStr, monthStr, dayStr, hourStr, minuteStr, secondStr) {
-  var result = {
-    year: yearStr.length === 2 ? untruncateYear(parseInt(yearStr)) : parseInt(yearStr),
-    month: monthStr.length === 2 ? parseInt(monthStr, 10) : monthsShort.indexOf(monthStr) + 1,
-    day: parseInt(dayStr),
-    hour: parseInt(hourStr),
-    minute: parseInt(minuteStr)
-  };
-
-  if (secondStr) result.second = parseInt(secondStr);
-  if (weekdayStr) {
-    result.weekday = weekdayStr.length > 3 ? weekdaysLong.indexOf(weekdayStr) + 1 : weekdaysShort.indexOf(weekdayStr) + 1;
-  }
-
-  return result;
-}
-
-// RFC 2822/5322
-var rfc2822 = /^(?:(Mon|Tue|Wed|Thu|Fri|Sat|Sun),\s)?(\d{1,2})\s(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s(\d{2,4})\s(\d\d):(\d\d)(?::(\d\d))?\s(?:(UT|GMT|[ECMP][SD]T)|([Zz])|(?:([+-]\d\d)(\d\d)))$/;
-
-function extractRFC2822(match) {
-  var weekdayStr = match[1],
-      dayStr = match[2],
-      monthStr = match[3],
-      yearStr = match[4],
-      hourStr = match[5],
-      minuteStr = match[6],
-      secondStr = match[7],
-      obsOffset = match[8],
-      milOffset = match[9],
-      offHourStr = match[10],
-      offMinuteStr = match[11],
-      result = fromStrings(weekdayStr, yearStr, monthStr, dayStr, hourStr, minuteStr, secondStr);
-
-
-  var offset = void 0;
-  if (obsOffset) {
-    offset = obsOffsets[obsOffset];
-  } else if (milOffset) {
-    offset = 0;
-  } else {
-    offset = signedOffset(offHourStr, offMinuteStr);
-  }
-
-  return [result, new FixedOffsetZone(offset)];
-}
-
-function preprocessRFC2822(s) {
-  // Remove comments and folding whitespace and replace multiple-spaces with a single space
-  return s.replace(/\([^)]*\)|[\n\t]/g, ' ').replace(/(\s\s+)/g, ' ').trim();
-}
-
-// http date
-
-var rfc1123 = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun), (\d\d) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4}) (\d\d):(\d\d):(\d\d) GMT$/,
-    rfc850 = /^(Monday|Tuesday|Wedsday|Thursday|Friday|Saturday|Sunday), (\d\d)-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(\d\d) (\d\d):(\d\d):(\d\d) GMT$/,
-    ascii = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) ( \d|\d\d) (\d\d):(\d\d):(\d\d) (\d{4})$/;
-
-function extractRFC1123Or850(match) {
-  var weekdayStr = match[1],
-      dayStr = match[2],
-      monthStr = match[3],
-      yearStr = match[4],
-      hourStr = match[5],
-      minuteStr = match[6],
-      secondStr = match[7],
-      result = fromStrings(weekdayStr, yearStr, monthStr, dayStr, hourStr, minuteStr, secondStr);
-
-  return [result, FixedOffsetZone.utcInstance];
-}
-
-function extractASCII(match) {
-  var weekdayStr = match[1],
-      monthStr = match[2],
-      dayStr = match[3],
-      hourStr = match[4],
-      minuteStr = match[5],
-      secondStr = match[6],
-      yearStr = match[7],
-      result = fromStrings(weekdayStr, yearStr, monthStr, dayStr, hourStr, minuteStr, secondStr);
-
-  return [result, FixedOffsetZone.utcInstance];
-}
-
-/**
- * @private
- */
-
-function parseISODate(s) {
-  return parse(s, [combineRegexes(isoYmdRegex, isoTimeExtensionRegex), combineExtractors(extractISOYmd, extractISOTime, extractISOOffset)], [combineRegexes(isoWeekRegex, isoTimeExtensionRegex), combineExtractors(extractISOWeekData, extractISOTime, extractISOOffset)], [combineRegexes(isoOrdinalRegex, isoTimeExtensionRegex), combineExtractors(extractISOOrdinalData, extractISOTime)], [combineRegexes(isoTimeRegex), combineExtractors(extractISOTime, extractISOOffset)]);
-}
-
-function parseRFC2822Date(s) {
-  return parse(preprocessRFC2822(s), [rfc2822, extractRFC2822]);
-}
-
-function parseHTTPDate(s) {
-  return parse(s, [rfc1123, extractRFC1123Or850], [rfc850, extractRFC1123Or850], [ascii, extractASCII]);
-}
-
-function parseISODuration(s) {
-  return parse(s, [isoDuration, extractISODuration]);
-}
-
-function parseSQL(s) {
-  return parse(s, [combineRegexes(sqlYmdRegex, sqlTimeExtensionRegex), combineExtractors(extractISOYmd, extractISOTime, extractISOOffset, extractIANAZone)], [combineRegexes(sqlTimeRegex), combineExtractors(extractISOTime, extractISOOffset, extractIANAZone)]);
-}
-
-var INVALID = 'Invalid Duration',
-    UNPARSABLE = 'unparsable';
-
-// unit conversion constants
-var lowOrderMatrix = {
-  weeks: {
-    days: 7,
-    hours: 7 * 24,
-    minutes: 7 * 24 * 60,
-    seconds: 7 * 24 * 60 * 60,
-    milliseconds: 7 * 24 * 60 * 60 * 1000
-  },
-  days: {
-    hours: 24,
-    minutes: 24 * 60,
-    seconds: 24 * 60 * 60,
-    milliseconds: 24 * 60 * 60 * 1000
-  },
-  hours: { minutes: 60, seconds: 60 * 60, milliseconds: 60 * 60 * 1000 },
-  minutes: { seconds: 60, milliseconds: 60 * 1000 },
-  seconds: { milliseconds: 1000 }
-},
-    casualMatrix = Object.assign({
-  years: {
-    months: 12,
-    weeks: 52,
-    days: 365,
-    hours: 365 * 24,
-    minutes: 365 * 24 * 60,
-    seconds: 365 * 24 * 60 * 60,
-    milliseconds: 365 * 24 * 60 * 60 * 1000
-  },
-  quarters: {
-    months: 3,
-    weeks: 13,
-    days: 91,
-    hours: 91 * 24,
-    minutes: 91 * 24 * 60,
-    milliseconds: 91 * 24 * 60 * 60 * 1000
-  },
-  months: {
-    weeks: 4,
-    days: 30,
-    hours: 30 * 24,
-    minutes: 30 * 24 * 60,
-    seconds: 30 * 24 * 60 * 60,
-    milliseconds: 30 * 24 * 60 * 60 * 1000
-  }
-}, lowOrderMatrix),
-    daysInYearAccurate = 146097.0 / 400,
-    daysInMonthAccurate = 146097.0 / 4800,
-    accurateMatrix = Object.assign({
-  years: {
-    months: 12,
-    weeks: daysInYearAccurate / 7,
-    days: daysInYearAccurate,
-    hours: daysInYearAccurate * 24,
-    minutes: daysInYearAccurate * 24 * 60,
-    seconds: daysInYearAccurate * 24 * 60 * 60,
-    milliseconds: daysInYearAccurate * 24 * 60 * 60 * 1000
-  },
-  quarters: {
-    months: 3,
-    weeks: daysInYearAccurate / 28,
-    days: daysInYearAccurate / 4,
-    hours: daysInYearAccurate * 24 / 4,
-    minutes: daysInYearAccurate * 24 * 60 / 4,
-    seconds: daysInYearAccurate * 24 * 60 * 60 / 4,
-    milliseconds: daysInYearAccurate * 24 * 60 * 60 * 1000 / 4
-  },
-  months: {
-    weeks: daysInMonthAccurate / 7,
-    days: daysInMonthAccurate,
-    hours: daysInMonthAccurate * 24,
-    minutes: daysInMonthAccurate * 24 * 60,
-    seconds: daysInMonthAccurate * 24 * 60 * 60,
-    milliseconds: daysInMonthAccurate * 24 * 60 * 60 * 1000
-  }
-}, lowOrderMatrix);
-
-// units ordered by size
-var orderedUnits = ['years', 'quarters', 'months', 'weeks', 'days', 'hours', 'minutes', 'seconds', 'milliseconds'];
-
-var reverseUnits = orderedUnits.slice(0).reverse();
-
-// clone really means "create another instance just like this one, but with these changes"
-function clone(dur, alts) {
-  var clear = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
-  // deep merge for vals
-  var conf = {
-    values: clear ? alts.values : Object.assign({}, dur.values, alts.values || {}),
-    loc: dur.loc.clone(alts.loc),
-    conversionAccuracy: alts.conversionAccuracy || dur.conversionAccuracy
-  };
-  return new Duration(conf);
-}
-
-// some functions really care about the absolute value of a duration, so combined with
-// normalize() this tells us whether this duration is positive or negative
-function isHighOrderNegative(obj) {
-  // only rule is that the highest-order part must be non-negative
-  for (var _iterator = orderedUnits, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-    var _ref;
-
-    if (_isArray) {
-      if (_i >= _iterator.length) break;
-      _ref = _iterator[_i++];
-    } else {
-      _i = _iterator.next();
-      if (_i.done) break;
-      _ref = _i.value;
-    }
-
-    var k = _ref;
-
-    if (obj[k]) return obj[k] < 0;
-  }
-  return false;
-}
-
-// NB: mutates parameters
-function convert(matrix, fromMap, fromUnit, toMap, toUnit) {
-  var conv = matrix[toUnit][fromUnit],
-      added = Math.floor(fromMap[fromUnit] / conv);
-  toMap[toUnit] += added;
-  fromMap[fromUnit] -= added * conv;
-}
-
-// NB: mutates parameters
-function normalizeValues(matrix, vals) {
-  reverseUnits.reduce(function (previous, current) {
-    if (!isUndefined(vals[current])) {
-      if (previous) {
-        convert(matrix, vals, previous, vals, current);
-      }
-      return current;
-    } else {
-      return previous;
-    }
-  }, null);
-}
-
-/**
- * @private
- */
-function friendlyDuration(duration) {
-  if (isNumber(duration)) {
-    return Duration.fromMillis(duration);
-  } else if (duration instanceof Duration) {
-    return duration;
-  } else if ((typeof duration === 'undefined' ? 'undefined' : _typeof(duration)) === 'object') {
-    return Duration.fromObject(duration);
-  } else {
-    throw new InvalidArgumentError('Unknown duration argument');
-  }
-}
-
-/**
- * A Duration object represents a period of time, like "2 months" or "1 day, 1 hour". Conceptually, it's just a map of units to their quantities, accompanied by some additional configuration and methods for creating, parsing, interrogating, transforming, and formatting them. They can be used on their own or in conjunction with other Luxon types; for example, you can use {@link DateTime.plus} to add a Duration object to a DateTime, producing another DateTime.
- *
- * Here is a brief overview of commonly used methods and getters in Duration:
- *
- * * **Creation** To create a Duration, use {@link Duration.fromMillis}, {@link Duration.fromObject}, or {@link Duration.fromISO}.
- * * **Unit values** See the {@link years}, {@link months}, {@link weeks}, {@link days}, {@link hours}, {@link minutes}, {@link seconds}, {@link milliseconds} accessors.
- * * **Configuration** See  {@link locale} and {@link numberingSystem} accessors.
- * * **Transformation** To create new Durations out of old ones use {@link plus}, {@link minus}, {@link normalize}, {@link set}, {@link reconfigure}, {@link shiftTo}, and {@link negate}.
- * * **Output** To convert the Duration into other representations, see {@link as}, {@link toISO}, {@link toFormat}, and {@link toJSON}
- *
- * There's are more methods documented below. In addition, for more information on subtler topics like internationalization and validity, see the external documentation.
- */
-
-var Duration = function () {
-  /**
-   * @private
-   */
-  function Duration(config) {
-    classCallCheck(this, Duration);
-
-    var accurate = config.conversionAccuracy === 'longterm' || false;
-    /**
-     * @access private
-     */
-    this.values = config.values;
-    /**
-     * @access private
-     */
-    this.loc = config.loc || Locale.create();
-    /**
-     * @access private
-     */
-    this.conversionAccuracy = accurate ? 'longterm' : 'casual';
-    /**
-     * @access private
-     */
-    this.invalid = config.invalidReason || null;
-    /**
-     * @access private
-     */
-    this.matrix = accurate ? accurateMatrix : casualMatrix;
-  }
-
-  /**
-   * Create Duration from a number of milliseconds.
-   * @param {number} count of milliseconds
-   * @param {Object} opts - options for parsing
-   * @param {string} [opts.locale='en-US'] - the locale to use
-   * @param {string} opts.numberingSystem - the numbering system to use
-   * @param {string} [opts.conversionAccuracy='casual'] - the conversion system to use
-   * @return {Duration}
-   */
-
-
-  Duration.fromMillis = function fromMillis(count, opts) {
-    return Duration.fromObject(Object.assign({ milliseconds: count }, opts));
-  };
-
-  /**
-   * Create a Duration from a Javascript object with keys like 'years' and 'hours.
-   * If this object is empty then zero  milliseconds duration is returned.
-   * @param {Object} obj - the object to create the DateTime from
-   * @param {number} obj.years
-   * @param {number} obj.quarters
-   * @param {number} obj.months
-   * @param {number} obj.weeks
-   * @param {number} obj.days
-   * @param {number} obj.hours
-   * @param {number} obj.minutes
-   * @param {number} obj.seconds
-   * @param {number} obj.milliseconds
-   * @param {string} [obj.locale='en-US'] - the locale to use
-   * @param {string} obj.numberingSystem - the numbering system to use
-   * @param {string} [obj.conversionAccuracy='casual'] - the conversion system to use
-   * @return {Duration}
-   */
-
-
-  Duration.fromObject = function fromObject(obj) {
-    if (obj == null || (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) !== 'object') {
-      throw new InvalidArgumentError('Duration.fromObject: argument expected to be an object.');
-    }
-    return new Duration({
-      values: normalizeObject(obj, Duration.normalizeUnit, true),
-      loc: Locale.fromObject(obj),
-      conversionAccuracy: obj.conversionAccuracy
-    });
-  };
-
-  /**
-   * Create a Duration from an ISO 8601 duration string.
-   * @param {string} text - text to parse
-   * @param {Object} opts - options for parsing
-   * @param {string} [opts.locale='en-US'] - the locale to use
-   * @param {string} opts.numberingSystem - the numbering system to use
-   * @param {string} [opts.conversionAccuracy='casual'] - the conversion system to use
-   * @see https://en.wikipedia.org/wiki/ISO_8601#Durations
-   * @example Duration.fromISO('P3Y6M4DT12H30M5S').toObject() //=> { years: 3, months: 6, day: 4, hours: 12, minutes: 30, seconds: 5 }
-   * @example Duration.fromISO('PT23H').toObject() //=> { hours: 23 }
-   * @example Duration.fromISO('P5Y3M').toObject() //=> { years: 5, months: 3 }
-   * @return {Duration}
-   */
-
-
-  Duration.fromISO = function fromISO(text, opts) {
-    var _parseISODuration = parseISODuration(text),
-        parsed = _parseISODuration[0];
-
-    if (parsed) {
-      var obj = Object.assign(parsed, opts);
-      return Duration.fromObject(obj);
-    } else {
-      return Duration.invalid(UNPARSABLE);
-    }
-  };
-
-  /**
-   * Create an invalid Duration.
-   * @param {string} reason - reason this is invalid
-   * @return {Duration}
-   */
-
-
-  Duration.invalid = function invalid(reason) {
-    if (!reason) {
-      throw new InvalidArgumentError('need to specify a reason the Duration is invalid');
-    }
-    if (Settings.throwOnInvalid) {
-      throw new InvalidDurationError(reason);
-    } else {
-      return new Duration({ invalidReason: reason });
-    }
-  };
-
-  /**
-   * @private
-   */
-
-
-  Duration.normalizeUnit = function normalizeUnit(unit) {
-    var ignoreUnknown = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
-    var normalized = {
-      year: 'years',
-      years: 'years',
-      quarter: 'quarters',
-      quarters: 'quarters',
-      month: 'months',
-      months: 'months',
-      week: 'weeks',
-      weeks: 'weeks',
-      day: 'days',
-      days: 'days',
-      hour: 'hours',
-      hours: 'hours',
-      minute: 'minutes',
-      minutes: 'minutes',
-      second: 'seconds',
-      seconds: 'seconds',
-      millisecond: 'milliseconds',
-      milliseconds: 'milliseconds'
-    }[unit ? unit.toLowerCase() : unit];
-
-    if (!ignoreUnknown && !normalized) throw new InvalidUnitError(unit);
-
-    return normalized;
-  };
-
-  /**
-   * Get  the locale of a Duration, such 'en-GB'
-   * @type {string}
-   */
-
-
-  /**
-   * Returns a string representation of this Duration formatted according to the specified format string.
-   * @param {string} fmt - the format string
-   * @param {Object} opts - options
-   * @param {boolean} [opts.floor=true] - floor numerical values
-   * @return {string}
-   */
-  Duration.prototype.toFormat = function toFormat(fmt) {
-    var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    // reverse-compat since 1.2; we always round down now, never up, and we do it by default. So:
-    // 1. always turn off rounding in the underlying formatter
-    // 2. turn off flooring if either rounding is turned off or flooring is turned off, otherwise leave it on
-    var fmtOpts = Object.assign({}, opts, { floor: true, round: false });
-    if (opts.round === false || opts.floor === false) {
-      fmtOpts.floor = false;
-    }
-
-    return this.isValid ? Formatter.create(this.loc, fmtOpts).formatDurationFromString(this, fmt) : INVALID;
-  };
-
-  /**
-   * Returns a Javascript object with this Duration's values.
-   * @param opts - options for generating the object
-   * @param {boolean} [opts.includeConfig=false] - include configuration attributes in the output
-   * @example Duration.fromObject({ years: 1, days: 6, seconds: 2 }).toObject() //=> { years: 1, days: 6, seconds: 2 }
-   * @return {Object}
-   */
-
-
-  Duration.prototype.toObject = function toObject() {
-    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    if (!this.isValid) return {};
-
-    var base = Object.assign({}, this.values);
-
-    if (opts.includeConfig) {
-      base.conversionAccuracy = this.conversionAccuracy;
-      base.numberingSystem = this.loc.numberingSystem;
-      base.locale = this.loc.locale;
-    }
-    return base;
-  };
-
-  /**
-   * Returns an ISO 8601-compliant string representation of this Duration.
-   * @see https://en.wikipedia.org/wiki/ISO_8601#Durations
-   * @example Duration.fromObject({ years: 3, seconds: 45 }).toISO() //=> 'P3YT45S'
-   * @example Duration.fromObject({ months: 4, seconds: 45 }).toISO() //=> 'P4MT45S'
-   * @example Duration.fromObject({ months: 5 }).toISO() //=> 'P5M'
-   * @example Duration.fromObject({ minutes: 5 }).toISO() //=> 'PT5M'
-   * @example Duration.fromObject({ milliseconds: 6 }).toISO() //=> 'PT0.006S'
-   * @return {string}
-   */
-
-
-  Duration.prototype.toISO = function toISO() {
-    // we could use the formatter, but this is an easier way to get the minimum string
-    if (!this.isValid) return null;
-
-    var s = 'P',
-        norm = this.normalize();
-
-    // ISO durations are always positive, so take the absolute value
-    norm = isHighOrderNegative(norm.values) ? norm.negate() : norm;
-
-    if (norm.years > 0) s += norm.years + 'Y';
-    if (norm.months > 0 || norm.quarters > 0) s += norm.months + norm.quarters * 3 + 'M';
-    if (norm.days > 0 || norm.weeks > 0) s += norm.days + norm.weeks * 7 + 'D';
-    if (norm.hours > 0 || norm.minutes > 0 || norm.seconds > 0 || norm.milliseconds > 0) s += 'T';
-    if (norm.hours > 0) s += norm.hours + 'H';
-    if (norm.minutes > 0) s += norm.minutes + 'M';
-    if (norm.seconds > 0 || norm.milliseconds > 0) s += norm.seconds + norm.milliseconds / 1000 + 'S';
-    return s;
-  };
-
-  /**
-   * Returns an ISO 8601 representation of this Duration appropriate for use in JSON.
-   * @return {string}
-   */
-
-
-  Duration.prototype.toJSON = function toJSON() {
-    return this.toISO();
-  };
-
-  /**
-   * Returns an ISO 8601 representation of this Duration appropriate for use in debugging.
-   * @return {string}
-   */
-
-
-  Duration.prototype.toString = function toString() {
-    return this.toISO();
-  };
-
-  /**
-   * Returns an milliseconds value of this Duration.
-   * @return {number}
-   */
-
-
-  Duration.prototype.valueOf = function valueOf() {
-    return this.as('milliseconds');
-  };
-
-  /**
-   * Returns a string representation of this Duration appropriate for the REPL.
-   * @return {string}
-   */
-
-
-  Duration.prototype[customInspectSymbol] = function () {
-    if (this.isValid) {
-      var valsInspect = JSON.stringify(this.toObject());
-      return 'Duration {\n  values: ' + valsInspect + ',\n  locale: ' + this.locale + ',\n  conversionAccuracy: ' + this.conversionAccuracy + ' }';
-    } else {
-      return 'Duration { Invalid, reason: ' + this.invalidReason + ' }';
-    }
-  };
-
-  /**
-   * Make this Duration longer by the specified amount. Return a newly-constructed Duration.
-   * @param {Duration|Object|number} duration - The amount to add. Either a Luxon Duration, a number of milliseconds, the object argument to Duration.fromObject()
-   * @return {Duration}
-   */
-
-
-  Duration.prototype.plus = function plus(duration) {
-    if (!this.isValid) return this;
-
-    var dur = friendlyDuration(duration),
-        result = {};
-
-    for (var _iterator2 = orderedUnits, _isArray2 = Array.isArray(_iterator2), _i2 = 0, _iterator2 = _isArray2 ? _iterator2 : _iterator2[Symbol.iterator]();;) {
-      var _ref2;
-
-      if (_isArray2) {
-        if (_i2 >= _iterator2.length) break;
-        _ref2 = _iterator2[_i2++];
-      } else {
-        _i2 = _iterator2.next();
-        if (_i2.done) break;
-        _ref2 = _i2.value;
-      }
-
-      var k = _ref2;
-
-      var val = dur.get(k) + this.get(k);
-      if (val !== 0) {
-        result[k] = val;
-      }
-    }
-
-    return clone(this, { values: result }, true);
-  };
-
-  /**
-   * Make this Duration shorter by the specified amount. Return a newly-constructed Duration.
-   * @param {Duration|Object|number} duration - The amount to subtract. Either a Luxon Duration, a number of milliseconds, the object argument to Duration.fromObject()
-   * @return {Duration}
-   */
-
-
-  Duration.prototype.minus = function minus(duration) {
-    if (!this.isValid) return this;
-
-    var dur = friendlyDuration(duration);
-    return this.plus(dur.negate());
-  };
-
-  /**
-   * Get the value of unit.
-   * @param {string} unit - a unit such as 'minute' or 'day'
-   * @example Duration.fromObject({years: 2, days: 3}).years //=> 2
-   * @example Duration.fromObject({years: 2, days: 3}).months //=> 0
-   * @example Duration.fromObject({years: 2, days: 3}).days //=> 3
-   * @return {number}
-   */
-
-
-  Duration.prototype.get = function get$$1(unit) {
-    return this[Duration.normalizeUnit(unit)];
-  };
-
-  /**
-   * "Set" the values of specified units. Return a newly-constructed Duration.
-   * @param {Object} values - a mapping of units to numbers
-   * @example dur.set({ years: 2017 })
-   * @example dur.set({ hours: 8, minutes: 30 })
-   * @return {Duration}
-   */
-
-
-  Duration.prototype.set = function set$$1(values) {
-    var mixed = Object.assign(this.values, normalizeObject(values, Duration.normalizeUnit));
-    return clone(this, { values: mixed });
-  };
-
-  /**
-   * "Set" the locale and/or numberingSystem.  Returns a newly-constructed Duration.
-   * @example dur.reconfigure({ locale: 'en-GB' })
-   * @return {Duration}
-   */
-
-
-  Duration.prototype.reconfigure = function reconfigure() {
-    var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-        locale = _ref3.locale,
-        numberingSystem = _ref3.numberingSystem,
-        conversionAccuracy = _ref3.conversionAccuracy;
-
-    var loc = this.loc.clone({ locale: locale, numberingSystem: numberingSystem }),
-        opts = { loc: loc };
-
-    if (conversionAccuracy) {
-      opts.conversionAccuracy = conversionAccuracy;
-    }
-
-    return clone(this, opts);
-  };
-
-  /**
-   * Return the length of the duration in the specified unit.
-   * @param {string} unit - a unit such as 'minutes' or 'days'
-   * @example Duration.fromObject({years: 1}).as('days') //=> 365
-   * @example Duration.fromObject({years: 1}).as('months') //=> 12
-   * @example Duration.fromObject({hours: 60}).as('days') //=> 2.5
-   * @return {number}
-   */
-
-
-  Duration.prototype.as = function as(unit) {
-    return this.isValid ? this.shiftTo(unit).get(unit) : NaN;
-  };
-
-  /**
-   * Reduce this Duration to its canonical representation in its current units.
-   * @example Duration.fromObject({ years: 2, days: 5000 }).normalize().toObject() //=> { years: 15, days: 255 }
-   * @example Duration.fromObject({ hours: 12, minutes: -45 }).normalize().toObject() //=> { hours: 11, minutes: 15 }
-   * @return {Duration}
-   */
-
-
-  Duration.prototype.normalize = function normalize() {
-    if (!this.isValid) return this;
-
-    var neg = isHighOrderNegative(this.values),
-        vals = (neg ? this.negate() : this).toObject();
-    normalizeValues(this.matrix, vals);
-    var dur = Duration.fromObject(vals);
-    return neg ? dur.negate() : dur;
-  };
-
-  /**
-   * Convert this Duration into its representation in a different set of units.
-   * @example Duration.fromObject({ hours: 1, seconds: 30 }).shiftTo('minutes', 'milliseconds').toObject() //=> { minutes: 60, milliseconds: 30000 }
-   * @return {Duration}
-   */
-
-
-  Duration.prototype.shiftTo = function shiftTo() {
-    for (var _len = arguments.length, units = Array(_len), _key = 0; _key < _len; _key++) {
-      units[_key] = arguments[_key];
-    }
-
-    if (!this.isValid) return this;
-
-    if (units.length === 0) {
-      return this;
-    }
-
-    units = units.map(function (u) {
-      return Duration.normalizeUnit(u);
-    });
-
-    var built = {},
-        accumulated = {},
-        vals = this.toObject();
-    var lastUnit = void 0;
-
-    normalizeValues(this.matrix, vals);
-
-    for (var _iterator3 = orderedUnits, _isArray3 = Array.isArray(_iterator3), _i3 = 0, _iterator3 = _isArray3 ? _iterator3 : _iterator3[Symbol.iterator]();;) {
-      var _ref4;
-
-      if (_isArray3) {
-        if (_i3 >= _iterator3.length) break;
-        _ref4 = _iterator3[_i3++];
-      } else {
-        _i3 = _iterator3.next();
-        if (_i3.done) break;
-        _ref4 = _i3.value;
-      }
-
-      var k = _ref4;
-
-      if (units.indexOf(k) >= 0) {
-        lastUnit = k;
-
-        var own = 0;
-
-        // anything we haven't boiled down yet should get boiled to this unit
-        for (var ak in accumulated) {
-          if (accumulated.hasOwnProperty(ak)) {
-            own += this.matrix[ak][k] * accumulated[ak];
-            accumulated[ak] = 0;
-          }
-        }
-
-        // plus anything that's already in this unit
-        if (isNumber(vals[k])) {
-          own += vals[k];
-        }
-
-        var i = Math.trunc(own);
-        built[k] = i;
-        accumulated[k] = own - i;
-
-        // plus anything further down the chain that should be rolled up in to this
-        for (var down in vals) {
-          if (orderedUnits.indexOf(down) > orderedUnits.indexOf(k)) {
-            convert(this.matrix, vals, down, built, k);
-          }
-        }
-        // otherwise, keep it in the wings to boil it later
-      } else if (isNumber(vals[k])) {
-        accumulated[k] = vals[k];
-      }
-    }
-
-    // anything leftover becomes the decimal for the last unit
-    if (lastUnit) {
-      for (var key in accumulated) {
-        if (accumulated.hasOwnProperty(key)) {
-          if (accumulated[key] > 0) {
-            built[lastUnit] += key === lastUnit ? accumulated[key] : accumulated[key] / this.matrix[lastUnit][key];
-          }
-        }
-      }
-    }
-    return clone(this, { values: built }, true);
-  };
-
-  /**
-   * Return the negative of this Duration.
-   * @example Duration.fromObject({ hours: 1, seconds: 30 }).negate().toObject() //=> { hours: -1, seconds: -30 }
-   * @return {Duration}
-   */
-
-
-  Duration.prototype.negate = function negate() {
-    if (!this.isValid) return this;
-    var negated = {};
-    for (var _iterator4 = Object.keys(this.values), _isArray4 = Array.isArray(_iterator4), _i4 = 0, _iterator4 = _isArray4 ? _iterator4 : _iterator4[Symbol.iterator]();;) {
-      var _ref5;
-
-      if (_isArray4) {
-        if (_i4 >= _iterator4.length) break;
-        _ref5 = _iterator4[_i4++];
-      } else {
-        _i4 = _iterator4.next();
-        if (_i4.done) break;
-        _ref5 = _i4.value;
-      }
-
-      var k = _ref5;
-
-      negated[k] = -this.values[k];
-    }
-    return clone(this, { values: negated }, true);
-  };
-
-  /**
-   * Get the years.
-   * @type {number}
-   */
-
-
-  /**
-   * Equality check
-   * Two Durations are equal iff they have the same units and the same values for each unit.
-   * @param {Duration} other
-   * @return {boolean}
-   */
-  Duration.prototype.equals = function equals(other) {
-    if (!this.isValid || !other.isValid) {
-      return false;
-    }
-
-    if (!this.loc.equals(other.loc)) {
-      return false;
-    }
-
-    for (var _iterator5 = orderedUnits, _isArray5 = Array.isArray(_iterator5), _i5 = 0, _iterator5 = _isArray5 ? _iterator5 : _iterator5[Symbol.iterator]();;) {
-      var _ref6;
-
-      if (_isArray5) {
-        if (_i5 >= _iterator5.length) break;
-        _ref6 = _iterator5[_i5++];
-      } else {
-        _i5 = _iterator5.next();
-        if (_i5.done) break;
-        _ref6 = _i5.value;
-      }
-
-      var u = _ref6;
-
-      if (this.values[u] !== other.values[u]) {
-        return false;
-      }
-    }
-    return true;
-  };
-
-  createClass(Duration, [{
-    key: 'locale',
-    get: function get$$1() {
-      return this.isValid ? this.loc.locale : null;
-    }
-
-    /**
-     * Get the numbering system of a Duration, such 'beng'. The numbering system is used when formatting the Duration
-     *
-     * @type {string}
-     */
-
-  }, {
-    key: 'numberingSystem',
-    get: function get$$1() {
-      return this.isValid ? this.loc.numberingSystem : null;
-    }
-  }, {
-    key: 'years',
-    get: function get$$1() {
-      return this.isValid ? this.values.years || 0 : NaN;
-    }
-
-    /**
-     * Get the quarters.
-     * @type {number}
-     */
-
-  }, {
-    key: 'quarters',
-    get: function get$$1() {
-      return this.isValid ? this.values.quarters || 0 : NaN;
-    }
-
-    /**
-     * Get the months.
-     * @type {number}
-     */
-
-  }, {
-    key: 'months',
-    get: function get$$1() {
-      return this.isValid ? this.values.months || 0 : NaN;
-    }
-
-    /**
-     * Get the weeks
-     * @type {number}
-     */
-
-  }, {
-    key: 'weeks',
-    get: function get$$1() {
-      return this.isValid ? this.values.weeks || 0 : NaN;
-    }
-
-    /**
-     * Get the days.
-     * @type {number}
-     */
-
-  }, {
-    key: 'days',
-    get: function get$$1() {
-      return this.isValid ? this.values.days || 0 : NaN;
-    }
-
-    /**
-     * Get the hours.
-     * @type {number}
-     */
-
-  }, {
-    key: 'hours',
-    get: function get$$1() {
-      return this.isValid ? this.values.hours || 0 : NaN;
-    }
-
-    /**
-     * Get the minutes.
-     * @type {number}
-     */
-
-  }, {
-    key: 'minutes',
-    get: function get$$1() {
-      return this.isValid ? this.values.minutes || 0 : NaN;
-    }
-
-    /**
-     * Get the seconds.
-     * @return {number}
-     */
-
-  }, {
-    key: 'seconds',
-    get: function get$$1() {
-      return this.isValid ? this.values.seconds || 0 : NaN;
-    }
-
-    /**
-     * Get the milliseconds.
-     * @return {number}
-     */
-
-  }, {
-    key: 'milliseconds',
-    get: function get$$1() {
-      return this.isValid ? this.values.milliseconds || 0 : NaN;
-    }
-
-    /**
-     * Returns whether the Duration is invalid. Invalid durations are returned by diff operations
-     * on invalid DateTimes or Intervals.
-     * @return {boolean}
-     */
-
-  }, {
-    key: 'isValid',
-    get: function get$$1() {
-      return this.invalidReason === null;
-    }
-
-    /**
-     * Returns an explanation of why this Duration became invalid, or null if the Duration is valid
-     * @return {string}
-     */
-
-  }, {
-    key: 'invalidReason',
-    get: function get$$1() {
-      return this.invalid;
-    }
-  }]);
-  return Duration;
-}();
-
-var INVALID$1 = 'Invalid Interval';
-
-// checks if the start is equal to or before the end
-function validateStartEnd(start, end) {
-  return !!start && !!end && start.isValid && end.isValid && start <= end;
-}
-
-/**
- * An Interval object represents a half-open interval of time, where each endpoint is a {@link DateTime}. Conceptually, it's a container for those two endpoints, accompanied by methods for creating, parsing, interrogating, comparing, transforming, and formatting them.
- *
- * Here is a brief overview of the most commonly used methods and getters in Interval:
- *
- * * **Creation** To create an Interval, use {@link fromDateTimes}, {@link after}, {@link before}, or {@link fromISO}.
- * * **Accessors** Use {@link start} and {@link end} to get the start and end.
- * * **Interrogation** To analyze the Interval, use {@link count}, {@link length}, {@link hasSame}, {@link contains}, {@link isAfter}, or {@link isBefore}.
- * * **Transformation** To create other Intervals out of this one, use {@link set}, {@link splitAt}, {@link splitBy}, {@link divideEqually}, {@link merge}, {@link xor}, {@link union}, {@link intersection}, or {@link difference}.
- * * **Comparison** To compare this Interval to another one, use {@link equals}, {@link overlaps}, {@link abutsStart}, {@link abutsEnd}, {@link engulfs}
- * * **Output*** To convert the Interval into other representations, see {@link toString}, {@link toISO}, {@link toFormat}, and {@link toDuration}.
- */
-
-var Interval = function () {
-  /**
-   * @private
-   */
-  function Interval(config) {
-    classCallCheck(this, Interval);
-
-    /**
-     * @access private
-     */
-    this.s = config.start;
-    /**
-     * @access private
-     */
-    this.e = config.end;
-    /**
-     * @access private
-     */
-    this.invalid = config.invalidReason || null;
-  }
-
-  /**
-   * Create an invalid Interval.
-   * @return {Interval}
-   */
-
-
-  Interval.invalid = function invalid(reason) {
-    if (!reason) {
-      throw new InvalidArgumentError('need to specify a reason the DateTime is invalid');
-    }
-    if (Settings.throwOnInvalid) {
-      throw new InvalidIntervalError(reason);
-    } else {
-      return new Interval({ invalidReason: reason });
-    }
-  };
-
-  /**
-   * Create an Interval from a start DateTime and an end DateTime. Inclusive of the start but not the end.
-   * @param {DateTime|Date|Object} start
-   * @param {DateTime|Date|Object} end
-   * @return {Interval}
-   */
-
-
-  Interval.fromDateTimes = function fromDateTimes(start, end) {
-    var builtStart = friendlyDateTime(start),
-        builtEnd = friendlyDateTime(end);
-
-    return new Interval({
-      start: builtStart,
-      end: builtEnd,
-      invalidReason: validateStartEnd(builtStart, builtEnd) ? null : 'invalid endpoints'
-    });
-  };
-
-  /**
-   * Create an Interval from a start DateTime and a Duration to extend to.
-   * @param {DateTime|Date|Object} start
-   * @param {Duration|Object|number} duration - the length of the Interval.
-   * @return {Interval}
-   */
-
-
-  Interval.after = function after(start, duration) {
-    var dur = friendlyDuration(duration),
-        dt = friendlyDateTime(start);
-    return Interval.fromDateTimes(dt, dt.plus(dur));
-  };
-
-  /**
-   * Create an Interval from an end DateTime and a Duration to extend backwards to.
-   * @param {DateTime|Date|Object} end
-   * @param {Duration|Object|number} duration - the length of the Interval.
-   * @return {Interval}
-   */
-
-
-  Interval.before = function before(end, duration) {
-    var dur = friendlyDuration(duration),
-        dt = friendlyDateTime(end);
-    return Interval.fromDateTimes(dt.minus(dur), dt);
-  };
-
-  /**
-   * Create an Interval from an ISO 8601 string
-   * @param {string} string - the ISO string to parse
-   * @param {Object} opts - options to pass {@see DateTime.fromISO}
-   * @return {Interval}
-   */
-
-
-  Interval.fromISO = function fromISO(string, opts) {
-    if (string) {
-      var _string$split = string.split(/\//),
-          s = _string$split[0],
-          e = _string$split[1];
-
-      if (s && e) {
-        return Interval.fromDateTimes(DateTime.fromISO(s, opts), DateTime.fromISO(e, opts));
-      }
-    }
-    return Interval.invalid('invalid ISO format');
-  };
-
-  /**
-   * Returns the start of the Interval
-   * @type {DateTime}
-   */
-
-
-  /**
-   * Returns the length of the Interval in the specified unit.
-   * @param {string} unit - the unit (such as 'hours' or 'days') to return the length in.
-   * @return {number}
-   */
-  Interval.prototype.length = function length() {
-    var unit = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'milliseconds';
-
-    return this.isValid ? this.toDuration.apply(this, [unit]).get(unit) : NaN;
-  };
-
-  /**
-   * Returns the count of minutes, hours, days, months, or years included in the Interval, even in part.
-   * Unlike {@link length} this counts sections of the calendar, not periods of time, e.g. specifying 'day'
-   * asks 'what dates are included in this interval?', not 'how many days long is this interval?'
-   * @param {string} [unit='milliseconds'] - the unit of time to count.
-   * @return {number}
-   */
-
-
-  Interval.prototype.count = function count() {
-    var unit = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'milliseconds';
-
-    if (!this.isValid) return NaN;
-    var start = this.start.startOf(unit),
-        end = this.end.startOf(unit);
-    return Math.floor(end.diff(start, unit).get(unit)) + 1;
-  };
-
-  /**
-   * Returns whether this Interval's start and end are both in the same unit of time
-   * @param {string} unit - the unit of time to check sameness on
-   * @return {boolean}
-   */
-
-
-  Interval.prototype.hasSame = function hasSame(unit) {
-    return this.isValid ? this.e.minus(1).hasSame(this.s, unit) : false;
-  };
-
-  /**
-   * Return whether this Interval has the same start and end DateTimes.
-   * @return {boolean}
-   */
-
-
-  Interval.prototype.isEmpty = function isEmpty() {
-    return this.s.valueOf() === this.e.valueOf();
-  };
-
-  /**
-   * Return whether this Interval's start is after the specified DateTime.
-   * @param {DateTime} dateTime
-   * @return {boolean}
-   */
-
-
-  Interval.prototype.isAfter = function isAfter(dateTime) {
-    if (!this.isValid) return false;
-    return this.s > dateTime;
-  };
-
-  /**
-   * Return whether this Interval's end is before the specified DateTime.
-   * @param {DateTime} dateTime
-   * @return {boolean}
-   */
-
-
-  Interval.prototype.isBefore = function isBefore(dateTime) {
-    if (!this.isValid) return false;
-    return this.e <= dateTime;
-  };
-
-  /**
-   * Return whether this Interval contains the specified DateTime.
-   * @param {DateTime} dateTime
-   * @return {boolean}
-   */
-
-
-  Interval.prototype.contains = function contains(dateTime) {
-    if (!this.isValid) return false;
-    return this.s <= dateTime && this.e > dateTime;
-  };
-
-  /**
-   * "Sets" the start and/or end dates. Returns a newly-constructed Interval.
-   * @param {Object} values - the values to set
-   * @param {DateTime} values.start - the starting DateTime
-   * @param {DateTime} values.end - the ending DateTime
-   * @return {Interval}
-   */
-
-
-  Interval.prototype.set = function set$$1() {
-    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-        start = _ref.start,
-        end = _ref.end;
-
-    if (!this.isValid) return this;
-    return Interval.fromDateTimes(start || this.s, end || this.e);
-  };
-
-  /**
-   * Split this Interval at each of the specified DateTimes
-   * @param {...[DateTime]} dateTimes - the unit of time to count.
-   * @return {[Interval]}
-   */
-
-
-  Interval.prototype.splitAt = function splitAt() {
-    if (!this.isValid) return [];
-
-    for (var _len = arguments.length, dateTimes = Array(_len), _key = 0; _key < _len; _key++) {
-      dateTimes[_key] = arguments[_key];
-    }
-
-    var sorted = dateTimes.map(friendlyDateTime).sort(),
-        results = [];
-    var s = this.s,
-        i = 0;
-
-
-    while (s < this.e) {
-      var added = sorted[i] || this.e,
-          next = +added > +this.e ? this.e : added;
-      results.push(Interval.fromDateTimes(s, next));
-      s = next;
-      i += 1;
-    }
-
-    return results;
-  };
-
-  /**
-   * Split this Interval into smaller Intervals, each of the specified length.
-   * Left over time is grouped into a smaller interval
-   * @param {Duration|Object|number} duration - The length of each resulting interval.
-   * @return {[Interval]}
-   */
-
-
-  Interval.prototype.splitBy = function splitBy(duration) {
-    var dur = friendlyDuration(duration);
-
-    if (!this.isValid || !dur.isValid || dur.as('milliseconds') === 0) {
-      return [];
-    }
-
-    var s = this.s,
-        added = void 0,
-        next = void 0;
-
-
-    var results = [];
-    while (s < this.e) {
-      added = s.plus(dur);
-      next = +added > +this.e ? this.e : added;
-      results.push(Interval.fromDateTimes(s, next));
-      s = next;
-    }
-
-    return results;
-  };
-
-  /**
-   * Split this Interval into the specified number of smaller intervals.
-   * @param {number} numberOfParts - The number of Intervals to divide the Interval into.
-   * @return {[Interval]}
-   */
-
-
-  Interval.prototype.divideEqually = function divideEqually(numberOfParts) {
-    if (!this.isValid) return [];
-    return this.splitBy(this.length() / numberOfParts).slice(0, numberOfParts);
-  };
-
-  /**
-   * Return whether this Interval overlaps with the specified Interval
-   * @param {Interval} other
-   * @return {boolean}
-   */
-
-
-  Interval.prototype.overlaps = function overlaps(other) {
-    return this.e > other.s && this.s < other.e;
-  };
-
-  /**
-   * Return whether this Interval's end is adjacent to the specified Interval's start.
-   * @param {Interval} other
-   * @return {boolean}
-   */
-
-
-  Interval.prototype.abutsStart = function abutsStart(other) {
-    if (!this.isValid) return false;
-    return +this.e === +other.s;
-  };
-
-  /**
-   * Return whether this Interval's start is adjacent to the specified Interval's end.
-   * @param {Interval} other
-   * @return {boolean}
-   */
-
-
-  Interval.prototype.abutsEnd = function abutsEnd(other) {
-    if (!this.isValid) return false;
-    return +other.e === +this.s;
-  };
-
-  /**
-   * Return whether this Interval engulfs the start and end of the specified Interval.
-   * @param {Interval} other
-   * @return {boolean}
-   */
-
-
-  Interval.prototype.engulfs = function engulfs(other) {
-    if (!this.isValid) return false;
-    return this.s <= other.s && this.e >= other.e;
-  };
-
-  /**
-   * Return whether this Interval has the same start and end as the specified Interval.
-   * @param {Interval} other
-   * @return {boolean}
-   */
-
-
-  Interval.prototype.equals = function equals(other) {
-    if (!this.isValid || !other.isValid) {
-      return false;
-    }
-
-    return this.s.equals(other.s) && this.e.equals(other.e);
-  };
-
-  /**
-   * Return an Interval representing the intersection of this Interval and the specified Interval.
-   * Specifically, the resulting Interval has the maximum start time and the minimum end time of the two Intervals.
-   * Returns null if the intersection is empty, i.e., the intervals don't intersect.
-   * @param {Interval} other
-   * @return {Interval}
-   */
-
-
-  Interval.prototype.intersection = function intersection(other) {
-    if (!this.isValid) return this;
-    var s = this.s > other.s ? this.s : other.s,
-        e = this.e < other.e ? this.e : other.e;
-
-    if (s > e) {
-      return null;
-    } else {
-      return Interval.fromDateTimes(s, e);
-    }
-  };
-
-  /**
-   * Return an Interval representing the union of this Interval and the specified Interval.
-   * Specifically, the resulting Interval has the minimum start time and the maximum end time of the two Intervals.
-   * @param {Interval} other
-   * @return {Interval}
-   */
-
-
-  Interval.prototype.union = function union(other) {
-    if (!this.isValid) return this;
-    var s = this.s < other.s ? this.s : other.s,
-        e = this.e > other.e ? this.e : other.e;
-    return Interval.fromDateTimes(s, e);
-  };
-
-  /**
-   * Merge an array of Intervals into a equivalent minimal set of Intervals.
-   * Combines overlapping and adjacent Intervals.
-   * @param {[Interval]} intervals
-   * @return {[Interval]}
-   */
-
-
-  Interval.merge = function merge(intervals) {
-    var _intervals$sort$reduc = intervals.sort(function (a, b) {
-      return a.s - b.s;
-    }).reduce(function (_ref2, item) {
-      var sofar = _ref2[0],
-          current = _ref2[1];
-
-      if (!current) {
-        return [sofar, item];
-      } else if (current.overlaps(item) || current.abutsStart(item)) {
-        return [sofar, current.union(item)];
-      } else {
-        return [sofar.concat([current]), item];
-      }
-    }, [[], null]),
-        found = _intervals$sort$reduc[0],
-        final = _intervals$sort$reduc[1];
-
-    if (final) {
-      found.push(final);
-    }
-    return found;
-  };
-
-  /**
-   * Return an array of Intervals representing the spans of time that only appear in one of the specified Intervals.
-   * @param {[Interval]} intervals
-   * @return {[Interval]}
-   */
-
-
-  Interval.xor = function xor(intervals) {
-    var _Array$prototype;
-
-    var start = null,
-        currentCount = 0;
-    var results = [],
-        ends = intervals.map(function (i) {
-      return [{ time: i.s, type: 's' }, { time: i.e, type: 'e' }];
-    }),
-        flattened = (_Array$prototype = Array.prototype).concat.apply(_Array$prototype, ends),
-        arr = flattened.sort(function (a, b) {
-      return a.time - b.time;
-    });
-
-    for (var _iterator = arr, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-      var _ref3;
-
-      if (_isArray) {
-        if (_i >= _iterator.length) break;
-        _ref3 = _iterator[_i++];
-      } else {
-        _i = _iterator.next();
-        if (_i.done) break;
-        _ref3 = _i.value;
-      }
-
-      var i = _ref3;
-
-      currentCount += i.type === 's' ? 1 : -1;
-
-      if (currentCount === 1) {
-        start = i.time;
-      } else {
-        if (start && +start !== +i.time) {
-          results.push(Interval.fromDateTimes(start, i.time));
-        }
-
-        start = null;
-      }
-    }
-
-    return Interval.merge(results);
-  };
-
-  /**
-   * Return an Interval representing the span of time in this Interval that doesn't overlap with any of the specified Intervals.
-   * @param {...Interval} intervals
-   * @return {[Interval]}
-   */
-
-
-  Interval.prototype.difference = function difference() {
-    var _this = this;
-
-    for (var _len2 = arguments.length, intervals = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-      intervals[_key2] = arguments[_key2];
-    }
-
-    return Interval.xor([this].concat(intervals)).map(function (i) {
-      return _this.intersection(i);
-    }).filter(function (i) {
-      return i && !i.isEmpty();
-    });
-  };
-
-  /**
-   * Returns a string representation of this Interval appropriate for debugging.
-   * @return {string}
-   */
-
-
-  Interval.prototype.toString = function toString() {
-    if (!this.isValid) return INVALID$1;
-    return '[' + this.s.toISO() + ' \u2013 ' + this.e.toISO() + ')';
-  };
-
-  /**
-   * Returns a string representation of this Interval appropriate for the REPL.
-   * @return {string}
-   */
-
-
-  Interval.prototype[customInspectSymbol] = function () {
-    if (this.isValid) {
-      return 'Interval {\n  start: ' + this.start.toISO() + ',\n  end: ' + this.end.toISO() + ',\n  zone:   ' + this.start.zone.name + ',\n  locale:   ' + this.start.locale + ' }';
-    } else {
-      return 'Interval { Invalid, reason: ' + this.invalidReason + ' }';
-    }
-  };
-
-  /**
-   * Returns an ISO 8601-compliant string representation of this Interval.
-   * @see https://en.wikipedia.org/wiki/ISO_8601#Time_intervals
-   * @param {Object} opts - The same options as {@link DateTime.toISO}
-   * @return {string}
-   */
-
-
-  Interval.prototype.toISO = function toISO(opts) {
-    if (!this.isValid) return INVALID$1;
-    return this.s.toISO(opts) + '/' + this.e.toISO(opts);
-  };
-
-  /**
-   * Returns a string representation of this Interval formatted according to the specified format string.
-   * @param {string} dateFormat - the format string. This string formats the start and end time. See {@link DateTime.toFormat} for details.
-   * @param {Object} opts - options
-   * @param {string} [opts.separator =  ' – '] - a separator to place between the start and end representations
-   * @return {string}
-   */
-
-
-  Interval.prototype.toFormat = function toFormat(dateFormat) {
-    var _ref4 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-        _ref4$separator = _ref4.separator,
-        separator = _ref4$separator === undefined ? ' – ' : _ref4$separator;
-
-    if (!this.isValid) return INVALID$1;
-    return '' + this.s.toFormat(dateFormat) + separator + this.e.toFormat(dateFormat);
-  };
-
-  /**
-   * Return a Duration representing the time spanned by this interval.
-   * @param {string|string[]} [unit=['milliseconds']] - the unit or units (such as 'hours' or 'days') to include in the duration.
-   * @param {Object} opts - options that affect the creation of the Duration
-   * @param {string} [opts.conversionAccuracy='casual'] - the conversion system to use
-   * @example Interval.fromDateTimes(dt1, dt2).toDuration().toObject() //=> { milliseconds: 88489257 }
-   * @example Interval.fromDateTimes(dt1, dt2).toDuration('days').toObject() //=> { days: 1.0241812152777778 }
-   * @example Interval.fromDateTimes(dt1, dt2).toDuration(['hours', 'minutes']).toObject() //=> { hours: 24, minutes: 34.82095 }
-   * @example Interval.fromDateTimes(dt1, dt2).toDuration(['hours', 'minutes', 'seconds']).toObject() //=> { hours: 24, minutes: 34, seconds: 49.257 }
-   * @example Interval.fromDateTimes(dt1, dt2).toDuration('seconds').toObject() //=> { seconds: 88489.257 }
-   * @return {Duration}
-   */
-
-
-  Interval.prototype.toDuration = function toDuration(unit, opts) {
-    if (!this.isValid) {
-      return Duration.invalid(this.invalidReason);
-    }
-    return this.e.diff(this.s, unit, opts);
-  };
-
-  createClass(Interval, [{
-    key: 'start',
-    get: function get$$1() {
-      return this.isValid ? this.s : null;
-    }
-
-    /**
-     * Returns the end of the Interval
-     * @type {DateTime}
-     */
-
-  }, {
-    key: 'end',
-    get: function get$$1() {
-      return this.isValid ? this.e : null;
-    }
-
-    /**
-     * Returns whether this Interval's end is at least its start, i.e. that the Interval isn't 'backwards'.
-     * @type {boolean}
-     */
-
-  }, {
-    key: 'isValid',
-    get: function get$$1() {
-      return this.invalidReason === null;
-    }
-
-    /**
-     * Returns an explanation of why this Interval became invalid, or null if the Interval is valid
-     * @type {string}
-     */
-
-  }, {
-    key: 'invalidReason',
-    get: function get$$1() {
-      return this.invalid;
-    }
-  }]);
-  return Interval;
-}();
-
-/**
- * The Info class contains static methods for retrieving general time and date related data. For example, it has methods for finding out if a time zone has a DST, for listing the months in any supported locale, and for discovering which of Luxon features are available in the current environment.
- */
-
-var Info = function () {
-  function Info() {
-    classCallCheck(this, Info);
-  }
-
-  /**
-   * Return whether the specified zone contains a DST.
-   * @param {string|Zone} [zone='local'] - Zone to check. Defaults to the environment's local zone.
-   * @return {boolean}
-   */
-  Info.hasDST = function hasDST() {
-    var zone = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : Settings.defaultZone;
-
-    var proto = DateTime.local().setZone(zone).set({ month: 12 });
-
-    return !zone.universal && proto.offset !== proto.set({ month: 6 }).offset;
-  };
-
-  /**
-   * Return whether the specified zone is a valid IANA specifier.
-   * @param {string} zone - Zone to check
-   * @return {boolean}
-   */
-
-
-  Info.isValidIANAZone = function isValidIANAZone(zone) {
-    return !!IANAZone.isValidSpecifier(zone) && IANAZone.isValidZone(zone);
-  };
-
-  /**
-   * Return an array of standalone month names.
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat
-   * @param {string} [length='long'] - the length of the month representation, such as "numeric", "2-digit", "narrow", "short", "long"
-   * @param {Object} opts - options
-   * @param {string} [opts.locale] - the locale code
-   * @param {string} [opts.numberingSystem=null] - the numbering system
-   * @param {string} [opts.outputCalendar='gregory'] - the calendar
-   * @example Info.months()[0] //=> 'January'
-   * @example Info.months('short')[0] //=> 'Jan'
-   * @example Info.months('numeric')[0] //=> '1'
-   * @example Info.months('short', { locale: 'fr-CA' } )[0] //=> 'janv.'
-   * @example Info.months('numeric', { locale: 'ar' })[0] //=> '١'
-   * @example Info.months('long', { outputCalendar: 'islamic' })[0] //=> 'Rabiʻ I'
-   * @return {[string]}
-   */
-
-
-  Info.months = function months() {
-    var length = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'long';
-
-    var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-        _ref$locale = _ref.locale,
-        locale = _ref$locale === undefined ? null : _ref$locale,
-        _ref$numberingSystem = _ref.numberingSystem,
-        numberingSystem = _ref$numberingSystem === undefined ? null : _ref$numberingSystem,
-        _ref$outputCalendar = _ref.outputCalendar,
-        outputCalendar = _ref$outputCalendar === undefined ? 'gregory' : _ref$outputCalendar;
-
-    return Locale.create(locale, numberingSystem, outputCalendar).months(length);
-  };
-
-  /**
-   * Return an array of format month names.
-   * Format months differ from standalone months in that they're meant to appear next to the day of the month. In some languages, that
-   * changes the string.
-   * See {@link months}
-   * @param {string} [length='long'] - the length of the month representation, such as "numeric", "2-digit", "narrow", "short", "long"
-   * @param {Object} opts - options
-   * @param {string} [opts.locale] - the locale code
-   * @param {string} [opts.numberingSystem=null] - the numbering system
-   * @param {string} [opts.outputCalendar='gregory'] - the calendar
-   * @return {[string]}
-   */
-
-
-  Info.monthsFormat = function monthsFormat() {
-    var length = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'long';
-
-    var _ref2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-        _ref2$locale = _ref2.locale,
-        locale = _ref2$locale === undefined ? null : _ref2$locale,
-        _ref2$numberingSystem = _ref2.numberingSystem,
-        numberingSystem = _ref2$numberingSystem === undefined ? null : _ref2$numberingSystem,
-        _ref2$outputCalendar = _ref2.outputCalendar,
-        outputCalendar = _ref2$outputCalendar === undefined ? 'gregory' : _ref2$outputCalendar;
-
-    return Locale.create(locale, numberingSystem, outputCalendar).months(length, true);
-  };
-
-  /**
-   * Return an array of standalone week names.
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat
-   * @param {string} [length='long'] - the length of the month representation, such as "narrow", "short", "long".
-   * @param {Object} opts - options
-   * @param {string} [opts.locale] - the locale code
-   * @param {string} [opts.numberingSystem=null] - the numbering system
-   * @example Info.weekdays()[0] //=> 'Monday'
-   * @example Info.weekdays('short')[0] //=> 'Mon'
-   * @example Info.weekdays('short', { locale: 'fr-CA' })[0] //=> 'lun.'
-   * @example Info.weekdays('short', { locale: 'ar' })[0] //=> 'الاثنين'
-   * @return {[string]}
-   */
-
-
-  Info.weekdays = function weekdays() {
-    var length = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'long';
-
-    var _ref3 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-        _ref3$locale = _ref3.locale,
-        locale = _ref3$locale === undefined ? null : _ref3$locale,
-        _ref3$numberingSystem = _ref3.numberingSystem,
-        numberingSystem = _ref3$numberingSystem === undefined ? null : _ref3$numberingSystem;
-
-    return Locale.create(locale, numberingSystem, null).weekdays(length);
-  };
-
-  /**
-   * Return an array of format week names.
-   * Format weekdays differ from standalone weekdays in that they're meant to appear next to more date information. In some languages, that
-   * changes the string.
-   * See {@link weekdays}
-   * @param {string} [length='long'] - the length of the month representation, such as "narrow", "short", "long".
-   * @param {Object} opts - options
-   * @param {string} [opts.locale=null] - the locale code
-   * @param {string} [opts.numberingSystem=null] - the numbering system
-   * @return {[string]}
-   */
-
-
-  Info.weekdaysFormat = function weekdaysFormat() {
-    var length = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'long';
-
-    var _ref4 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-        _ref4$locale = _ref4.locale,
-        locale = _ref4$locale === undefined ? null : _ref4$locale,
-        _ref4$numberingSystem = _ref4.numberingSystem,
-        numberingSystem = _ref4$numberingSystem === undefined ? null : _ref4$numberingSystem;
-
-    return Locale.create(locale, numberingSystem, null).weekdays(length, true);
-  };
-
-  /**
-   * Return an array of meridiems.
-   * @param {Object} opts - options
-   * @param {string} [opts.locale] - the locale code
-   * @example Info.meridiems() //=> [ 'AM', 'PM' ]
-   * @example Info.meridiems({ locale: 'de' }) //=> [ 'vorm.', 'nachm.' ]
-   * @return {[string]}
-   */
-
-
-  Info.meridiems = function meridiems() {
-    var _ref5 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-        _ref5$locale = _ref5.locale,
-        locale = _ref5$locale === undefined ? null : _ref5$locale;
-
-    return Locale.create(locale).meridiems();
-  };
-
-  /**
-   * Return an array of eras, such as ['BC', 'AD']. The locale can be specified, but the calendar system is always Gregorian.
-   * @param {string} [length='short'] - the length of the era representation, such as "short" or "long".
-   * @param {Object} opts - options
-   * @param {string} [opts.locale] - the locale code
-   * @example Info.eras() //=> [ 'BC', 'AD' ]
-   * @example Info.eras('long') //=> [ 'Before Christ', 'Anno Domini' ]
-   * @example Info.eras('long', { locale: 'fr' }) //=> [ 'avant Jésus-Christ', 'après Jésus-Christ' ]
-   * @return {[string]}
-   */
-
-
-  Info.eras = function eras() {
-    var length = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'short';
-
-    var _ref6 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-        _ref6$locale = _ref6.locale,
-        locale = _ref6$locale === undefined ? null : _ref6$locale;
-
-    return Locale.create(locale, null, 'gregory').eras(length);
-  };
-
-  /**
-   * Return the set of available features in this environment.
-   * Some features of Luxon are not available in all environments. For example, on older browsers, timezone support is not available. Use this function to figure out if that's the case.
-   * Keys:
-   * * `zones`: whether this environment supports IANA timezones
-   * * `intlTokens`: whether this environment supports internationalized token-based formatting/parsing
-   * * `intl`: whether this environment supports general internationalization
-   * @example Info.features() //=> { intl: true, intlTokens: false, zones: true }
-   * @return {Object}
-   */
-
-
-  Info.features = function features() {
-    var intl = false,
-        intlTokens = false,
-        zones = false;
-
-    if (hasIntl()) {
-      intl = true;
-      intlTokens = hasFormatToParts();
-
-      try {
-        zones = new Intl.DateTimeFormat('en', { timeZone: 'America/New_York' }).resolvedOptions().timeZone === 'America/New_York';
-      } catch (e) {
-        zones = false;
-      }
-    }
-
-    return { intl: intl, intlTokens: intlTokens, zones: zones };
-  };
-
-  return Info;
-}();
-
-function dayDiff(earlier, later) {
-  var utcDayStart = function utcDayStart(dt) {
-    return dt.toUTC(0, { keepLocalTime: true }).startOf('day').valueOf();
-  },
-      ms = utcDayStart(later) - utcDayStart(earlier);
-  return Math.floor(Duration.fromMillis(ms).as('days'));
-}
-
-function highOrderDiffs(cursor, later, units) {
-  var differs = [['years', function (a, b) {
-    return b.year - a.year;
-  }], ['months', function (a, b) {
-    return b.month - a.month + (b.year - a.year) * 12;
-  }], ['weeks', function (a, b) {
-    var days = dayDiff(a, b);
-    return (days - days % 7) / 7;
-  }], ['days', dayDiff]];
-
-  var results = {};
-  var lowestOrder = void 0,
-      highWater = void 0;
-
-  for (var _iterator = differs, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-    var _ref2;
-
-    if (_isArray) {
-      if (_i >= _iterator.length) break;
-      _ref2 = _iterator[_i++];
-    } else {
-      _i = _iterator.next();
-      if (_i.done) break;
-      _ref2 = _i.value;
-    }
-
-    var _ref = _ref2;
-    var unit = _ref[0];
-    var differ = _ref[1];
-
-    if (units.indexOf(unit) >= 0) {
-      var _cursor$plus;
-
-      lowestOrder = unit;
-
-      var delta = differ(cursor, later);
-
-      highWater = cursor.plus((_cursor$plus = {}, _cursor$plus[unit] = delta, _cursor$plus));
-
-      if (highWater > later) {
-        var _highWater$minus;
-
-        cursor = highWater.minus((_highWater$minus = {}, _highWater$minus[unit] = 1, _highWater$minus));
-        delta -= 1;
-      } else {
-        cursor = highWater;
-      }
-
-      if (delta > 0) {
-        results[unit] = delta;
-      }
-    }
-  }
-
-  return [cursor, results, highWater, lowestOrder];
-}
-
-function _diff (earlier, later, units, opts) {
-  var _highOrderDiffs = highOrderDiffs(earlier, later, units),
-      cursor = _highOrderDiffs[0],
-      results = _highOrderDiffs[1],
-      highWater = _highOrderDiffs[2],
-      lowestOrder = _highOrderDiffs[3];
-
-  var remainingMillis = later - cursor;
-
-  var lowerOrderUnits = units.filter(function (u) {
-    return ['hours', 'minutes', 'seconds', 'milliseconds'].indexOf(u) >= 0;
-  });
-
-  if (lowerOrderUnits.length === 0) {
-    if (highWater < later) {
-      var _cursor$plus2;
-
-      highWater = cursor.plus((_cursor$plus2 = {}, _cursor$plus2[lowestOrder] = 1, _cursor$plus2));
-    }
-
-    if (highWater !== cursor) {
-      results[lowestOrder] = (results[lowestOrder] || 0) + remainingMillis / (highWater - cursor);
-    }
-  }
-
-  var duration = Duration.fromObject(Object.assign(results, opts));
-
-  if (lowerOrderUnits.length > 0) {
-    var _Duration$fromMillis;
-
-    return (_Duration$fromMillis = Duration.fromMillis(remainingMillis, opts)).shiftTo.apply(_Duration$fromMillis, lowerOrderUnits).plus(duration);
-  } else {
-    return duration;
-  }
-}
-
-var MISSING_FTP = 'missing Intl.DateTimeFormat.formatToParts support';
-
-function intUnit(regex) {
-  var post = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function (i) {
-    return i;
-  };
-
-  return { regex: regex, deser: function deser(_ref) {
-      var s = _ref[0];
-      return post(parseInt(s));
-    } };
-}
-
-function fixListRegex(s) {
-  // make dots optional and also make them literal
-  return s.replace(/\./, '\\.?');
-}
-
-function stripInsensitivities(s) {
-  return s.replace(/\./, '').toLowerCase();
-}
-
-function oneOf(strings, startIndex) {
-  if (strings === null) {
-    return null;
-  } else {
-    return {
-      regex: RegExp(strings.map(fixListRegex).join('|')),
-      deser: function deser(_ref2) {
-        var s = _ref2[0];
-        return strings.findIndex(function (i) {
-          return stripInsensitivities(s) === stripInsensitivities(i);
-        }) + startIndex;
-      }
-    };
-  }
-}
-
-function offset(regex, groups) {
-  return { regex: regex, deser: function deser(_ref3) {
-      var h = _ref3[1],
-          m = _ref3[2];
-      return signedOffset(h, m);
-    }, groups: groups };
-}
-
-function simple(regex) {
-  return { regex: regex, deser: function deser(_ref4) {
-      var s = _ref4[0];
-      return s;
-    } };
-}
-
-function unitForToken(token, loc) {
-  var one = /\d/,
-      two = /\d{2}/,
-      three = /\d{3}/,
-      four = /\d{4}/,
-      oneOrTwo = /\d{1,2}/,
-      oneToThree = /\d{1,3}/,
-      twoToFour = /\d{2,4}/,
-      literal = function literal(t) {
-    return { regex: RegExp(t.val), deser: function deser(_ref5) {
-        var s = _ref5[0];
-        return s;
-      }, literal: true };
-  },
-      unitate = function unitate(t) {
-    if (token.literal) {
-      return literal(t);
-    }
-    switch (t.val) {
-      // era
-      case 'G':
-        return oneOf(loc.eras('short', false), 0);
-      case 'GG':
-        return oneOf(loc.eras('long', false), 0);
-      // years
-      case 'y':
-        return intUnit(/\d{1,6}/);
-      case 'yy':
-        return intUnit(twoToFour, untruncateYear);
-      case 'yyyy':
-        return intUnit(four);
-      case 'yyyyy':
-        return intUnit(/\d{4,6}/);
-      case 'yyyyyy':
-        return intUnit(/\d{6}/);
-      // months
-      case 'M':
-        return intUnit(oneOrTwo);
-      case 'MM':
-        return intUnit(two);
-      case 'MMM':
-        return oneOf(loc.months('short', false, false), 1);
-      case 'MMMM':
-        return oneOf(loc.months('long', false, false), 1);
-      case 'L':
-        return intUnit(oneOrTwo);
-      case 'LL':
-        return intUnit(two);
-      case 'LLL':
-        return oneOf(loc.months('short', true, false), 1);
-      case 'LLLL':
-        return oneOf(loc.months('long', true, false), 1);
-      // dates
-      case 'd':
-        return intUnit(oneOrTwo);
-      case 'dd':
-        return intUnit(two);
-      // ordinals
-      case 'o':
-        return intUnit(oneToThree);
-      case 'ooo':
-        return intUnit(three);
-      // time
-      case 'HH':
-        return intUnit(two);
-      case 'H':
-        return intUnit(oneOrTwo);
-      case 'hh':
-        return intUnit(two);
-      case 'h':
-        return intUnit(oneOrTwo);
-      case 'mm':
-        return intUnit(two);
-      case 'm':
-        return intUnit(oneOrTwo);
-      case 's':
-        return intUnit(oneOrTwo);
-      case 'ss':
-        return intUnit(two);
-      case 'S':
-        return intUnit(oneToThree);
-      case 'SSS':
-        return intUnit(three);
-      case 'u':
-        return simple(/\d{1,9}/);
-      // meridiem
-      case 'a':
-        return oneOf(loc.meridiems(), 0);
-      // weekYear (k)
-      case 'kkkk':
-        return intUnit(four);
-      case 'kk':
-        return intUnit(twoToFour, untruncateYear);
-      // weekNumber (W)
-      case 'W':
-        return intUnit(oneOrTwo);
-      case 'WW':
-        return intUnit(two);
-      // weekdays
-      case 'E':
-      case 'c':
-        return intUnit(one);
-      case 'EEE':
-        return oneOf(loc.weekdays('short', false, false), 1);
-      case 'EEEE':
-        return oneOf(loc.weekdays('long', false, false), 1);
-      case 'ccc':
-        return oneOf(loc.weekdays('short', true, false), 1);
-      case 'cccc':
-        return oneOf(loc.weekdays('long', true, false), 1);
-      // offset/zone
-      case 'Z':
-      case 'ZZ':
-        return offset(/([+-]\d{1,2})(?::(\d{2}))?/, 2);
-      case 'ZZZ':
-        return offset(/([+-]\d{1,2})(\d{2})?/, 2);
-      // we don't support ZZZZ (PST) or ZZZZZ (Pacific Standard Time) in parsing
-      // because we don't have any way to figure out what they are
-      case 'z':
-        return simple(/[A-Za-z_]{1,256}\/[A-Za-z_]{1,256}/);
-      default:
-        return literal(t);
-    }
-  };
-
-  var unit = unitate(token) || {
-    invalidReason: MISSING_FTP
-  };
-
-  unit.token = token;
-
-  return unit;
-}
-
-function buildRegex(units) {
-  var re = units.map(function (u) {
-    return u.regex;
-  }).reduce(function (f, r) {
-    return f + '(' + r.source + ')';
-  }, '');
-  return ['^' + re + '$', units];
-}
-
-function match(input, regex, handlers) {
-  var matches = input.match(regex);
-
-  if (matches) {
-    var all = {};
-    var matchIndex = 1;
-    for (var i in handlers) {
-      if (handlers.hasOwnProperty(i)) {
-        var h = handlers[i],
-            groups = h.groups ? h.groups + 1 : 1;
-        if (!h.literal && h.token) {
-          all[h.token.val[0]] = h.deser(matches.slice(matchIndex, matchIndex + groups));
-        }
-        matchIndex += groups;
-      }
-    }
-    return [matches, all];
-  } else {
-    return [matches, {}];
-  }
-}
-
-function dateTimeFromMatches(matches) {
-  var toField = function toField(token) {
-    switch (token) {
-      case 'S':
-        return 'millisecond';
-      case 's':
-        return 'second';
-      case 'm':
-        return 'minute';
-      case 'h':
-      case 'H':
-        return 'hour';
-      case 'd':
-        return 'day';
-      case 'o':
-        return 'ordinal';
-      case 'L':
-      case 'M':
-        return 'month';
-      case 'y':
-        return 'year';
-      case 'E':
-      case 'c':
-        return 'weekday';
-      case 'W':
-        return 'weekNumber';
-      case 'k':
-        return 'weekYear';
-      default:
-        return null;
-    }
-  };
-
-  var zone = void 0;
-  if (!isUndefined(matches.Z)) {
-    zone = new FixedOffsetZone(matches.Z);
-  } else if (!isUndefined(matches.z)) {
-    zone = new IANAZone(matches.z);
-  } else {
-    zone = null;
-  }
-
-  if (!isUndefined(matches.h)) {
-    if (matches.h < 12 && matches.a === 1) {
-      matches.h += 12;
-    } else if (matches.h === 12 && matches.a === 0) {
-      matches.h = 0;
-    }
-  }
-
-  if (matches.G === 0 && matches.y) {
-    matches.y = -matches.y;
-  }
-
-  if (!isUndefined(matches.u)) {
-    matches.S = parseMillis(matches.u);
-  }
-
-  var vals = Object.keys(matches).reduce(function (r, k) {
-    var f = toField(k);
-    if (f) {
-      r[f] = matches[k];
-    }
-
-    return r;
-  }, {});
-
-  return [vals, zone];
-}
-
-/**
- * @private
- */
-
-function explainFromTokens(locale, input, format) {
-  var tokens = Formatter.parseFormat(format),
-      units = tokens.map(function (t) {
-    return unitForToken(t, locale);
-  }),
-      disqualifyingUnit = units.find(function (t) {
-    return t.invalidReason;
-  });
-
-  if (disqualifyingUnit) {
-    return { input: input, tokens: tokens, invalidReason: disqualifyingUnit.invalidReason };
-  } else {
-    var _buildRegex = buildRegex(units),
-        regexString = _buildRegex[0],
-        handlers = _buildRegex[1],
-        regex = RegExp(regexString, 'i'),
-        _match = match(input, regex, handlers),
-        rawMatches = _match[0],
-        matches = _match[1],
-        _ref6 = matches ? dateTimeFromMatches(matches) : [null, null],
-        result = _ref6[0],
-        zone = _ref6[1];
-
-    return { input: input, tokens: tokens, regex: regex, rawMatches: rawMatches, matches: matches, result: result, zone: zone };
-  }
-}
-
-function parseFromTokens(locale, input, format) {
-  var _explainFromTokens = explainFromTokens(locale, input, format),
-      result = _explainFromTokens.result,
-      zone = _explainFromTokens.zone,
-      invalidReason = _explainFromTokens.invalidReason;
-
-  return [result, zone, invalidReason];
-}
-
-var nonLeapLadder = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334],
-    leapLadder = [0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335];
-
-function dayOfWeek(year, month, day) {
-  var js = new Date(Date.UTC(year, month - 1, day)).getUTCDay();
-  return js === 0 ? 7 : js;
-}
-
-function computeOrdinal(year, month, day) {
-  return day + (isLeapYear(year) ? leapLadder : nonLeapLadder)[month - 1];
-}
-
-function uncomputeOrdinal(year, ordinal) {
-  var table = isLeapYear(year) ? leapLadder : nonLeapLadder,
-      month0 = table.findIndex(function (i) {
-    return i < ordinal;
-  }),
-      day = ordinal - table[month0];
-  return { month: month0 + 1, day: day };
-}
-
-/**
- * @private
- */
-
-function gregorianToWeek(gregObj) {
-  var year = gregObj.year,
-      month = gregObj.month,
-      day = gregObj.day,
-      ordinal = computeOrdinal(year, month, day),
-      weekday = dayOfWeek(year, month, day);
-
-
-  var weekNumber = Math.floor((ordinal - weekday + 10) / 7),
-      weekYear = void 0;
-
-  if (weekNumber < 1) {
-    weekYear = year - 1;
-    weekNumber = weeksInWeekYear(weekYear);
-  } else if (weekNumber > weeksInWeekYear(year)) {
-    weekYear = year + 1;
-    weekNumber = 1;
-  } else {
-    weekYear = year;
-  }
-
-  return Object.assign({ weekYear: weekYear, weekNumber: weekNumber, weekday: weekday }, timeObject(gregObj));
-}
-
-function weekToGregorian(weekData) {
-  var weekYear = weekData.weekYear,
-      weekNumber = weekData.weekNumber,
-      weekday = weekData.weekday,
-      weekdayOfJan4 = dayOfWeek(weekYear, 1, 4),
-      yearInDays = daysInYear(weekYear);
-
-  var ordinal = weekNumber * 7 + weekday - weekdayOfJan4 - 3,
-      year = void 0;
-
-  if (ordinal < 1) {
-    year = weekYear - 1;
-    ordinal += daysInYear(year);
-  } else if (ordinal > yearInDays) {
-    year = weekYear + 1;
-    ordinal -= daysInYear(year);
-  } else {
-    year = weekYear;
-  }
-
-  var _uncomputeOrdinal = uncomputeOrdinal(year, ordinal),
-      month = _uncomputeOrdinal.month,
-      day = _uncomputeOrdinal.day;
-
-  return Object.assign({ year: year, month: month, day: day }, timeObject(weekData));
-}
-
-function gregorianToOrdinal(gregData) {
-  var year = gregData.year,
-      month = gregData.month,
-      day = gregData.day,
-      ordinal = computeOrdinal(year, month, day);
-
-
-  return Object.assign({ year: year, ordinal: ordinal }, timeObject(gregData));
-}
-
-function ordinalToGregorian(ordinalData) {
-  var year = ordinalData.year,
-      ordinal = ordinalData.ordinal,
-      _uncomputeOrdinal2 = uncomputeOrdinal(year, ordinal),
-      month = _uncomputeOrdinal2.month,
-      day = _uncomputeOrdinal2.day;
-
-  return Object.assign({ year: year, month: month, day: day }, timeObject(ordinalData));
-}
-
-function hasInvalidWeekData(obj) {
-  var validYear = isNumber(obj.weekYear),
-      validWeek = numberBetween(obj.weekNumber, 1, weeksInWeekYear(obj.weekYear)),
-      validWeekday = numberBetween(obj.weekday, 1, 7);
-
-  if (!validYear) {
-    return 'weekYear out of range';
-  } else if (!validWeek) {
-    return 'week out of range';
-  } else if (!validWeekday) {
-    return 'weekday out of range';
-  } else return false;
-}
-
-function hasInvalidOrdinalData(obj) {
-  var validYear = isNumber(obj.year),
-      validOrdinal = numberBetween(obj.ordinal, 1, daysInYear(obj.year));
-
-  if (!validYear) {
-    return 'year out of range';
-  } else if (!validOrdinal) {
-    return 'ordinal out of range';
-  } else return false;
-}
-
-function hasInvalidGregorianData(obj) {
-  var validYear = isNumber(obj.year),
-      validMonth = numberBetween(obj.month, 1, 12),
-      validDay = numberBetween(obj.day, 1, daysInMonth(obj.year, obj.month));
-
-  if (!validYear) {
-    return 'year out of range';
-  } else if (!validMonth) {
-    return 'month out of range';
-  } else if (!validDay) {
-    return 'day out of range';
-  } else return false;
-}
-
-function hasInvalidTimeData(obj) {
-  var validHour = numberBetween(obj.hour, 0, 23),
-      validMinute = numberBetween(obj.minute, 0, 59),
-      validSecond = numberBetween(obj.second, 0, 59),
-      validMillisecond = numberBetween(obj.millisecond, 0, 999);
-
-  if (!validHour) {
-    return 'hour out of range';
-  } else if (!validMinute) {
-    return 'minute out of range';
-  } else if (!validSecond) {
-    return 'second out of range';
-  } else if (!validMillisecond) {
-    return 'millisecond out of range';
-  } else return false;
-}
-
-var INVALID$2 = 'Invalid DateTime',
-    INVALID_INPUT = 'invalid input',
-    UNSUPPORTED_ZONE = 'unsupported zone',
-    UNPARSABLE$1 = 'unparsable';
-
-// we cache week data on the DT object and this intermediates the cache
-function possiblyCachedWeekData(dt) {
-  if (dt.weekData === null) {
-    dt.weekData = gregorianToWeek(dt.c);
-  }
-  return dt.weekData;
-}
-
-// clone really means, "make a new object with these modifications". all "setters" really use this
-// to create a new object while only changing some of the properties
-function clone$1(inst, alts) {
-  var current = {
-    ts: inst.ts,
-    zone: inst.zone,
-    c: inst.c,
-    o: inst.o,
-    loc: inst.loc,
-    invalidReason: inst.invalidReason
-  };
-  return new DateTime(Object.assign({}, current, alts, { old: current }));
-}
-
-// find the right offset a given local time. The o input is our guess, which determines which
-// offset we'll pick in ambiguous cases (e.g. there are two 3 AMs b/c Fallback DST)
-function fixOffset(localTS, o, tz) {
-  // Our UTC time is just a guess because our offset is just a guess
-  var utcGuess = localTS - o * 60 * 1000;
-
-  // Test whether the zone matches the offset for this ts
-  var o2 = tz.offset(utcGuess);
-
-  // If so, offset didn't change and we're done
-  if (o === o2) {
-    return [utcGuess, o];
-  }
-
-  // If not, change the ts by the difference in the offset
-  utcGuess -= (o2 - o) * 60 * 1000;
-
-  // If that gives us the local time we want, we're done
-  var o3 = tz.offset(utcGuess);
-  if (o2 === o3) {
-    return [utcGuess, o2];
-  }
-
-  // If it's different, we're in a hole time. The offset has changed, but the we don't adjust the time
-  return [localTS - Math.min(o2, o3) * 60 * 1000, Math.max(o2, o3)];
-}
-
-// convert an epoch timestamp into a calendar object with the given offset
-function tsToObj(ts, offset) {
-  ts += offset * 60 * 1000;
-
-  var d = new Date(ts);
-
-  return {
-    year: d.getUTCFullYear(),
-    month: d.getUTCMonth() + 1,
-    day: d.getUTCDate(),
-    hour: d.getUTCHours(),
-    minute: d.getUTCMinutes(),
-    second: d.getUTCSeconds(),
-    millisecond: d.getUTCMilliseconds()
-  };
-}
-
-// covert a calendar object to a local timestamp (epoch, but with the offset baked in)
-function objToLocalTS(obj) {
-  var d = Date.UTC(obj.year, obj.month - 1, obj.day, obj.hour, obj.minute, obj.second, obj.millisecond);
-
-  // for legacy reasons, years between 0 and 99 are interpreted as 19XX; revert that
-  if (obj.year < 100 && obj.year >= 0) {
-    d = new Date(d);
-    d.setUTCFullYear(obj.year);
-  }
-  return +d;
-}
-
-// convert a calendar object to a epoch timestamp
-function objToTS(obj, offset, zone) {
-  return fixOffset(objToLocalTS(obj), offset, zone);
-}
-
-// create a new DT instance by adding a duration, adjusting for DSTs
-function adjustTime(inst, dur) {
-  var oPre = inst.o,
-      year = inst.c.year + dur.years,
-      month = inst.c.month + dur.months + dur.quarters * 3,
-      c = Object.assign({}, inst.c, {
-    year: year,
-    month: month,
-    day: Math.min(inst.c.day, daysInMonth(year, month)) + dur.days + dur.weeks * 7
-  }),
-      millisToAdd = Duration.fromObject({
-    hours: dur.hours,
-    minutes: dur.minutes,
-    seconds: dur.seconds,
-    milliseconds: dur.milliseconds
-  }).as('milliseconds'),
-      localTS = objToLocalTS(c);
-
-  var _fixOffset = fixOffset(localTS, oPre, inst.zone),
-      ts = _fixOffset[0],
-      o = _fixOffset[1];
-
-  if (millisToAdd !== 0) {
-    ts += millisToAdd;
-    // that could have changed the offset by going over a DST, but we want to keep the ts the same
-    o = inst.zone.offset(ts);
-  }
-
-  return { ts: ts, o: o };
-}
-
-// helper useful in turning the results of parsing into real dates
-// by handling the zone options
-function parseDataToDateTime(parsed, parsedZone, opts) {
-  var setZone = opts.setZone,
-      zone = opts.zone;
-
-  if (parsed && Object.keys(parsed).length !== 0) {
-    var interpretationZone = parsedZone || zone,
-        inst = DateTime.fromObject(Object.assign(parsed, opts, {
-      zone: interpretationZone
-    }));
-    return setZone ? inst : inst.setZone(zone);
-  } else {
-    return DateTime.invalid(UNPARSABLE$1);
-  }
-}
-
-// if you want to output a technical format (e.g. RFC 2822), this helper
-// helps handle the details
-function toTechFormat(dt, format) {
-  return dt.isValid ? Formatter.create(Locale.create('en-US'), {
-    allowZ: true,
-    forceSimple: true
-  }).formatDateTimeFromString(dt, format) : null;
-}
-
-// technical time formats (e.g. the time part of ISO 8601), take some options
-// and this commonizes their handling
-function toTechTimeFormat(dt, _ref) {
-  var _ref$suppressSeconds = _ref.suppressSeconds,
-      suppressSeconds = _ref$suppressSeconds === undefined ? false : _ref$suppressSeconds,
-      _ref$suppressMillisec = _ref.suppressMilliseconds,
-      suppressMilliseconds = _ref$suppressMillisec === undefined ? false : _ref$suppressMillisec,
-      _ref$includeOffset = _ref.includeOffset,
-      includeOffset = _ref$includeOffset === undefined ? true : _ref$includeOffset,
-      _ref$includeZone = _ref.includeZone,
-      includeZone = _ref$includeZone === undefined ? false : _ref$includeZone,
-      _ref$spaceZone = _ref.spaceZone,
-      spaceZone = _ref$spaceZone === undefined ? false : _ref$spaceZone;
-
-  var fmt = 'HH:mm';
-
-  if (!suppressSeconds || dt.second !== 0 || dt.millisecond !== 0) {
-    fmt += ':ss';
-    if (!suppressMilliseconds || dt.millisecond !== 0) {
-      fmt += '.SSS';
-    }
-  }
-
-  if ((includeZone || includeOffset) && spaceZone) {
-    fmt += ' ';
-  }
-
-  if (includeZone) {
-    fmt += 'z';
-  } else if (includeOffset) {
-    fmt += 'ZZ';
-  }
-
-  return toTechFormat(dt, fmt);
-}
-
-// defaults for unspecified units in the supported calendars
-var defaultUnitValues = {
-  month: 1,
-  day: 1,
-  hour: 0,
-  minute: 0,
-  second: 0,
-  millisecond: 0
-},
-    defaultWeekUnitValues = {
-  weekNumber: 1,
-  weekday: 1,
-  hour: 0,
-  minute: 0,
-  second: 0,
-  millisecond: 0
-},
-    defaultOrdinalUnitValues = {
-  ordinal: 1,
-  hour: 0,
-  minute: 0,
-  second: 0,
-  millisecond: 0
-};
-
-// Units in the supported calendars, sorted by bigness
-var orderedUnits$1 = ['year', 'month', 'day', 'hour', 'minute', 'second', 'millisecond'],
-    orderedWeekUnits = ['weekYear', 'weekNumber', 'weekday', 'hour', 'minute', 'second', 'millisecond'],
-    orderedOrdinalUnits = ['year', 'ordinal', 'hour', 'minute', 'second', 'millisecond'];
-
-// standardize case and plurality in units
-function normalizeUnit(unit) {
-  var ignoreUnknown = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
-  var normalized = {
-    year: 'year',
-    years: 'year',
-    month: 'month',
-    months: 'month',
-    day: 'day',
-    days: 'day',
-    hour: 'hour',
-    hours: 'hour',
-    minute: 'minute',
-    minutes: 'minute',
-    second: 'second',
-    seconds: 'second',
-    millisecond: 'millisecond',
-    milliseconds: 'millisecond',
-    weekday: 'weekday',
-    weekdays: 'weekday',
-    weeknumber: 'weekNumber',
-    weeksnumber: 'weekNumber',
-    weeknumbers: 'weekNumber',
-    weekyear: 'weekYear',
-    weekyears: 'weekYear',
-    ordinal: 'ordinal'
-  }[unit ? unit.toLowerCase() : unit];
-
-  if (!ignoreUnknown && !normalized) throw new InvalidUnitError(unit);
-
-  return normalized;
-}
-
-// this is a dumbed down version of fromObject() that runs about 60% faster
-// but doesn't do any validation, makes a bunch of assumptions about what units
-// are present, and so on.
-function quickDT(obj, zone) {
-  // assume we have the higher-order units
-  for (var _iterator = orderedUnits$1, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-    var _ref2;
-
-    if (_isArray) {
-      if (_i >= _iterator.length) break;
-      _ref2 = _iterator[_i++];
-    } else {
-      _i = _iterator.next();
-      if (_i.done) break;
-      _ref2 = _i.value;
-    }
-
-    var u = _ref2;
-
-    if (isUndefined(obj[u])) {
-      obj[u] = defaultUnitValues[u];
-    }
-  }
-
-  var invalidReason = hasInvalidGregorianData(obj) || hasInvalidTimeData(obj);
-  if (invalidReason) {
-    return DateTime.invalid(invalidReason);
-  }
-
-  var tsNow = Settings.now(),
-      offsetProvis = zone.offset(tsNow),
-      _objToTS = objToTS(obj, offsetProvis, zone),
-      ts = _objToTS[0],
-      o = _objToTS[1];
-
-
-  return new DateTime({
-    ts: ts,
-    zone: zone,
-    o: o
-  });
-}
-
-/**
- * A DateTime is an immutable data structure representing a specific date and time and accompanying methods. It contains class and instance methods for creating, parsing, interrogating, transforming, and formatting them.
- *
- * A DateTime comprises of:
- * * A timestamp. Each DateTime instance refers to a specific millisecond of the Unix epoch.
- * * A time zone. Each instance is considered in the context of a specific zone (by default the local system's zone).
- * * Configuration properties that effect how output strings are formatted, such as `locale`, `numberingSystem`, and `outputCalendar`.
- *
- * Here is a brief overview of the most commonly used functionality it provides:
- *
- * * **Creation**: To create a DateTime from its components, use one of its factory class methods: {@link local}, {@link utc}, and (most flexibly) {@link fromObject}. To create one from a standard string format, use {@link fromISO}, {@link fromHTTP}, and {@link fromRFC2822}. To create one from a custom string format, use {@link fromFormat}. To create one from a native JS date, use {@link fromJSDate}.
- * * **Gregorian calendar and time**: To examine the Gregorian properties of a DateTime individually (i.e as opposed to collectively through {@link toObject}), use the {@link year}, {@link month},
- * {@link day}, {@link hour}, {@link minute}, {@link second}, {@link millisecond} accessors.
- * * **Week calendar**: For ISO week calendar attributes, see the {@link weekYear}, {@link weekNumber}, and {@link weekday} accessors.
- * * **Configuration** See the {@link locale} and {@link numberingSystem} accessors.
- * * **Transformation**: To transform the DateTime into other DateTimes, use {@link set}, {@link reconfigure}, {@link setZone}, {@link setLocale}, {@link plus}, {@link minus}, {@link endOf}, {@link startOf}, {@link toUTC}, and {@link toLocal}.
- * * **Output**: To convert the DateTime to other representations, use the {@link toJSON}, {@link toISO}, {@link toHTTP}, {@link toObject}, {@link toRFC2822}, {@link toString}, {@link toLocaleString}, {@link toFormat}, {@link toMillis} and {@link toJSDate}.
- *
- * There's plenty others documented below. In addition, for more information on subtler topics like internationalization, time zones, alternative calendars, validity, and so on, see the external documentation.
- */
-
-var DateTime = function () {
-  /**
-   * @access private
-   */
-  function DateTime(config) {
-    classCallCheck(this, DateTime);
-
-    var zone = config.zone || Settings.defaultZone,
-        invalidReason = config.invalidReason || (Number.isNaN(config.ts) ? INVALID_INPUT : null) || (!zone.isValid ? UNSUPPORTED_ZONE : null);
-    /**
-     * @access private
-     */
-    this.ts = isUndefined(config.ts) ? Settings.now() : config.ts;
-
-    var c = null,
-        o = null;
-    if (!invalidReason) {
-      var unchanged = config.old && config.old.ts === this.ts && config.old.zone.equals(zone);
-      c = unchanged ? config.old.c : tsToObj(this.ts, zone.offset(this.ts));
-      o = unchanged ? config.old.o : zone.offset(this.ts);
-    }
-
-    /**
-     * @access private
-     */
-    this.zone = zone;
-    /**
-     * @access private
-     */
-    this.loc = config.loc || Locale.create();
-    /**
-     * @access private
-     */
-    this.invalid = invalidReason;
-    /**
-     * @access private
-     */
-    this.weekData = null;
-    /**
-     * @access private
-     */
-    this.c = c;
-    /**
-     * @access private
-     */
-    this.o = o;
-  }
-
-  // CONSTRUCT
-
-  /**
-   * Create a local DateTime
-   * @param {number} year - The calendar year. If omitted (as in, call `local()` with no arguments), the current time will be used
-   * @param {number} [month=1] - The month, 1-indexed
-   * @param {number} [day=1] - The day of the month
-   * @param {number} [hour=0] - The hour of the day, in 24-hour time
-   * @param {number} [minute=0] - The minute of the hour, i.e. a number between 0 and 59
-   * @param {number} [second=0] - The second of the minute, i.e. a number between 0 and 59
-   * @param {number} [millisecond=0] - The millisecond of the second, i.e. a number between 0 and 999
-   * @example DateTime.local()                            //~> now
-   * @example DateTime.local(2017)                        //~> 2017-01-01T00:00:00
-   * @example DateTime.local(2017, 3)                     //~> 2017-03-01T00:00:00
-   * @example DateTime.local(2017, 3, 12)                 //~> 2017-03-12T00:00:00
-   * @example DateTime.local(2017, 3, 12, 5)              //~> 2017-03-12T05:00:00
-   * @example DateTime.local(2017, 3, 12, 5, 45)          //~> 2017-03-12T05:45:00
-   * @example DateTime.local(2017, 3, 12, 5, 45, 10)      //~> 2017-03-12T05:45:10
-   * @example DateTime.local(2017, 3, 12, 5, 45, 10, 765) //~> 2017-03-12T05:45:10.765
-   * @return {DateTime}
-   */
-
-
-  DateTime.local = function local(year, month, day, hour, minute, second, millisecond) {
-    if (isUndefined(year)) {
-      return new DateTime({ ts: Settings.now() });
-    } else {
-      return quickDT({
-        year: year,
-        month: month,
-        day: day,
-        hour: hour,
-        minute: minute,
-        second: second,
-        millisecond: millisecond
-      }, Settings.defaultZone);
-    }
-  };
-
-  /**
-   * Create a DateTime in UTC
-   * @param {number} year - The calendar year. If omitted (as in, call `utc()` with no arguments), the current time will be used
-   * @param {number} [month=1] - The month, 1-indexed
-   * @param {number} [day=1] - The day of the month
-   * @param {number} [hour=0] - The hour of the day, in 24-hour time
-   * @param {number} [minute=0] - The minute of the hour, i.e. a number between 0 and 59
-   * @param {number} [second=0] - The second of the minute, i.e. a number between 0 and 59
-   * @param {number} [millisecond=0] - The millisecond of the second, i.e. a number between 0 and 999
-   * @example DateTime.utc()                            //~> now
-   * @example DateTime.utc(2017)                        //~> 2017-01-01T00:00:00Z
-   * @example DateTime.utc(2017, 3)                     //~> 2017-03-01T00:00:00Z
-   * @example DateTime.utc(2017, 3, 12)                 //~> 2017-03-12T00:00:00Z
-   * @example DateTime.utc(2017, 3, 12, 5)              //~> 2017-03-12T05:00:00Z
-   * @example DateTime.utc(2017, 3, 12, 5, 45)          //~> 2017-03-12T05:45:00Z
-   * @example DateTime.utc(2017, 3, 12, 5, 45, 10)      //~> 2017-03-12T05:45:10Z
-   * @example DateTime.utc(2017, 3, 12, 5, 45, 10, 765) //~> 2017-03-12T05:45:10.765Z
-   * @return {DateTime}
-   */
-
-
-  DateTime.utc = function utc(year, month, day, hour, minute, second, millisecond) {
-    if (isUndefined(year)) {
-      return new DateTime({
-        ts: Settings.now(),
-        zone: FixedOffsetZone.utcInstance
-      });
-    } else {
-      return quickDT({
-        year: year,
-        month: month,
-        day: day,
-        hour: hour,
-        minute: minute,
-        second: second,
-        millisecond: millisecond
-      }, FixedOffsetZone.utcInstance);
-    }
-  };
-
-  /**
-   * Create a DateTime from a Javascript Date object. Uses the default zone.
-   * @param {Date} date - a Javascript Date object
-   * @param {Object} options - configuration options for the DateTime
-   * @param {string|Zone} [options.zone='local'] - the zone to place the DateTime into
-   * @return {DateTime}
-   */
-
-
-  DateTime.fromJSDate = function fromJSDate(date) {
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    return new DateTime({
-      ts: isDate(date) ? date.valueOf() : NaN,
-      zone: normalizeZone(options.zone, Settings.defaultZone),
-      loc: Locale.fromObject(options)
-    });
-  };
-
-  /**
-   * Create a DateTime from a number of milliseconds since the epoch (i.e. since 1 January 1970 00:00:00 UTC). Uses the default zone.
-   * @param {number} milliseconds - a number of milliseconds since 1970 UTC
-   * @param {Object} options - configuration options for the DateTime
-   * @param {string|Zone} [options.zone='local'] - the zone to place the DateTime into
-   * @param {string} [options.locale] - a locale to set on the resulting DateTime instance
-   * @param {string} options.outputCalendar - the output calendar to set on the resulting DateTime instance
-   * @param {string} options.numberingSystem - the numbering system to set on the resulting DateTime instance
-   * @return {DateTime}
-   */
-
-
-  DateTime.fromMillis = function fromMillis(milliseconds) {
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    if (!isNumber(milliseconds)) {
-      throw new InvalidArgumentError('fromMillis requires a numerical input');
-    } else {
-      return new DateTime({
-        ts: milliseconds,
-        zone: normalizeZone(options.zone, Settings.defaultZone),
-        loc: Locale.fromObject(options)
-      });
-    }
-  };
-
-  /**
-   * Create a DateTime from a Javascript object with keys like 'year' and 'hour' with reasonable defaults.
-   * @param {Object} obj - the object to create the DateTime from
-   * @param {number} obj.year - a year, such as 1987
-   * @param {number} obj.month - a month, 1-12
-   * @param {number} obj.day - a day of the month, 1-31, depending on the month
-   * @param {number} obj.ordinal - day of the year, 1-365 or 366
-   * @param {number} obj.weekYear - an ISO week year
-   * @param {number} obj.weekNumber - an ISO week number, between 1 and 52 or 53, depending on the year
-   * @param {number} obj.weekday - an ISO weekday, 1-7, where 1 is Monday and 7 is Sunday
-   * @param {number} obj.hour - hour of the day, 0-23
-   * @param {number} obj.minute - minute of the hour, 0-59
-   * @param {number} obj.second - second of the minute, 0-59
-   * @param {number} obj.millisecond - millisecond of the second, 0-999
-   * @param {string|Zone} [obj.zone='local'] - interpret the numbers in the context of a particular zone. Can take any value taken as the first argument to setZone()
-   * @param {string} [obj.locale='en-US'] - a locale to set on the resulting DateTime instance
-   * @param {string} obj.outputCalendar - the output calendar to set on the resulting DateTime instance
-   * @param {string} obj.numberingSystem - the numbering system to set on the resulting DateTime instance
-   * @example DateTime.fromObject({ year: 1982, month: 5, day: 25}).toISODate() //=> '1982-05-25'
-   * @example DateTime.fromObject({ year: 1982 }).toISODate() //=> '1982-01-01T00'
-   * @example DateTime.fromObject({ hour: 10, minute: 26, second: 6 }) //~> today at 10:26:06
-   * @example DateTime.fromObject({ hour: 10, minute: 26, second: 6, zone: 'utc' }),
-   * @example DateTime.fromObject({ hour: 10, minute: 26, second: 6, zone: 'local' })
-   * @example DateTime.fromObject({ hour: 10, minute: 26, second: 6, zone: 'America/New_York' })
-   * @example DateTime.fromObject({ weekYear: 2016, weekNumber: 2, weekday: 3 }).toISODate() //=> '2016-01-13'
-   * @return {DateTime}
-   */
-
-
-  DateTime.fromObject = function fromObject(obj) {
-    var zoneToUse = normalizeZone(obj.zone, Settings.defaultZone);
-    if (!zoneToUse.isValid) {
-      return DateTime.invalid(UNSUPPORTED_ZONE);
-    }
-
-    var tsNow = Settings.now(),
-        offsetProvis = zoneToUse.offset(tsNow),
-        normalized = normalizeObject(obj, normalizeUnit, true),
-        containsOrdinal = !isUndefined(normalized.ordinal),
-        containsGregorYear = !isUndefined(normalized.year),
-        containsGregorMD = !isUndefined(normalized.month) || !isUndefined(normalized.day),
-        containsGregor = containsGregorYear || containsGregorMD,
-        definiteWeekDef = normalized.weekYear || normalized.weekNumber,
-        loc = Locale.fromObject(obj);
-
-    // cases:
-    // just a weekday -> this week's instance of that weekday, no worries
-    // (gregorian data or ordinal) + (weekYear or weekNumber) -> error
-    // (gregorian month or day) + ordinal -> error
-    // otherwise just use weeks or ordinals or gregorian, depending on what's specified
-
-    if ((containsGregor || containsOrdinal) && definiteWeekDef) {
-      throw new ConflictingSpecificationError("Can't mix weekYear/weekNumber units with year/month/day or ordinals");
-    }
-
-    if (containsGregorMD && containsOrdinal) {
-      throw new ConflictingSpecificationError("Can't mix ordinal dates with month/day");
-    }
-
-    var useWeekData = definiteWeekDef || normalized.weekday && !containsGregor;
-
-    // configure ourselves to deal with gregorian dates or week stuff
-    var units = void 0,
-        defaultValues = void 0,
-        objNow = tsToObj(tsNow, offsetProvis);
-    if (useWeekData) {
-      units = orderedWeekUnits;
-      defaultValues = defaultWeekUnitValues;
-      objNow = gregorianToWeek(objNow);
-    } else if (containsOrdinal) {
-      units = orderedOrdinalUnits;
-      defaultValues = defaultOrdinalUnitValues;
-      objNow = gregorianToOrdinal(objNow);
-    } else {
-      units = orderedUnits$1;
-      defaultValues = defaultUnitValues;
-    }
-
-    // set default values for missing stuff
-    var foundFirst = false;
-    for (var _iterator2 = units, _isArray2 = Array.isArray(_iterator2), _i2 = 0, _iterator2 = _isArray2 ? _iterator2 : _iterator2[Symbol.iterator]();;) {
-      var _ref3;
-
-      if (_isArray2) {
-        if (_i2 >= _iterator2.length) break;
-        _ref3 = _iterator2[_i2++];
-      } else {
-        _i2 = _iterator2.next();
-        if (_i2.done) break;
-        _ref3 = _i2.value;
-      }
-
-      var u = _ref3;
-
-      var v = normalized[u];
-      if (!isUndefined(v)) {
-        foundFirst = true;
-      } else if (foundFirst) {
-        normalized[u] = defaultValues[u];
-      } else {
-        normalized[u] = objNow[u];
-      }
-    }
-
-    // make sure the values we have are in range
-    var higherOrderInvalid = useWeekData ? hasInvalidWeekData(normalized) : containsOrdinal ? hasInvalidOrdinalData(normalized) : hasInvalidGregorianData(normalized),
-        invalidReason = higherOrderInvalid || hasInvalidTimeData(normalized);
-
-    if (invalidReason) {
-      return DateTime.invalid(invalidReason);
-    }
-
-    // compute the actual time
-    var gregorian = useWeekData ? weekToGregorian(normalized) : containsOrdinal ? ordinalToGregorian(normalized) : normalized,
-        _objToTS2 = objToTS(gregorian, offsetProvis, zoneToUse),
-        tsFinal = _objToTS2[0],
-        offsetFinal = _objToTS2[1],
-        inst = new DateTime({
-      ts: tsFinal,
-      zone: zoneToUse,
-      o: offsetFinal,
-      loc: loc
-    });
-
-    // gregorian data + weekday serves only to validate
-    if (normalized.weekday && containsGregor && obj.weekday !== inst.weekday) {
-      return DateTime.invalid('mismatched weekday');
-    }
-
-    return inst;
-  };
-
-  /**
-   * Create a DateTime from an ISO 8601 string
-   * @param {string} text - the ISO string
-   * @param {Object} opts - options to affect the creation
-   * @param {string|Zone} [opts.zone='local'] - use this zone if no offset is specified in the input string itself. Will also convert the time to this zone
-   * @param {boolean} [opts.setZone=false] - override the zone with a fixed-offset zone specified in the string itself, if it specifies one
-   * @param {string} [opts.locale='en-US'] - a locale to set on the resulting DateTime instance
-   * @param {string} opts.outputCalendar - the output calendar to set on the resulting DateTime instance
-   * @param {string} opts.numberingSystem - the numbering system to set on the resulting DateTime instance
-   * @example DateTime.fromISO('2016-05-25T09:08:34.123')
-   * @example DateTime.fromISO('2016-05-25T09:08:34.123+06:00')
-   * @example DateTime.fromISO('2016-05-25T09:08:34.123+06:00', {setZone: true})
-   * @example DateTime.fromISO('2016-05-25T09:08:34.123', {zone: 'utc'})
-   * @example DateTime.fromISO('2016-W05-4')
-   * @return {DateTime}
-   */
-
-
-  DateTime.fromISO = function fromISO(text) {
-    var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    var _parseISODate = parseISODate(text),
-        vals = _parseISODate[0],
-        parsedZone = _parseISODate[1];
-
-    return parseDataToDateTime(vals, parsedZone, opts);
-  };
-
-  /**
-   * Create a DateTime from an RFC 2822 string
-   * @param {string} text - the RFC 2822 string
-   * @param {Object} opts - options to affect the creation
-   * @param {string|Zone} [opts.zone='local'] - convert the time to this zone. Since the offset is always specified in the string itself, this has no effect on the interpretation of string, merely the zone the resulting DateTime is expressed in.
-   * @param {boolean} [opts.setZone=false] - override the zone with a fixed-offset zone specified in the string itself, if it specifies one
-   * @param {string} [opts.locale='en-US'] - a locale to set on the resulting DateTime instance
-   * @param {string} opts.outputCalendar - the output calendar to set on the resulting DateTime instance
-   * @param {string} opts.numberingSystem - the numbering system to set on the resulting DateTime instance
-   * @example DateTime.fromRFC2822('25 Nov 2016 13:23:12 GMT')
-   * @example DateTime.fromRFC2822('Tue, 25 Nov 2016 13:23:12 +0600')
-   * @example DateTime.fromRFC2822('25 Nov 2016 13:23 Z')
-   * @return {DateTime}
-   */
-
-
-  DateTime.fromRFC2822 = function fromRFC2822(text) {
-    var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    var _parseRFC2822Date = parseRFC2822Date(text),
-        vals = _parseRFC2822Date[0],
-        parsedZone = _parseRFC2822Date[1];
-
-    return parseDataToDateTime(vals, parsedZone, opts);
-  };
-
-  /**
-   * Create a DateTime from an HTTP header date
-   * @see https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1
-   * @param {string} text - the HTTP header date
-   * @param {Object} options - options to affect the creation
-   * @param {string|Zone} [options.zone='local'] - convert the time to this zone. Since HTTP dates are always in UTC, this has no effect on the interpretation of string, merely the zone the resulting DateTime is expressed in.
-   * @param {boolean} [options.setZone=false] - override the zone with the fixed-offset zone specified in the string. For HTTP dates, this is always UTC, so this option is equivalent to setting the `zone` option to 'utc', but this option is included for consistency with similar methods.
-   * @param {string} [options.locale='en-US'] - a locale to set on the resulting DateTime instance
-   * @param {string} options.outputCalendar - the output calendar to set on the resulting DateTime instance
-   * @param {string} options.numberingSystem - the numbering system to set on the resulting DateTime instance
-   * @example DateTime.fromHTTP('Sun, 06 Nov 1994 08:49:37 GMT')
-   * @example DateTime.fromHTTP('Sunday, 06-Nov-94 08:49:37 GMT')
-   * @example DateTime.fromHTTP('Sun Nov  6 08:49:37 1994')
-   * @return {DateTime}
-   */
-
-
-  DateTime.fromHTTP = function fromHTTP(text) {
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    var _parseHTTPDate = parseHTTPDate(text),
-        vals = _parseHTTPDate[0],
-        parsedZone = _parseHTTPDate[1];
-
-    return parseDataToDateTime(vals, parsedZone, options);
-  };
-
-  /**
-   * Create a DateTime from an input string and format string
-   * Defaults to en-US if no locale has been specified, regardless of the system's locale
-   * @param {string} text - the string to parse
-   * @param {string} fmt - the format the string is expected to be in (see description)
-   * @param {Object} options - options to affect the creation
-   * @param {string|Zone} [options.zone='local'] - use this zone if no offset is specified in the input string itself. Will also convert the DateTime to this zone
-   * @param {boolean} [options.setZone=false] - override the zone with a zone specified in the string itself, if it specifies one
-   * @param {string} [options.locale='en-US'] - a locale string to use when parsing. Will also set the DateTime to this locale
-   * @param {string} options.numberingSystem - the numbering system to use when parsing. Will also set the resulting DateTime to this numbering system
-   * @param {string} options.outputCalendar - the output calendar to set on the resulting DateTime instance
-   * @return {DateTime}
-   */
-
-
-  DateTime.fromFormat = function fromFormat(text, fmt) {
-    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
-    if (isUndefined(text) || isUndefined(fmt)) {
-      throw new InvalidArgumentError('fromFormat requires an input string and a format');
-    }
-
-    var _options$locale = options.locale,
-        locale = _options$locale === undefined ? null : _options$locale,
-        _options$numberingSys = options.numberingSystem,
-        numberingSystem = _options$numberingSys === undefined ? null : _options$numberingSys,
-        localeToUse = Locale.fromOpts({ locale: locale, numberingSystem: numberingSystem, defaultToEN: true }),
-        _parseFromTokens = parseFromTokens(localeToUse, text, fmt),
-        vals = _parseFromTokens[0],
-        parsedZone = _parseFromTokens[1],
-        invalidReason = _parseFromTokens[2];
-
-    if (invalidReason) {
-      return DateTime.invalid(invalidReason);
-    } else {
-      return parseDataToDateTime(vals, parsedZone, options);
-    }
-  };
-
-  /**
-   * @deprecated use fromFormat instead
-   */
-
-
-  DateTime.fromString = function fromString(text, fmt) {
-    var opts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
-    return DateTime.fromFormat(text, fmt, opts);
-  };
-
-  /**
-   * Create a DateTime from a SQL date, time, or datetime
-   * Defaults to en-US if no locale has been specified, regardless of the system's locale
-   * @param {string} text - the string to parse
-   * @param {Object} options - options to affect the creation
-   * @param {string|Zone} [options.zone='local'] - use this zone if no offset is specified in the input string itself. Will also convert the DateTime to this zone
-   * @param {boolean} [options.setZone=false] - override the zone with a zone specified in the string itself, if it specifies one
-   * @param {string} [options.locale='en-US'] - a locale string to use when parsing. Will also set the DateTime to this locale
-   * @param {string} options.numberingSystem - the numbering system to use when parsing. Will also set the resulting DateTime to this numbering system
-   * @param {string} options.outputCalendar - the output calendar to set on the resulting DateTime instance
-   * @example DateTime.fromSQL('2017-05-15')
-   * @example DateTime.fromSQL('2017-05-15 09:12:34')
-   * @example DateTime.fromSQL('2017-05-15 09:12:34.342')
-   * @example DateTime.fromSQL('2017-05-15 09:12:34.342+06:00')
-   * @example DateTime.fromSQL('2017-05-15 09:12:34.342 America/Los_Angeles')
-   * @example DateTime.fromSQL('2017-05-15 09:12:34.342 America/Los_Angeles', { setZone: true })
-   * @example DateTime.fromSQL('2017-05-15 09:12:34.342', { zone: 'America/Los_Angeles' })
-   * @example DateTime.fromSQL('09:12:34.342')
-   * @return {DateTime}
-   */
-
-
-  DateTime.fromSQL = function fromSQL(text) {
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    var _parseSQL = parseSQL(text),
-        vals = _parseSQL[0],
-        parsedZone = _parseSQL[1];
-
-    return parseDataToDateTime(vals, parsedZone, options);
-  };
-
-  /**
-   * Create an invalid DateTime.
-   * @return {DateTime}
-   */
-
-
-  DateTime.invalid = function invalid(reason) {
-    if (!reason) {
-      throw new InvalidArgumentError('need to specify a reason the DateTime is invalid');
-    }
-    if (Settings.throwOnInvalid) {
-      throw new InvalidDateTimeError(reason);
-    } else {
-      return new DateTime({ invalidReason: reason });
-    }
-  };
-
-  // INFO
-
-  /**
-   * Get the value of unit.
-   * @param {string} unit - a unit such as 'minute' or 'day'
-   * @example DateTime.local(2017, 7, 4).get('month'); //=> 7
-   * @example DateTime.local(2017, 7, 4).get('day'); //=> 4
-   * @return {number}
-   */
-
-
-  DateTime.prototype.get = function get$$1(unit) {
-    return this[unit];
-  };
-
-  /**
-   * Returns whether the DateTime is valid. Invalid DateTimes occur when:
-   * * The DateTime was created from invalid calendar information, such as the 13th month or February 30
-   * * The DateTime was created by an operation on another invalid date
-   * @type {boolean}
-   */
-
-
-  /**
-   * Returns the resolved Intl options for this DateTime.
-   * This is useful in understanding the behavior of formatting methods
-   * @param {Object} opts - the same options as toLocaleString
-   * @return {Object}
-   */
-  DateTime.prototype.resolvedLocaleOpts = function resolvedLocaleOpts() {
-    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    var _Formatter$create$res = Formatter.create(this.loc.clone(opts), opts).resolvedOptions(this),
-        locale = _Formatter$create$res.locale,
-        numberingSystem = _Formatter$create$res.numberingSystem,
-        calendar = _Formatter$create$res.calendar;
-
-    return { locale: locale, numberingSystem: numberingSystem, outputCalendar: calendar };
-  };
-
-  // TRANSFORM
-
-  /**
-   * "Set" the DateTime's zone to UTC. Returns a newly-constructed DateTime.
-   *
-   * Equivalent to {@link setZone}('utc')
-   * @param {number} [offset=0] - optionally, an offset from UTC in minutes
-   * @param {Object} [opts={}] - options to pass to `setZone()`
-   * @return {DateTime}
-   */
-
-
-  DateTime.prototype.toUTC = function toUTC() {
-    var offset = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-    var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    return this.setZone(FixedOffsetZone.instance(offset), opts);
-  };
-
-  /**
-   * "Set" the DateTime's zone to the host's local zone. Returns a newly-constructed DateTime.
-   *
-   * Equivalent to `setZone('local')`
-   * @return {DateTime}
-   */
-
-
-  DateTime.prototype.toLocal = function toLocal() {
-    return this.setZone(new LocalZone());
-  };
-
-  /**
-   * "Set" the DateTime's zone to specified zone. Returns a newly-constructed DateTime.
-   *
-   * By default, the setter keeps the underlying time the same (as in, the same UTC timestamp), but the new instance will report different local times and consider DSTs when making computations, as with {@link plus}. You may wish to use {@link toLocal} and {@link toUTC} which provide simple convenience wrappers for commonly used zones.
-   * @param {string|Zone} [zone='local'] - a zone identifier. As a string, that can be any IANA zone supported by the host environment, or a fixed-offset name of the form 'utc+3', or the strings 'local' or 'utc'. You may also supply an instance of a {@link Zone} class.
-   * @param {Object} opts - options
-   * @param {boolean} [opts.keepLocalTime=false] - If true, adjust the underlying time so that the local time stays the same, but in the target zone. You should rarely need this.
-   * @return {DateTime}
-   */
-
-
-  DateTime.prototype.setZone = function setZone(zone) {
-    var _ref4 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-        _ref4$keepLocalTime = _ref4.keepLocalTime,
-        keepLocalTime = _ref4$keepLocalTime === undefined ? false : _ref4$keepLocalTime,
-        _ref4$keepCalendarTim = _ref4.keepCalendarTime,
-        keepCalendarTime = _ref4$keepCalendarTim === undefined ? false : _ref4$keepCalendarTim;
-
-    zone = normalizeZone(zone, Settings.defaultZone);
-    if (zone.equals(this.zone)) {
-      return this;
-    } else if (!zone.isValid) {
-      return DateTime.invalid(UNSUPPORTED_ZONE);
-    } else {
-      var newTS = keepLocalTime || keepCalendarTime // keepCalendarTime is the deprecated name for keepLocalTime
-      ? this.ts + (this.o - zone.offset(this.ts)) * 60 * 1000 : this.ts;
-      return clone$1(this, { ts: newTS, zone: zone });
-    }
-  };
-
-  /**
-   * "Set" the locale, numberingSystem, or outputCalendar. Returns a newly-constructed DateTime.
-   * @param {Object} properties - the properties to set
-   * @example DateTime.local(2017, 5, 25).reconfigure({ locale: 'en-GB' })
-   * @return {DateTime}
-   */
-
-
-  DateTime.prototype.reconfigure = function reconfigure() {
-    var _ref5 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-        locale = _ref5.locale,
-        numberingSystem = _ref5.numberingSystem,
-        outputCalendar = _ref5.outputCalendar;
-
-    var loc = this.loc.clone({ locale: locale, numberingSystem: numberingSystem, outputCalendar: outputCalendar });
-    return clone$1(this, { loc: loc });
-  };
-
-  /**
-   * "Set" the locale. Returns a newly-constructed DateTime.
-   * Just a convenient alias for reconfigure({ locale })
-   * @example DateTime.local(2017, 5, 25).setLocale('en-GB')
-   * @return {DateTime}
-   */
-
-
-  DateTime.prototype.setLocale = function setLocale(locale) {
-    return this.reconfigure({ locale: locale });
-  };
-
-  /**
-   * "Set" the values of specified units. Returns a newly-constructed DateTime.
-   * You can only set units with this method; for "setting" metadata, see {@link reconfigure} and {@link setZone}.
-   * @param {Object} values - a mapping of units to numbers
-   * @example dt.set({ year: 2017 })
-   * @example dt.set({ hour: 8, minute: 30 })
-   * @example dt.set({ weekday: 5 })
-   * @example dt.set({ year: 2005, ordinal: 234 })
-   * @return {DateTime}
-   */
-
-
-  DateTime.prototype.set = function set$$1(values) {
-    if (!this.isValid) return this;
-
-    var normalized = normalizeObject(values, normalizeUnit),
-        settingWeekStuff = !isUndefined(normalized.weekYear) || !isUndefined(normalized.weekNumber) || !isUndefined(normalized.weekday);
-
-    var mixed = void 0;
-    if (settingWeekStuff) {
-      mixed = weekToGregorian(Object.assign(gregorianToWeek(this.c), normalized));
-    } else if (!isUndefined(normalized.ordinal)) {
-      mixed = ordinalToGregorian(Object.assign(gregorianToOrdinal(this.c), normalized));
-    } else {
-      mixed = Object.assign(this.toObject(), normalized);
-
-      // if we didn't set the day but we ended up on an overflow date,
-      // use the last day of the right month
-      if (isUndefined(normalized.day)) {
-        mixed.day = Math.min(daysInMonth(mixed.year, mixed.month), mixed.day);
-      }
-    }
-
-    var _objToTS3 = objToTS(mixed, this.o, this.zone),
-        ts = _objToTS3[0],
-        o = _objToTS3[1];
-
-    return clone$1(this, { ts: ts, o: o });
-  };
-
-  /**
-   * Add a period of time to this DateTime and return the resulting DateTime
-   *
-   * Adding hours, minutes, seconds, or milliseconds increases the timestamp by the right number of milliseconds. Adding days, months, or years shifts the calendar, accounting for DSTs and leap years along the way. Thus, `dt.plus({ hours: 24 })` may result in a different time than `dt.plus({ days: 1 })` if there's a DST shift in between.
-   * @param {Duration|Object|number} duration - The amount to add. Either a Luxon Duration, a number of milliseconds, the object argument to Duration.fromObject()
-   * @example DateTime.local().plus(123) //~> in 123 milliseconds
-   * @example DateTime.local().plus({ minutes: 15 }) //~> in 15 minutes
-   * @example DateTime.local().plus({ days: 1 }) //~> this time tomorrow
-   * @example DateTime.local().plus({ days: -1 }) //~> this time yesterday
-   * @example DateTime.local().plus({ hours: 3, minutes: 13 }) //~> in 1 hr, 13 min
-   * @example DateTime.local().plus(Duration.fromObject({ hours: 3, minutes: 13 })) //~> in 1 hr, 13 min
-   * @return {DateTime}
-   */
-
-
-  DateTime.prototype.plus = function plus(duration) {
-    if (!this.isValid) return this;
-    var dur = friendlyDuration(duration);
-    return clone$1(this, adjustTime(this, dur));
-  };
-
-  /**
-   * Subtract a period of time to this DateTime and return the resulting DateTime
-   * See {@link plus}
-   * @param {Duration|Object|number} duration - The amount to subtract. Either a Luxon Duration, a number of milliseconds, the object argument to Duration.fromObject()
-   @return {DateTime}
-  */
-
-
-  DateTime.prototype.minus = function minus(duration) {
-    if (!this.isValid) return this;
-    var dur = friendlyDuration(duration).negate();
-    return clone$1(this, adjustTime(this, dur));
-  };
-
-  /**
-   * "Set" this DateTime to the beginning of a unit of time.
-   * @param {string} unit - The unit to go to the beginning of. Can be 'year', 'month', 'day', 'hour', 'minute', 'second', or 'millisecond'.
-   * @example DateTime.local(2014, 3, 3).startOf('month').toISODate(); //=> '2014-03-01'
-   * @example DateTime.local(2014, 3, 3).startOf('year').toISODate(); //=> '2014-01-01'
-   * @example DateTime.local(2014, 3, 3, 5, 30).startOf('day').toISOTime(); //=> '00:00.000-05:00'
-   * @example DateTime.local(2014, 3, 3, 5, 30).startOf('hour').toISOTime(); //=> '05:00:00.000-05:00'
-   * @return {DateTime}
-   */
-
-
-  DateTime.prototype.startOf = function startOf(unit) {
-    if (!this.isValid) return this;
-    var o = {},
-        normalizedUnit = Duration.normalizeUnit(unit);
-    switch (normalizedUnit) {
-      case 'years':
-        o.month = 1;
-      // falls through
-      case 'quarters':
-      case 'months':
-        o.day = 1;
-      // falls through
-      case 'weeks':
-      case 'days':
-        o.hour = 0;
-      // falls through
-      case 'hours':
-        o.minute = 0;
-      // falls through
-      case 'minutes':
-        o.second = 0;
-      // falls through
-      case 'seconds':
-        o.millisecond = 0;
-        break;
-      case 'milliseconds':
-        break;
-      default:
-        throw new InvalidUnitError(unit);
-    }
-
-    if (normalizedUnit === 'weeks') {
-      o.weekday = 1;
-    }
-
-    if (normalizedUnit === 'quarters') {
-      var q = Math.ceil(this.month / 3);
-      o.month = (q - 1) * 3 + 1;
-    }
-
-    return this.set(o);
-  };
-
-  /**
-   * "Set" this DateTime to the end (i.e. the last millisecond) of a unit of time
-   * @param {string} unit - The unit to go to the end of. Can be 'year', 'month', 'day', 'hour', 'minute', 'second', or 'millisecond'.
-   * @example DateTime.local(2014, 3, 3).endOf('month').toISO(); //=> '2014-03-31T23:59:59.999-05:00'
-   * @example DateTime.local(2014, 3, 3).endOf('year').toISO(); //=> '2014-12-31T23:59:59.999-05:00'
-   * @example DateTime.local(2014, 3, 3, 5, 30).endOf('day').toISO(); //=> '2014-03-03T23:59:59.999-05:00'
-   * @example DateTime.local(2014, 3, 3, 5, 30).endOf('hour').toISO(); //=> '2014-03-03T05:59:59.999-05:00'
-   * @return {DateTime}
-   */
-
-
-  DateTime.prototype.endOf = function endOf(unit) {
-    var _startOf$plus;
-
-    return this.isValid ? this.startOf(unit).plus((_startOf$plus = {}, _startOf$plus[unit] = 1, _startOf$plus)).minus(1) : this;
-  };
-
-  // OUTPUT
-
-  /**
-   * Returns a string representation of this DateTime formatted according to the specified format string.
-   * **You may not want this.** See {@link toLocaleString} for a more flexible formatting tool. See the documentation for the specific format tokens supported.
-   * Defaults to en-US if no locale has been specified, regardless of the system's locale
-   * @param {string} fmt - the format string
-   * @param {Object} opts - options
-   * @param {boolean} opts.round - round numerical values
-   * @example DateTime.local().toFormat('yyyy LLL dd') //=> '2017 Apr 22'
-   * @example DateTime.local().setLocale('fr').toFormat('yyyy LLL dd') //=> '2017 avr. 22'
-   * @example DateTime.local().toFormat("HH 'hours and' mm 'minutes'") //=> '20 hours and 55 minutes'
-   * @return {string}
-   */
-
-
-  DateTime.prototype.toFormat = function toFormat(fmt) {
-    var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    return this.isValid ? Formatter.create(this.loc.redefaultToEN(), opts).formatDateTimeFromString(this, fmt) : INVALID$2;
-  };
-
-  /**
-   * Returns a localized string representing this date. Accepts the same options as the Intl.DateTimeFormat constructor and any presets defined by Luxon, such as `DateTime.DATE_FULL` or `DateTime.TIME_SIMPLE`.
-   * The exact behavior of this method is browser-specific, but in general it will return an appropriate representation.
-   * of the DateTime in the assigned locale.
-   * Defaults to the system's locale if no locale has been specified
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat
-   * @param opts {Object} - Intl.DateTimeFormat constructor options
-   * @example DateTime.local().toLocaleString(); //=> 4/20/2017
-   * @example DateTime.local().setLocale('en-gb').toLocaleString(); //=> '20/04/2017'
-   * @example DateTime.local().toLocaleString(DateTime.DATE_FULL); //=> 'April 20, 2017'
-   * @example DateTime.local().toLocaleString(DateTime.TIME_SIMPLE); //=> '11:32 AM'
-   * @example DateTime.local().toLocaleString(DateTime.DATETIME_SHORT); //=> '4/20/2017, 11:32 AM'
-   * @example DateTime.local().toLocaleString({weekday: 'long', month: 'long', day: '2-digit'}); //=> 'Thu, Apr 20'
-   * @example DateTime.local().toLocaleString({weekday: 'long', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit'}); //=> 'Thu, Apr 20, 11:27'
-   * @example DateTime.local().toLocaleString({hour: '2-digit', minute: '2-digit'}); //=> '11:32'
-   * @return {string}
-   */
-
-
-  DateTime.prototype.toLocaleString = function toLocaleString() {
-    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : DATE_SHORT;
-
-    return this.isValid ? Formatter.create(this.loc.clone(opts), opts).formatDateTime(this) : INVALID$2;
-  };
-
-  /**
-   * Returns an array of format "parts", i.e. individual tokens along with metadata. This is allows callers to post-process individual sections of the formatted output.
-   * Defaults to the system's locale if no locale has been specified
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat/formatToParts
-   * @param opts {Object} - Intl.DateTimeFormat constructor options, same as `toLocaleString`.
-   * @example DateTime.local().toLocaleString(); //=> [
-   *                                    //=>   { type: 'day', value: '25' },
-   *                                    //=>   { type: 'literal', value: '/' },
-   *                                    //=>   { type: 'month', value: '05' },
-   *                                    //=>   { type: 'literal', value: '/' },
-   *                                    //=>   { type: 'year', value: '1982' }
-   *                                    //=> ]
-   */
-
-
-  DateTime.prototype.toLocaleParts = function toLocaleParts() {
-    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    return this.isValid ? Formatter.create(this.loc.clone(opts), opts).formatDateTimeParts(this) : [];
-  };
-
-  /**
-   * Returns an ISO 8601-compliant string representation of this DateTime
-   * @param {Object} opts - options
-   * @param {boolean} [opts.suppressMilliseconds=false] - exclude milliseconds from the format if they're 0
-   * @param {boolean} [opts.suppressSeconds=false] - exclude seconds from the format if they're 0
-   * @param {boolean} [opts.includeOffset=true] - include the offset, such as 'Z' or '-04:00'
-   * @example DateTime.utc(1982, 5, 25).toISO() //=> '1982-05-25T00:00:00.000Z'
-   * @example DateTime.local().toISO() //=> '2017-04-22T20:47:05.335-04:00'
-   * @example DateTime.local().toISO({ includeOffset: false }) //=> '2017-04-22T20:47:05.335'
-   * @return {string}
-   */
-
-
-  DateTime.prototype.toISO = function toISO() {
-    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    if (!this.isValid) {
-      return null;
-    }
-
-    return this.toISODate() + 'T' + this.toISOTime(opts);
-  };
-
-  /**
-   * Returns an ISO 8601-compliant string representation of this DateTime's date component
-   * @example DateTime.utc(1982, 5, 25).toISODate() //=> '1982-05-25'
-   * @return {string}
-   */
-
-
-  DateTime.prototype.toISODate = function toISODate() {
-    return toTechFormat(this, 'yyyy-MM-dd');
-  };
-
-  /**
-   * Returns an ISO 8601-compliant string representation of this DateTime's week date
-   * @example DateTime.utc(1982, 5, 25).toISOWeekDate() //=> '1982-W21-2'
-   * @return {string}
-   */
-
-
-  DateTime.prototype.toISOWeekDate = function toISOWeekDate() {
-    return toTechFormat(this, "kkkk-'W'WW-c");
-  };
-
-  /**
-   * Returns an ISO 8601-compliant string representation of this DateTime's time component
-   * @param {Object} opts - options
-   * @param {boolean} [opts.suppressMilliseconds=false] - exclude milliseconds from the format if they're 0
-   * @param {boolean} [opts.suppressSeconds=false] - exclude seconds from the format if they're 0
-   * @param {boolean} [opts.includeOffset=true] - include the offset, such as 'Z' or '-04:00'
-   * @example DateTime.utc().hour(7).minute(34).toISOTime() //=> '07:34:19.361Z'
-   * @example DateTime.utc().hour(7).minute(34).toISOTime({ suppressSeconds: true }) //=> '07:34Z'
-   * @return {string}
-   */
-
-
-  DateTime.prototype.toISOTime = function toISOTime() {
-    var _ref6 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-        _ref6$suppressMillise = _ref6.suppressMilliseconds,
-        suppressMilliseconds = _ref6$suppressMillise === undefined ? false : _ref6$suppressMillise,
-        _ref6$suppressSeconds = _ref6.suppressSeconds,
-        suppressSeconds = _ref6$suppressSeconds === undefined ? false : _ref6$suppressSeconds,
-        _ref6$includeOffset = _ref6.includeOffset,
-        includeOffset = _ref6$includeOffset === undefined ? true : _ref6$includeOffset;
-
-    return toTechTimeFormat(this, { suppressSeconds: suppressSeconds, suppressMilliseconds: suppressMilliseconds, includeOffset: includeOffset });
-  };
-
-  /**
-   * Returns an RFC 2822-compatible string representation of this DateTime, always in UTC
-   * @example DateTime.utc(2014, 7, 13).toRFC2822() //=> 'Sun, 13 Jul 2014 00:00:00 +0000'
-   * @example DateTime.local(2014, 7, 13).toRFC2822() //=> 'Sun, 13 Jul 2014 00:00:00 -0400'
-   * @return {string}
-   */
-
-
-  DateTime.prototype.toRFC2822 = function toRFC2822() {
-    return toTechFormat(this, 'EEE, dd LLL yyyy hh:mm:ss ZZZ');
-  };
-
-  /**
-   * Returns a string representation of this DateTime appropriate for use in HTTP headers.
-   * Specifically, the string conforms to RFC 1123.
-   * @see https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1
-   * @example DateTime.utc(2014, 7, 13).toHTTP() //=> 'Sun, 13 Jul 2014 00:00:00 GMT'
-   * @example DateTime.utc(2014, 7, 13, 19).toHTTP() //=> 'Sun, 13 Jul 2014 19:00:00 GMT'
-   * @return {string}
-   */
-
-
-  DateTime.prototype.toHTTP = function toHTTP() {
-    return toTechFormat(this.toUTC(), "EEE, dd LLL yyyy HH:mm:ss 'GMT'");
-  };
-
-  /**
-   * Returns a string representation of this DateTime appropriate for use in SQL Date
-   * @example DateTime.utc(2014, 7, 13).toSQLDate() //=> '2014-07-13'
-   * @return {string}
-   */
-
-
-  DateTime.prototype.toSQLDate = function toSQLDate() {
-    return toTechFormat(this, 'yyyy-MM-dd');
-  };
-
-  /**
-   * Returns a string representation of this DateTime appropriate for use in SQL Time
-   * @param {Object} opts - options
-   * @param {boolean} [opts.includeZone=false] - include the zone, such as 'America/New_York'. Overides includeOffset.
-   * @param {boolean} [opts.includeOffset=true] - include the offset, such as 'Z' or '-04:00'
-   * @example DateTime.utc().toSQL() //=> '05:15:16.345'
-   * @example DateTime.local().toSQL() //=> '05:15:16.345 -04:00'
-   * @example DateTime.local().toSQL({ includeOffset: false }) //=> '05:15:16.345'
-   * @example DateTime.local().toSQL({ includeZone: false }) //=> '05:15:16.345 America/New_York'
-   * @return {string}
-   */
-
-
-  DateTime.prototype.toSQLTime = function toSQLTime() {
-    var _ref7 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-        _ref7$includeOffset = _ref7.includeOffset,
-        includeOffset = _ref7$includeOffset === undefined ? true : _ref7$includeOffset,
-        _ref7$includeZone = _ref7.includeZone,
-        includeZone = _ref7$includeZone === undefined ? false : _ref7$includeZone;
-
-    return toTechTimeFormat(this, { includeOffset: includeOffset, includeZone: includeZone, spaceZone: true });
-  };
-
-  /**
-   * Returns a string representation of this DateTime appropriate for use in SQL DateTime
-   * @param {Object} opts - options
-   * @param {boolean} [opts.includeZone=false] - include the zone, such as 'America/New_York'. Overrides includeOffset.
-   * @param {boolean} [opts.includeOffset=true] - include the offset, such as 'Z' or '-04:00'
-   * @example DateTime.utc(2014, 7, 13).toSQL() //=> '2014-07-13 00:00:00.000 Z'
-   * @example DateTime.local(2014, 7, 13).toSQL() //=> '2014-07-13 00:00:00.000 -04:00'
-   * @example DateTime.local(2014, 7, 13).toSQL({ includeOffset: false }) //=> '2014-07-13 00:00:00.000'
-   * @example DateTime.local(2014, 7, 13).toSQL({ includeZone: false }) //=> '2014-07-13 00:00:00.000 America/New_York'
-   * @return {string}
-   */
-
-
-  DateTime.prototype.toSQL = function toSQL() {
-    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    if (!this.isValid) {
-      return null;
-    }
-
-    return this.toSQLDate() + ' ' + this.toSQLTime(opts);
-  };
-
-  /**
-   * Returns a string representation of this DateTime appropriate for debugging
-   * @return {string}
-   */
-
-
-  DateTime.prototype.toString = function toString() {
-    return this.isValid ? this.toISO() : INVALID$2;
-  };
-
-  /**
-   * Returns a string representation of this DateTime appropriate for the REPL.
-   * @return {string}
-   */
-
-
-  DateTime.prototype[customInspectSymbol] = function () {
-    if (this.isValid) {
-      return 'DateTime {\n  ts: ' + this.toISO() + ',\n  zone: ' + this.zone.name + ',\n  locale: ' + this.locale + ' }';
-    } else {
-      return 'DateTime { Invalid, reason: ' + this.invalidReason + ' }';
-    }
-  };
-
-  /**
-   * Returns the epoch milliseconds of this DateTime. Alias of {@link toMillis}
-   * @return {number}
-   */
-
-
-  DateTime.prototype.valueOf = function valueOf() {
-    return this.toMillis();
-  };
-
-  /**
-   * Returns the epoch milliseconds of this DateTime.
-   * @return {number}
-   */
-
-
-  DateTime.prototype.toMillis = function toMillis() {
-    return this.isValid ? this.ts : NaN;
-  };
-
-  /**
-   * Returns an ISO 8601 representation of this DateTime appropriate for use in JSON.
-   * @return {string}
-   */
-
-
-  DateTime.prototype.toJSON = function toJSON() {
-    return this.toISO();
-  };
-
-  /**
-   * Returns a BSON serializable equivalent to this DateTime.
-   * @return {Date}
-   */
-
-
-  DateTime.prototype.toBSON = function toBSON() {
-    return this.toJSDate();
-  };
-
-  /**
-   * Returns a Javascript object with this DateTime's year, month, day, and so on.
-   * @param opts - options for generating the object
-   * @param {boolean} [opts.includeConfig=false] - include configuration attributes in the output
-   * @example DateTime.local().toObject() //=> { year: 2017, month: 4, day: 22, hour: 20, minute: 49, second: 42, millisecond: 268 }
-   * @return {Object}
-   */
-
-
-  DateTime.prototype.toObject = function toObject() {
-    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    if (!this.isValid) return {};
-
-    var base = Object.assign({}, this.c);
-
-    if (opts.includeConfig) {
-      base.outputCalendar = this.outputCalendar;
-      base.numberingSystem = this.loc.numberingSystem;
-      base.locale = this.loc.locale;
-    }
-    return base;
-  };
-
-  /**
-   * Returns a Javascript Date equivalent to this DateTime.
-   * @return {Date}
-   */
-
-
-  DateTime.prototype.toJSDate = function toJSDate() {
-    return new Date(this.isValid ? this.ts : NaN);
-  };
-
-  // COMPARE
-
-  /**
-   * Return the difference between two DateTimes as a Duration.
-   * @param {DateTime} otherDateTime - the DateTime to compare this one to
-   * @param {string|string[]} [unit=['milliseconds']] - the unit or array of units (such as 'hours' or 'days') to include in the duration.
-   * @param {Object} opts - options that affect the creation of the Duration
-   * @param {string} [opts.conversionAccuracy='casual'] - the conversion system to use
-   * @example
-   * var i1 = DateTime.fromISO('1982-05-25T09:45'),
-   *     i2 = DateTime.fromISO('1983-10-14T10:30');
-   * i2.diff(i1).toObject() //=> { milliseconds: 43807500000 }
-   * i2.diff(i1, 'hours').toObject() //=> { hours: 12168.75 }
-   * i2.diff(i1, ['months', 'days']).toObject() //=> { months: 16, days: 19.03125 }
-   * i2.diff(i1, ['months', 'days', 'hours']).toObject() //=> { months: 16, days: 19, hours: 0.75 }
-   * @return {Duration}
-   */
-
-
-  DateTime.prototype.diff = function diff(otherDateTime) {
-    var unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'milliseconds';
-    var opts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
-    if (!this.isValid || !otherDateTime.isValid) return Duration.invalid(this.invalidReason || otherDateTime.invalidReason);
-
-    var units = maybeArray(unit).map(Duration.normalizeUnit),
-        otherIsLater = otherDateTime.valueOf() > this.valueOf(),
-        earlier = otherIsLater ? this : otherDateTime,
-        later = otherIsLater ? otherDateTime : this,
-        diffed = _diff(earlier, later, units, opts);
-
-    return otherIsLater ? diffed.negate() : diffed;
-  };
-
-  /**
-   * Return the difference between this DateTime and right now.
-   * See {@link diff}
-   * @param {string|string[]} [unit=['milliseconds']] - the unit or units units (such as 'hours' or 'days') to include in the duration
-   * @param {Object} opts - options that affect the creation of the Duration
-   * @param {string} [opts.conversionAccuracy='casual'] - the conversion system to use
-   * @return {Duration}
-   */
-
-
-  DateTime.prototype.diffNow = function diffNow() {
-    var unit = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'milliseconds';
-    var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    return this.diff(DateTime.local(), unit, opts);
-  };
-
-  /**
-   * Return an Interval spanning between this DateTime and another DateTime
-   * @param {DateTime} otherDateTime - the other end point of the Interval
-   * @return {Interval}
-   */
-
-
-  DateTime.prototype.until = function until(otherDateTime) {
-    return this.isValid ? Interval.fromDateTimes(this, otherDateTime) : this;
-  };
-
-  /**
-   * Return whether this DateTime is in the same unit of time as another DateTime
-   * @param {DateTime} otherDateTime - the other DateTime
-   * @param {string} unit - the unit of time to check sameness on
-   * @example DateTime.local().hasSame(otherDT, 'day'); //~> true if both the same calendar day
-   * @return {boolean}
-   */
-
-
-  DateTime.prototype.hasSame = function hasSame(otherDateTime, unit) {
-    if (!this.isValid) return false;
-    if (unit === 'millisecond') {
-      return this.valueOf() === otherDateTime.valueOf();
-    } else {
-      var inputMs = otherDateTime.valueOf();
-      return this.startOf(unit) <= inputMs && inputMs <= this.endOf(unit);
-    }
-  };
-
-  /**
-   * Equality check
-   * Two DateTimes are equal iff they represent the same millisecond
-   * @param {DateTime} other - the other DateTime
-   * @return {boolean}
-   */
-
-
-  DateTime.prototype.equals = function equals(other) {
-    return this.isValid && other.isValid && this.valueOf() === other.valueOf() && this.zone.equals(other.zone) && this.loc.equals(other.loc);
-  };
-
-  /**
-   * Return the min of several date times
-   * @param {...DateTime} dateTimes - the DateTimes from which to choose the minimum
-   * @return {DateTime} the min DateTime, or undefined if called with no argument
-   */
-
-
-  DateTime.min = function min() {
-    for (var _len = arguments.length, dateTimes = Array(_len), _key = 0; _key < _len; _key++) {
-      dateTimes[_key] = arguments[_key];
-    }
-
-    return bestBy(dateTimes, function (i) {
-      return i.valueOf();
-    }, Math.min);
-  };
-
-  /**
-   * Return the max of several date times
-   * @param {...DateTime} dateTimes - the DateTimes from which to choose the maximum
-   * @return {DateTime} the max DateTime, or undefined if called with no argument
-   */
-
-
-  DateTime.max = function max() {
-    for (var _len2 = arguments.length, dateTimes = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-      dateTimes[_key2] = arguments[_key2];
-    }
-
-    return bestBy(dateTimes, function (i) {
-      return i.valueOf();
-    }, Math.max);
-  };
-
-  // MISC
-
-  /**
-   * Explain how a string would be parsed by fromFormat()
-   * @param {string} text - the string to parse
-   * @param {string} fmt - the format the string is expected to be in (see description)
-   * @param {Object} options - options taken by fromFormat()
-   * @return {Object}
-   */
-
-
-  DateTime.fromFormatExplain = function fromFormatExplain(text, fmt) {
-    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-    var _options$locale2 = options.locale,
-        locale = _options$locale2 === undefined ? null : _options$locale2,
-        _options$numberingSys2 = options.numberingSystem,
-        numberingSystem = _options$numberingSys2 === undefined ? null : _options$numberingSys2,
-        localeToUse = Locale.fromOpts({ locale: locale, numberingSystem: numberingSystem, defaultToEN: true });
-
-    return explainFromTokens(localeToUse, text, fmt);
-  };
-
-  /**
-   * @deprecated use fromFormatExplain instead
-   */
-
-
-  DateTime.fromStringExplain = function fromStringExplain(text, fmt) {
-    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
-    return DateTime.fromFormatExplain(text, fmt, options);
-  };
-
-  // FORMAT PRESETS
-
-  /**
-   * {@link toLocaleString} format like 10/14/1983
-   * @type {Object}
-   */
-
-
-  createClass(DateTime, [{
-    key: 'isValid',
-    get: function get$$1() {
-      return this.invalidReason === null;
-    }
-
-    /**
-     * Returns an explanation of why this DateTime became invalid, or null if the DateTime is valid
-     * @type {string}
-     */
-
-  }, {
-    key: 'invalidReason',
-    get: function get$$1() {
-      return this.invalid;
-    }
-
-    /**
-     * Get the locale of a DateTime, such 'en-GB'. The locale is used when formatting the DateTime
-     *
-     * @type {string}
-     */
-
-  }, {
-    key: 'locale',
-    get: function get$$1() {
-      return this.isValid ? this.loc.locale : null;
-    }
-
-    /**
-     * Get the numbering system of a DateTime, such 'beng'. The numbering system is used when formatting the DateTime
-     *
-     * @type {string}
-     */
-
-  }, {
-    key: 'numberingSystem',
-    get: function get$$1() {
-      return this.isValid ? this.loc.numberingSystem : null;
-    }
-
-    /**
-     * Get the output calendar of a DateTime, such 'islamic'. The output calendar is used when formatting the DateTime
-     *
-     * @type {string}
-     */
-
-  }, {
-    key: 'outputCalendar',
-    get: function get$$1() {
-      return this.isValid ? this.loc.outputCalendar : null;
-    }
-
-    /**
-     * Get the name of the time zone.
-     * @type {string}
-     */
-
-  }, {
-    key: 'zoneName',
-    get: function get$$1() {
-      return this.isValid ? this.zone.name : null;
-    }
-
-    /**
-     * Get the year
-     * @example DateTime.local(2017, 5, 25).year //=> 2017
-     * @type {number}
-     */
-
-  }, {
-    key: 'year',
-    get: function get$$1() {
-      return this.isValid ? this.c.year : NaN;
-    }
-
-    /**
-     * Get the quarter
-     * @example DateTime.local(2017, 5, 25).quarter //=> 2
-     * @type {number}
-     */
-
-  }, {
-    key: 'quarter',
-    get: function get$$1() {
-      return this.isValid ? Math.ceil(this.c.month / 3) : NaN;
-    }
-    /**
-     * Get the month (1-12).
-     * @example DateTime.local(2017, 5, 25).month //=> 5
-     * @type {number}
-     */
-
-  }, {
-    key: 'month',
-    get: function get$$1() {
-      return this.isValid ? this.c.month : NaN;
-    }
-
-    /**
-     * Get the day of the month (1-30ish).
-     * @example DateTime.local(2017, 5, 25).day //=> 25
-     * @type {number}
-     */
-
-  }, {
-    key: 'day',
-    get: function get$$1() {
-      return this.isValid ? this.c.day : NaN;
-    }
-
-    /**
-     * Get the hour of the day (0-23).
-     * @example DateTime.local(2017, 5, 25, 9).hour //=> 9
-     * @type {number}
-     */
-
-  }, {
-    key: 'hour',
-    get: function get$$1() {
-      return this.isValid ? this.c.hour : NaN;
-    }
-
-    /**
-     * Get the minute of the hour (0-59).
-     * @example DateTime.local(2017, 5, 25, 9, 30).minute //=> 30
-     * @type {number}
-     */
-
-  }, {
-    key: 'minute',
-    get: function get$$1() {
-      return this.isValid ? this.c.minute : NaN;
-    }
-
-    /**
-     * Get the second of the minute (0-59).
-     * @example DateTime.local(2017, 5, 25, 9, 30, 52).second //=> 52
-     * @type {number}
-     */
-
-  }, {
-    key: 'second',
-    get: function get$$1() {
-      return this.isValid ? this.c.second : NaN;
-    }
-
-    /**
-     * Get the millisecond of the second (0-999).
-     * @example DateTime.local(2017, 5, 25, 9, 30, 52, 654).millisecond //=> 654
-     * @type {number}
-     */
-
-  }, {
-    key: 'millisecond',
-    get: function get$$1() {
-      return this.isValid ? this.c.millisecond : NaN;
-    }
-
-    /**
-     * Get the week year
-     * @see https://en.wikipedia.org/wiki/ISO_week_date
-     * @example DateTime.local(2014, 11, 31).weekYear //=> 2015
-     * @type {number}
-     */
-
-  }, {
-    key: 'weekYear',
-    get: function get$$1() {
-      return this.isValid ? possiblyCachedWeekData(this).weekYear : NaN;
-    }
-
-    /**
-     * Get the week number of the week year (1-52ish).
-     * @see https://en.wikipedia.org/wiki/ISO_week_date
-     * @example DateTime.local(2017, 5, 25).weekNumber //=> 21
-     * @type {number}
-     */
-
-  }, {
-    key: 'weekNumber',
-    get: function get$$1() {
-      return this.isValid ? possiblyCachedWeekData(this).weekNumber : NaN;
-    }
-
-    /**
-     * Get the day of the week.
-     * 1 is Monday and 7 is Sunday
-     * @see https://en.wikipedia.org/wiki/ISO_week_date
-     * @example DateTime.local(2014, 11, 31).weekday //=> 4
-     * @type {number}
-     */
-
-  }, {
-    key: 'weekday',
-    get: function get$$1() {
-      return this.isValid ? possiblyCachedWeekData(this).weekday : NaN;
-    }
-
-    /**
-     * Get the ordinal (i.e. the day of the year)
-     * @example DateTime.local(2017, 5, 25).ordinal //=> 145
-     * @type {number|DateTime}
-     */
-
-  }, {
-    key: 'ordinal',
-    get: function get$$1() {
-      return this.isValid ? gregorianToOrdinal(this.c).ordinal : NaN;
-    }
-
-    /**
-     * Get the human readable short month name, such as 'Oct'.
-     * Defaults to the system's locale if no locale has been specified
-     * @example DateTime.local(2017, 10, 30).monthShort //=> Oct
-     * @type {string}
-     */
-
-  }, {
-    key: 'monthShort',
-    get: function get$$1() {
-      return this.isValid ? Info.months('short', { locale: this.locale })[this.month - 1] : null;
-    }
-
-    /**
-     * Get the human readable long month name, such as 'October'.
-     * Defaults to the system's locale if no locale has been specified
-     * @example DateTime.local(2017, 10, 30).monthLong //=> October
-     * @type {string}
-     */
-
-  }, {
-    key: 'monthLong',
-    get: function get$$1() {
-      return this.isValid ? Info.months('long', { locale: this.locale })[this.month - 1] : null;
-    }
-
-    /**
-     * Get the human readable short weekday, such as 'Mon'.
-     * Defaults to the system's locale if no locale has been specified
-     * @example DateTime.local(2017, 10, 30).weekdayShort //=> Mon
-     * @type {string}
-     */
-
-  }, {
-    key: 'weekdayShort',
-    get: function get$$1() {
-      return this.isValid ? Info.weekdays('short', { locale: this.locale })[this.weekday - 1] : null;
-    }
-
-    /**
-     * Get the human readable long weekday, such as 'Monday'.
-     * Defaults to the system's locale if no locale has been specified
-     * @example DateTime.local(2017, 10, 30).weekdayLong //=> Monday
-     * @type {string}
-     */
-
-  }, {
-    key: 'weekdayLong',
-    get: function get$$1() {
-      return this.isValid ? Info.weekdays('long', { locale: this.locale })[this.weekday - 1] : null;
-    }
-
-    /**
-     * Get the UTC offset of this DateTime in minutes
-     * @example DateTime.local().offset //=> -240
-     * @example DateTime.utc().offset //=> 0
-     * @type {number}
-     */
-
-  }, {
-    key: 'offset',
-    get: function get$$1() {
-      return this.isValid ? this.zone.offset(this.ts) : NaN;
-    }
-
-    /**
-     * Get the short human name for the zone's current offset, for example "EST" or "EDT".
-     * Defaults to the system's locale if no locale has been specified
-     * @type {string}
-     */
-
-  }, {
-    key: 'offsetNameShort',
-    get: function get$$1() {
-      if (this.isValid) {
-        return this.zone.offsetName(this.ts, {
-          format: 'short',
-          locale: this.locale
-        });
-      } else {
-        return null;
-      }
-    }
-
-    /**
-     * Get the long human name for the zone's current offset, for example "Eastern Standard Time" or "Eastern Daylight Time".
-     * Defaults to the system's locale if no locale has been specified
-     * @type {string}
-     */
-
-  }, {
-    key: 'offsetNameLong',
-    get: function get$$1() {
-      if (this.isValid) {
-        return this.zone.offsetName(this.ts, {
-          format: 'long',
-          locale: this.locale
-        });
-      } else {
-        return null;
-      }
-    }
-
-    /**
-     * Get whether this zone's offset ever changes, as in a DST.
-     * @type {boolean}
-     */
-
-  }, {
-    key: 'isOffsetFixed',
-    get: function get$$1() {
-      return this.isValid ? this.zone.universal : null;
-    }
-
-    /**
-     * Get whether the DateTime is in a DST.
-     * @type {boolean}
-     */
-
-  }, {
-    key: 'isInDST',
-    get: function get$$1() {
-      if (this.isOffsetFixed) {
-        return false;
-      } else {
-        return this.offset > this.set({ month: 1 }).offset || this.offset > this.set({ month: 5 }).offset;
-      }
-    }
-
-    /**
-     * Returns true if this DateTime is in a leap year, false otherwise
-     * @example DateTime.local(2016).isInLeapYear //=> true
-     * @example DateTime.local(2013).isInLeapYear //=> false
-     * @type {boolean}
-     */
-
-  }, {
-    key: 'isInLeapYear',
-    get: function get$$1() {
-      return isLeapYear(this.year);
-    }
-
-    /**
-     * Returns the number of days in this DateTime's month
-     * @example DateTime.local(2016, 2).daysInMonth //=> 29
-     * @example DateTime.local(2016, 3).daysInMonth //=> 31
-     * @type {number}
-     */
-
-  }, {
-    key: 'daysInMonth',
-    get: function get$$1() {
-      return daysInMonth(this.year, this.month);
-    }
-
-    /**
-     * Returns the number of days in this DateTime's year
-     * @example DateTime.local(2016).daysInYear //=> 366
-     * @example DateTime.local(2013).daysInYear //=> 365
-     * @type {number}
-     */
-
-  }, {
-    key: 'daysInYear',
-    get: function get$$1() {
-      return this.isValid ? daysInYear(this.year) : NaN;
-    }
-
-    /**
-     * Returns the number of weeks in this DateTime's year
-     * @see https://en.wikipedia.org/wiki/ISO_week_date
-     * @example DateTime.local(2004).weeksInWeekYear //=> 53
-     * @example DateTime.local(2013).weeksInWeekYear //=> 52
-     * @type {number}
-     */
-
-  }, {
-    key: 'weeksInWeekYear',
-    get: function get$$1() {
-      return this.isValid ? weeksInWeekYear(this.weekYear) : NaN;
-    }
-  }], [{
-    key: 'DATE_SHORT',
-    get: function get$$1() {
-      return DATE_SHORT;
-    }
-
-    /**
-     * {@link toLocaleString} format like 'Oct 14, 1983'
-     * @type {Object}
-     */
-
-  }, {
-    key: 'DATE_MED',
-    get: function get$$1() {
-      return DATE_MED;
-    }
-
-    /**
-     * {@link toLocaleString} format like 'October 14, 1983'
-     * @type {Object}
-     */
-
-  }, {
-    key: 'DATE_FULL',
-    get: function get$$1() {
-      return DATE_FULL;
-    }
-
-    /**
-     * {@link toLocaleString} format like 'Tuesday, October 14, 1983'
-     * @type {Object}
-     */
-
-  }, {
-    key: 'DATE_HUGE',
-    get: function get$$1() {
-      return DATE_HUGE;
-    }
-
-    /**
-     * {@link toLocaleString} format like '09:30 AM'. Only 12-hour if the locale is.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'TIME_SIMPLE',
-    get: function get$$1() {
-      return TIME_SIMPLE;
-    }
-
-    /**
-     * {@link toLocaleString} format like '09:30:23 AM'. Only 12-hour if the locale is.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'TIME_WITH_SECONDS',
-    get: function get$$1() {
-      return TIME_WITH_SECONDS;
-    }
-
-    /**
-     * {@link toLocaleString} format like '09:30:23 AM EDT'. Only 12-hour if the locale is.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'TIME_WITH_SHORT_OFFSET',
-    get: function get$$1() {
-      return TIME_WITH_SHORT_OFFSET;
-    }
-
-    /**
-     * {@link toLocaleString} format like '09:30:23 AM Eastern Daylight Time'. Only 12-hour if the locale is.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'TIME_WITH_LONG_OFFSET',
-    get: function get$$1() {
-      return TIME_WITH_LONG_OFFSET;
-    }
-
-    /**
-     * {@link toLocaleString} format like '09:30', always 24-hour.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'TIME_24_SIMPLE',
-    get: function get$$1() {
-      return TIME_24_SIMPLE;
-    }
-
-    /**
-     * {@link toLocaleString} format like '09:30:23', always 24-hour.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'TIME_24_WITH_SECONDS',
-    get: function get$$1() {
-      return TIME_24_WITH_SECONDS;
-    }
-
-    /**
-     * {@link toLocaleString} format like '09:30:23 EDT', always 24-hour.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'TIME_24_WITH_SHORT_OFFSET',
-    get: function get$$1() {
-      return TIME_24_WITH_SHORT_OFFSET;
-    }
-
-    /**
-     * {@link toLocaleString} format like '09:30:23 Eastern Daylight Time', always 24-hour.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'TIME_24_WITH_LONG_OFFSET',
-    get: function get$$1() {
-      return TIME_24_WITH_LONG_OFFSET;
-    }
-
-    /**
-     * {@link toLocaleString} format like '10/14/1983, 9:30 AM'. Only 12-hour if the locale is.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'DATETIME_SHORT',
-    get: function get$$1() {
-      return DATETIME_SHORT;
-    }
-
-    /**
-     * {@link toLocaleString} format like '10/14/1983, 9:30:33 AM'. Only 12-hour if the locale is.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'DATETIME_SHORT_WITH_SECONDS',
-    get: function get$$1() {
-      return DATETIME_SHORT_WITH_SECONDS;
-    }
-
-    /**
-     * {@link toLocaleString} format like 'Oct 14, 1983, 9:30 AM'. Only 12-hour if the locale is.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'DATETIME_MED',
-    get: function get$$1() {
-      return DATETIME_MED;
-    }
-
-    /**
-     * {@link toLocaleString} format like 'Oct 14, 1983, 9:30:33 AM'. Only 12-hour if the locale is.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'DATETIME_MED_WITH_SECONDS',
-    get: function get$$1() {
-      return DATETIME_MED_WITH_SECONDS;
-    }
-
-    /**
-     * {@link toLocaleString} format like 'October 14, 1983, 9:30 AM EDT'. Only 12-hour if the locale is.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'DATETIME_FULL',
-    get: function get$$1() {
-      return DATETIME_FULL;
-    }
-
-    /**
-     * {@link toLocaleString} format like 'October 14, 1983, 9:303 AM EDT'. Only 12-hour if the locale is.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'DATETIME_FULL_WITH_SECONDS',
-    get: function get$$1() {
-      return DATETIME_FULL_WITH_SECONDS;
-    }
-
-    /**
-     * {@link toLocaleString} format like 'Friday, October 14, 1983, 9:30 AM Eastern Daylight Time'. Only 12-hour if the locale is.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'DATETIME_HUGE',
-    get: function get$$1() {
-      return DATETIME_HUGE;
-    }
-
-    /**
-     * {@link toLocaleString} format like 'Friday, October 14, 1983, 9:30:33 AM Eastern Daylight Time'. Only 12-hour if the locale is.
-     * @type {Object}
-     */
-
-  }, {
-    key: 'DATETIME_HUGE_WITH_SECONDS',
-    get: function get$$1() {
-      return DATETIME_HUGE_WITH_SECONDS;
-    }
-  }]);
-  return DateTime;
-}();
-function friendlyDateTime(dateTimeish) {
-  if (dateTimeish instanceof DateTime) {
-    return dateTimeish;
-  } else if (dateTimeish.valueOf && isNumber(dateTimeish.valueOf())) {
-    return DateTime.fromJSDate(dateTimeish);
-  } else if ((typeof dateTimeish === 'undefined' ? 'undefined' : _typeof(dateTimeish)) === 'object') {
-    return DateTime.fromObject(dateTimeish);
-  } else {
-    throw new InvalidArgumentError('Unknown datetime argument');
-  }
-}
-
-exports.DateTime = DateTime;
-exports.Duration = Duration;
-exports.Interval = Interval;
-exports.Info = Info;
-exports.Zone = Zone;
-exports.FixedOffsetZone = FixedOffsetZone;
-exports.IANAZone = IANAZone;
-exports.LocalZone = LocalZone;
-exports.Settings = Settings;
-//# sourceMappingURL=luxon.js.map
-
-
-/***/ }),
-/* 169 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-var formatRegExp = /%[sdj%]/g;
-exports.format = function(f) {
-  if (!isString(f)) {
-    var objects = [];
-    for (var i = 0; i < arguments.length; i++) {
-      objects.push(inspect(arguments[i]));
-    }
-    return objects.join(' ');
-  }
-
-  var i = 1;
-  var args = arguments;
-  var len = args.length;
-  var str = String(f).replace(formatRegExp, function(x) {
-    if (x === '%%') return '%';
-    if (i >= len) return x;
-    switch (x) {
-      case '%s': return String(args[i++]);
-      case '%d': return Number(args[i++]);
-      case '%j':
-        try {
-          return JSON.stringify(args[i++]);
-        } catch (_) {
-          return '[Circular]';
-        }
-      default:
-        return x;
-    }
-  });
-  for (var x = args[i]; i < len; x = args[++i]) {
-    if (isNull(x) || !isObject(x)) {
-      str += ' ' + x;
-    } else {
-      str += ' ' + inspect(x);
-    }
-  }
-  return str;
-};
-
-
-// Mark that a method should not be used.
-// Returns a modified function which warns once by default.
-// If --no-deprecation is set, then it is a no-op.
-exports.deprecate = function(fn, msg) {
-  // Allow for deprecating things in the process of starting up.
-  if (isUndefined(global.process)) {
-    return function() {
-      return exports.deprecate(fn, msg).apply(this, arguments);
-    };
-  }
-
-  if (process.noDeprecation === true) {
-    return fn;
-  }
-
-  var warned = false;
-  function deprecated() {
-    if (!warned) {
-      if (process.throwDeprecation) {
-        throw new Error(msg);
-      } else if (process.traceDeprecation) {
-        console.trace(msg);
-      } else {
-        console.error(msg);
-      }
-      warned = true;
-    }
-    return fn.apply(this, arguments);
-  }
-
-  return deprecated;
-};
-
-
-var debugs = {};
-var debugEnviron;
-exports.debuglog = function(set) {
-  if (isUndefined(debugEnviron))
-    debugEnviron = Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}).NODE_DEBUG || '';
-  set = set.toUpperCase();
-  if (!debugs[set]) {
-    if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
-      var pid = process.pid;
-      debugs[set] = function() {
-        var msg = exports.format.apply(exports, arguments);
-        console.error('%s %d: %s', set, pid, msg);
-      };
-    } else {
-      debugs[set] = function() {};
-    }
-  }
-  return debugs[set];
-};
-
-
-/**
- * Echos the value of a value. Trys to print the value out
- * in the best way possible given the different types.
- *
- * @param {Object} obj The object to print out.
- * @param {Object} opts Optional options object that alters the output.
- */
-/* legacy: obj, showHidden, depth, colors*/
-function inspect(obj, opts) {
-  // default options
-  var ctx = {
-    seen: [],
-    stylize: stylizeNoColor
-  };
-  // legacy...
-  if (arguments.length >= 3) ctx.depth = arguments[2];
-  if (arguments.length >= 4) ctx.colors = arguments[3];
-  if (isBoolean(opts)) {
-    // legacy...
-    ctx.showHidden = opts;
-  } else if (opts) {
-    // got an "options" object
-    exports._extend(ctx, opts);
-  }
-  // set default options
-  if (isUndefined(ctx.showHidden)) ctx.showHidden = false;
-  if (isUndefined(ctx.depth)) ctx.depth = 2;
-  if (isUndefined(ctx.colors)) ctx.colors = false;
-  if (isUndefined(ctx.customInspect)) ctx.customInspect = true;
-  if (ctx.colors) ctx.stylize = stylizeWithColor;
-  return formatValue(ctx, obj, ctx.depth);
-}
-exports.inspect = inspect;
-
-
-// http://en.wikipedia.org/wiki/ANSI_escape_code#graphics
-inspect.colors = {
-  'bold' : [1, 22],
-  'italic' : [3, 23],
-  'underline' : [4, 24],
-  'inverse' : [7, 27],
-  'white' : [37, 39],
-  'grey' : [90, 39],
-  'black' : [30, 39],
-  'blue' : [34, 39],
-  'cyan' : [36, 39],
-  'green' : [32, 39],
-  'magenta' : [35, 39],
-  'red' : [31, 39],
-  'yellow' : [33, 39]
-};
-
-// Don't use 'blue' not visible on cmd.exe
-inspect.styles = {
-  'special': 'cyan',
-  'number': 'yellow',
-  'boolean': 'yellow',
-  'undefined': 'grey',
-  'null': 'bold',
-  'string': 'green',
-  'date': 'magenta',
-  // "name": intentionally not styling
-  'regexp': 'red'
-};
-
-
-function stylizeWithColor(str, styleType) {
-  var style = inspect.styles[styleType];
-
-  if (style) {
-    return '\u001b[' + inspect.colors[style][0] + 'm' + str +
-           '\u001b[' + inspect.colors[style][1] + 'm';
-  } else {
-    return str;
-  }
-}
-
-
-function stylizeNoColor(str, styleType) {
-  return str;
-}
-
-
-function arrayToHash(array) {
-  var hash = {};
-
-  array.forEach(function(val, idx) {
-    hash[val] = true;
-  });
-
-  return hash;
-}
-
-
-function formatValue(ctx, value, recurseTimes) {
-  // Provide a hook for user-specified inspect functions.
-  // Check that value is an object with an inspect function on it
-  if (ctx.customInspect &&
-      value &&
-      isFunction(value.inspect) &&
-      // Filter out the util module, it's inspect function is special
-      value.inspect !== exports.inspect &&
-      // Also filter out any prototype objects using the circular check.
-      !(value.constructor && value.constructor.prototype === value)) {
-    var ret = value.inspect(recurseTimes, ctx);
-    if (!isString(ret)) {
-      ret = formatValue(ctx, ret, recurseTimes);
-    }
-    return ret;
-  }
-
-  // Primitive types cannot have properties
-  var primitive = formatPrimitive(ctx, value);
-  if (primitive) {
-    return primitive;
-  }
-
-  // Look up the keys of the object.
-  var keys = Object.keys(value);
-  var visibleKeys = arrayToHash(keys);
-
-  if (ctx.showHidden) {
-    keys = Object.getOwnPropertyNames(value);
-  }
-
-  // IE doesn't make error fields non-enumerable
-  // http://msdn.microsoft.com/en-us/library/ie/dww52sbt(v=vs.94).aspx
-  if (isError(value)
-      && (keys.indexOf('message') >= 0 || keys.indexOf('description') >= 0)) {
-    return formatError(value);
-  }
-
-  // Some type of object without properties can be shortcutted.
-  if (keys.length === 0) {
-    if (isFunction(value)) {
-      var name = value.name ? ': ' + value.name : '';
-      return ctx.stylize('[Function' + name + ']', 'special');
-    }
-    if (isRegExp(value)) {
-      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
-    }
-    if (isDate(value)) {
-      return ctx.stylize(Date.prototype.toString.call(value), 'date');
-    }
-    if (isError(value)) {
-      return formatError(value);
-    }
-  }
-
-  var base = '', array = false, braces = ['{', '}'];
-
-  // Make Array say that they are Array
-  if (isArray(value)) {
-    array = true;
-    braces = ['[', ']'];
-  }
-
-  // Make functions say that they are functions
-  if (isFunction(value)) {
-    var n = value.name ? ': ' + value.name : '';
-    base = ' [Function' + n + ']';
-  }
-
-  // Make RegExps say that they are RegExps
-  if (isRegExp(value)) {
-    base = ' ' + RegExp.prototype.toString.call(value);
-  }
-
-  // Make dates with properties first say the date
-  if (isDate(value)) {
-    base = ' ' + Date.prototype.toUTCString.call(value);
-  }
-
-  // Make error with message first say the error
-  if (isError(value)) {
-    base = ' ' + formatError(value);
-  }
-
-  if (keys.length === 0 && (!array || value.length == 0)) {
-    return braces[0] + base + braces[1];
-  }
-
-  if (recurseTimes < 0) {
-    if (isRegExp(value)) {
-      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
-    } else {
-      return ctx.stylize('[Object]', 'special');
-    }
-  }
-
-  ctx.seen.push(value);
-
-  var output;
-  if (array) {
-    output = formatArray(ctx, value, recurseTimes, visibleKeys, keys);
-  } else {
-    output = keys.map(function(key) {
-      return formatProperty(ctx, value, recurseTimes, visibleKeys, key, array);
-    });
-  }
-
-  ctx.seen.pop();
-
-  return reduceToSingleString(output, base, braces);
-}
-
-
-function formatPrimitive(ctx, value) {
-  if (isUndefined(value))
-    return ctx.stylize('undefined', 'undefined');
-  if (isString(value)) {
-    var simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
-                                             .replace(/'/g, "\\'")
-                                             .replace(/\\"/g, '"') + '\'';
-    return ctx.stylize(simple, 'string');
-  }
-  if (isNumber(value))
-    return ctx.stylize('' + value, 'number');
-  if (isBoolean(value))
-    return ctx.stylize('' + value, 'boolean');
-  // For some reason typeof null is "object", so special case here.
-  if (isNull(value))
-    return ctx.stylize('null', 'null');
-}
-
-
-function formatError(value) {
-  return '[' + Error.prototype.toString.call(value) + ']';
-}
-
-
-function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
-  var output = [];
-  for (var i = 0, l = value.length; i < l; ++i) {
-    if (hasOwnProperty(value, String(i))) {
-      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
-          String(i), true));
-    } else {
-      output.push('');
-    }
-  }
-  keys.forEach(function(key) {
-    if (!key.match(/^\d+$/)) {
-      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
-          key, true));
-    }
-  });
-  return output;
-}
-
-
-function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
-  var name, str, desc;
-  desc = Object.getOwnPropertyDescriptor(value, key) || { value: value[key] };
-  if (desc.get) {
-    if (desc.set) {
-      str = ctx.stylize('[Getter/Setter]', 'special');
-    } else {
-      str = ctx.stylize('[Getter]', 'special');
-    }
-  } else {
-    if (desc.set) {
-      str = ctx.stylize('[Setter]', 'special');
-    }
-  }
-  if (!hasOwnProperty(visibleKeys, key)) {
-    name = '[' + key + ']';
-  }
-  if (!str) {
-    if (ctx.seen.indexOf(desc.value) < 0) {
-      if (isNull(recurseTimes)) {
-        str = formatValue(ctx, desc.value, null);
-      } else {
-        str = formatValue(ctx, desc.value, recurseTimes - 1);
-      }
-      if (str.indexOf('\n') > -1) {
-        if (array) {
-          str = str.split('\n').map(function(line) {
-            return '  ' + line;
-          }).join('\n').substr(2);
-        } else {
-          str = '\n' + str.split('\n').map(function(line) {
-            return '   ' + line;
-          }).join('\n');
-        }
-      }
-    } else {
-      str = ctx.stylize('[Circular]', 'special');
-    }
-  }
-  if (isUndefined(name)) {
-    if (array && key.match(/^\d+$/)) {
-      return str;
-    }
-    name = JSON.stringify('' + key);
-    if (name.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)) {
-      name = name.substr(1, name.length - 2);
-      name = ctx.stylize(name, 'name');
-    } else {
-      name = name.replace(/'/g, "\\'")
-                 .replace(/\\"/g, '"')
-                 .replace(/(^"|"$)/g, "'");
-      name = ctx.stylize(name, 'string');
-    }
-  }
-
-  return name + ': ' + str;
-}
-
-
-function reduceToSingleString(output, base, braces) {
-  var numLinesEst = 0;
-  var length = output.reduce(function(prev, cur) {
-    numLinesEst++;
-    if (cur.indexOf('\n') >= 0) numLinesEst++;
-    return prev + cur.replace(/\u001b\[\d\d?m/g, '').length + 1;
-  }, 0);
-
-  if (length > 60) {
-    return braces[0] +
-           (base === '' ? '' : base + '\n ') +
-           ' ' +
-           output.join(',\n  ') +
-           ' ' +
-           braces[1];
-  }
-
-  return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
-}
-
-
-// NOTE: These type checking functions intentionally don't use `instanceof`
-// because it is fragile and can be easily faked with `Object.create()`.
-function isArray(ar) {
-  return Array.isArray(ar);
-}
-exports.isArray = isArray;
-
-function isBoolean(arg) {
-  return typeof arg === 'boolean';
-}
-exports.isBoolean = isBoolean;
-
-function isNull(arg) {
-  return arg === null;
-}
-exports.isNull = isNull;
-
-function isNullOrUndefined(arg) {
-  return arg == null;
-}
-exports.isNullOrUndefined = isNullOrUndefined;
-
-function isNumber(arg) {
-  return typeof arg === 'number';
-}
-exports.isNumber = isNumber;
-
-function isString(arg) {
-  return typeof arg === 'string';
-}
-exports.isString = isString;
-
-function isSymbol(arg) {
-  return typeof arg === 'symbol';
-}
-exports.isSymbol = isSymbol;
-
-function isUndefined(arg) {
-  return arg === void 0;
-}
-exports.isUndefined = isUndefined;
-
-function isRegExp(re) {
-  return isObject(re) && objectToString(re) === '[object RegExp]';
-}
-exports.isRegExp = isRegExp;
-
-function isObject(arg) {
-  return typeof arg === 'object' && arg !== null;
-}
-exports.isObject = isObject;
-
-function isDate(d) {
-  return isObject(d) && objectToString(d) === '[object Date]';
-}
-exports.isDate = isDate;
-
-function isError(e) {
-  return isObject(e) &&
-      (objectToString(e) === '[object Error]' || e instanceof Error);
-}
-exports.isError = isError;
-
-function isFunction(arg) {
-  return typeof arg === 'function';
-}
-exports.isFunction = isFunction;
-
-function isPrimitive(arg) {
-  return arg === null ||
-         typeof arg === 'boolean' ||
-         typeof arg === 'number' ||
-         typeof arg === 'string' ||
-         typeof arg === 'symbol' ||  // ES6 symbol
-         typeof arg === 'undefined';
-}
-exports.isPrimitive = isPrimitive;
-
-exports.isBuffer = __webpack_require__(170);
-
-function objectToString(o) {
-  return Object.prototype.toString.call(o);
-}
-
-
-function pad(n) {
-  return n < 10 ? '0' + n.toString(10) : n.toString(10);
-}
-
-
-var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
-              'Oct', 'Nov', 'Dec'];
-
-// 26 Feb 16:19:34
-function timestamp() {
-  var d = new Date();
-  var time = [pad(d.getHours()),
-              pad(d.getMinutes()),
-              pad(d.getSeconds())].join(':');
-  return [d.getDate(), months[d.getMonth()], time].join(' ');
-}
-
-
-// log is just a thin wrapper to console.log that prepends a timestamp
-exports.log = function() {
-  console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
-};
-
-
-/**
- * Inherit the prototype methods from one constructor into another.
- *
- * The Function.prototype.inherits from lang.js rewritten as a standalone
- * function (not on Function.prototype). NOTE: If this file is to be loaded
- * during bootstrapping this function needs to be rewritten using some native
- * functions as prototype setup using normal JavaScript does not work as
- * expected during bootstrapping (see mirror.js in r114903).
- *
- * @param {function} ctor Constructor function which needs to inherit the
- *     prototype.
- * @param {function} superCtor Constructor function to inherit prototype from.
- */
-exports.inherits = __webpack_require__(171);
-
-exports._extend = function(origin, add) {
-  // Don't do anything if add isn't an object
-  if (!add || !isObject(add)) return origin;
-
-  var keys = Object.keys(add);
-  var i = keys.length;
-  while (i--) {
-    origin[keys[i]] = add[keys[i]];
-  }
-  return origin;
-};
-
-function hasOwnProperty(obj, prop) {
-  return Object.prototype.hasOwnProperty.call(obj, prop);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(8)))
-
-/***/ }),
-/* 170 */
-/***/ (function(module, exports) {
-
-module.exports = function isBuffer(arg) {
-  return arg && typeof arg === 'object'
-    && typeof arg.copy === 'function'
-    && typeof arg.fill === 'function'
-    && typeof arg.readUInt8 === 'function';
-}
-
-/***/ }),
-/* 171 */
-/***/ (function(module, exports) {
-
-if (typeof Object.create === 'function') {
-  // implementation from standard node.js 'util' module
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: {
-        value: ctor,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-  };
-} else {
-  // old school shim for old browsers
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    var TempCtor = function () {}
-    TempCtor.prototype = superCtor.prototype
-    ctor.prototype = new TempCtor()
-    ctor.prototype.constructor = ctor
-  }
-}
-
-
-/***/ }),
-/* 172 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getWeekStartByRegion", function() { return getWeekStartByRegion$1; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getWeekStartByLocale", function() { return getWeekStartByLocale$1; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_js__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__langRegionMap_js__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__regionDayMap_js__ = __webpack_require__(175);
-
-
-
-
-function getWeekStartByRegion$1(regionCode) {
-    return Object(__WEBPACK_IMPORTED_MODULE_0__api_js__["b" /* getWeekStartByRegion */])(regionCode, __WEBPACK_IMPORTED_MODULE_2__regionDayMap_js__["a" /* default */]);
-}
-
-function getWeekStartByLocale$1(locale) {
-    return Object(__WEBPACK_IMPORTED_MODULE_0__api_js__["a" /* getWeekStartByLocale */])(locale, __WEBPACK_IMPORTED_MODULE_1__langRegionMap_js__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__regionDayMap_js__["a" /* default */]);
-}
-
-
-//# sourceMappingURL=main.js.map
-
-
-/***/ }),
-/* 173 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getWeekStartByRegion; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getWeekStartByLocale; });
-function getWeekStartByRegion(regionCode, regionDayMap) {
-    var code = regionDayMap[typeof regionCode === 'string' ? regionCode.toUpperCase() : regionCode];
-    return typeof code === 'number' ? code : 1;
-}
-
-function getWeekStartByLocale(locale, langRegionMap, regionDayMap) {
-    if (locale) {
-        var data = locale.toLowerCase().split(/[-_]/);
-        var language = data[0];
-        var country;
-        if (data[1] && data[1].length === 4) {
-            language += "_" + (data[1]);
-            country = data[2];
-        } else {
-            country = data[1];
-        }
-        if (!country) {
-            country = langRegionMap[language];
-        }
-        if (country) {
-            return getWeekStartByRegion(country.match(/^\d+$/) ? Number(country) : country, regionDayMap);
-        }
-    }
-    return 1;
-}
-
-
-//# sourceMappingURL=api.js.map
-
-
-/***/ }),
-/* 174 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var langRegionMap = {
-    en: 'US',
-    zh: 'CN',
-    zh_hans: 'CN',
-    hans: 'CN',
-    wuu: 'CN',
-    hsn: 'CN',
-    hak: 'CN',
-    nan: 'CN',
-    gan: 'CN',
-    hi: 'IN',
-    te: 'IN',
-    mr: 'IN',
-    ta: 'IN',
-    gu: 'IN',
-    kn: 'IN',
-    or: 'IN',
-    ml: 'IN',
-    pa_guru: 'IN',
-    bho: 'IN',
-    awa: 'IN',
-    as: 'IN',
-    mwr: 'IN',
-    mai: 'IN',
-    mag: 'IN',
-    bgc: 'IN',
-    hne: 'IN',
-    dcc: 'IN',
-    dz: 'BT',
-    tn: 'BW',
-    am: 'ET',
-    om: 'ET',
-    quc: 'GT',
-    id: 'ID',
-    jv: 'ID',
-    su: 'ID',
-    mad: 'ID',
-    ms_arab: 'ID',
-    ga: 'IE',
-    he: 'IL',
-    jam: 'JM',
-    ja: 'JP',
-    km: 'KH',
-    ko: 'KR',
-    lo: 'LA',
-    mh: 'MH',
-    my: 'MM',
-    mt: 'MT',
-    ne: 'NP',
-    fil: 'PH',
-    ceb: 'PH',
-    ilo: 'PH',
-    ur: 'PK',
-    pa: 'PK',
-    pa_arab: 'PK',
-    arab: 'PK',
-    lah: 'PK',
-    ps: 'PK',
-    sd: 'PK',
-    sd_arab: 'PK',
-    skr: 'PK',
-    gn: 'PY',
-    th: 'TH',
-    tts: 'TH',
-    aeb: 'TN',
-    zh_hant: 'TW',
-    hant: 'TW',
-    sm: 'WS',
-    zu: 'ZA',
-    sn: 'ZW',
-    arq: 'DZ',
-    ar: 'EG',
-    arz: 'EG',
-    fa: 'IR',
-    az_arab: 'IR',
-    ary: 'MA',
-    bn: 'BD',
-    rkt: 'BD',
-    dv: 'MV'
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (langRegionMap);
-//# sourceMappingURL=langRegionMap.js.map
-
-
-/***/ }),
-/* 175 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var regionDayMap = {
-    AG: 0,
-    ATG: 0,
-    28: 0,
-    AR: 0,
-    ARG: 0,
-    32: 0,
-    AS: 0,
-    ASM: 0,
-    16: 0,
-    AU: 0,
-    AUS: 0,
-    36: 0,
-    BR: 0,
-    BRA: 0,
-    76: 0,
-    BS: 0,
-    BHS: 0,
-    44: 0,
-    BT: 0,
-    BTN: 0,
-    64: 0,
-    BW: 0,
-    BWA: 0,
-    72: 0,
-    BZ: 0,
-    BLZ: 0,
-    84: 0,
-    CA: 0,
-    CAN: 0,
-    124: 0,
-    CN: 0,
-    CHN: 0,
-    156: 0,
-    CO: 0,
-    COL: 0,
-    170: 0,
-    DM: 0,
-    DMA: 0,
-    212: 0,
-    DO: 0,
-    DOM: 0,
-    214: 0,
-    ET: 0,
-    ETH: 0,
-    231: 0,
-    GT: 0,
-    GTM: 0,
-    320: 0,
-    GU: 0,
-    GUM: 0,
-    316: 0,
-    HK: 0,
-    HKG: 0,
-    344: 0,
-    HN: 0,
-    HND: 0,
-    340: 0,
-    ID: 0,
-    IDN: 0,
-    360: 0,
-    IE: 0,
-    IRL: 0,
-    372: 0,
-    IL: 0,
-    ISR: 0,
-    376: 0,
-    IN: 0,
-    IND: 0,
-    356: 0,
-    JM: 0,
-    JAM: 0,
-    388: 0,
-    JP: 0,
-    JPN: 0,
-    392: 0,
-    KE: 0,
-    KEN: 0,
-    404: 0,
-    KH: 0,
-    KHM: 0,
-    116: 0,
-    KR: 0,
-    KOR: 0,
-    410: 0,
-    LA: 0,
-    LA0: 0,
-    418: 0,
-    MH: 0,
-    MHL: 0,
-    584: 0,
-    MM: 0,
-    MMR: 0,
-    104: 0,
-    MO: 0,
-    MAC: 0,
-    446: 0,
-    MT: 0,
-    MLT: 0,
-    470: 0,
-    MX: 0,
-    MEX: 0,
-    484: 0,
-    MZ: 0,
-    MOZ: 0,
-    508: 0,
-    NI: 0,
-    NIC: 0,
-    558: 0,
-    NP: 0,
-    NPL: 0,
-    524: 0,
-    NZ: 0,
-    NZL: 0,
-    554: 0,
-    PA: 0,
-    PAN: 0,
-    591: 0,
-    PE: 0,
-    PER: 0,
-    604: 0,
-    PH: 0,
-    PHL: 0,
-    608: 0,
-    PK: 0,
-    PAK: 0,
-    586: 0,
-    PR: 0,
-    PRI: 0,
-    630: 0,
-    PY: 0,
-    PRY: 0,
-    600: 0,
-    SA: 0,
-    SAU: 0,
-    682: 0,
-    SG: 0,
-    SGP: 0,
-    702: 0,
-    SV: 0,
-    SLV: 0,
-    222: 0,
-    TH: 0,
-    THA: 0,
-    764: 0,
-    TN: 0,
-    TUN: 0,
-    788: 0,
-    TT: 0,
-    TTO: 0,
-    780: 0,
-    TW: 0,
-    TWN: 0,
-    158: 0,
-    UM: 0,
-    UMI: 0,
-    581: 0,
-    US: 0,
-    USA: 0,
-    840: 0,
-    VE: 0,
-    VEN: 0,
-    862: 0,
-    VI: 0,
-    VIR: 0,
-    850: 0,
-    WS: 0,
-    WSM: 0,
-    882: 0,
-    YE: 0,
-    YEM: 0,
-    887: 0,
-    ZA: 0,
-    ZAF: 0,
-    710: 0,
-    ZW: 0,
-    ZWE: 0,
-    716: 0,
-    AE: 6,
-    ARE: 6,
-    784: 6,
-    AF: 6,
-    AFG: 6,
-    4: 6,
-    BH: 6,
-    BHR: 6,
-    48: 6,
-    DJ: 6,
-    DJI: 6,
-    262: 6,
-    DZ: 6,
-    DZA: 6,
-    12: 6,
-    EG: 6,
-    EGY: 6,
-    818: 6,
-    IQ: 6,
-    IRQ: 6,
-    368: 6,
-    IR: 6,
-    IRN: 6,
-    364: 6,
-    JO: 6,
-    JOR: 6,
-    400: 6,
-    KW: 6,
-    KWT: 6,
-    414: 6,
-    LY: 6,
-    LBY: 6,
-    434: 6,
-    MA: 6,
-    MAR: 6,
-    504: 6,
-    OM: 6,
-    OMN: 6,
-    512: 6,
-    QA: 6,
-    QAT: 6,
-    634: 6,
-    SD: 6,
-    SDN: 6,
-    729: 6,
-    SY: 6,
-    SYR: 6,
-    760: 6,
-    BD: 5,
-    BGD: 5,
-    50: 5,
-    MV: 5,
-    MDV: 5,
-    462: 5
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (regionDayMap);
-//# sourceMappingURL=regionDayMap.js.map
-
-
-/***/ }),
-/* 176 */
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -75419,13 +66681,13 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 177 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(178);
+var content = __webpack_require__(179);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -75445,7 +66707,7 @@ if(false) {
 }
 
 /***/ }),
-/* 178 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -75459,7 +66721,7 @@ exports.push([module.i, "\n.octicon {\n  display: inline-block;\n  fill: current
 
 
 /***/ }),
-/* 179 */
+/* 180 */
 /***/ (function(module, exports) {
 
 /**
@@ -75492,12 +66754,12 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 180 */
+/* 181 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(182);
 //
 //
 //
@@ -75658,7 +66920,7 @@ var icons = {};
 });
 
 /***/ }),
-/* 181 */
+/* 182 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -75700,7 +66962,7 @@ if (true) {
 
 
 /***/ }),
-/* 182 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -75742,374 +67004,362 @@ if (false) {
 }
 
 /***/ }),
-/* 183 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__alert__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__arrow_down__ = __webpack_require__(185);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__arrow_left__ = __webpack_require__(186);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__arrow_right__ = __webpack_require__(187);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__arrow_small_down__ = __webpack_require__(188);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__arrow_small_left__ = __webpack_require__(189);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__arrow_small_right__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__arrow_small_up__ = __webpack_require__(191);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__arrow_up__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__beaker__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__bell__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__bold__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__book__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__bookmark__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__briefcase__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__broadcast__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__browser__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__bug__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__calendar__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__check__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__checklist__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__chevron_down__ = __webpack_require__(205);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__chevron_left__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__chevron_right__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__chevron_up__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__circle_slash__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__circuit_board__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__clippy__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__clock__ = __webpack_require__(212);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__cloud_download__ = __webpack_require__(213);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__cloud_upload__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__code__ = __webpack_require__(215);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__comment__ = __webpack_require__(216);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__comment_discussion__ = __webpack_require__(217);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__credit_card__ = __webpack_require__(218);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__dash__ = __webpack_require__(219);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__dashboard__ = __webpack_require__(220);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__database__ = __webpack_require__(221);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__desktop_download__ = __webpack_require__(222);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__device_camera__ = __webpack_require__(223);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__device_camera_video__ = __webpack_require__(224);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__device_desktop__ = __webpack_require__(225);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__device_mobile__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__diff__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__diff_added__ = __webpack_require__(228);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__diff_ignored__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__diff_modified__ = __webpack_require__(230);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__diff_removed__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__diff_renamed__ = __webpack_require__(232);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__ellipses__ = __webpack_require__(233);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__ellipsis__ = __webpack_require__(234);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__eye__ = __webpack_require__(235);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__file__ = __webpack_require__(236);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__file_binary__ = __webpack_require__(237);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__file_code__ = __webpack_require__(238);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__file_directory__ = __webpack_require__(239);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__file_media__ = __webpack_require__(240);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__file_pdf__ = __webpack_require__(241);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__file_submodule__ = __webpack_require__(242);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__file_symlink_directory__ = __webpack_require__(243);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__file_symlink_file__ = __webpack_require__(244);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__file_text__ = __webpack_require__(245);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__file_zip__ = __webpack_require__(246);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__flame__ = __webpack_require__(247);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__fold__ = __webpack_require__(248);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__gear__ = __webpack_require__(249);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__gift__ = __webpack_require__(250);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__gist__ = __webpack_require__(251);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__gist_secret__ = __webpack_require__(252);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__git_branch__ = __webpack_require__(253);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__git_commit__ = __webpack_require__(254);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__git_compare__ = __webpack_require__(255);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__git_merge__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__git_pull_request__ = __webpack_require__(257);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__globe__ = __webpack_require__(258);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__grabber__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__graph__ = __webpack_require__(260);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__heart__ = __webpack_require__(261);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__history__ = __webpack_require__(262);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__home__ = __webpack_require__(263);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__horizontal_rule__ = __webpack_require__(264);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__hubot__ = __webpack_require__(265);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__inbox__ = __webpack_require__(266);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__info__ = __webpack_require__(267);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_84__issue_closed__ = __webpack_require__(268);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_85__issue_opened__ = __webpack_require__(269);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_86__issue_reopened__ = __webpack_require__(270);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_87__italic__ = __webpack_require__(271);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_88__jersey__ = __webpack_require__(272);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_89__key__ = __webpack_require__(273);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_90__keyboard__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_91__law__ = __webpack_require__(275);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_92__light_bulb__ = __webpack_require__(276);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_93__link__ = __webpack_require__(277);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_94__link_external__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_95__list_ordered__ = __webpack_require__(279);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_96__list_unordered__ = __webpack_require__(280);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_97__location__ = __webpack_require__(281);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_98__lock__ = __webpack_require__(282);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_99__logo_gist__ = __webpack_require__(283);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_100__logo_github__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_101__mail__ = __webpack_require__(285);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_102__mail_read__ = __webpack_require__(286);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_103__mail_reply__ = __webpack_require__(287);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_104__mark_github__ = __webpack_require__(288);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_105__markdown__ = __webpack_require__(289);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_106__megaphone__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_107__mention__ = __webpack_require__(291);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_108__milestone__ = __webpack_require__(292);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_109__mirror__ = __webpack_require__(293);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_110__mortar_board__ = __webpack_require__(294);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_111__mute__ = __webpack_require__(295);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_112__no_newline__ = __webpack_require__(296);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_113__note__ = __webpack_require__(297);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_114__octoface__ = __webpack_require__(298);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_115__organization__ = __webpack_require__(299);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_116__package__ = __webpack_require__(300);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_117__paintcan__ = __webpack_require__(301);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_118__pencil__ = __webpack_require__(302);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_119__person__ = __webpack_require__(303);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_120__pin__ = __webpack_require__(304);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_121__plug__ = __webpack_require__(305);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_122__plus__ = __webpack_require__(306);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_123__plus_small__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_124__primitive_dot__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_125__primitive_square__ = __webpack_require__(309);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_126__project__ = __webpack_require__(310);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_127__pulse__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_128__question__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_129__quote__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_130__radio_tower__ = __webpack_require__(314);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_131__reply__ = __webpack_require__(315);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_132__repo__ = __webpack_require__(316);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_133__repo_clone__ = __webpack_require__(317);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_134__repo_force_push__ = __webpack_require__(318);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_135__repo_forked__ = __webpack_require__(319);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_136__repo_pull__ = __webpack_require__(320);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_137__repo_push__ = __webpack_require__(321);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_138__rocket__ = __webpack_require__(322);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_139__rss__ = __webpack_require__(323);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_140__ruby__ = __webpack_require__(324);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_141__screen_full__ = __webpack_require__(325);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_142__screen_normal__ = __webpack_require__(326);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_143__search__ = __webpack_require__(327);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_144__server__ = __webpack_require__(328);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_145__settings__ = __webpack_require__(329);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_146__shield__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_147__sign_in__ = __webpack_require__(331);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_148__sign_out__ = __webpack_require__(332);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_149__smiley__ = __webpack_require__(333);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_150__squirrel__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_151__star__ = __webpack_require__(335);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_152__stop__ = __webpack_require__(336);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_153__sync__ = __webpack_require__(337);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_154__tag__ = __webpack_require__(338);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_155__tasklist__ = __webpack_require__(339);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_156__telescope__ = __webpack_require__(340);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_157__terminal__ = __webpack_require__(341);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_158__text_size__ = __webpack_require__(342);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_159__three_bars__ = __webpack_require__(343);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_160__thumbsdown__ = __webpack_require__(344);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_161__thumbsup__ = __webpack_require__(345);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_162__tools__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_163__trashcan__ = __webpack_require__(347);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_164__triangle_down__ = __webpack_require__(348);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_165__triangle_left__ = __webpack_require__(349);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_166__triangle_right__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_167__triangle_up__ = __webpack_require__(351);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_168__unfold__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_169__unmute__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_170__unverified__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_171__verified__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_172__versions__ = __webpack_require__(356);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_173__watch__ = __webpack_require__(357);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_174__x__ = __webpack_require__(358);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_175__zap__ = __webpack_require__(359);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***/ }),
 /* 184 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__alert__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__arrow_down__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__arrow_left__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__arrow_right__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__arrow_small_down__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__arrow_small_left__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__arrow_small_right__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__arrow_small_up__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__arrow_up__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__beaker__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__bell__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__bold__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__book__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__bookmark__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__briefcase__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__broadcast__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__browser__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__bug__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__calendar__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__check__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__checklist__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__chevron_down__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__chevron_left__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__chevron_right__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__chevron_up__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__circle_slash__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__circuit_board__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__clippy__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__clock__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__cloud_download__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__cloud_upload__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__code__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__comment__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__comment_discussion__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__credit_card__ = __webpack_require__(219);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__dash__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__dashboard__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__database__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__desktop_download__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__device_camera__ = __webpack_require__(224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__device_camera_video__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__device_desktop__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__device_mobile__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__diff__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__diff_added__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__diff_ignored__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__diff_modified__ = __webpack_require__(231);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__diff_removed__ = __webpack_require__(232);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__diff_renamed__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__ellipses__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__ellipsis__ = __webpack_require__(235);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__eye__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__file__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__file_binary__ = __webpack_require__(238);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__file_code__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__file_directory__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__file_media__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__file_pdf__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__file_submodule__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__file_symlink_directory__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__file_symlink_file__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__file_text__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__file_zip__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__flame__ = __webpack_require__(248);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__fold__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__gear__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__gift__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__gist__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__gist_secret__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__git_branch__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__git_commit__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__git_compare__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__git_merge__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__git_pull_request__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__globe__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__grabber__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__graph__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__heart__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__history__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__home__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__horizontal_rule__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__hubot__ = __webpack_require__(266);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__inbox__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__info__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_84__issue_closed__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_85__issue_opened__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_86__issue_reopened__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_87__italic__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_88__jersey__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_89__key__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_90__keyboard__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_91__law__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_92__light_bulb__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_93__link__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_94__link_external__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_95__list_ordered__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_96__list_unordered__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_97__location__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_98__lock__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_99__logo_gist__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_100__logo_github__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_101__mail__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_102__mail_read__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_103__mail_reply__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_104__mark_github__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_105__markdown__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_106__megaphone__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_107__mention__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_108__milestone__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_109__mirror__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_110__mortar_board__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_111__mute__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_112__no_newline__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_113__note__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_114__octoface__ = __webpack_require__(299);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_115__organization__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_116__package__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_117__paintcan__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_118__pencil__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_119__person__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_120__pin__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_121__plug__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_122__plus__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_123__plus_small__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_124__primitive_dot__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_125__primitive_square__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_126__project__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_127__pulse__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_128__question__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_129__quote__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_130__radio_tower__ = __webpack_require__(315);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_131__reply__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_132__repo__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_133__repo_clone__ = __webpack_require__(318);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_134__repo_force_push__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_135__repo_forked__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_136__repo_pull__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_137__repo_push__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_138__rocket__ = __webpack_require__(323);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_139__rss__ = __webpack_require__(324);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_140__ruby__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_141__screen_full__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_142__screen_normal__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_143__search__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_144__server__ = __webpack_require__(329);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_145__settings__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_146__shield__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_147__sign_in__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_148__sign_out__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_149__smiley__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_150__squirrel__ = __webpack_require__(335);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_151__star__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_152__stop__ = __webpack_require__(337);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_153__sync__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_154__tag__ = __webpack_require__(339);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_155__tasklist__ = __webpack_require__(340);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_156__telescope__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_157__terminal__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_158__text_size__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_159__three_bars__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_160__thumbsdown__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_161__thumbsup__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_162__tools__ = __webpack_require__(347);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_163__trashcan__ = __webpack_require__(348);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_164__triangle_down__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_165__triangle_left__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_166__triangle_right__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_167__triangle_up__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_168__unfold__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_169__unmute__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_170__unverified__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_171__verified__ = __webpack_require__(356);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_172__versions__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_173__watch__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_174__x__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_175__zap__ = __webpack_require__(360);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"alert":{"width":16,"height":16,"d":"M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"}})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /***/ }),
@@ -76121,7 +67371,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"alert
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-down":{"width":10,"height":16,"d":"M7 7V3H3v4H0l5 6 5-6z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"alert":{"width":16,"height":16,"d":"M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"}})
 
 
 /***/ }),
@@ -76133,7 +67383,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-left":{"width":10,"height":16,"d":"M6 3L0 8l6 5v-3h4V6H6z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-down":{"width":10,"height":16,"d":"M7 7V3H3v4H0l5 6 5-6z"}})
 
 
 /***/ }),
@@ -76145,7 +67395,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-right":{"width":10,"height":16,"d":"M10 8L4 3v3H0v4h4v3z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-left":{"width":10,"height":16,"d":"M6 3L0 8l6 5v-3h4V6H6z"}})
 
 
 /***/ }),
@@ -76157,7 +67407,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-small-down":{"width":6,"height":16,"d":"M4 7V5H2v2H0l3 4 3-4z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-right":{"width":10,"height":16,"d":"M10 8L4 3v3H0v4h4v3z"}})
 
 
 /***/ }),
@@ -76169,7 +67419,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-small-left":{"width":6,"height":16,"d":"M4 7V5L0 8l4 3V9h2V7z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-small-down":{"width":6,"height":16,"d":"M4 7V5H2v2H0l3 4 3-4z"}})
 
 
 /***/ }),
@@ -76181,7 +67431,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-small-right":{"width":6,"height":16,"d":"M6 8L2 5v2H0v2h2v2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-small-left":{"width":6,"height":16,"d":"M4 7V5L0 8l4 3V9h2V7z"}})
 
 
 /***/ }),
@@ -76193,7 +67443,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-small-up":{"width":6,"height":16,"d":"M3 5L0 9h2v2h2V9h2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-small-right":{"width":6,"height":16,"d":"M6 8L2 5v2H0v2h2v2z"}})
 
 
 /***/ }),
@@ -76205,7 +67455,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-up":{"width":10,"height":16,"d":"M5 3L0 9h3v4h4V9h3z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-small-up":{"width":6,"height":16,"d":"M3 5L0 9h2v2h2V9h2z"}})
 
 
 /***/ }),
@@ -76217,7 +67467,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"beaker":{"width":16,"height":16,"d":"M14.38 14.59L11 7V3h1V2H3v1h1v4L.63 14.59A1 1 0 0 0 1.54 16h11.94c.72 0 1.2-.75.91-1.41h-.01zM3.75 10L5 7V3h5v4l1.25 3h-7.5zM8 8h1v1H8V8zM7 7H6V6h1v1zm0-3h1v1H7V4zm0-3H6V0h1v1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow-up":{"width":10,"height":16,"d":"M5 3L0 9h3v4h4V9h3z"}})
 
 
 /***/ }),
@@ -76229,7 +67479,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"beake
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bell":{"width":14,"height":16,"d":"M14 12v1H0v-1l.73-.58c.77-.77.81-2.55 1.19-4.42C2.69 3.23 6 2 6 2c0-.55.45-1 1-1s1 .45 1 1c0 0 3.39 1.23 4.16 5 .38 1.88.42 3.66 1.19 4.42l.66.58H14zm-7 4c1.11 0 2-.89 2-2H5c0 1.11.89 2 2 2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"beaker":{"width":16,"height":16,"d":"M14.38 14.59L11 7V3h1V2H3v1h1v4L.63 14.59A1 1 0 0 0 1.54 16h11.94c.72 0 1.2-.75.91-1.41h-.01zM3.75 10L5 7V3h5v4l1.25 3h-7.5zM8 8h1v1H8V8zM7 7H6V6h1v1zm0-3h1v1H7V4zm0-3H6V0h1v1z"}})
 
 
 /***/ }),
@@ -76241,7 +67491,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bell"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bold":{"width":10,"height":16,"d":"M1 2h3.83c2.48 0 4.3.75 4.3 2.95 0 1.14-.63 2.23-1.67 2.61v.06c1.33.3 2.3 1.23 2.3 2.86 0 2.39-1.97 3.52-4.61 3.52H1V2zm3.66 4.95c1.67 0 2.38-.66 2.38-1.69 0-1.17-.78-1.61-2.34-1.61H3.13v3.3h1.53zm.27 5.39c1.77 0 2.75-.64 2.75-1.98 0-1.27-.95-1.81-2.75-1.81h-1.8v3.8h1.8v-.01z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bell":{"width":14,"height":16,"d":"M14 12v1H0v-1l.73-.58c.77-.77.81-2.55 1.19-4.42C2.69 3.23 6 2 6 2c0-.55.45-1 1-1s1 .45 1 1c0 0 3.39 1.23 4.16 5 .38 1.88.42 3.66 1.19 4.42l.66.58H14zm-7 4c1.11 0 2-.89 2-2H5c0 1.11.89 2 2 2z"}})
 
 
 /***/ }),
@@ -76253,7 +67503,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bold"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"book":{"width":16,"height":16,"d":"M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bold":{"width":10,"height":16,"d":"M1 2h3.83c2.48 0 4.3.75 4.3 2.95 0 1.14-.63 2.23-1.67 2.61v.06c1.33.3 2.3 1.23 2.3 2.86 0 2.39-1.97 3.52-4.61 3.52H1V2zm3.66 4.95c1.67 0 2.38-.66 2.38-1.69 0-1.17-.78-1.61-2.34-1.61H3.13v3.3h1.53zm.27 5.39c1.77 0 2.75-.64 2.75-1.98 0-1.27-.95-1.81-2.75-1.81h-1.8v3.8h1.8v-.01z"}})
 
 
 /***/ }),
@@ -76265,7 +67515,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"book"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bookmark":{"width":10,"height":16,"d":"M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"book":{"width":16,"height":16,"d":"M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"}})
 
 
 /***/ }),
@@ -76277,7 +67527,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bookm
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"briefcase":{"width":14,"height":16,"d":"M9 4V3c0-.55-.45-1-1-1H6c-.55 0-1 .45-1 1v1H1c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1H9zM6 3h2v1H6V3zm7 6H8v1H6V9H1V5h1v3h10V5h1v4z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bookmark":{"width":10,"height":16,"d":"M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"}})
 
 
 /***/ }),
@@ -76289,7 +67539,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"brief
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"broadcast":{"width":16,"height":16,"d":"M9 9H8c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1H6c-.55 0-1 .45-1 1v2h1v3c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-3h1v-2c0-.55-.45-1-1-1zM7 7h1v1H7V7zm2 4H8v4H7v-4H6v-1h3v1zm2.09-3.5c0-1.98-1.61-3.59-3.59-3.59A3.593 3.593 0 0 0 4 8.31v1.98c-.61-.77-1-1.73-1-2.8 0-2.48 2.02-4.5 4.5-4.5S12 5.01 12 7.49c0 1.06-.39 2.03-1 2.8V8.31c.06-.27.09-.53.09-.81zm3.91 0c0 2.88-1.63 5.38-4 6.63v-1.05a6.553 6.553 0 0 0 3.09-5.58A6.59 6.59 0 0 0 7.5.91 6.59 6.59 0 0 0 .91 7.5c0 2.36 1.23 4.42 3.09 5.58v1.05A7.497 7.497 0 0 1 7.5 0C11.64 0 15 3.36 15 7.5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"briefcase":{"width":14,"height":16,"d":"M9 4V3c0-.55-.45-1-1-1H6c-.55 0-1 .45-1 1v1H1c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1H9zM6 3h2v1H6V3zm7 6H8v1H6V9H1V5h1v3h10V5h1v4z"}})
 
 
 /***/ }),
@@ -76301,7 +67551,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"broad
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"browser":{"width":14,"height":16,"d":"M5 3h1v1H5V3zM3 3h1v1H3V3zM1 3h1v1H1V3zm12 10H1V5h12v8zm0-9H7V3h6v1zm1-1c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V3z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"broadcast":{"width":16,"height":16,"d":"M9 9H8c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1H6c-.55 0-1 .45-1 1v2h1v3c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-3h1v-2c0-.55-.45-1-1-1zM7 7h1v1H7V7zm2 4H8v4H7v-4H6v-1h3v1zm2.09-3.5c0-1.98-1.61-3.59-3.59-3.59A3.593 3.593 0 0 0 4 8.31v1.98c-.61-.77-1-1.73-1-2.8 0-2.48 2.02-4.5 4.5-4.5S12 5.01 12 7.49c0 1.06-.39 2.03-1 2.8V8.31c.06-.27.09-.53.09-.81zm3.91 0c0 2.88-1.63 5.38-4 6.63v-1.05a6.553 6.553 0 0 0 3.09-5.58A6.59 6.59 0 0 0 7.5.91 6.59 6.59 0 0 0 .91 7.5c0 2.36 1.23 4.42 3.09 5.58v1.05A7.497 7.497 0 0 1 7.5 0C11.64 0 15 3.36 15 7.5z"}})
 
 
 /***/ }),
@@ -76313,7 +67563,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"brows
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bug":{"width":16,"height":16,"d":"M11 10h3V9h-3V8l3.17-1.03-.34-.94L11 7V6c0-.55-.45-1-1-1V4c0-.48-.36-.88-.83-.97L10.2 2H12V1H9.8l-2 2h-.59L5.2 1H3v1h1.8l1.03 1.03C5.36 3.12 5 3.51 5 4v1c-.55 0-1 .45-1 1v1l-2.83-.97-.34.94L4 8v1H1v1h3v1L.83 12.03l.34.94L4 12v1c0 .55.45 1 1 1h1l1-1V6h1v7l1 1h1c.55 0 1-.45 1-1v-1l2.83.97.34-.94L11 11v-1zM9 5H6V4h3v1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"browser":{"width":14,"height":16,"d":"M5 3h1v1H5V3zM3 3h1v1H3V3zM1 3h1v1H1V3zm12 10H1V5h12v8zm0-9H7V3h6v1zm1-1c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V3z"}})
 
 
 /***/ }),
@@ -76325,7 +67575,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bug":
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"calendar":{"width":14,"height":16,"d":"M13 2h-1v1.5c0 .28-.22.5-.5.5h-2c-.28 0-.5-.22-.5-.5V2H6v1.5c0 .28-.22.5-.5.5h-2c-.28 0-.5-.22-.5-.5V2H2c-.55 0-1 .45-1 1v11c0 .55.45 1 1 1h11c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm0 12H2V5h11v9zM5 3H4V1h1v2zm6 0h-1V1h1v2zM6 7H5V6h1v1zm2 0H7V6h1v1zm2 0H9V6h1v1zm2 0h-1V6h1v1zM4 9H3V8h1v1zm2 0H5V8h1v1zm2 0H7V8h1v1zm2 0H9V8h1v1zm2 0h-1V8h1v1zm-8 2H3v-1h1v1zm2 0H5v-1h1v1zm2 0H7v-1h1v1zm2 0H9v-1h1v1zm2 0h-1v-1h1v1zm-8 2H3v-1h1v1zm2 0H5v-1h1v1zm2 0H7v-1h1v1zm2 0H9v-1h1v1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bug":{"width":16,"height":16,"d":"M11 10h3V9h-3V8l3.17-1.03-.34-.94L11 7V6c0-.55-.45-1-1-1V4c0-.48-.36-.88-.83-.97L10.2 2H12V1H9.8l-2 2h-.59L5.2 1H3v1h1.8l1.03 1.03C5.36 3.12 5 3.51 5 4v1c-.55 0-1 .45-1 1v1l-2.83-.97-.34.94L4 8v1H1v1h3v1L.83 12.03l.34.94L4 12v1c0 .55.45 1 1 1h1l1-1V6h1v7l1 1h1c.55 0 1-.45 1-1v-1l2.83.97.34-.94L11 11v-1zM9 5H6V4h3v1z"}})
 
 
 /***/ }),
@@ -76337,7 +67587,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"calen
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"check":{"width":12,"height":16,"d":"M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"calendar":{"width":14,"height":16,"d":"M13 2h-1v1.5c0 .28-.22.5-.5.5h-2c-.28 0-.5-.22-.5-.5V2H6v1.5c0 .28-.22.5-.5.5h-2c-.28 0-.5-.22-.5-.5V2H2c-.55 0-1 .45-1 1v11c0 .55.45 1 1 1h11c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm0 12H2V5h11v9zM5 3H4V1h1v2zm6 0h-1V1h1v2zM6 7H5V6h1v1zm2 0H7V6h1v1zm2 0H9V6h1v1zm2 0h-1V6h1v1zM4 9H3V8h1v1zm2 0H5V8h1v1zm2 0H7V8h1v1zm2 0H9V8h1v1zm2 0h-1V8h1v1zm-8 2H3v-1h1v1zm2 0H5v-1h1v1zm2 0H7v-1h1v1zm2 0H9v-1h1v1zm2 0h-1v-1h1v1zm-8 2H3v-1h1v1zm2 0H5v-1h1v1zm2 0H7v-1h1v1zm2 0H9v-1h1v1z"}})
 
 
 /***/ }),
@@ -76349,7 +67599,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"check
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"checklist":{"width":16,"height":16,"d":"M16 8.5l-6 6-3-3L8.5 10l1.5 1.5L14.5 7 16 8.5zM5.7 12.2l.8.8H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h7c.55 0 1 .45 1 1v6.5l-.8-.8c-.39-.39-1.03-.39-1.42 0L5.7 10.8a.996.996 0 0 0 0 1.41v-.01zM4 4h5V3H4v1zm0 2h5V5H4v1zm0 2h3V7H4v1zM3 9H2v1h1V9zm0-2H2v1h1V7zm0-2H2v1h1V5zm0-2H2v1h1V3z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"check":{"width":12,"height":16,"d":"M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"}})
 
 
 /***/ }),
@@ -76361,7 +67611,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"check
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevron-down":{"width":10,"height":16,"d":"M5 11L0 6l1.5-1.5L5 8.25 8.5 4.5 10 6z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"checklist":{"width":16,"height":16,"d":"M16 8.5l-6 6-3-3L8.5 10l1.5 1.5L14.5 7 16 8.5zM5.7 12.2l.8.8H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h7c.55 0 1 .45 1 1v6.5l-.8-.8c-.39-.39-1.03-.39-1.42 0L5.7 10.8a.996.996 0 0 0 0 1.41v-.01zM4 4h5V3H4v1zm0 2h5V5H4v1zm0 2h3V7H4v1zM3 9H2v1h1V9zm0-2H2v1h1V7zm0-2H2v1h1V5zm0-2H2v1h1V3z"}})
 
 
 /***/ }),
@@ -76373,7 +67623,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevr
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevron-left":{"width":8,"height":16,"d":"M5.5 3L7 4.5 3.25 8 7 11.5 5.5 13l-5-5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevron-down":{"width":10,"height":16,"d":"M5 11L0 6l1.5-1.5L5 8.25 8.5 4.5 10 6z"}})
 
 
 /***/ }),
@@ -76385,7 +67635,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevr
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevron-right":{"width":8,"height":16,"d":"M7.5 8l-5 5L1 11.5 4.75 8 1 4.5 2.5 3z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevron-left":{"width":8,"height":16,"d":"M5.5 3L7 4.5 3.25 8 7 11.5 5.5 13l-5-5z"}})
 
 
 /***/ }),
@@ -76397,7 +67647,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevr
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevron-up":{"width":10,"height":16,"d":"M10 10l-1.5 1.5L5 7.75 1.5 11.5 0 10l5-5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevron-right":{"width":8,"height":16,"d":"M7.5 8l-5 5L1 11.5 4.75 8 1 4.5 2.5 3z"}})
 
 
 /***/ }),
@@ -76409,7 +67659,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevr
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"circle-slash":{"width":14,"height":16,"d":"M7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm0 1.3c1.3 0 2.5.44 3.47 1.17l-8 8A5.755 5.755 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zm0 11.41c-1.3 0-2.5-.44-3.47-1.17l8-8c.73.97 1.17 2.17 1.17 3.47 0 3.14-2.56 5.7-5.7 5.7z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevron-up":{"width":10,"height":16,"d":"M10 10l-1.5 1.5L5 7.75 1.5 11.5 0 10l5-5z"}})
 
 
 /***/ }),
@@ -76421,7 +67671,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"circl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"circuit-board":{"width":14,"height":16,"d":"M3 5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1zm8 0c0-.55-.45-1-1-1s-1 .45-1 1 .45 1 1 1 1-.45 1-1zm0 6c0-.55-.45-1-1-1s-1 .45-1 1 .45 1 1 1 1-.45 1-1zm2-10H5v2.17c.36.19.64.47.83.83h2.34c.42-.78 1.33-1.28 2.34-1.05.75.19 1.36.8 1.53 1.55.31 1.38-.72 2.59-2.05 2.59-.8 0-1.48-.44-1.83-1.09H5.83c-.42.8-1.33 1.28-2.34 1.03-.73-.17-1.34-.78-1.52-1.52C1.72 4.49 2.2 3.59 3 3.17V1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1l5-5h2.17c.42-.78 1.33-1.28 2.34-1.05.75.19 1.36.8 1.53 1.55.31 1.38-.72 2.59-2.05 2.59-.8 0-1.48-.44-1.83-1.09H6.99L4 15h9c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"circle-slash":{"width":14,"height":16,"d":"M7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm0 1.3c1.3 0 2.5.44 3.47 1.17l-8 8A5.755 5.755 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zm0 11.41c-1.3 0-2.5-.44-3.47-1.17l8-8c.73.97 1.17 2.17 1.17 3.47 0 3.14-2.56 5.7-5.7 5.7z"}})
 
 
 /***/ }),
@@ -76433,7 +67683,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"circu
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"clippy":{"width":14,"height":16,"d":"M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"circuit-board":{"width":14,"height":16,"d":"M3 5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1zm8 0c0-.55-.45-1-1-1s-1 .45-1 1 .45 1 1 1 1-.45 1-1zm0 6c0-.55-.45-1-1-1s-1 .45-1 1 .45 1 1 1 1-.45 1-1zm2-10H5v2.17c.36.19.64.47.83.83h2.34c.42-.78 1.33-1.28 2.34-1.05.75.19 1.36.8 1.53 1.55.31 1.38-.72 2.59-2.05 2.59-.8 0-1.48-.44-1.83-1.09H5.83c-.42.8-1.33 1.28-2.34 1.03-.73-.17-1.34-.78-1.52-1.52C1.72 4.49 2.2 3.59 3 3.17V1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1l5-5h2.17c.42-.78 1.33-1.28 2.34-1.05.75.19 1.36.8 1.53 1.55.31 1.38-.72 2.59-2.05 2.59-.8 0-1.48-.44-1.83-1.09H6.99L4 15h9c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1z"}})
 
 
 /***/ }),
@@ -76445,7 +67695,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"clipp
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"clock":{"width":14,"height":16,"d":"M8 8h3v2H7c-.55 0-1-.45-1-1V4h2v4zM7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"clippy":{"width":14,"height":16,"d":"M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"}})
 
 
 /***/ }),
@@ -76457,7 +67707,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"clock
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"cloud-download":{"width":16,"height":16,"d":"M9 12h2l-3 3-3-3h2V7h2v5zm3-8c0-.44-.91-3-4.5-3C5.08 1 3 2.92 3 5 1.02 5 0 6.52 0 8c0 1.53 1 3 3 3h3V9.7H3C1.38 9.7 1.3 8.28 1.3 8c0-.17.05-1.7 1.7-1.7h1.3V5c0-1.39 1.56-2.7 3.2-2.7 2.55 0 3.13 1.55 3.2 1.8v1.2H12c.81 0 2.7.22 2.7 2.2 0 2.09-2.25 2.2-2.7 2.2h-2V11h2c2.08 0 4-1.16 4-3.5C16 5.06 14.08 4 12 4z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"clock":{"width":14,"height":16,"d":"M8 8h3v2H7c-.55 0-1-.45-1-1V4h2v4zM7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7z"}})
 
 
 /***/ }),
@@ -76469,7 +67719,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"cloud
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"cloud-upload":{"width":16,"height":16,"d":"M7 9H5l3-3 3 3H9v5H7V9zm5-4c0-.44-.91-3-4.5-3C5.08 2 3 3.92 3 6 1.02 6 0 7.52 0 9c0 1.53 1 3 3 3h3v-1.3H3c-1.62 0-1.7-1.42-1.7-1.7 0-.17.05-1.7 1.7-1.7h1.3V6c0-1.39 1.56-2.7 3.2-2.7 2.55 0 3.13 1.55 3.2 1.8v1.2H12c.81 0 2.7.22 2.7 2.2 0 2.09-2.25 2.2-2.7 2.2h-2V12h2c2.08 0 4-1.16 4-3.5C16 6.06 14.08 5 12 5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"cloud-download":{"width":16,"height":16,"d":"M9 12h2l-3 3-3-3h2V7h2v5zm3-8c0-.44-.91-3-4.5-3C5.08 1 3 2.92 3 5 1.02 5 0 6.52 0 8c0 1.53 1 3 3 3h3V9.7H3C1.38 9.7 1.3 8.28 1.3 8c0-.17.05-1.7 1.7-1.7h1.3V5c0-1.39 1.56-2.7 3.2-2.7 2.55 0 3.13 1.55 3.2 1.8v1.2H12c.81 0 2.7.22 2.7 2.2 0 2.09-2.25 2.2-2.7 2.2h-2V11h2c2.08 0 4-1.16 4-3.5C16 5.06 14.08 4 12 4z"}})
 
 
 /***/ }),
@@ -76481,7 +67731,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"cloud
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"code":{"width":14,"height":16,"d":"M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"cloud-upload":{"width":16,"height":16,"d":"M7 9H5l3-3 3 3H9v5H7V9zm5-4c0-.44-.91-3-4.5-3C5.08 2 3 3.92 3 6 1.02 6 0 7.52 0 9c0 1.53 1 3 3 3h3v-1.3H3c-1.62 0-1.7-1.42-1.7-1.7 0-.17.05-1.7 1.7-1.7h1.3V6c0-1.39 1.56-2.7 3.2-2.7 2.55 0 3.13 1.55 3.2 1.8v1.2H12c.81 0 2.7.22 2.7 2.2 0 2.09-2.25 2.2-2.7 2.2h-2V12h2c2.08 0 4-1.16 4-3.5C16 6.06 14.08 5 12 5z"}})
 
 
 /***/ }),
@@ -76493,7 +67743,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"code"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"comment":{"width":16,"height":16,"d":"M14 1H2c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h2v3.5L7.5 11H14c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 9H7l-2 2v-2H2V2h12v8z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"code":{"width":14,"height":16,"d":"M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"}})
 
 
 /***/ }),
@@ -76505,7 +67755,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"comme
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"comment-discussion":{"width":16,"height":16,"d":"M15 1H6c-.55 0-1 .45-1 1v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h1v3l3-3h4c.55 0 1-.45 1-1V9h1l3 3V9h1c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zM9 11H4.5L3 12.5V11H1V5h4v3c0 .55.45 1 1 1h3v2zm6-3h-2v1.5L11.5 8H6V2h9v6z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"comment":{"width":16,"height":16,"d":"M14 1H2c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h2v3.5L7.5 11H14c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 9H7l-2 2v-2H2V2h12v8z"}})
 
 
 /***/ }),
@@ -76517,7 +67767,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"comme
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"credit-card":{"width":16,"height":16,"d":"M12 9H2V8h10v1zm4-6v9c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h14c.55 0 1 .45 1 1zm-1 3H1v6h14V6zm0-3H1v1h14V3zm-9 7H2v1h4v-1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"comment-discussion":{"width":16,"height":16,"d":"M15 1H6c-.55 0-1 .45-1 1v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h1v3l3-3h4c.55 0 1-.45 1-1V9h1l3 3V9h1c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zM9 11H4.5L3 12.5V11H1V5h4v3c0 .55.45 1 1 1h3v2zm6-3h-2v1.5L11.5 8H6V2h9v6z"}})
 
 
 /***/ }),
@@ -76529,7 +67779,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"credi
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"dash":{"width":8,"height":16,"d":"M0 7v2h8V7z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"credit-card":{"width":16,"height":16,"d":"M12 9H2V8h10v1zm4-6v9c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h14c.55 0 1 .45 1 1zm-1 3H1v6h14V6zm0-3H1v1h14V3zm-9 7H2v1h4v-1z"}})
 
 
 /***/ }),
@@ -76541,7 +67791,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"dash"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"dashboard":{"width":16,"height":16,"d":"M9 5H8V4h1v1zm4 3h-1v1h1V8zM6 5H5v1h1V5zM5 8H4v1h1V8zm11-5.5l-.5-.5L9 7c-.06-.02-1 0-1 0-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-.92l6-5.58zm-1.59 4.09c.19.61.3 1.25.3 1.91 0 3.42-2.78 6.2-6.2 6.2-3.42 0-6.21-2.78-6.21-6.2 0-3.42 2.78-6.2 6.2-6.2 1.2 0 2.31.34 3.27.94l.94-.94A7.459 7.459 0 0 0 8.51 1C4.36 1 1 4.36 1 8.5 1 12.64 4.36 16 8.5 16c4.14 0 7.5-3.36 7.5-7.5 0-1.03-.2-2.02-.59-2.91l-1 1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"dash":{"width":8,"height":16,"d":"M0 7v2h8V7z"}})
 
 
 /***/ }),
@@ -76553,7 +67803,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"dashb
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"database":{"width":12,"height":16,"d":"M6 15c-3.31 0-6-.9-6-2v-2c0-.17.09-.34.21-.5.67.86 3 1.5 5.79 1.5s5.12-.64 5.79-1.5c.13.16.21.33.21.5v2c0 1.1-2.69 2-6 2zm0-4c-3.31 0-6-.9-6-2V7c0-.11.04-.21.09-.31.03-.06.07-.13.12-.19C.88 7.36 3.21 8 6 8s5.12-.64 5.79-1.5c.05.06.09.13.12.19.05.1.09.21.09.31v2c0 1.1-2.69 2-6 2zm0-4c-3.31 0-6-.9-6-2V3c0-1.1 2.69-2 6-2s6 .9 6 2v2c0 1.1-2.69 2-6 2zm0-5c-2.21 0-4 .45-4 1s1.79 1 4 1 4-.45 4-1-1.79-1-4-1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"dashboard":{"width":16,"height":16,"d":"M9 5H8V4h1v1zm4 3h-1v1h1V8zM6 5H5v1h1V5zM5 8H4v1h1V8zm11-5.5l-.5-.5L9 7c-.06-.02-1 0-1 0-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-.92l6-5.58zm-1.59 4.09c.19.61.3 1.25.3 1.91 0 3.42-2.78 6.2-6.2 6.2-3.42 0-6.21-2.78-6.21-6.2 0-3.42 2.78-6.2 6.2-6.2 1.2 0 2.31.34 3.27.94l.94-.94A7.459 7.459 0 0 0 8.51 1C4.36 1 1 4.36 1 8.5 1 12.64 4.36 16 8.5 16c4.14 0 7.5-3.36 7.5-7.5 0-1.03-.2-2.02-.59-2.91l-1 1z"}})
 
 
 /***/ }),
@@ -76565,7 +67815,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"datab
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"desktop-download":{"width":16,"height":16,"d":"M4 6h3V0h2v6h3l-4 4-4-4zm11-4h-4v1h4v8H1V3h4V2H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h5.34c-.25.61-.86 1.39-2.34 2h8c-1.48-.61-2.09-1.39-2.34-2H15c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"database":{"width":12,"height":16,"d":"M6 15c-3.31 0-6-.9-6-2v-2c0-.17.09-.34.21-.5.67.86 3 1.5 5.79 1.5s5.12-.64 5.79-1.5c.13.16.21.33.21.5v2c0 1.1-2.69 2-6 2zm0-4c-3.31 0-6-.9-6-2V7c0-.11.04-.21.09-.31.03-.06.07-.13.12-.19C.88 7.36 3.21 8 6 8s5.12-.64 5.79-1.5c.05.06.09.13.12.19.05.1.09.21.09.31v2c0 1.1-2.69 2-6 2zm0-4c-3.31 0-6-.9-6-2V3c0-1.1 2.69-2 6-2s6 .9 6 2v2c0 1.1-2.69 2-6 2zm0-5c-2.21 0-4 .45-4 1s1.79 1 4 1 4-.45 4-1-1.79-1-4-1z"}})
 
 
 /***/ }),
@@ -76577,7 +67827,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"deskt
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"device-camera":{"width":16,"height":16,"d":"M15 3H7c0-.55-.45-1-1-1H2c-.55 0-1 .45-1 1-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h14c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zM6 5H2V4h4v1zm4.5 7C8.56 12 7 10.44 7 8.5S8.56 5 10.5 5 14 6.56 14 8.5 12.44 12 10.5 12zM13 8.5c0 1.38-1.13 2.5-2.5 2.5S8 9.87 8 8.5 9.13 6 10.5 6 13 7.13 13 8.5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"desktop-download":{"width":16,"height":16,"d":"M4 6h3V0h2v6h3l-4 4-4-4zm11-4h-4v1h4v8H1V3h4V2H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h5.34c-.25.61-.86 1.39-2.34 2h8c-1.48-.61-2.09-1.39-2.34-2H15c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1z"}})
 
 
 /***/ }),
@@ -76589,7 +67839,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"devic
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"device-camera-video":{"width":16,"height":16,"d":"M15.2 2.09L10 5.72V3c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h8c.55 0 1-.45 1-1V9.28l5.2 3.63c.33.23.8 0 .8-.41v-10c0-.41-.47-.64-.8-.41z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"device-camera":{"width":16,"height":16,"d":"M15 3H7c0-.55-.45-1-1-1H2c-.55 0-1 .45-1 1-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h14c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zM6 5H2V4h4v1zm4.5 7C8.56 12 7 10.44 7 8.5S8.56 5 10.5 5 14 6.56 14 8.5 12.44 12 10.5 12zM13 8.5c0 1.38-1.13 2.5-2.5 2.5S8 9.87 8 8.5 9.13 6 10.5 6 13 7.13 13 8.5z"}})
 
 
 /***/ }),
@@ -76601,7 +67851,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"devic
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"device-desktop":{"width":16,"height":16,"d":"M15 2H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h5.34c-.25.61-.86 1.39-2.34 2h8c-1.48-.61-2.09-1.39-2.34-2H15c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm0 9H1V3h14v8z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"device-camera-video":{"width":16,"height":16,"d":"M15.2 2.09L10 5.72V3c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h8c.55 0 1-.45 1-1V9.28l5.2 3.63c.33.23.8 0 .8-.41v-10c0-.41-.47-.64-.8-.41z"}})
 
 
 /***/ }),
@@ -76613,7 +67863,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"devic
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"device-mobile":{"width":10,"height":16,"d":"M9 0H1C.45 0 0 .45 0 1v14c0 .55.45 1 1 1h8c.55 0 1-.45 1-1V1c0-.55-.45-1-1-1zM5 15.3c-.72 0-1.3-.58-1.3-1.3 0-.72.58-1.3 1.3-1.3.72 0 1.3.58 1.3 1.3 0 .72-.58 1.3-1.3 1.3zM9 12H1V2h8v10z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"device-desktop":{"width":16,"height":16,"d":"M15 2H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h5.34c-.25.61-.86 1.39-2.34 2h8c-1.48-.61-2.09-1.39-2.34-2H15c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm0 9H1V3h14v8z"}})
 
 
 /***/ }),
@@ -76625,7 +67875,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"devic
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff":{"width":13,"height":16,"d":"M6 7h2v1H6v2H5V8H3V7h2V5h1v2zm-3 6h5v-1H3v1zM7.5 2L11 5.5V15c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h6.5zM10 6L7 3H1v12h9V6zM8.5 0H3v1h5l4 4v8h1V4.5L8.5 0z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"device-mobile":{"width":10,"height":16,"d":"M9 0H1C.45 0 0 .45 0 1v14c0 .55.45 1 1 1h8c.55 0 1-.45 1-1V1c0-.55-.45-1-1-1zM5 15.3c-.72 0-1.3-.58-1.3-1.3 0-.72.58-1.3 1.3-1.3.72 0 1.3.58 1.3 1.3 0 .72-.58 1.3-1.3 1.3zM9 12H1V2h8v10z"}})
 
 
 /***/ }),
@@ -76637,7 +67887,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-added":{"width":14,"height":16,"d":"M13 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 13H1V2h12v12zM6 9H3V7h3V4h2v3h3v2H8v3H6V9z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff":{"width":13,"height":16,"d":"M6 7h2v1H6v2H5V8H3V7h2V5h1v2zm-3 6h5v-1H3v1zM7.5 2L11 5.5V15c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h6.5zM10 6L7 3H1v12h9V6zM8.5 0H3v1h5l4 4v8h1V4.5L8.5 0z"}})
 
 
 /***/ }),
@@ -76649,7 +67899,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-ignored":{"width":14,"height":16,"d":"M13 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 13H1V2h12v12zm-8.5-2H3v-1.5L9.5 4H11v1.5L4.5 12z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-added":{"width":14,"height":16,"d":"M13 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 13H1V2h12v12zM6 9H3V7h3V4h2v3h3v2H8v3H6V9z"}})
 
 
 /***/ }),
@@ -76661,7 +67911,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-modified":{"width":14,"height":16,"d":"M13 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 13H1V2h12v12zM4 8c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-ignored":{"width":14,"height":16,"d":"M13 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 13H1V2h12v12zm-8.5-2H3v-1.5L9.5 4H11v1.5L4.5 12z"}})
 
 
 /***/ }),
@@ -76673,7 +67923,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-removed":{"width":14,"height":16,"d":"M13 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 13H1V2h12v12zm-2-5H3V7h8v2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-modified":{"width":14,"height":16,"d":"M13 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 13H1V2h12v12zM4 8c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3z"}})
 
 
 /***/ }),
@@ -76685,7 +67935,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-renamed":{"width":14,"height":16,"d":"M6 9H3V7h3V4l5 4-5 4V9zm8-7v12c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h12c.55 0 1 .45 1 1zm-1 0H1v12h12V2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-removed":{"width":14,"height":16,"d":"M13 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 13H1V2h12v12zm-2-5H3V7h8v2z"}})
 
 
 /***/ }),
@@ -76697,7 +67947,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"ellipses":{"width":12,"height":16,"d":"M11 5H1c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1zM4 9H2V7h2v2zm3 0H5V7h2v2zm3 0H8V7h2v2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-renamed":{"width":14,"height":16,"d":"M6 9H3V7h3V4l5 4-5 4V9zm8-7v12c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h12c.55 0 1 .45 1 1zm-1 0H1v12h12V2z"}})
 
 
 /***/ }),
@@ -76709,7 +67959,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"ellip
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"ellipsis":{"width":12,"height":16,"d":"M11 5H1c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1zM4 9H2V7h2v2zm3 0H5V7h2v2zm3 0H8V7h2v2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"ellipses":{"width":12,"height":16,"d":"M11 5H1c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1zM4 9H2V7h2v2zm3 0H5V7h2v2zm3 0H8V7h2v2z"}})
 
 
 /***/ }),
@@ -76721,7 +67971,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"ellip
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"eye":{"width":16,"height":16,"d":"M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"ellipsis":{"width":12,"height":16,"d":"M11 5H1c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1zM4 9H2V7h2v2zm3 0H5V7h2v2zm3 0H8V7h2v2z"}})
 
 
 /***/ }),
@@ -76733,7 +67983,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"eye":
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file":{"width":12,"height":16,"d":"M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"eye":{"width":16,"height":16,"d":"M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"}})
 
 
 /***/ }),
@@ -76745,7 +67995,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-binary":{"width":12,"height":16,"d":"M4 12h1v1H2v-1h1v-2H2V9h2v3zm8-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5zM8 4H6v1h1v2H6v1h3V7H8V4zM2 4h3v4H2V4zm1 3h1V5H3v2zm3 2h3v4H6V9zm1 3h1v-2H7v2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file":{"width":12,"height":16,"d":"M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"}})
 
 
 /***/ }),
@@ -76757,7 +68007,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-code":{"width":12,"height":16,"d":"M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-binary":{"width":12,"height":16,"d":"M4 12h1v1H2v-1h1v-2H2V9h2v3zm8-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5zM8 4H6v1h1v2H6v1h3V7H8V4zM2 4h3v4H2V4zm1 3h1V5H3v2zm3 2h3v4H6V9zm1 3h1v-2H7v2z"}})
 
 
 /***/ }),
@@ -76769,7 +68019,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-directory":{"width":14,"height":16,"d":"M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-code":{"width":12,"height":16,"d":"M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"}})
 
 
 /***/ }),
@@ -76781,7 +68031,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-media":{"width":12,"height":16,"d":"M6 5h2v2H6V5zm6-.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v11l3-5 2 4 2-2 3 3V5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-directory":{"width":14,"height":16,"d":"M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"}})
 
 
 /***/ }),
@@ -76793,7 +68043,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-pdf":{"width":12,"height":16,"d":"M8.5 1H1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4.5L8.5 1zM1 2h4a.68.68 0 0 0-.31.2 1.08 1.08 0 0 0-.23.47 4.22 4.22 0 0 0-.09 1.47c.06.609.173 1.211.34 1.8A21.78 21.78 0 0 1 3.6 8.6c-.5 1-.8 1.66-.91 1.84a7.16 7.16 0 0 0-.69.3 4.19 4.19 0 0 0-1 .64V2zm4.42 4.8a5.65 5.65 0 0 0 1.17 2.09c.275.237.595.417.94.53-.64.09-1.23.2-1.81.33a12.22 12.22 0 0 0-1.81.59c-.587.243.22-.44.61-1.25.365-.74.67-1.51.91-2.3l-.01.01zM11 14H1.5a.74.74 0 0 1-.17 0 2.12 2.12 0 0 0 .73-.44 10.14 10.14 0 0 0 1.78-2.38c.31-.13.58-.23.81-.31l.42-.14c.45-.13.94-.23 1.44-.33s1-.16 1.48-.2a8.65 8.65 0 0 0 1.39.53c.403.11.814.188 1.23.23h.38V14H11zm0-4.86a3.74 3.74 0 0 0-.64-.28 4.22 4.22 0 0 0-.75-.11c-.411.003-.822.03-1.23.08a3 3 0 0 1-1-.64 6.07 6.07 0 0 1-1.29-2.33c.111-.661.178-1.33.2-2 .02-.25.02-.5 0-.75a1.05 1.05 0 0 0-.2-.88.82.82 0 0 0-.61-.23H8l3 3v4.14z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-media":{"width":12,"height":16,"d":"M6 5h2v2H6V5zm6-.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v11l3-5 2 4 2-2 3 3V5z"}})
 
 
 /***/ }),
@@ -76805,7 +68055,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-submodule":{"width":14,"height":16,"d":"M10 7H4v7h9c.55 0 1-.45 1-1V8h-4V7zM9 9H5V8h4v1zm4-5H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h2V7c0-.55.45-1 1-1h6c.55 0 1 .45 1 1h3V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-pdf":{"width":12,"height":16,"d":"M8.5 1H1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4.5L8.5 1zM1 2h4a.68.68 0 0 0-.31.2 1.08 1.08 0 0 0-.23.47 4.22 4.22 0 0 0-.09 1.47c.06.609.173 1.211.34 1.8A21.78 21.78 0 0 1 3.6 8.6c-.5 1-.8 1.66-.91 1.84a7.16 7.16 0 0 0-.69.3 4.19 4.19 0 0 0-1 .64V2zm4.42 4.8a5.65 5.65 0 0 0 1.17 2.09c.275.237.595.417.94.53-.64.09-1.23.2-1.81.33a12.22 12.22 0 0 0-1.81.59c-.587.243.22-.44.61-1.25.365-.74.67-1.51.91-2.3l-.01.01zM11 14H1.5a.74.74 0 0 1-.17 0 2.12 2.12 0 0 0 .73-.44 10.14 10.14 0 0 0 1.78-2.38c.31-.13.58-.23.81-.31l.42-.14c.45-.13.94-.23 1.44-.33s1-.16 1.48-.2a8.65 8.65 0 0 0 1.39.53c.403.11.814.188 1.23.23h.38V14H11zm0-4.86a3.74 3.74 0 0 0-.64-.28 4.22 4.22 0 0 0-.75-.11c-.411.003-.822.03-1.23.08a3 3 0 0 1-1-.64 6.07 6.07 0 0 1-1.29-2.33c.111-.661.178-1.33.2-2 .02-.25.02-.5 0-.75a1.05 1.05 0 0 0-.2-.88.82.82 0 0 0-.61-.23H8l3 3v4.14z"}})
 
 
 /***/ }),
@@ -76817,7 +68067,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-symlink-directory":{"width":14,"height":16,"d":"M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM1 3h5v1H1V3zm6 9v-2c-.98-.02-1.84.22-2.55.7-.71.48-1.19 1.25-1.45 2.3.02-1.64.39-2.88 1.13-3.73C4.86 8.43 5.82 8 7.01 8V6l4 3-4 3H7z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-submodule":{"width":14,"height":16,"d":"M10 7H4v7h9c.55 0 1-.45 1-1V8h-4V7zM9 9H5V8h4v1zm4-5H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h2V7c0-.55.45-1 1-1h6c.55 0 1 .45 1 1h3V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"}})
 
 
 /***/ }),
@@ -76829,7 +68079,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-symlink-file":{"width":12,"height":16,"d":"M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM6 4.5l4 3-4 3v-2c-.98-.02-1.84.22-2.55.7-.71.48-1.19 1.25-1.45 2.3.02-1.64.39-2.88 1.13-3.73.73-.84 1.69-1.27 2.88-1.27v-2H6z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-symlink-directory":{"width":14,"height":16,"d":"M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM1 3h5v1H1V3zm6 9v-2c-.98-.02-1.84.22-2.55.7-.71.48-1.19 1.25-1.45 2.3.02-1.64.39-2.88 1.13-3.73C4.86 8.43 5.82 8 7.01 8V6l4 3-4 3H7z"}})
 
 
 /***/ }),
@@ -76841,7 +68091,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-text":{"width":12,"height":16,"d":"M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-symlink-file":{"width":12,"height":16,"d":"M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM6 4.5l4 3-4 3v-2c-.98-.02-1.84.22-2.55.7-.71.48-1.19 1.25-1.45 2.3.02-1.64.39-2.88 1.13-3.73.73-.84 1.69-1.27 2.88-1.27v-2H6z"}})
 
 
 /***/ }),
@@ -76853,7 +68103,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-zip":{"width":12,"height":16,"d":"M8.5 1H1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4.5L8.5 1zM11 14H1V2h3v1h1V2h3l3 3v9zM5 4V3h1v1H5zM4 4h1v1H4V4zm1 2V5h1v1H5zM4 6h1v1H4V6zm1 2V7h1v1H5zM4 9.28A2 2 0 0 0 3 11v1h4v-1a2 2 0 0 0-2-2V8H4v1.28zM6 10v1H4v-1h2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-text":{"width":12,"height":16,"d":"M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"}})
 
 
 /***/ }),
@@ -76865,7 +68115,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"flame":{"width":12,"height":16,"d":"M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-zip":{"width":12,"height":16,"d":"M8.5 1H1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4.5L8.5 1zM11 14H1V2h3v1h1V2h3l3 3v9zM5 4V3h1v1H5zM4 4h1v1H4V4zm1 2V5h1v1H5zM4 6h1v1H4V6zm1 2V7h1v1H5zM4 9.28A2 2 0 0 0 3 11v1h4v-1a2 2 0 0 0-2-2V8H4v1.28zM6 10v1H4v-1h2z"}})
 
 
 /***/ }),
@@ -76877,7 +68127,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"flame
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"fold":{"width":14,"height":16,"d":"M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"flame":{"width":12,"height":16,"d":"M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"}})
 
 
 /***/ }),
@@ -76889,7 +68139,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"fold"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gear":{"width":14,"height":16,"d":"M14 8.77v-1.6l-1.94-.64-.45-1.09.88-1.84-1.13-1.13-1.81.91-1.09-.45-.69-1.92h-1.6l-.63 1.94-1.11.45-1.84-.88-1.13 1.13.91 1.81-.45 1.09L0 7.23v1.59l1.94.64.45 1.09-.88 1.84 1.13 1.13 1.81-.91 1.09.45.69 1.92h1.59l.63-1.94 1.11-.45 1.84.88 1.13-1.13-.92-1.81.47-1.09L14 8.75v.02zM7 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"fold":{"width":14,"height":16,"d":"M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"}})
 
 
 /***/ }),
@@ -76901,7 +68151,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gear"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gift":{"width":14,"height":16,"d":"M13 4h-1.38c.19-.33.33-.67.36-.91.06-.67-.11-1.22-.52-1.61C11.1 1.1 10.65 1 10.1 1h-.11c-.53.02-1.11.25-1.53.58-.42.33-.73.72-.97 1.2-.23-.48-.55-.88-.97-1.2-.42-.32-1-.58-1.53-.58h-.03c-.56 0-1.06.09-1.44.48-.41.39-.58.94-.52 1.61.03.23.17.58.36.91H1.98c-.55 0-1 .45-1 1v3h1v5c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V8h1V5c0-.55-.45-1-1-1H13zm-4.78-.88c.17-.36.42-.67.75-.92.3-.23.72-.39 1.05-.41h.09c.45 0 .66.11.8.25s.33.39.3.95c-.05.19-.25.61-.5 1h-2.9l.41-.88v.01zM4.09 2.04c.13-.13.31-.25.91-.25.31 0 .72.17 1.03.41.33.25.58.55.75.92L7.2 4H4.3c-.25-.39-.45-.81-.5-1-.03-.56.16-.81.3-.95l-.01-.01zM7 12.99H3V8h4v5-.01zm0-6H2V5h5v2-.01zm5 6H8V8h4v5-.01zm1-6H8V5h5v2-.01z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gear":{"width":14,"height":16,"d":"M14 8.77v-1.6l-1.94-.64-.45-1.09.88-1.84-1.13-1.13-1.81.91-1.09-.45-.69-1.92h-1.6l-.63 1.94-1.11.45-1.84-.88-1.13 1.13.91 1.81-.45 1.09L0 7.23v1.59l1.94.64.45 1.09-.88 1.84 1.13 1.13 1.81-.91 1.09.45.69 1.92h1.59l.63-1.94 1.11-.45 1.84.88 1.13-1.13-.92-1.81.47-1.09L14 8.75v.02zM7 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"}})
 
 
 /***/ }),
@@ -76913,7 +68163,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gift"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gist":{"width":12,"height":16,"d":"M7.5 5L10 7.5 7.5 10l-.75-.75L8.5 7.5 6.75 5.75 7.5 5zm-3 0L2 7.5 4.5 10l.75-.75L3.5 7.5l1.75-1.75L4.5 5zM0 13V2c0-.55.45-1 1-1h10c.55 0 1 .45 1 1v11c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1zm1 0h10V2H1v11z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gift":{"width":14,"height":16,"d":"M13 4h-1.38c.19-.33.33-.67.36-.91.06-.67-.11-1.22-.52-1.61C11.1 1.1 10.65 1 10.1 1h-.11c-.53.02-1.11.25-1.53.58-.42.33-.73.72-.97 1.2-.23-.48-.55-.88-.97-1.2-.42-.32-1-.58-1.53-.58h-.03c-.56 0-1.06.09-1.44.48-.41.39-.58.94-.52 1.61.03.23.17.58.36.91H1.98c-.55 0-1 .45-1 1v3h1v5c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V8h1V5c0-.55-.45-1-1-1H13zm-4.78-.88c.17-.36.42-.67.75-.92.3-.23.72-.39 1.05-.41h.09c.45 0 .66.11.8.25s.33.39.3.95c-.05.19-.25.61-.5 1h-2.9l.41-.88v.01zM4.09 2.04c.13-.13.31-.25.91-.25.31 0 .72.17 1.03.41.33.25.58.55.75.92L7.2 4H4.3c-.25-.39-.45-.81-.5-1-.03-.56.16-.81.3-.95l-.01-.01zM7 12.99H3V8h4v5-.01zm0-6H2V5h5v2-.01zm5 6H8V8h4v5-.01zm1-6H8V5h5v2-.01z"}})
 
 
 /***/ }),
@@ -76925,7 +68175,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gist"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gist-secret":{"width":14,"height":16,"d":"M8 10.5L9 14H5l1-3.5L5.25 9h3.5L8 10.5zM10 6H4L2 7h10l-2-1zM9 2L7 3 5 2 4 5h6L9 2zm4.03 7.75L10 9l1 2-2 3h3.22c.45 0 .86-.31.97-.75l.56-2.28c.14-.53-.19-1.08-.72-1.22zM4 9l-3.03.75c-.53.14-.86.69-.72 1.22l.56 2.28c.11.44.52.75.97.75H5l-2-3 1-2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gist":{"width":12,"height":16,"d":"M7.5 5L10 7.5 7.5 10l-.75-.75L8.5 7.5 6.75 5.75 7.5 5zm-3 0L2 7.5 4.5 10l.75-.75L3.5 7.5l1.75-1.75L4.5 5zM0 13V2c0-.55.45-1 1-1h10c.55 0 1 .45 1 1v11c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1zm1 0h10V2H1v11z"}})
 
 
 /***/ }),
@@ -76937,7 +68187,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gist-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-branch":{"width":10,"height":16,"d":"M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gist-secret":{"width":14,"height":16,"d":"M8 10.5L9 14H5l1-3.5L5.25 9h3.5L8 10.5zM10 6H4L2 7h10l-2-1zM9 2L7 3 5 2 4 5h6L9 2zm4.03 7.75L10 9l1 2-2 3h3.22c.45 0 .86-.31.97-.75l.56-2.28c.14-.53-.19-1.08-.72-1.22zM4 9l-3.03.75c-.53.14-.86.69-.72 1.22l.56 2.28c.11.44.52.75.97.75H5l-2-3 1-2z"}})
 
 
 /***/ }),
@@ -76949,7 +68199,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-b
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-commit":{"width":14,"height":16,"d":"M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-branch":{"width":10,"height":16,"d":"M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"}})
 
 
 /***/ }),
@@ -76961,7 +68211,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-c
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-compare":{"width":14,"height":16,"d":"M5 12H4c-.27-.02-.48-.11-.69-.31-.21-.2-.3-.42-.31-.69V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V11c.03.78.34 1.47.94 2.06.6.59 1.28.91 2.06.94h1v2l3-3-3-3v2zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm11 9.48V5c-.03-.78-.34-1.47-.94-2.06-.6-.59-1.28-.91-2.06-.94H9V0L6 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 12 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-commit":{"width":14,"height":16,"d":"M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"}})
 
 
 /***/ }),
@@ -76973,7 +68223,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-c
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-merge":{"width":12,"height":16,"d":"M10 7c-.73 0-1.38.41-1.73 1.02V8C7.22 7.98 6 7.64 5.14 6.98c-.75-.58-1.5-1.61-1.89-2.44A1.993 1.993 0 0 0 2 .99C.89.99 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2a1.993 1.993 0 0 0 1-3.72V7.67c.67.7 1.44 1.27 2.3 1.69.86.42 2.03.63 2.97.64v-.02c.36.61 1 1.02 1.73 1.02 1.11 0 2-.89 2-2 0-1.11-.89-2-2-2zm-6.8 6c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm8 6c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-compare":{"width":14,"height":16,"d":"M5 12H4c-.27-.02-.48-.11-.69-.31-.21-.2-.3-.42-.31-.69V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V11c.03.78.34 1.47.94 2.06.6.59 1.28.91 2.06.94h1v2l3-3-3-3v2zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm11 9.48V5c-.03-.78-.34-1.47-.94-2.06-.6-.59-1.28-.91-2.06-.94H9V0L6 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 12 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"}})
 
 
 /***/ }),
@@ -76985,7 +68235,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-m
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-pull-request":{"width":12,"height":16,"d":"M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-merge":{"width":12,"height":16,"d":"M10 7c-.73 0-1.38.41-1.73 1.02V8C7.22 7.98 6 7.64 5.14 6.98c-.75-.58-1.5-1.61-1.89-2.44A1.993 1.993 0 0 0 2 .99C.89.99 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2a1.993 1.993 0 0 0 1-3.72V7.67c.67.7 1.44 1.27 2.3 1.69.86.42 2.03.63 2.97.64v-.02c.36.61 1 1.02 1.73 1.02 1.11 0 2-.89 2-2 0-1.11-.89-2-2-2zm-6.8 6c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm8 6c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"}})
 
 
 /***/ }),
@@ -76997,7 +68247,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-p
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"globe":{"width":14,"height":16,"d":"M7 1C3.14 1 0 4.14 0 8s3.14 7 7 7c.48 0 .94-.05 1.38-.14-.17-.08-.2-.73-.02-1.09.19-.41.81-1.45.2-1.8-.61-.35-.44-.5-.81-.91-.37-.41-.22-.47-.25-.58-.08-.34.36-.89.39-.94.02-.06.02-.27 0-.33 0-.08-.27-.22-.34-.23-.06 0-.11.11-.2.13-.09.02-.5-.25-.59-.33-.09-.08-.14-.23-.27-.34-.13-.13-.14-.03-.33-.11s-.8-.31-1.28-.48c-.48-.19-.52-.47-.52-.66-.02-.2-.3-.47-.42-.67-.14-.2-.16-.47-.2-.41-.04.06.25.78.2.81-.05.02-.16-.2-.3-.38-.14-.19.14-.09-.3-.95s.14-1.3.17-1.75c.03-.45.38.17.19-.13-.19-.3 0-.89-.14-1.11-.13-.22-.88.25-.88.25.02-.22.69-.58 1.16-.92.47-.34.78-.06 1.16.05.39.13.41.09.28-.05-.13-.13.06-.17.36-.13.28.05.38.41.83.36.47-.03.05.09.11.22s-.06.11-.38.3c-.3.2.02.22.55.61s.38-.25.31-.55c-.07-.3.39-.06.39-.06.33.22.27.02.5.08.23.06.91.64.91.64-.83.44-.31.48-.17.59.14.11-.28.3-.28.3-.17-.17-.19.02-.3.08-.11.06-.02.22-.02.22-.56.09-.44.69-.42.83 0 .14-.38.36-.47.58-.09.2.25.64.06.66-.19.03-.34-.66-1.31-.41-.3.08-.94.41-.59 1.08.36.69.92-.19 1.11-.09.19.1-.06.53-.02.55.04.02.53.02.56.61.03.59.77.53.92.55.17 0 .7-.44.77-.45.06-.03.38-.28 1.03.09.66.36.98.31 1.2.47.22.16.08.47.28.58.2.11 1.06-.03 1.28.31.22.34-.88 2.09-1.22 2.28-.34.19-.48.64-.84.92s-.81.64-1.27.91c-.41.23-.47.66-.66.8 3.14-.7 5.48-3.5 5.48-6.84 0-3.86-3.14-7-7-7L7 1zm1.64 6.56c-.09.03-.28.22-.78-.08-.48-.3-.81-.23-.86-.28 0 0-.05-.11.17-.14.44-.05.98.41 1.11.41.13 0 .19-.13.41-.05.22.08.05.13-.05.14zM6.34 1.7c-.05-.03.03-.08.09-.14.03-.03.02-.11.05-.14.11-.11.61-.25.52.03-.11.27-.58.3-.66.25zm1.23.89c-.19-.02-.58-.05-.52-.14.3-.28-.09-.38-.34-.38-.25-.02-.34-.16-.22-.19.12-.03.61.02.7.08.08.06.52.25.55.38.02.13 0 .25-.17.25zm1.47-.05c-.14.09-.83-.41-.95-.52-.56-.48-.89-.31-1-.41-.11-.1-.08-.19.11-.34.19-.15.69.06 1 .09.3.03.66.27.66.55.02.25.33.5.19.63h-.01z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-pull-request":{"width":12,"height":16,"d":"M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"}})
 
 
 /***/ }),
@@ -77009,7 +68259,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"globe
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"grabber":{"width":8,"height":16,"d":"M8 4v1H0V4h8zM0 8h8V7H0v1zm0 3h8v-1H0v1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"globe":{"width":14,"height":16,"d":"M7 1C3.14 1 0 4.14 0 8s3.14 7 7 7c.48 0 .94-.05 1.38-.14-.17-.08-.2-.73-.02-1.09.19-.41.81-1.45.2-1.8-.61-.35-.44-.5-.81-.91-.37-.41-.22-.47-.25-.58-.08-.34.36-.89.39-.94.02-.06.02-.27 0-.33 0-.08-.27-.22-.34-.23-.06 0-.11.11-.2.13-.09.02-.5-.25-.59-.33-.09-.08-.14-.23-.27-.34-.13-.13-.14-.03-.33-.11s-.8-.31-1.28-.48c-.48-.19-.52-.47-.52-.66-.02-.2-.3-.47-.42-.67-.14-.2-.16-.47-.2-.41-.04.06.25.78.2.81-.05.02-.16-.2-.3-.38-.14-.19.14-.09-.3-.95s.14-1.3.17-1.75c.03-.45.38.17.19-.13-.19-.3 0-.89-.14-1.11-.13-.22-.88.25-.88.25.02-.22.69-.58 1.16-.92.47-.34.78-.06 1.16.05.39.13.41.09.28-.05-.13-.13.06-.17.36-.13.28.05.38.41.83.36.47-.03.05.09.11.22s-.06.11-.38.3c-.3.2.02.22.55.61s.38-.25.31-.55c-.07-.3.39-.06.39-.06.33.22.27.02.5.08.23.06.91.64.91.64-.83.44-.31.48-.17.59.14.11-.28.3-.28.3-.17-.17-.19.02-.3.08-.11.06-.02.22-.02.22-.56.09-.44.69-.42.83 0 .14-.38.36-.47.58-.09.2.25.64.06.66-.19.03-.34-.66-1.31-.41-.3.08-.94.41-.59 1.08.36.69.92-.19 1.11-.09.19.1-.06.53-.02.55.04.02.53.02.56.61.03.59.77.53.92.55.17 0 .7-.44.77-.45.06-.03.38-.28 1.03.09.66.36.98.31 1.2.47.22.16.08.47.28.58.2.11 1.06-.03 1.28.31.22.34-.88 2.09-1.22 2.28-.34.19-.48.64-.84.92s-.81.64-1.27.91c-.41.23-.47.66-.66.8 3.14-.7 5.48-3.5 5.48-6.84 0-3.86-3.14-7-7-7L7 1zm1.64 6.56c-.09.03-.28.22-.78-.08-.48-.3-.81-.23-.86-.28 0 0-.05-.11.17-.14.44-.05.98.41 1.11.41.13 0 .19-.13.41-.05.22.08.05.13-.05.14zM6.34 1.7c-.05-.03.03-.08.09-.14.03-.03.02-.11.05-.14.11-.11.61-.25.52.03-.11.27-.58.3-.66.25zm1.23.89c-.19-.02-.58-.05-.52-.14.3-.28-.09-.38-.34-.38-.25-.02-.34-.16-.22-.19.12-.03.61.02.7.08.08.06.52.25.55.38.02.13 0 .25-.17.25zm1.47-.05c-.14.09-.83-.41-.95-.52-.56-.48-.89-.31-1-.41-.11-.1-.08-.19.11-.34.19-.15.69.06 1 .09.3.03.66.27.66.55.02.25.33.5.19.63h-.01z"}})
 
 
 /***/ }),
@@ -77021,7 +68271,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"grabb
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"graph":{"width":16,"height":16,"d":"M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"grabber":{"width":8,"height":16,"d":"M8 4v1H0V4h8zM0 8h8V7H0v1zm0 3h8v-1H0v1z"}})
 
 
 /***/ }),
@@ -77033,7 +68283,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"graph
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"heart":{"width":12,"height":16,"d":"M11.2 3c-.52-.63-1.25-.95-2.2-1-.97 0-1.69.42-2.2 1-.51.58-.78.92-.8 1-.02-.08-.28-.42-.8-1-.52-.58-1.17-1-2.2-1-.95.05-1.69.38-2.2 1-.52.61-.78 1.28-.8 2 0 .52.09 1.52.67 2.67C1.25 8.82 3.01 10.61 6 13c2.98-2.39 4.77-4.17 5.34-5.33C11.91 6.51 12 5.5 12 5c-.02-.72-.28-1.39-.8-2.02V3z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"graph":{"width":16,"height":16,"d":"M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"}})
 
 
 /***/ }),
@@ -77045,7 +68295,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"heart
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"history":{"width":14,"height":16,"d":"M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"heart":{"width":12,"height":16,"d":"M11.2 3c-.52-.63-1.25-.95-2.2-1-.97 0-1.69.42-2.2 1-.51.58-.78.92-.8 1-.02-.08-.28-.42-.8-1-.52-.58-1.17-1-2.2-1-.95.05-1.69.38-2.2 1-.52.61-.78 1.28-.8 2 0 .52.09 1.52.67 2.67C1.25 8.82 3.01 10.61 6 13c2.98-2.39 4.77-4.17 5.34-5.33C11.91 6.51 12 5.5 12 5c-.02-.72-.28-1.39-.8-2.02V3z"}})
 
 
 /***/ }),
@@ -77057,7 +68307,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"histo
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"home":{"width":16,"height":16,"d":"M16 9l-3-3V2h-2v2L8 1 0 9h2l1 5c0 .55.45 1 1 1h8c.55 0 1-.45 1-1l1-5h2zm-4 5H9v-4H7v4H4L2.81 7.69 8 2.5l5.19 5.19L12 14z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"history":{"width":14,"height":16,"d":"M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"}})
 
 
 /***/ }),
@@ -77069,7 +68319,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"home"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"horizontal-rule":{"width":10,"height":16,"d":"M1 7h2v2h1V3H3v3H1V3H0v6h1V7zm9 2V7H9v2h1zm0-3V4H9v2h1zM7 6V4h2V3H6v6h1V7h2V6H7zm-7 7h10v-2H0v2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"home":{"width":16,"height":16,"d":"M16 9l-3-3V2h-2v2L8 1 0 9h2l1 5c0 .55.45 1 1 1h8c.55 0 1-.45 1-1l1-5h2zm-4 5H9v-4H7v4H4L2.81 7.69 8 2.5l5.19 5.19L12 14z"}})
 
 
 /***/ }),
@@ -77081,7 +68331,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"horiz
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"hubot":{"width":14,"height":16,"d":"M3 6c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h8c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1H3zm8 1.75L9.75 9h-1.5L7 7.75 5.75 9h-1.5L3 7.75V7h.75L5 8.25 6.25 7h1.5L9 8.25 10.25 7H11v.75zM5 11h4v1H5v-1zm2-9C3.14 2 0 4.91 0 8.5V13c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V8.5C14 4.91 10.86 2 7 2zm6 11H1V8.5c0-3.09 2.64-5.59 6-5.59s6 2.5 6 5.59V13z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"horizontal-rule":{"width":10,"height":16,"d":"M1 7h2v2h1V3H3v3H1V3H0v6h1V7zm9 2V7H9v2h1zm0-3V4H9v2h1zM7 6V4h2V3H6v6h1V7h2V6H7zm-7 7h10v-2H0v2z"}})
 
 
 /***/ }),
@@ -77093,7 +68343,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"hubot
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"inbox":{"width":14,"height":16,"d":"M14 9l-1.13-7.14c-.08-.48-.5-.86-1-.86H2.13c-.5 0-.92.38-1 .86L0 9v5c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V9zm-3.28.55l-.44.89c-.17.34-.52.56-.91.56H4.61c-.38 0-.72-.22-.89-.55l-.44-.91c-.17-.33-.52-.55-.89-.55H1l1-7h10l1 7h-1.38c-.39 0-.73.22-.91.55l.01.01z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"hubot":{"width":14,"height":16,"d":"M3 6c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h8c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1H3zm8 1.75L9.75 9h-1.5L7 7.75 5.75 9h-1.5L3 7.75V7h.75L5 8.25 6.25 7h1.5L9 8.25 10.25 7H11v.75zM5 11h4v1H5v-1zm2-9C3.14 2 0 4.91 0 8.5V13c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V8.5C14 4.91 10.86 2 7 2zm6 11H1V8.5c0-3.09 2.64-5.59 6-5.59s6 2.5 6 5.59V13z"}})
 
 
 /***/ }),
@@ -77105,7 +68355,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"inbox
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"info":{"width":14,"height":16,"d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"inbox":{"width":14,"height":16,"d":"M14 9l-1.13-7.14c-.08-.48-.5-.86-1-.86H2.13c-.5 0-.92.38-1 .86L0 9v5c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V9zm-3.28.55l-.44.89c-.17.34-.52.56-.91.56H4.61c-.38 0-.72-.22-.89-.55l-.44-.91c-.17-.33-.52-.55-.89-.55H1l1-7h10l1 7h-1.38c-.39 0-.73.22-.91.55l.01.01z"}})
 
 
 /***/ }),
@@ -77117,7 +68367,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"info"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"issue-closed":{"width":16,"height":16,"d":"M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"info":{"width":14,"height":16,"d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"}})
 
 
 /***/ }),
@@ -77129,7 +68379,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"issue
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"issue-opened":{"width":14,"height":16,"d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"issue-closed":{"width":16,"height":16,"d":"M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z"}})
 
 
 /***/ }),
@@ -77141,7 +68391,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"issue
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"issue-reopened":{"width":14,"height":16,"d":"M8 9H6V4h2v5zm-2 3h2v-2H6v2zm6.33-2H10l1.5 1.5c-1.05 1.33-2.67 2.2-4.5 2.2A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7 2.19 0 4.13-1.02 5.41-2.59L14 14v-4h-1.67zM1.67 6H4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7 0 .34-.03.67-.09 1h1.31c.05-.33.08-.66.08-1 0-3.86-3.14-7-7-7-2.19 0-4.13 1.02-5.41 2.59L0 2v4h1.67z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"issue-opened":{"width":14,"height":16,"d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"}})
 
 
 /***/ }),
@@ -77153,7 +68403,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"issue
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"italic":{"width":6,"height":16,"d":"M2.81 5h1.98L3 14H1l1.81-9zm.36-2.7c0-.7.58-1.3 1.33-1.3.56 0 1.13.38 1.13 1.03 0 .75-.59 1.3-1.33 1.3-.58 0-1.13-.38-1.13-1.03z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"issue-reopened":{"width":14,"height":16,"d":"M8 9H6V4h2v5zm-2 3h2v-2H6v2zm6.33-2H10l1.5 1.5c-1.05 1.33-2.67 2.2-4.5 2.2A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7 2.19 0 4.13-1.02 5.41-2.59L14 14v-4h-1.67zM1.67 6H4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7 0 .34-.03.67-.09 1h1.31c.05-.33.08-.66.08-1 0-3.86-3.14-7-7-7-2.19 0-4.13 1.02-5.41 2.59L0 2v4h1.67z"}})
 
 
 /***/ }),
@@ -77165,7 +68415,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"itali
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"jersey":{"width":14,"height":16,"d":"M4.5 6l-.5.5v5l.5.5h2l.5-.5v-5L6.5 6h-2zM6 11H5V7h1v4zm6.27-7.25C12.05 2.37 11.96 1.12 12 0H9.02c0 .27-.13.48-.39.69-.25.2-.63.3-1.13.3-.5 0-.88-.09-1.13-.3-.23-.2-.36-.42-.36-.69H3c.05 1.13-.03 2.38-.25 3.75C2.55 5.13 1.95 5.88 1 6v9c.02.27.11.48.31.69.2.21.42.3.69.31h11c.27-.02.48-.11.69-.31.21-.2.3-.42.31-.69V6c-.95-.13-1.53-.88-1.75-2.25h.02zM13 15H2V7c.89-.5 1.48-1.25 1.72-2.25S4.03 2.5 4 1h1c-.02.78.16 1.47.52 2.06.36.58 1.02.89 2 .94.98-.02 1.64-.33 2-.94.36-.59.5-1.28.48-2.06h1c.02 1.42.13 2.55.33 3.38.2.81.69 2 1.67 2.63v8V15zM8.5 6l-.5.5v5l.5.5h2l.5-.5v-5l-.5-.5h-2zm1.5 5H9V7h1v4z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"italic":{"width":6,"height":16,"d":"M2.81 5h1.98L3 14H1l1.81-9zm.36-2.7c0-.7.58-1.3 1.33-1.3.56 0 1.13.38 1.13 1.03 0 .75-.59 1.3-1.33 1.3-.58 0-1.13-.38-1.13-1.03z"}})
 
 
 /***/ }),
@@ -77177,7 +68427,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"jerse
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"key":{"width":14,"height":16,"d":"M12.83 2.17C12.08 1.42 11.14 1.03 10 1c-1.13.03-2.08.42-2.83 1.17S6.04 3.86 6.01 5c0 .3.03.59.09.89L0 12v1l1 1h2l1-1v-1h1v-1h1v-1h2l1.09-1.11c.3.08.59.11.91.11 1.14-.03 2.08-.42 2.83-1.17S13.97 6.14 14 5c-.03-1.14-.42-2.08-1.17-2.83zM11 5.38c-.77 0-1.38-.61-1.38-1.38 0-.77.61-1.38 1.38-1.38.77 0 1.38.61 1.38 1.38 0 .77-.61 1.38-1.38 1.38z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"jersey":{"width":14,"height":16,"d":"M4.5 6l-.5.5v5l.5.5h2l.5-.5v-5L6.5 6h-2zM6 11H5V7h1v4zm6.27-7.25C12.05 2.37 11.96 1.12 12 0H9.02c0 .27-.13.48-.39.69-.25.2-.63.3-1.13.3-.5 0-.88-.09-1.13-.3-.23-.2-.36-.42-.36-.69H3c.05 1.13-.03 2.38-.25 3.75C2.55 5.13 1.95 5.88 1 6v9c.02.27.11.48.31.69.2.21.42.3.69.31h11c.27-.02.48-.11.69-.31.21-.2.3-.42.31-.69V6c-.95-.13-1.53-.88-1.75-2.25h.02zM13 15H2V7c.89-.5 1.48-1.25 1.72-2.25S4.03 2.5 4 1h1c-.02.78.16 1.47.52 2.06.36.58 1.02.89 2 .94.98-.02 1.64-.33 2-.94.36-.59.5-1.28.48-2.06h1c.02 1.42.13 2.55.33 3.38.2.81.69 2 1.67 2.63v8V15zM8.5 6l-.5.5v5l.5.5h2l.5-.5v-5l-.5-.5h-2zm1.5 5H9V7h1v4z"}})
 
 
 /***/ }),
@@ -77189,7 +68439,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"key":
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"keyboard":{"width":16,"height":16,"d":"M10 5H9V4h1v1zM3 6H2v1h1V6zm5-2H7v1h1V4zM4 4H2v1h2V4zm8 7h2v-1h-2v1zM8 7h1V6H8v1zm-4 3H2v1h2v-1zm8-6h-1v1h1V4zm2 0h-1v1h1V4zm-2 5h2V6h-2v3zm4-6v9c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h14c.55 0 1 .45 1 1zm-1 0H1v9h14V3zM6 7h1V6H6v1zm0-3H5v1h1V4zM4 7h1V6H4v1zm1 4h6v-1H5v1zm5-4h1V6h-1v1zM3 8H2v1h1V8zm5 0v1h1V8H8zM6 8v1h1V8H6zM5 8H4v1h1V8zm5 1h1V8h-1v1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"key":{"width":14,"height":16,"d":"M12.83 2.17C12.08 1.42 11.14 1.03 10 1c-1.13.03-2.08.42-2.83 1.17S6.04 3.86 6.01 5c0 .3.03.59.09.89L0 12v1l1 1h2l1-1v-1h1v-1h1v-1h2l1.09-1.11c.3.08.59.11.91.11 1.14-.03 2.08-.42 2.83-1.17S13.97 6.14 14 5c-.03-1.14-.42-2.08-1.17-2.83zM11 5.38c-.77 0-1.38-.61-1.38-1.38 0-.77.61-1.38 1.38-1.38.77 0 1.38.61 1.38 1.38 0 .77-.61 1.38-1.38 1.38z"}})
 
 
 /***/ }),
@@ -77201,7 +68451,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"keybo
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"law":{"width":14,"height":16,"d":"M7 4c-.83 0-1.5-.67-1.5-1.5S6.17 1 7 1s1.5.67 1.5 1.5S7.83 4 7 4zm7 6c0 1.11-.89 2-2 2h-1c-1.11 0-2-.89-2-2l2-4h-1c-.55 0-1-.45-1-1H8v8c.42 0 1 .45 1 1h1c.42 0 1 .45 1 1H3c0-.55.58-1 1-1h1c0-.55.58-1 1-1h.03L6 5H5c0 .55-.45 1-1 1H3l2 4c0 1.11-.89 2-2 2H2c-1.11 0-2-.89-2-2l2-4H1V5h3c0-.55.45-1 1-1h4c.55 0 1 .45 1 1h3v1h-1l2 4zM2.5 7L1 10h3L2.5 7zM13 10l-1.5-3-1.5 3h3z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"keyboard":{"width":16,"height":16,"d":"M10 5H9V4h1v1zM3 6H2v1h1V6zm5-2H7v1h1V4zM4 4H2v1h2V4zm8 7h2v-1h-2v1zM8 7h1V6H8v1zm-4 3H2v1h2v-1zm8-6h-1v1h1V4zm2 0h-1v1h1V4zm-2 5h2V6h-2v3zm4-6v9c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h14c.55 0 1 .45 1 1zm-1 0H1v9h14V3zM6 7h1V6H6v1zm0-3H5v1h1V4zM4 7h1V6H4v1zm1 4h6v-1H5v1zm5-4h1V6h-1v1zM3 8H2v1h1V8zm5 0v1h1V8H8zM6 8v1h1V8H6zM5 8H4v1h1V8zm5 1h1V8h-1v1z"}})
 
 
 /***/ }),
@@ -77213,7 +68463,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"law":
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"light-bulb":{"width":12,"height":16,"d":"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"law":{"width":14,"height":16,"d":"M7 4c-.83 0-1.5-.67-1.5-1.5S6.17 1 7 1s1.5.67 1.5 1.5S7.83 4 7 4zm7 6c0 1.11-.89 2-2 2h-1c-1.11 0-2-.89-2-2l2-4h-1c-.55 0-1-.45-1-1H8v8c.42 0 1 .45 1 1h1c.42 0 1 .45 1 1H3c0-.55.58-1 1-1h1c0-.55.58-1 1-1h.03L6 5H5c0 .55-.45 1-1 1H3l2 4c0 1.11-.89 2-2 2H2c-1.11 0-2-.89-2-2l2-4H1V5h3c0-.55.45-1 1-1h4c.55 0 1 .45 1 1h3v1h-1l2 4zM2.5 7L1 10h3L2.5 7zM13 10l-1.5-3-1.5 3h3z"}})
 
 
 /***/ }),
@@ -77225,7 +68475,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"light
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"link":{"width":16,"height":16,"d":"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"light-bulb":{"width":12,"height":16,"d":"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"}})
 
 
 /***/ }),
@@ -77237,7 +68487,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"link"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"link-external":{"width":12,"height":16,"d":"M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"link":{"width":16,"height":16,"d":"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"}})
 
 
 /***/ }),
@@ -77249,7 +68499,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"link-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"list-ordered":{"width":12,"height":16,"d":"M12 13c0 .59 0 1-.59 1H4.59C4 14 4 13.59 4 13c0-.59 0-1 .59-1h6.81c.59 0 .59.41.59 1H12zM4.59 4h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1H4.59C4 2 4 2.41 4 3c0 .59 0 1 .59 1zm6.81 3H4.59C4 7 4 7.41 4 8c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1zM2 1h-.72c-.3.19-.58.25-1.03.34V2H1v2.14H.16V5H3v-.86H2V1zm.25 8.13c-.17 0-.45.03-.66.06.53-.56 1.14-1.25 1.14-1.89C2.71 6.52 2.17 6 1.37 6c-.59 0-.97.2-1.38.64l.58.58c.19-.19.38-.38.64-.38.28 0 .48.16.48.52 0 .53-.77 1.2-1.7 2.06V10h3l-.09-.88h-.66l.01.01zm-.08 3.78v-.03c.44-.19.64-.47.64-.86 0-.7-.56-1.11-1.44-1.11-.48 0-.89.19-1.28.52l.55.64c.25-.2.44-.31.69-.31.27 0 .42.13.42.36 0 .27-.2.44-.86.44v.75c.83 0 .98.17.98.47 0 .25-.23.38-.58.38-.28 0-.56-.14-.81-.38l-.48.66c.3.36.77.56 1.41.56.83 0 1.53-.41 1.53-1.16 0-.5-.31-.81-.77-.94v.01z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"link-external":{"width":12,"height":16,"d":"M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"}})
 
 
 /***/ }),
@@ -77261,7 +68511,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"list-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"list-unordered":{"width":12,"height":16,"d":"M2 13c0 .59 0 1-.59 1H.59C0 14 0 13.59 0 13c0-.59 0-1 .59-1h.81c.59 0 .59.41.59 1H2zm2.59-9h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1H4.59C4 2 4 2.41 4 3c0 .59 0 1 .59 1zM1.41 7H.59C0 7 0 7.41 0 8c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0-5H.59C0 2 0 2.41 0 3c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm10 5H4.59C4 7 4 7.41 4 8c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0 5H4.59C4 12 4 12.41 4 13c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"list-ordered":{"width":12,"height":16,"d":"M12 13c0 .59 0 1-.59 1H4.59C4 14 4 13.59 4 13c0-.59 0-1 .59-1h6.81c.59 0 .59.41.59 1H12zM4.59 4h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1H4.59C4 2 4 2.41 4 3c0 .59 0 1 .59 1zm6.81 3H4.59C4 7 4 7.41 4 8c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1zM2 1h-.72c-.3.19-.58.25-1.03.34V2H1v2.14H.16V5H3v-.86H2V1zm.25 8.13c-.17 0-.45.03-.66.06.53-.56 1.14-1.25 1.14-1.89C2.71 6.52 2.17 6 1.37 6c-.59 0-.97.2-1.38.64l.58.58c.19-.19.38-.38.64-.38.28 0 .48.16.48.52 0 .53-.77 1.2-1.7 2.06V10h3l-.09-.88h-.66l.01.01zm-.08 3.78v-.03c.44-.19.64-.47.64-.86 0-.7-.56-1.11-1.44-1.11-.48 0-.89.19-1.28.52l.55.64c.25-.2.44-.31.69-.31.27 0 .42.13.42.36 0 .27-.2.44-.86.44v.75c.83 0 .98.17.98.47 0 .25-.23.38-.58.38-.28 0-.56-.14-.81-.38l-.48.66c.3.36.77.56 1.41.56.83 0 1.53-.41 1.53-1.16 0-.5-.31-.81-.77-.94v.01z"}})
 
 
 /***/ }),
@@ -77273,7 +68523,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"list-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"location":{"width":12,"height":16,"d":"M6 0C2.69 0 0 2.5 0 5.5 0 10.02 6 16 6 16s6-5.98 6-10.5C12 2.5 9.31 0 6 0zm0 14.55C4.14 12.52 1 8.44 1 5.5 1 3.02 3.25 1 6 1c1.34 0 2.61.48 3.56 1.36.92.86 1.44 1.97 1.44 3.14 0 2.94-3.14 7.02-5 9.05zM8 5.5c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"list-unordered":{"width":12,"height":16,"d":"M2 13c0 .59 0 1-.59 1H.59C0 14 0 13.59 0 13c0-.59 0-1 .59-1h.81c.59 0 .59.41.59 1H2zm2.59-9h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1H4.59C4 2 4 2.41 4 3c0 .59 0 1 .59 1zM1.41 7H.59C0 7 0 7.41 0 8c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0-5H.59C0 2 0 2.41 0 3c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm10 5H4.59C4 7 4 7.41 4 8c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0 5H4.59C4 12 4 12.41 4 13c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01z"}})
 
 
 /***/ }),
@@ -77285,7 +68535,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"locat
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"lock":{"width":12,"height":16,"d":"M4 13H3v-1h1v1zm8-6v7c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h1V4c0-2.2 1.8-4 4-4s4 1.8 4 4v2h1c.55 0 1 .45 1 1zM3.8 6h4.41V4c0-1.22-.98-2.2-2.2-2.2-1.22 0-2.2.98-2.2 2.2v2H3.8zM11 7H2v7h9V7zM4 8H3v1h1V8zm0 2H3v1h1v-1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"location":{"width":12,"height":16,"d":"M6 0C2.69 0 0 2.5 0 5.5 0 10.02 6 16 6 16s6-5.98 6-10.5C12 2.5 9.31 0 6 0zm0 14.55C4.14 12.52 1 8.44 1 5.5 1 3.02 3.25 1 6 1c1.34 0 2.61.48 3.56 1.36.92.86 1.44 1.97 1.44 3.14 0 2.94-3.14 7.02-5 9.05zM8 5.5c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"}})
 
 
 /***/ }),
@@ -77297,7 +68547,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"lock"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"logo-gist":{"width":25,"height":16,"d":"M4.7 8.73h2.45v4.02c-.55.27-1.64.34-2.53.34-2.56 0-3.47-2.2-3.47-5.05 0-2.85.91-5.06 3.48-5.06 1.28 0 2.06.23 3.28.73V2.66C7.27 2.33 6.25 2 4.63 2 1.13 2 0 4.69 0 8.03c0 3.34 1.11 6.03 4.63 6.03 1.64 0 2.81-.27 3.59-.64V7.73H4.7v1zm6.39 3.72V6.06h-1.05v6.28c0 1.25.58 1.72 1.72 1.72v-.89c-.48 0-.67-.16-.67-.7v-.02zm.25-8.72c0-.44-.33-.78-.78-.78s-.77.34-.77.78.33.78.77.78.78-.34.78-.78zm4.34 5.69c-1.5-.13-1.78-.48-1.78-1.17 0-.77.33-1.34 1.88-1.34 1.05 0 1.66.16 2.27.36v-.94c-.69-.3-1.52-.39-2.25-.39-2.2 0-2.92 1.2-2.92 2.31 0 1.08.47 1.88 2.73 2.08 1.55.13 1.77.63 1.77 1.34 0 .73-.44 1.42-2.06 1.42-1.11 0-1.86-.19-2.33-.36v.94c.5.2 1.58.39 2.33.39 2.38 0 3.14-1.2 3.14-2.41 0-1.28-.53-2.03-2.75-2.23h-.03zm8.58-2.47v-.86h-2.42v-2.5l-1.08.31v2.11l-1.56.44v.48h1.56v5c0 1.53 1.19 2.13 2.5 2.13.19 0 .52-.02.69-.05v-.89c-.19.03-.41.03-.61.03-.97 0-1.5-.39-1.5-1.34V6.94h2.42v.02-.01z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"lock":{"width":12,"height":16,"d":"M4 13H3v-1h1v1zm8-6v7c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h1V4c0-2.2 1.8-4 4-4s4 1.8 4 4v2h1c.55 0 1 .45 1 1zM3.8 6h4.41V4c0-1.22-.98-2.2-2.2-2.2-1.22 0-2.2.98-2.2 2.2v2H3.8zM11 7H2v7h9V7zM4 8H3v1h1V8zm0 2H3v1h1v-1z"}})
 
 
 /***/ }),
@@ -77309,7 +68559,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"logo-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"logo-github":{"width":45,"height":16,"d":"M18.53 12.03h-.02c.009 0 .015.01.024.011h.006l-.01-.01zm.004.011c-.093.001-.327.05-.574.05-.78 0-1.05-.36-1.05-.83V8.13h1.59c.09 0 .16-.08.16-.19v-1.7c0-.09-.08-.17-.16-.17h-1.59V3.96c0-.08-.05-.13-.14-.13h-2.16c-.09 0-.14.05-.14.13v2.17s-1.09.27-1.16.28c-.08.02-.13.09-.13.17v1.36c0 .11.08.19.17.19h1.11v3.28c0 2.44 1.7 2.69 2.86 2.69.53 0 1.17-.17 1.27-.22.06-.02.09-.09.09-.16v-1.5a.177.177 0 0 0-.146-.18zm23.696-2.2c0-1.81-.73-2.05-1.5-1.97-.6.04-1.08.34-1.08.34v3.52s.49.34 1.22.36c1.03.03 1.36-.34 1.36-2.25zm2.43-.16c0 3.43-1.11 4.41-3.05 4.41-1.64 0-2.52-.83-2.52-.83s-.04.46-.09.52c-.03.06-.08.08-.14.08h-1.48c-.1 0-.19-.08-.19-.17l.02-11.11c0-.09.08-.17.17-.17h2.13c.09 0 .17.08.17.17v3.77s.82-.53 2.02-.53l-.01-.02c1.2 0 2.97.45 2.97 3.88zm-8.72-3.61H33.84c-.11 0-.17.08-.17.19v5.44s-.55.39-1.3.39-.97-.34-.97-1.09V6.25c0-.09-.08-.17-.17-.17h-2.14c-.09 0-.17.08-.17.17v5.11c0 2.2 1.23 2.75 2.92 2.75 1.39 0 2.52-.77 2.52-.77s.05.39.08.45c.02.05.09.09.16.09h1.34c.11 0 .17-.08.17-.17l.02-7.47c0-.09-.08-.17-.19-.17zm-23.7-.01h-2.13c-.09 0-.17.09-.17.2v7.34c0 .2.13.27.3.27h1.92c.2 0 .25-.09.25-.27V6.23c0-.09-.08-.17-.17-.17zm-1.05-3.38c-.77 0-1.38.61-1.38 1.38 0 .77.61 1.38 1.38 1.38.75 0 1.36-.61 1.36-1.38 0-.77-.61-1.38-1.36-1.38zm16.49-.25h-2.11c-.09 0-.17.08-.17.17v4.09h-3.31V2.6c0-.09-.08-.17-.17-.17h-2.13c-.09 0-.17.08-.17.17v11.11c0 .09.09.17.17.17h2.13c.09 0 .17-.08.17-.17V8.96h3.31l-.02 4.75c0 .09.08.17.17.17h2.13c.09 0 .17-.08.17-.17V2.6c0-.09-.08-.17-.17-.17zM8.81 7.35v5.74c0 .04-.01.11-.06.13 0 0-1.25.89-3.31.89-2.49 0-5.44-.78-5.44-5.92S2.58 1.99 5.1 2c2.18 0 3.06.49 3.2.58.04.05.06.09.06.14L7.94 4.5c0 .09-.09.2-.2.17-.36-.11-.9-.33-2.17-.33-1.47 0-3.05.42-3.05 3.73s1.5 3.7 2.58 3.7c.92 0 1.25-.11 1.25-.11v-2.3H4.88c-.11 0-.19-.08-.19-.17V7.35c0-.09.08-.17.19-.17h3.74c.11 0 .19.08.19.17z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"logo-gist":{"width":25,"height":16,"d":"M4.7 8.73h2.45v4.02c-.55.27-1.64.34-2.53.34-2.56 0-3.47-2.2-3.47-5.05 0-2.85.91-5.06 3.48-5.06 1.28 0 2.06.23 3.28.73V2.66C7.27 2.33 6.25 2 4.63 2 1.13 2 0 4.69 0 8.03c0 3.34 1.11 6.03 4.63 6.03 1.64 0 2.81-.27 3.59-.64V7.73H4.7v1zm6.39 3.72V6.06h-1.05v6.28c0 1.25.58 1.72 1.72 1.72v-.89c-.48 0-.67-.16-.67-.7v-.02zm.25-8.72c0-.44-.33-.78-.78-.78s-.77.34-.77.78.33.78.77.78.78-.34.78-.78zm4.34 5.69c-1.5-.13-1.78-.48-1.78-1.17 0-.77.33-1.34 1.88-1.34 1.05 0 1.66.16 2.27.36v-.94c-.69-.3-1.52-.39-2.25-.39-2.2 0-2.92 1.2-2.92 2.31 0 1.08.47 1.88 2.73 2.08 1.55.13 1.77.63 1.77 1.34 0 .73-.44 1.42-2.06 1.42-1.11 0-1.86-.19-2.33-.36v.94c.5.2 1.58.39 2.33.39 2.38 0 3.14-1.2 3.14-2.41 0-1.28-.53-2.03-2.75-2.23h-.03zm8.58-2.47v-.86h-2.42v-2.5l-1.08.31v2.11l-1.56.44v.48h1.56v5c0 1.53 1.19 2.13 2.5 2.13.19 0 .52-.02.69-.05v-.89c-.19.03-.41.03-.61.03-.97 0-1.5-.39-1.5-1.34V6.94h2.42v.02-.01z"}})
 
 
 /***/ }),
@@ -77321,7 +68571,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"logo-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mail":{"width":14,"height":16,"d":"M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"logo-github":{"width":45,"height":16,"d":"M18.53 12.03h-.02c.009 0 .015.01.024.011h.006l-.01-.01zm.004.011c-.093.001-.327.05-.574.05-.78 0-1.05-.36-1.05-.83V8.13h1.59c.09 0 .16-.08.16-.19v-1.7c0-.09-.08-.17-.16-.17h-1.59V3.96c0-.08-.05-.13-.14-.13h-2.16c-.09 0-.14.05-.14.13v2.17s-1.09.27-1.16.28c-.08.02-.13.09-.13.17v1.36c0 .11.08.19.17.19h1.11v3.28c0 2.44 1.7 2.69 2.86 2.69.53 0 1.17-.17 1.27-.22.06-.02.09-.09.09-.16v-1.5a.177.177 0 0 0-.146-.18zm23.696-2.2c0-1.81-.73-2.05-1.5-1.97-.6.04-1.08.34-1.08.34v3.52s.49.34 1.22.36c1.03.03 1.36-.34 1.36-2.25zm2.43-.16c0 3.43-1.11 4.41-3.05 4.41-1.64 0-2.52-.83-2.52-.83s-.04.46-.09.52c-.03.06-.08.08-.14.08h-1.48c-.1 0-.19-.08-.19-.17l.02-11.11c0-.09.08-.17.17-.17h2.13c.09 0 .17.08.17.17v3.77s.82-.53 2.02-.53l-.01-.02c1.2 0 2.97.45 2.97 3.88zm-8.72-3.61H33.84c-.11 0-.17.08-.17.19v5.44s-.55.39-1.3.39-.97-.34-.97-1.09V6.25c0-.09-.08-.17-.17-.17h-2.14c-.09 0-.17.08-.17.17v5.11c0 2.2 1.23 2.75 2.92 2.75 1.39 0 2.52-.77 2.52-.77s.05.39.08.45c.02.05.09.09.16.09h1.34c.11 0 .17-.08.17-.17l.02-7.47c0-.09-.08-.17-.19-.17zm-23.7-.01h-2.13c-.09 0-.17.09-.17.2v7.34c0 .2.13.27.3.27h1.92c.2 0 .25-.09.25-.27V6.23c0-.09-.08-.17-.17-.17zm-1.05-3.38c-.77 0-1.38.61-1.38 1.38 0 .77.61 1.38 1.38 1.38.75 0 1.36-.61 1.36-1.38 0-.77-.61-1.38-1.36-1.38zm16.49-.25h-2.11c-.09 0-.17.08-.17.17v4.09h-3.31V2.6c0-.09-.08-.17-.17-.17h-2.13c-.09 0-.17.08-.17.17v11.11c0 .09.09.17.17.17h2.13c.09 0 .17-.08.17-.17V8.96h3.31l-.02 4.75c0 .09.08.17.17.17h2.13c.09 0 .17-.08.17-.17V2.6c0-.09-.08-.17-.17-.17zM8.81 7.35v5.74c0 .04-.01.11-.06.13 0 0-1.25.89-3.31.89-2.49 0-5.44-.78-5.44-5.92S2.58 1.99 5.1 2c2.18 0 3.06.49 3.2.58.04.05.06.09.06.14L7.94 4.5c0 .09-.09.2-.2.17-.36-.11-.9-.33-2.17-.33-1.47 0-3.05.42-3.05 3.73s1.5 3.7 2.58 3.7c.92 0 1.25-.11 1.25-.11v-2.3H4.88c-.11 0-.19-.08-.19-.17V7.35c0-.09.08-.17.19-.17h3.74c.11 0 .19.08.19.17z"}})
 
 
 /***/ }),
@@ -77333,7 +68583,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mail"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mail-read":{"width":14,"height":16,"d":"M6 5H4V4h2v1zm3 1H4v1h5V6zm5-.48V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V5.52c0-.33.16-.63.42-.81L2 3.58V3c0-.55.45-1 1-1h1.2L7 0l2.8 2H11c.55 0 1 .45 1 1v.58l1.58 1.13c.27.19.42.48.42.81zM3 7.5L7 10l4-2.5V3H3v4.5zm-2 6l4.5-3-4.5-3v6zm11 .5l-5-3-5 3h10zm1-6.5l-4.5 3 4.5 3v-6z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mail":{"width":14,"height":16,"d":"M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"}})
 
 
 /***/ }),
@@ -77345,7 +68595,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mail-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mail-reply":{"width":12,"height":16,"d":"M6 2.5L0 7l6 4.5v-3c1.73 0 5.14.95 6 4.38 0-4.55-3.06-7.05-6-7.38v-3z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mail-read":{"width":14,"height":16,"d":"M6 5H4V4h2v1zm3 1H4v1h5V6zm5-.48V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V5.52c0-.33.16-.63.42-.81L2 3.58V3c0-.55.45-1 1-1h1.2L7 0l2.8 2H11c.55 0 1 .45 1 1v.58l1.58 1.13c.27.19.42.48.42.81zM3 7.5L7 10l4-2.5V3H3v4.5zm-2 6l4.5-3-4.5-3v6zm11 .5l-5-3-5 3h10zm1-6.5l-4.5 3 4.5 3v-6z"}})
 
 
 /***/ }),
@@ -77357,7 +68607,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mail-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mark-github":{"width":16,"height":16,"d":"M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mail-reply":{"width":12,"height":16,"d":"M6 2.5L0 7l6 4.5v-3c1.73 0 5.14.95 6 4.38 0-4.55-3.06-7.05-6-7.38v-3z"}})
 
 
 /***/ }),
@@ -77369,7 +68619,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mark-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"markdown":{"width":16,"height":16,"d":"M14.85 3H1.15C.52 3 0 3.52 0 4.15v7.69C0 12.48.52 13 1.15 13h13.69c.64 0 1.15-.52 1.15-1.15v-7.7C16 3.52 15.48 3 14.85 3zM9 11H7V8L5.5 9.92 4 8v3H2V5h2l1.5 2L7 5h2v6zm2.99.5L9.5 8H11V5h2v3h1.5l-2.51 3.5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mark-github":{"width":16,"height":16,"d":"M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"}})
 
 
 /***/ }),
@@ -77381,7 +68631,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"markd
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"megaphone":{"width":16,"height":16,"d":"M10 1c-.17 0-.36.05-.52.14C8.04 2.02 4.5 4.58 3 5c-1.38 0-3 .67-3 2.5S1.63 10 3 10c.3.08.64.23 1 .41V15h2v-3.45c1.34.86 2.69 1.83 3.48 2.31.16.09.34.14.52.14.52 0 1-.42 1-1V2c0-.58-.48-1-1-1zm0 12c-.38-.23-.89-.58-1.5-1-.16-.11-.33-.22-.5-.34V3.31c.16-.11.31-.2.47-.31.61-.41 1.16-.77 1.53-1v11zm2-6h4v1h-4V7zm0 2l4 2v1l-4-2V9zm4-6v1l-4 2V5l4-2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"markdown":{"width":16,"height":16,"d":"M14.85 3H1.15C.52 3 0 3.52 0 4.15v7.69C0 12.48.52 13 1.15 13h13.69c.64 0 1.15-.52 1.15-1.15v-7.7C16 3.52 15.48 3 14.85 3zM9 11H7V8L5.5 9.92 4 8v3H2V5h2l1.5 2L7 5h2v6zm2.99.5L9.5 8H11V5h2v3h1.5l-2.51 3.5z"}})
 
 
 /***/ }),
@@ -77393,7 +68643,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"megap
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mention":{"width":14,"height":16,"d":"M6.58 15c1.25 0 2.52-.31 3.56-.94l-.42-.94c-.84.52-1.89.83-3.03.83-3.23 0-5.64-2.08-5.64-5.72 0-4.37 3.23-7.18 6.58-7.18 3.45 0 5.22 2.19 5.22 5.2 0 2.39-1.34 3.86-2.5 3.86-1.05 0-1.36-.73-1.05-2.19l.73-3.75H8.98l-.11.72c-.41-.63-.94-.83-1.56-.83-2.19 0-3.66 2.39-3.66 4.38 0 1.67.94 2.61 2.3 2.61.84 0 1.67-.53 2.3-1.25.11.94.94 1.45 1.98 1.45 1.67 0 3.77-1.67 3.77-5C14 2.61 11.59 0 7.83 0 3.66 0 0 3.33 0 8.33 0 12.71 2.92 15 6.58 15zm-.31-5c-.73 0-1.36-.52-1.36-1.67 0-1.45.94-3.22 2.41-3.22.52 0 .84.2 1.25.83l-.52 3.02c-.63.73-1.25 1.05-1.78 1.05V10z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"megaphone":{"width":16,"height":16,"d":"M10 1c-.17 0-.36.05-.52.14C8.04 2.02 4.5 4.58 3 5c-1.38 0-3 .67-3 2.5S1.63 10 3 10c.3.08.64.23 1 .41V15h2v-3.45c1.34.86 2.69 1.83 3.48 2.31.16.09.34.14.52.14.52 0 1-.42 1-1V2c0-.58-.48-1-1-1zm0 12c-.38-.23-.89-.58-1.5-1-.16-.11-.33-.22-.5-.34V3.31c.16-.11.31-.2.47-.31.61-.41 1.16-.77 1.53-1v11zm2-6h4v1h-4V7zm0 2l4 2v1l-4-2V9zm4-6v1l-4 2V5l4-2z"}})
 
 
 /***/ }),
@@ -77405,7 +68655,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"menti
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"milestone":{"width":14,"height":16,"d":"M8 2H6V0h2v2zm4 5H2c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h10l2 2-2 2zM8 4H6v2h2V4zM6 16h2V8H6v8z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mention":{"width":14,"height":16,"d":"M6.58 15c1.25 0 2.52-.31 3.56-.94l-.42-.94c-.84.52-1.89.83-3.03.83-3.23 0-5.64-2.08-5.64-5.72 0-4.37 3.23-7.18 6.58-7.18 3.45 0 5.22 2.19 5.22 5.2 0 2.39-1.34 3.86-2.5 3.86-1.05 0-1.36-.73-1.05-2.19l.73-3.75H8.98l-.11.72c-.41-.63-.94-.83-1.56-.83-2.19 0-3.66 2.39-3.66 4.38 0 1.67.94 2.61 2.3 2.61.84 0 1.67-.53 2.3-1.25.11.94.94 1.45 1.98 1.45 1.67 0 3.77-1.67 3.77-5C14 2.61 11.59 0 7.83 0 3.66 0 0 3.33 0 8.33 0 12.71 2.92 15 6.58 15zm-.31-5c-.73 0-1.36-.52-1.36-1.67 0-1.45.94-3.22 2.41-3.22.52 0 .84.2 1.25.83l-.52 3.02c-.63.73-1.25 1.05-1.78 1.05V10z"}})
 
 
 /***/ }),
@@ -77417,7 +68667,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"miles
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mirror":{"width":16,"height":16,"d":"M15.5 4.7L8.5 0l-7 4.7c-.3.19-.5.45-.5.8V16l7.5-4 7.5 4V5.5c0-.34-.2-.61-.5-.8zm-.5 9.8l-6-3.25V10H8v1.25L2 14.5v-9l6-4V6h1V1.5l6 4v9zM6 7h5V5l3 3-3 3V9H6v2L3 8l3-3v2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"milestone":{"width":14,"height":16,"d":"M8 2H6V0h2v2zm4 5H2c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h10l2 2-2 2zM8 4H6v2h2V4zM6 16h2V8H6v8z"}})
 
 
 /***/ }),
@@ -77429,7 +68679,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mirro
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mortar-board":{"width":16,"height":16,"d":"M7.83 9.19L4 8c-4-8 0 1.5 0 2.5S5.8 12 8 12s4-.5 4-1.5V8L8.17 9.19a.73.73 0 0 1-.36 0h.02zm.28-6.39a.34.34 0 0 0-.2 0L.27 5.18a.35.35 0 0 0 0 .67L2 6.4v1.77c-.3.17-.5.5-.5.86 0 .19.05.36.14.5-.08.14-.14.31-.14.5v2.58c0 .55 2 .55 2 0v-2.58c0-.19-.05-.36-.14-.5.08-.14.14-.31.14-.5 0-.38-.2-.69-.5-.86V6.72l4.89 1.53c.06.02.14.02.2 0l7.64-2.38a.35.35 0 0 0 0-.67L8.1 2.81l.01-.01zM8.02 6c-.55 0-1-.22-1-.5s.45-.5 1-.5 1 .22 1 .5-.45.5-1 .5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mirror":{"width":16,"height":16,"d":"M15.5 4.7L8.5 0l-7 4.7c-.3.19-.5.45-.5.8V16l7.5-4 7.5 4V5.5c0-.34-.2-.61-.5-.8zm-.5 9.8l-6-3.25V10H8v1.25L2 14.5v-9l6-4V6h1V1.5l6 4v9zM6 7h5V5l3 3-3 3V9H6v2L3 8l3-3v2z"}})
 
 
 /***/ }),
@@ -77441,7 +68691,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"morta
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mute":{"width":16,"height":16,"d":"M8 2.81v10.38c0 .67-.81 1-1.28.53L3 10H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h2l3.72-3.72C7.19 1.81 8 2.14 8 2.81zm7.53 3.22l-1.06-1.06-1.97 1.97-1.97-1.97-1.06 1.06L11.44 8 9.47 9.97l1.06 1.06 1.97-1.97 1.97 1.97 1.06-1.06L13.56 8l1.97-1.97z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mortar-board":{"width":16,"height":16,"d":"M7.83 9.19L4 8c-4-8 0 1.5 0 2.5S5.8 12 8 12s4-.5 4-1.5V8L8.17 9.19a.73.73 0 0 1-.36 0h.02zm.28-6.39a.34.34 0 0 0-.2 0L.27 5.18a.35.35 0 0 0 0 .67L2 6.4v1.77c-.3.17-.5.5-.5.86 0 .19.05.36.14.5-.08.14-.14.31-.14.5v2.58c0 .55 2 .55 2 0v-2.58c0-.19-.05-.36-.14-.5.08-.14.14-.31.14-.5 0-.38-.2-.69-.5-.86V6.72l4.89 1.53c.06.02.14.02.2 0l7.64-2.38a.35.35 0 0 0 0-.67L8.1 2.81l.01-.01zM8.02 6c-.55 0-1-.22-1-.5s.45-.5 1-.5 1 .22 1 .5-.45.5-1 .5z"}})
 
 
 /***/ }),
@@ -77453,7 +68703,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mute"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"no-newline":{"width":16,"height":16,"d":"M16 5v3c0 .55-.45 1-1 1h-3v2L9 8l3-3v2h2V5h2zM8 8c0 2.2-1.8 4-4 4s-4-1.8-4-4 1.8-4 4-4 4 1.8 4 4zM1.5 9.66L5.66 5.5C5.18 5.19 4.61 5 4 5 2.34 5 1 6.34 1 8c0 .61.19 1.17.5 1.66zM7 8c0-.61-.19-1.17-.5-1.66L2.34 10.5c.48.31 1.05.5 1.66.5 1.66 0 3-1.34 3-3z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mute":{"width":16,"height":16,"d":"M8 2.81v10.38c0 .67-.81 1-1.28.53L3 10H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h2l3.72-3.72C7.19 1.81 8 2.14 8 2.81zm7.53 3.22l-1.06-1.06-1.97 1.97-1.97-1.97-1.06 1.06L11.44 8 9.47 9.97l1.06 1.06 1.97-1.97 1.97 1.97 1.06-1.06L13.56 8l1.97-1.97z"}})
 
 
 /***/ }),
@@ -77465,7 +68715,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"no-ne
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"note":{"width":14,"height":16,"d":"M3 10h4V9H3v1zm0-2h6V7H3v1zm0-2h8V5H3v1zm10 6H1V3h12v9zM1 2c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1H1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"no-newline":{"width":16,"height":16,"d":"M16 5v3c0 .55-.45 1-1 1h-3v2L9 8l3-3v2h2V5h2zM8 8c0 2.2-1.8 4-4 4s-4-1.8-4-4 1.8-4 4-4 4 1.8 4 4zM1.5 9.66L5.66 5.5C5.18 5.19 4.61 5 4 5 2.34 5 1 6.34 1 8c0 .61.19 1.17.5 1.66zM7 8c0-.61-.19-1.17-.5-1.66L2.34 10.5c.48.31 1.05.5 1.66.5 1.66 0 3-1.34 3-3z"}})
 
 
 /***/ }),
@@ -77477,7 +68727,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"note"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"octoface":{"width":16,"height":16,"d":"M14.7 5.34c.13-.32.55-1.59-.13-3.31 0 0-1.05-.33-3.44 1.3-1-.28-2.07-.32-3.13-.32s-2.13.04-3.13.32c-2.39-1.64-3.44-1.3-3.44-1.3-.68 1.72-.26 2.99-.13 3.31C.49 6.21 0 7.33 0 8.69 0 13.84 3.33 15 7.98 15S16 13.84 16 8.69c0-1.36-.49-2.48-1.3-3.35zM8 14.02c-3.3 0-5.98-.15-5.98-3.35 0-.76.38-1.48 1.02-2.07 1.07-.98 2.9-.46 4.96-.46 2.07 0 3.88-.52 4.96.46.65.59 1.02 1.3 1.02 2.07 0 3.19-2.68 3.35-5.98 3.35zM5.49 9.01c-.66 0-1.2.8-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.54-1.78-1.2-1.78zm5.02 0c-.66 0-1.2.79-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.53-1.78-1.2-1.78z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"note":{"width":14,"height":16,"d":"M3 10h4V9H3v1zm0-2h6V7H3v1zm0-2h8V5H3v1zm10 6H1V3h12v9zM1 2c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1H1z"}})
 
 
 /***/ }),
@@ -77489,7 +68739,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"octof
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"organization":{"width":16,"height":16,"d":"M16 12.999c0 .439-.45 1-1 1H7.995c-.539 0-.994-.447-.995-.999H1c-.54 0-1-.561-1-1 0-2.634 3-4 3-4s.229-.409 0-1c-.841-.621-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.442.58 2.5 3c.058 2.41-.159 2.379-1 3-.229.59 0 1 0 1s1.549.711 2.42 2.088C9.196 9.369 10 8.999 10 8.999s.229-.409 0-1c-.841-.62-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.437.581 2.495 3c.059 2.41-.158 2.38-1 3-.229.59 0 1 0 1s3.005 1.366 3.005 4"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"octoface":{"width":16,"height":16,"d":"M14.7 5.34c.13-.32.55-1.59-.13-3.31 0 0-1.05-.33-3.44 1.3-1-.28-2.07-.32-3.13-.32s-2.13.04-3.13.32c-2.39-1.64-3.44-1.3-3.44-1.3-.68 1.72-.26 2.99-.13 3.31C.49 6.21 0 7.33 0 8.69 0 13.84 3.33 15 7.98 15S16 13.84 16 8.69c0-1.36-.49-2.48-1.3-3.35zM8 14.02c-3.3 0-5.98-.15-5.98-3.35 0-.76.38-1.48 1.02-2.07 1.07-.98 2.9-.46 4.96-.46 2.07 0 3.88-.52 4.96.46.65.59 1.02 1.3 1.02 2.07 0 3.19-2.68 3.35-5.98 3.35zM5.49 9.01c-.66 0-1.2.8-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.54-1.78-1.2-1.78zm5.02 0c-.66 0-1.2.79-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.53-1.78-1.2-1.78z"}})
 
 
 /***/ }),
@@ -77501,7 +68751,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"organ
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"package":{"width":16,"height":16,"d":"M1 4.27v7.47c0 .45.3.84.75.97l6.5 1.73c.16.05.34.05.5 0l6.5-1.73c.45-.13.75-.52.75-.97V4.27c0-.45-.3-.84-.75-.97l-6.5-1.74a1.4 1.4 0 0 0-.5 0L1.75 3.3c-.45.13-.75.52-.75.97zm7 9.09l-6-1.59V5l6 1.61v6.75zM2 4l2.5-.67L11 5.06l-2.5.67L2 4zm13 7.77l-6 1.59V6.61l2-.55V8.5l2-.53V5.53L15 5v6.77zm-2-7.24L6.5 2.8l2-.53L15 4l-2 .53z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"organization":{"width":16,"height":16,"d":"M16 12.999c0 .439-.45 1-1 1H7.995c-.539 0-.994-.447-.995-.999H1c-.54 0-1-.561-1-1 0-2.634 3-4 3-4s.229-.409 0-1c-.841-.621-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.442.58 2.5 3c.058 2.41-.159 2.379-1 3-.229.59 0 1 0 1s1.549.711 2.42 2.088C9.196 9.369 10 8.999 10 8.999s.229-.409 0-1c-.841-.62-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.437.581 2.495 3c.059 2.41-.158 2.38-1 3-.229.59 0 1 0 1s3.005 1.366 3.005 4"}})
 
 
 /***/ }),
@@ -77513,7 +68763,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"packa
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"paintcan":{"width":12,"height":16,"d":"M6 0C2.69 0 0 2.69 0 6v1c0 .55.45 1 1 1v5c0 1.1 2.24 2 5 2s5-.9 5-2V8c.55 0 1-.45 1-1V6c0-3.31-2.69-6-6-6zm3 10v.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5V10c0-.28-.22-.5-.5-.5s-.5.22-.5.5v2.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5v-2c0-.28-.22-.5-.5-.5s-.5.22-.5.5v.5c0 .55-.45 1-1 1s-1-.45-1-1v-1c-.55 0-1-.45-1-1V7.2c.91.49 2.36.8 4 .8 1.64 0 3.09-.31 4-.8V9c0 .55-.45 1-1 1zM6 7c-1.68 0-3.12-.41-3.71-1C2.88 5.41 4.32 5 6 5c1.68 0 3.12.41 3.71 1-.59.59-2.03 1-3.71 1zm0-3c-2.76 0-5 .89-5 2 0-2.76 2.24-5 5-5s5 2.24 5 5c0-1.1-2.24-2-5-2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"package":{"width":16,"height":16,"d":"M1 4.27v7.47c0 .45.3.84.75.97l6.5 1.73c.16.05.34.05.5 0l6.5-1.73c.45-.13.75-.52.75-.97V4.27c0-.45-.3-.84-.75-.97l-6.5-1.74a1.4 1.4 0 0 0-.5 0L1.75 3.3c-.45.13-.75.52-.75.97zm7 9.09l-6-1.59V5l6 1.61v6.75zM2 4l2.5-.67L11 5.06l-2.5.67L2 4zm13 7.77l-6 1.59V6.61l2-.55V8.5l2-.53V5.53L15 5v6.77zm-2-7.24L6.5 2.8l2-.53L15 4l-2 .53z"}})
 
 
 /***/ }),
@@ -77525,7 +68775,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"paint
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"pencil":{"width":14,"height":16,"d":"M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"paintcan":{"width":12,"height":16,"d":"M6 0C2.69 0 0 2.69 0 6v1c0 .55.45 1 1 1v5c0 1.1 2.24 2 5 2s5-.9 5-2V8c.55 0 1-.45 1-1V6c0-3.31-2.69-6-6-6zm3 10v.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5V10c0-.28-.22-.5-.5-.5s-.5.22-.5.5v2.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5v-2c0-.28-.22-.5-.5-.5s-.5.22-.5.5v.5c0 .55-.45 1-1 1s-1-.45-1-1v-1c-.55 0-1-.45-1-1V7.2c.91.49 2.36.8 4 .8 1.64 0 3.09-.31 4-.8V9c0 .55-.45 1-1 1zM6 7c-1.68 0-3.12-.41-3.71-1C2.88 5.41 4.32 5 6 5c1.68 0 3.12.41 3.71 1-.59.59-2.03 1-3.71 1zm0-3c-2.76 0-5 .89-5 2 0-2.76 2.24-5 5-5s5 2.24 5 5c0-1.1-2.24-2-5-2z"}})
 
 
 /***/ }),
@@ -77537,7 +68787,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"penci
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"person":{"width":12,"height":16,"d":"M12 14.002a.998.998 0 0 1-.998.998H1.001A1 1 0 0 1 0 13.999V13c0-2.633 4-4 4-4s.229-.409 0-1c-.841-.62-.944-1.59-1-4 .173-2.413 1.867-3 3-3s2.827.586 3 3c-.056 2.41-.159 3.38-1 4-.229.59 0 1 0 1s4 1.367 4 4v1.002z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"pencil":{"width":14,"height":16,"d":"M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"}})
 
 
 /***/ }),
@@ -77549,7 +68799,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"perso
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"pin":{"width":16,"height":16,"d":"M10 1.2V2l.5 1L6 6H2.2c-.44 0-.67.53-.34.86L5 10l-4 5 5-4 3.14 3.14a.5.5 0 0 0 .86-.34V10l3-4.5 1 .5h.8c.44 0 .67-.53.34-.86L10.86.86a.5.5 0 0 0-.86.34z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"person":{"width":12,"height":16,"d":"M12 14.002a.998.998 0 0 1-.998.998H1.001A1 1 0 0 1 0 13.999V13c0-2.633 4-4 4-4s.229-.409 0-1c-.841-.62-.944-1.59-1-4 .173-2.413 1.867-3 3-3s2.827.586 3 3c-.056 2.41-.159 3.38-1 4-.229.59 0 1 0 1s4 1.367 4 4v1.002z"}})
 
 
 /***/ }),
@@ -77561,7 +68811,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"pin":
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"plug":{"width":14,"height":16,"d":"M14 6V5h-4V3H8v1H6c-1.03 0-1.77.81-2 2L3 7c-1.66 0-3 1.34-3 3v2h1v-2c0-1.11.89-2 2-2l1 1c.25 1.16.98 2 2 2h2v1h2v-2h4V9h-4V6h4z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"pin":{"width":16,"height":16,"d":"M10 1.2V2l.5 1L6 6H2.2c-.44 0-.67.53-.34.86L5 10l-4 5 5-4 3.14 3.14a.5.5 0 0 0 .86-.34V10l3-4.5 1 .5h.8c.44 0 .67-.53.34-.86L10.86.86a.5.5 0 0 0-.86.34z"}})
 
 
 /***/ }),
@@ -77573,7 +68823,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"plug"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"plus":{"width":12,"height":16,"d":"M12 9H7v5H5V9H0V7h5V2h2v5h5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"plug":{"width":14,"height":16,"d":"M14 6V5h-4V3H8v1H6c-1.03 0-1.77.81-2 2L3 7c-1.66 0-3 1.34-3 3v2h1v-2c0-1.11.89-2 2-2l1 1c.25 1.16.98 2 2 2h2v1h2v-2h4V9h-4V6h4z"}})
 
 
 /***/ }),
@@ -77585,7 +68835,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"plus"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"plus-small":{"width":7,"height":16,"d":"M4 7V4H3v3H0v1h3v3h1V8h3V7H4z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"plus":{"width":12,"height":16,"d":"M12 9H7v5H5V9H0V7h5V2h2v5h5z"}})
 
 
 /***/ }),
@@ -77597,7 +68847,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"plus-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"primitive-dot":{"width":8,"height":16,"d":"M0 8c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4-4-1.8-4-4z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"plus-small":{"width":7,"height":16,"d":"M4 7V4H3v3H0v1h3v3h1V8h3V7H4z"}})
 
 
 /***/ }),
@@ -77609,7 +68859,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"primi
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"primitive-square":{"width":8,"height":16,"d":"M8 12H0V4h8z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"primitive-dot":{"width":8,"height":16,"d":"M0 8c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4-4-1.8-4-4z"}})
 
 
 /***/ }),
@@ -77621,7 +68871,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"primi
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"project":{"width":15,"height":16,"d":"M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"primitive-square":{"width":8,"height":16,"d":"M8 12H0V4h8z"}})
 
 
 /***/ }),
@@ -77633,7 +68883,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"proje
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"pulse":{"width":14,"height":16,"d":"M11.5 8L8.8 5.4 6.6 8.5 5.5 1.6 2.38 8H0v2h3.6l.9-1.8.9 5.4L9 8.5l1.6 1.5H14V8z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"project":{"width":15,"height":16,"d":"M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"}})
 
 
 /***/ }),
@@ -77645,7 +68895,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"pulse
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"question":{"width":14,"height":16,"d":"M6 10h2v2H6v-2zm4-3.5C10 8.64 8 9 8 9H6c0-.55.45-1 1-1h.5c.28 0 .5-.22.5-.5v-1c0-.28-.22-.5-.5-.5h-1c-.28 0-.5.22-.5.5V7H4c0-1.5 1.5-3 3-3s3 1 3 2.5zM7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"pulse":{"width":14,"height":16,"d":"M11.5 8L8.8 5.4 6.6 8.5 5.5 1.6 2.38 8H0v2h3.6l.9-1.8.9 5.4L9 8.5l1.6 1.5H14V8z"}})
 
 
 /***/ }),
@@ -77657,7 +68907,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"quest
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"quote":{"width":14,"height":16,"d":"M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"question":{"width":14,"height":16,"d":"M6 10h2v2H6v-2zm4-3.5C10 8.64 8 9 8 9H6c0-.55.45-1 1-1h.5c.28 0 .5-.22.5-.5v-1c0-.28-.22-.5-.5-.5h-1c-.28 0-.5.22-.5.5V7H4c0-1.5 1.5-3 3-3s3 1 3 2.5zM7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7z"}})
 
 
 /***/ }),
@@ -77669,7 +68919,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"quote
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"radio-tower":{"width":16,"height":16,"d":"M4.79 6.11c.25-.25.25-.67 0-.92-.32-.33-.48-.76-.48-1.19 0-.43.16-.86.48-1.19.25-.26.25-.67 0-.92a.613.613 0 0 0-.45-.19c-.16 0-.33.06-.45.19-.57.58-.85 1.35-.85 2.11 0 .76.29 1.53.85 2.11.25.25.66.25.9 0zM2.33.52a.651.651 0 0 0-.92 0C.48 1.48.01 2.74.01 3.99c0 1.26.47 2.52 1.4 3.48.25.26.66.26.91 0s.25-.68 0-.94c-.68-.7-1.02-1.62-1.02-2.54 0-.92.34-1.84 1.02-2.54a.66.66 0 0 0 .01-.93zm5.69 5.1A1.62 1.62 0 1 0 6.4 4c-.01.89.72 1.62 1.62 1.62zM14.59.53a.628.628 0 0 0-.91 0c-.25.26-.25.68 0 .94.68.7 1.02 1.62 1.02 2.54 0 .92-.34 1.83-1.02 2.54-.25.26-.25.68 0 .94a.651.651 0 0 0 .92 0c.93-.96 1.4-2.22 1.4-3.48A5.048 5.048 0 0 0 14.59.53zM8.02 6.92c-.41 0-.83-.1-1.2-.3l-3.15 8.37h1.49l.86-1h4l.84 1h1.49L9.21 6.62c-.38.2-.78.3-1.19.3zm-.01.48L9.02 11h-2l.99-3.6zm-1.99 5.59l1-1h2l1 1h-4zm5.19-11.1c-.25.25-.25.67 0 .92.32.33.48.76.48 1.19 0 .43-.16.86-.48 1.19-.25.26-.25.67 0 .92a.63.63 0 0 0 .9 0c.57-.58.85-1.35.85-2.11 0-.76-.28-1.53-.85-2.11a.634.634 0 0 0-.9 0z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"quote":{"width":14,"height":16,"d":"M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"}})
 
 
 /***/ }),
@@ -77681,7 +68931,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"radio
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"reply":{"width":14,"height":16,"d":"M6 3.5c3.92.44 8 3.125 8 10-2.312-5.062-4.75-6-8-6V11L.5 5.5 6 0v3.5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"radio-tower":{"width":16,"height":16,"d":"M4.79 6.11c.25-.25.25-.67 0-.92-.32-.33-.48-.76-.48-1.19 0-.43.16-.86.48-1.19.25-.26.25-.67 0-.92a.613.613 0 0 0-.45-.19c-.16 0-.33.06-.45.19-.57.58-.85 1.35-.85 2.11 0 .76.29 1.53.85 2.11.25.25.66.25.9 0zM2.33.52a.651.651 0 0 0-.92 0C.48 1.48.01 2.74.01 3.99c0 1.26.47 2.52 1.4 3.48.25.26.66.26.91 0s.25-.68 0-.94c-.68-.7-1.02-1.62-1.02-2.54 0-.92.34-1.84 1.02-2.54a.66.66 0 0 0 .01-.93zm5.69 5.1A1.62 1.62 0 1 0 6.4 4c-.01.89.72 1.62 1.62 1.62zM14.59.53a.628.628 0 0 0-.91 0c-.25.26-.25.68 0 .94.68.7 1.02 1.62 1.02 2.54 0 .92-.34 1.83-1.02 2.54-.25.26-.25.68 0 .94a.651.651 0 0 0 .92 0c.93-.96 1.4-2.22 1.4-3.48A5.048 5.048 0 0 0 14.59.53zM8.02 6.92c-.41 0-.83-.1-1.2-.3l-3.15 8.37h1.49l.86-1h4l.84 1h1.49L9.21 6.62c-.38.2-.78.3-1.19.3zm-.01.48L9.02 11h-2l.99-3.6zm-1.99 5.59l1-1h2l1 1h-4zm5.19-11.1c-.25.25-.25.67 0 .92.32.33.48.76.48 1.19 0 .43-.16.86-.48 1.19-.25.26-.25.67 0 .92a.63.63 0 0 0 .9 0c.57-.58.85-1.35.85-2.11 0-.76-.28-1.53-.85-2.11a.634.634 0 0 0-.9 0z"}})
 
 
 /***/ }),
@@ -77693,7 +68943,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"reply
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo":{"width":12,"height":16,"d":"M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"reply":{"width":14,"height":16,"d":"M6 3.5c3.92.44 8 3.125 8 10-2.312-5.062-4.75-6-8-6V11L.5 5.5 6 0v3.5z"}})
 
 
 /***/ }),
@@ -77705,7 +68955,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-clone":{"width":16,"height":16,"d":"M15 0H9v7c0 .55.45 1 1 1h1v1h1V8h3c.55 0 1-.45 1-1V1c0-.55-.45-1-1-1zm-4 7h-1V6h1v1zm4 0h-3V6h3v1zm0-2h-4V1h4v4zM4 5H3V4h1v1zm0-2H3V2h1v1zM2 1h6V0H1C.45 0 0 .45 0 1v12c0 .55.45 1 1 1h2v2l1.5-1.5L6 16v-2h5c.55 0 1-.45 1-1v-3H2V1zm9 10v2H6v-1H3v1H1v-2h10zM3 8h1v1H3V8zm1-1H3V6h1v1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo":{"width":12,"height":16,"d":"M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"}})
 
 
 /***/ }),
@@ -77717,7 +68967,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-force-push":{"width":12,"height":16,"d":"M10 9H8v7H6V9H4l2.25-3H4l3-4 3 4H7.75L10 9zm1-9H1C.45 0 0 .45 0 1v12c0 .55.45 1 1 1h4v-1H1v-2h4v-1H2V1h9v9H9v1h2v2H9v1h2c.55 0 1-.45 1-1V1c0-.55-.45-1-1-1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-clone":{"width":16,"height":16,"d":"M15 0H9v7c0 .55.45 1 1 1h1v1h1V8h3c.55 0 1-.45 1-1V1c0-.55-.45-1-1-1zm-4 7h-1V6h1v1zm4 0h-3V6h3v1zm0-2h-4V1h4v4zM4 5H3V4h1v1zm0-2H3V2h1v1zM2 1h6V0H1C.45 0 0 .45 0 1v12c0 .55.45 1 1 1h2v2l1.5-1.5L6 16v-2h5c.55 0 1-.45 1-1v-3H2V1zm9 10v2H6v-1H3v1H1v-2h10zM3 8h1v1H3V8zm1-1H3V6h1v1z"}})
 
 
 /***/ }),
@@ -77729,7 +68979,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-forked":{"width":10,"height":16,"d":"M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-force-push":{"width":12,"height":16,"d":"M10 9H8v7H6V9H4l2.25-3H4l3-4 3 4H7.75L10 9zm1-9H1C.45 0 0 .45 0 1v12c0 .55.45 1 1 1h4v-1H1v-2h4v-1H2V1h9v9H9v1h2v2H9v1h2c.55 0 1-.45 1-1V1c0-.55-.45-1-1-1z"}})
 
 
 /***/ }),
@@ -77741,7 +68991,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-pull":{"width":16,"height":16,"d":"M13 8V6H7V4h6V2l3 3-3 3zM4 2H3v1h1V2zm7 5h1v6c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1v2h-1V1H2v9h9V7zm0 4H1v2h2v-1h3v1h5v-2zM4 6H3v1h1V6zm0-2H3v1h1V4zM3 9h1V8H3v1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-forked":{"width":10,"height":16,"d":"M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"}})
 
 
 /***/ }),
@@ -77753,7 +69003,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-push":{"width":12,"height":16,"d":"M4 3H3V2h1v1zM3 5h1V4H3v1zm4 0L4 9h2v7h2V9h2L7 5zm4-5H1C.45 0 0 .45 0 1v12c0 .55.45 1 1 1h4v-1H1v-2h4v-1H2V1h9.02L11 10H9v1h2v2H9v1h2c.55 0 1-.45 1-1V1c0-.55-.45-1-1-1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-pull":{"width":16,"height":16,"d":"M13 8V6H7V4h6V2l3 3-3 3zM4 2H3v1h1V2zm7 5h1v6c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1v2h-1V1H2v9h9V7zm0 4H1v2h2v-1h3v1h5v-2zM4 6H3v1h1V6zm0-2H3v1h1V4zM3 9h1V8H3v1z"}})
 
 
 /***/ }),
@@ -77765,7 +69015,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"rocket":{"width":16,"height":16,"d":"M12.17 3.83c-.27-.27-.47-.55-.63-.88-.16-.31-.27-.66-.34-1.02-.58.33-1.16.7-1.73 1.13-.58.44-1.14.94-1.69 1.48-.7.7-1.33 1.81-1.78 2.45H3L0 10h3l2-2c-.34.77-1.02 2.98-1 3l1 1c.02.02 2.23-.64 3-1l-2 2v3l3-3v-3c.64-.45 1.75-1.09 2.45-1.78.55-.55 1.05-1.13 1.47-1.7.44-.58.81-1.16 1.14-1.72-.36-.08-.7-.19-1.03-.34a3.39 3.39 0 0 1-.86-.63M16 0s-.09.38-.3 1.06c-.2.7-.55 1.58-1.06 2.66-.7-.08-1.27-.33-1.66-.72-.39-.39-.63-.94-.7-1.64C13.36.84 14.23.48 14.92.28 15.62.08 16 0 16 0"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-push":{"width":12,"height":16,"d":"M4 3H3V2h1v1zM3 5h1V4H3v1zm4 0L4 9h2v7h2V9h2L7 5zm4-5H1C.45 0 0 .45 0 1v12c0 .55.45 1 1 1h4v-1H1v-2h4v-1H2V1h9.02L11 10H9v1h2v2H9v1h2c.55 0 1-.45 1-1V1c0-.55-.45-1-1-1z"}})
 
 
 /***/ }),
@@ -77777,7 +69027,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"rocke
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"rss":{"width":10,"height":16,"d":"M2 13H0v-2c1.11 0 2 .89 2 2zM0 3v1a9 9 0 0 1 9 9h1C10 7.48 5.52 3 0 3zm0 4v1c2.75 0 5 2.25 5 5h1c0-3.31-2.69-6-6-6z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"rocket":{"width":16,"height":16,"d":"M12.17 3.83c-.27-.27-.47-.55-.63-.88-.16-.31-.27-.66-.34-1.02-.58.33-1.16.7-1.73 1.13-.58.44-1.14.94-1.69 1.48-.7.7-1.33 1.81-1.78 2.45H3L0 10h3l2-2c-.34.77-1.02 2.98-1 3l1 1c.02.02 2.23-.64 3-1l-2 2v3l3-3v-3c.64-.45 1.75-1.09 2.45-1.78.55-.55 1.05-1.13 1.47-1.7.44-.58.81-1.16 1.14-1.72-.36-.08-.7-.19-1.03-.34a3.39 3.39 0 0 1-.86-.63M16 0s-.09.38-.3 1.06c-.2.7-.55 1.58-1.06 2.66-.7-.08-1.27-.33-1.66-.72-.39-.39-.63-.94-.7-1.64C13.36.84 14.23.48 14.92.28 15.62.08 16 0 16 0"}})
 
 
 /***/ }),
@@ -77789,7 +69039,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"rss":
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"ruby":{"width":16,"height":16,"d":"M13 6l-5 5V4h3l2 2zm3 0l-8 8-8-8 4-4h8l4 4zm-8 6.5L14.5 6l-3-3h-7l-3 3L8 12.5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"rss":{"width":10,"height":16,"d":"M2 13H0v-2c1.11 0 2 .89 2 2zM0 3v1a9 9 0 0 1 9 9h1C10 7.48 5.52 3 0 3zm0 4v1c2.75 0 5 2.25 5 5h1c0-3.31-2.69-6-6-6z"}})
 
 
 /***/ }),
@@ -77801,7 +69051,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"ruby"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"screen-full":{"width":14,"height":16,"d":"M13 10h1v3c0 .547-.453 1-1 1h-3v-1h3v-3zM1 10H0v3c0 .547.453 1 1 1h3v-1H1v-3zm0-7h3V2H1c-.547 0-1 .453-1 1v3h1V3zm1 1h10v8H2V4zm2 6h6V6H4v4zm6-8v1h3v3h1V3c0-.547-.453-1-1-1h-3z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"ruby":{"width":16,"height":16,"d":"M13 6l-5 5V4h3l2 2zm3 0l-8 8-8-8 4-4h8l4 4zm-8 6.5L14.5 6l-3-3h-7l-3 3L8 12.5z"}})
 
 
 /***/ }),
@@ -77813,7 +69063,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"scree
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"screen-normal":{"width":14,"height":16,"d":"M2 4H0V3h2V1h1v2c0 .547-.453 1-1 1zm0 8H0v1h2v2h1v-2c0-.547-.453-1-1-1zm9-2c0 .547-.453 1-1 1H4c-.547 0-1-.453-1-1V6c0-.547.453-1 1-1h6c.547 0 1 .453 1 1v4zM9 7H5v2h4V7zm2 6v2h1v-2h2v-1h-2c-.547 0-1 .453-1 1zm1-10V1h-1v2c0 .547.453 1 1 1h2V3h-2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"screen-full":{"width":14,"height":16,"d":"M13 10h1v3c0 .547-.453 1-1 1h-3v-1h3v-3zM1 10H0v3c0 .547.453 1 1 1h3v-1H1v-3zm0-7h3V2H1c-.547 0-1 .453-1 1v3h1V3zm1 1h10v8H2V4zm2 6h6V6H4v4zm6-8v1h3v3h1V3c0-.547-.453-1-1-1h-3z"}})
 
 
 /***/ }),
@@ -77825,7 +69075,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"scree
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"search":{"width":16,"height":16,"d":"M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"screen-normal":{"width":14,"height":16,"d":"M2 4H0V3h2V1h1v2c0 .547-.453 1-1 1zm0 8H0v1h2v2h1v-2c0-.547-.453-1-1-1zm9-2c0 .547-.453 1-1 1H4c-.547 0-1-.453-1-1V6c0-.547.453-1 1-1h6c.547 0 1 .453 1 1v4zM9 7H5v2h4V7zm2 6v2h1v-2h2v-1h-2c-.547 0-1 .453-1 1zm1-10V1h-1v2c0 .547.453 1 1 1h2V3h-2z"}})
 
 
 /***/ }),
@@ -77837,7 +69087,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"searc
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"server":{"width":12,"height":16,"d":"M11 6H1c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1zM2 9H1V7h1v2zm2 0H3V7h1v2zm2 0H5V7h1v2zm2 0H7V7h1v2zm3-8H1c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zM2 4H1V2h1v2zm2 0H3V2h1v2zm2 0H5V2h1v2zm2 0H7V2h1v2zm3-1h-1V2h1v1zm0 8H1c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h10c.55 0 1-.45 1-1v-2c0-.55-.45-1-1-1zm-9 3H1v-2h1v2zm2 0H3v-2h1v2zm2 0H5v-2h1v2zm2 0H7v-2h1v2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"search":{"width":16,"height":16,"d":"M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"}})
 
 
 /***/ }),
@@ -77849,7 +69099,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"serve
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"settings":{"width":16,"height":16,"d":"M4 7H3V2h1v5zm-1 7h1v-3H3v3zm5 0h1V8H8v6zm5 0h1v-2h-1v2zm1-12h-1v6h1V2zM9 2H8v2h1V2zM5 8H2c-.55 0-1 .45-1 1s.45 1 1 1h3c.55 0 1-.45 1-1s-.45-1-1-1zm5-3H7c-.55 0-1 .45-1 1s.45 1 1 1h3c.55 0 1-.45 1-1s-.45-1-1-1zm5 4h-3c-.55 0-1 .45-1 1s.45 1 1 1h3c.55 0 1-.45 1-1s-.45-1-1-1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"server":{"width":12,"height":16,"d":"M11 6H1c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1zM2 9H1V7h1v2zm2 0H3V7h1v2zm2 0H5V7h1v2zm2 0H7V7h1v2zm3-8H1c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zM2 4H1V2h1v2zm2 0H3V2h1v2zm2 0H5V2h1v2zm2 0H7V2h1v2zm3-1h-1V2h1v1zm0 8H1c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h10c.55 0 1-.45 1-1v-2c0-.55-.45-1-1-1zm-9 3H1v-2h1v2zm2 0H3v-2h1v2zm2 0H5v-2h1v2zm2 0H7v-2h1v2z"}})
 
 
 /***/ }),
@@ -77861,7 +69111,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"setti
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"shield":{"width":14,"height":16,"d":"M7 0L0 2v6.02C0 12.69 5.31 16 7 16c1.69 0 7-3.31 7-7.98V2L7 0zM5 11l1.14-2.8a.568.568 0 0 0-.25-.59C5.33 7.25 5 6.66 5 6c0-1.09.89-2 1.98-2C8.06 4 9 4.91 9 6c0 .66-.33 1.25-.89 1.61-.19.13-.3.36-.25.59L9 11H5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"settings":{"width":16,"height":16,"d":"M4 7H3V2h1v5zm-1 7h1v-3H3v3zm5 0h1V8H8v6zm5 0h1v-2h-1v2zm1-12h-1v6h1V2zM9 2H8v2h1V2zM5 8H2c-.55 0-1 .45-1 1s.45 1 1 1h3c.55 0 1-.45 1-1s-.45-1-1-1zm5-3H7c-.55 0-1 .45-1 1s.45 1 1 1h3c.55 0 1-.45 1-1s-.45-1-1-1zm5 4h-3c-.55 0-1 .45-1 1s.45 1 1 1h3c.55 0 1-.45 1-1s-.45-1-1-1z"}})
 
 
 /***/ }),
@@ -77873,7 +69123,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"shiel
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"sign-in":{"width":14,"height":16,"d":"M7 6.75V12h4V8h1v4c0 .55-.45 1-1 1H7v3l-5.45-2.72c-.33-.17-.55-.52-.55-.91V1c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v3h-1V1H3l4 2v2.25L10 3v2h4v2h-4v2L7 6.75z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"shield":{"width":14,"height":16,"d":"M7 0L0 2v6.02C0 12.69 5.31 16 7 16c1.69 0 7-3.31 7-7.98V2L7 0zM5 11l1.14-2.8a.568.568 0 0 0-.25-.59C5.33 7.25 5 6.66 5 6c0-1.09.89-2 1.98-2C8.06 4 9 4.91 9 6c0 .66-.33 1.25-.89 1.61-.19.13-.3.36-.25.59L9 11H5z"}})
 
 
 /***/ }),
@@ -77885,7 +69135,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"sign-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"sign-out":{"width":16,"height":16,"d":"M12 9V7H8V5h4V3l4 3-4 3zm-2 3H6V3L2 1h8v3h1V1c0-.55-.45-1-1-1H1C.45 0 0 .45 0 1v11.38c0 .39.22.73.55.91L6 16.01V13h4c.55 0 1-.45 1-1V8h-1v4z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"sign-in":{"width":14,"height":16,"d":"M7 6.75V12h4V8h1v4c0 .55-.45 1-1 1H7v3l-5.45-2.72c-.33-.17-.55-.52-.55-.91V1c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v3h-1V1H3l4 2v2.25L10 3v2h4v2h-4v2L7 6.75z"}})
 
 
 /***/ }),
@@ -77897,7 +69147,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"sign-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"smiley":{"width":16,"height":16,"d":"M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm4.81 12.81a6.72 6.72 0 0 1-2.17 1.45c-.83.36-1.72.53-2.64.53-.92 0-1.81-.17-2.64-.53-.81-.34-1.55-.83-2.17-1.45a6.773 6.773 0 0 1-1.45-2.17A6.59 6.59 0 0 1 1.21 8c0-.92.17-1.81.53-2.64.34-.81.83-1.55 1.45-2.17.62-.62 1.36-1.11 2.17-1.45A6.59 6.59 0 0 1 8 1.21c.92 0 1.81.17 2.64.53.81.34 1.55.83 2.17 1.45.62.62 1.11 1.36 1.45 2.17.36.83.53 1.72.53 2.64 0 .92-.17 1.81-.53 2.64-.34.81-.83 1.55-1.45 2.17zM4 6.8v-.59c0-.66.53-1.19 1.2-1.19h.59c.66 0 1.19.53 1.19 1.19v.59c0 .67-.53 1.2-1.19 1.2H5.2C4.53 8 4 7.47 4 6.8zm5 0v-.59c0-.66.53-1.19 1.2-1.19h.59c.66 0 1.19.53 1.19 1.19v.59c0 .67-.53 1.2-1.19 1.2h-.59C9.53 8 9 7.47 9 6.8zm4 3.2c-.72 1.88-2.91 3-5 3s-4.28-1.13-5-3c-.14-.39.23-1 .66-1h8.59c.41 0 .89.61.75 1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"sign-out":{"width":16,"height":16,"d":"M12 9V7H8V5h4V3l4 3-4 3zm-2 3H6V3L2 1h8v3h1V1c0-.55-.45-1-1-1H1C.45 0 0 .45 0 1v11.38c0 .39.22.73.55.91L6 16.01V13h4c.55 0 1-.45 1-1V8h-1v4z"}})
 
 
 /***/ }),
@@ -77909,7 +69159,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"smile
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"squirrel":{"width":16,"height":16,"d":"M12 1C9.79 1 8 2.31 8 3.92c0 1.94.5 3.03 0 6.08 0-4.5-2.77-6.34-4-6.34.05-.5-.48-.66-.48-.66s-.22.11-.3.34c-.27-.31-.56-.27-.56-.27l-.13.58S.7 4.29.68 6.87c.2.33 1.53.6 2.47.43.89.05.67.79.47.99C2.78 9.13 2 8 1 8S0 9 1 9s1 1 3 1c-3.09 1.2 0 4 0 4H3c-1 0-1 1-1 1h6c3 0 5-1 5-3.47 0-.85-.43-1.79-1-2.53-1.11-1.46.23-2.68 1-2 .77.68 3 1 3-2 0-2.21-1.79-4-4-4zM2.5 6c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"smiley":{"width":16,"height":16,"d":"M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm4.81 12.81a6.72 6.72 0 0 1-2.17 1.45c-.83.36-1.72.53-2.64.53-.92 0-1.81-.17-2.64-.53-.81-.34-1.55-.83-2.17-1.45a6.773 6.773 0 0 1-1.45-2.17A6.59 6.59 0 0 1 1.21 8c0-.92.17-1.81.53-2.64.34-.81.83-1.55 1.45-2.17.62-.62 1.36-1.11 2.17-1.45A6.59 6.59 0 0 1 8 1.21c.92 0 1.81.17 2.64.53.81.34 1.55.83 2.17 1.45.62.62 1.11 1.36 1.45 2.17.36.83.53 1.72.53 2.64 0 .92-.17 1.81-.53 2.64-.34.81-.83 1.55-1.45 2.17zM4 6.8v-.59c0-.66.53-1.19 1.2-1.19h.59c.66 0 1.19.53 1.19 1.19v.59c0 .67-.53 1.2-1.19 1.2H5.2C4.53 8 4 7.47 4 6.8zm5 0v-.59c0-.66.53-1.19 1.2-1.19h.59c.66 0 1.19.53 1.19 1.19v.59c0 .67-.53 1.2-1.19 1.2h-.59C9.53 8 9 7.47 9 6.8zm4 3.2c-.72 1.88-2.91 3-5 3s-4.28-1.13-5-3c-.14-.39.23-1 .66-1h8.59c.41 0 .89.61.75 1z"}})
 
 
 /***/ }),
@@ -77921,7 +69171,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"squir
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"star":{"width":14,"height":16,"d":"M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"squirrel":{"width":16,"height":16,"d":"M12 1C9.79 1 8 2.31 8 3.92c0 1.94.5 3.03 0 6.08 0-4.5-2.77-6.34-4-6.34.05-.5-.48-.66-.48-.66s-.22.11-.3.34c-.27-.31-.56-.27-.56-.27l-.13.58S.7 4.29.68 6.87c.2.33 1.53.6 2.47.43.89.05.67.79.47.99C2.78 9.13 2 8 1 8S0 9 1 9s1 1 3 1c-3.09 1.2 0 4 0 4H3c-1 0-1 1-1 1h6c3 0 5-1 5-3.47 0-.85-.43-1.79-1-2.53-1.11-1.46.23-2.68 1-2 .77.68 3 1 3-2 0-2.21-1.79-4-4-4zM2.5 6c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5z"}})
 
 
 /***/ }),
@@ -77933,7 +69183,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"star"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"stop":{"width":14,"height":16,"d":"M10 1H4L0 5v6l4 4h6l4-4V5l-4-4zm3 9.5L9.5 14h-5L1 10.5v-5L4.5 2h5L13 5.5v5zM6 4h2v5H6V4zm0 6h2v2H6v-2z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"star":{"width":14,"height":16,"d":"M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"}})
 
 
 /***/ }),
@@ -77945,7 +69195,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"stop"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"sync":{"width":12,"height":16,"d":"M10.24 7.4a4.15 4.15 0 0 1-1.2 3.6 4.346 4.346 0 0 1-5.41.54L4.8 10.4.5 9.8l.6 4.2 1.31-1.26c2.36 1.74 5.7 1.57 7.84-.54a5.876 5.876 0 0 0 1.74-4.46l-1.75-.34zM2.96 5a4.346 4.346 0 0 1 5.41-.54L7.2 5.6l4.3.6-.6-4.2-1.31 1.26c-2.36-1.74-5.7-1.57-7.85.54C.5 5.03-.06 6.65.01 8.26l1.75.35A4.17 4.17 0 0 1 2.96 5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"stop":{"width":14,"height":16,"d":"M10 1H4L0 5v6l4 4h6l4-4V5l-4-4zm3 9.5L9.5 14h-5L1 10.5v-5L4.5 2h5L13 5.5v5zM6 4h2v5H6V4zm0 6h2v2H6v-2z"}})
 
 
 /***/ }),
@@ -77957,7 +69207,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"sync"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"tag":{"width":14,"height":16,"d":"M7.73 1.73C7.26 1.26 6.62 1 5.96 1H3.5C2.13 1 1 2.13 1 3.5v2.47c0 .66.27 1.3.73 1.77l6.06 6.06c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41L7.73 1.73zM2.38 7.09c-.31-.3-.47-.7-.47-1.13V3.5c0-.88.72-1.59 1.59-1.59h2.47c.42 0 .83.16 1.13.47l6.14 6.13-4.73 4.73-6.13-6.15zM3.01 3h2v2H3V3h.01z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"sync":{"width":12,"height":16,"d":"M10.24 7.4a4.15 4.15 0 0 1-1.2 3.6 4.346 4.346 0 0 1-5.41.54L4.8 10.4.5 9.8l.6 4.2 1.31-1.26c2.36 1.74 5.7 1.57 7.84-.54a5.876 5.876 0 0 0 1.74-4.46l-1.75-.34zM2.96 5a4.346 4.346 0 0 1 5.41-.54L7.2 5.6l4.3.6-.6-4.2-1.31 1.26c-2.36-1.74-5.7-1.57-7.85.54C.5 5.03-.06 6.65.01 8.26l1.75.35A4.17 4.17 0 0 1 2.96 5z"}})
 
 
 /***/ }),
@@ -77969,7 +69219,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"tag":
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"tasklist":{"width":16,"height":16,"d":"M15.41 9H7.59C7 9 7 8.59 7 8c0-.59 0-1 .59-1h7.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM9.59 4C9 4 9 3.59 9 3c0-.59 0-1 .59-1h5.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1H9.59zM0 3.91l1.41-1.3L3 4.2 7.09 0 8.5 1.41 3 6.91l-3-3zM7.59 12h7.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1H7.59C7 14 7 13.59 7 13c0-.59 0-1 .59-1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"tag":{"width":14,"height":16,"d":"M7.73 1.73C7.26 1.26 6.62 1 5.96 1H3.5C2.13 1 1 2.13 1 3.5v2.47c0 .66.27 1.3.73 1.77l6.06 6.06c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41L7.73 1.73zM2.38 7.09c-.31-.3-.47-.7-.47-1.13V3.5c0-.88.72-1.59 1.59-1.59h2.47c.42 0 .83.16 1.13.47l6.14 6.13-4.73 4.73-6.13-6.15zM3.01 3h2v2H3V3h.01z"}})
 
 
 /***/ }),
@@ -77981,7 +69231,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"taskl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"telescope":{"width":14,"height":16,"d":"M8 9l3 6h-1l-2-4v5H7v-6l-2 5H4l2-5 2-1zM7 0H6v1h1V0zM5 3H4v1h1V3zM2 1H1v1h1V1zM.63 9a.52.52 0 0 0-.16.67l.55.92c.13.23.41.31.64.2l1.39-.66-1.16-2-1.27.86.01.01zm7.89-5.39l-5.8 3.95L3.95 9.7l6.33-3.03-1.77-3.06h.01zm4.22 1.28l-1.47-2.52a.51.51 0 0 0-.72-.17l-1.2.83 1.84 3.2 1.33-.64c.27-.13.36-.44.22-.7z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"tasklist":{"width":16,"height":16,"d":"M15.41 9H7.59C7 9 7 8.59 7 8c0-.59 0-1 .59-1h7.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM9.59 4C9 4 9 3.59 9 3c0-.59 0-1 .59-1h5.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1H9.59zM0 3.91l1.41-1.3L3 4.2 7.09 0 8.5 1.41 3 6.91l-3-3zM7.59 12h7.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1H7.59C7 14 7 13.59 7 13c0-.59 0-1 .59-1z"}})
 
 
 /***/ }),
@@ -77993,7 +69243,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"teles
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"terminal":{"width":14,"height":16,"d":"M7 10h4v1H7v-1zm-3 1l3-3-3-3-.75.75L5.5 8l-2.25 2.25L4 11zm10-8v10c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h12c.55 0 1 .45 1 1zm-1 0H1v10h12V3z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"telescope":{"width":14,"height":16,"d":"M8 9l3 6h-1l-2-4v5H7v-6l-2 5H4l2-5 2-1zM7 0H6v1h1V0zM5 3H4v1h1V3zM2 1H1v1h1V1zM.63 9a.52.52 0 0 0-.16.67l.55.92c.13.23.41.31.64.2l1.39-.66-1.16-2-1.27.86.01.01zm7.89-5.39l-5.8 3.95L3.95 9.7l6.33-3.03-1.77-3.06h.01zm4.22 1.28l-1.47-2.52a.51.51 0 0 0-.72-.17l-1.2.83 1.84 3.2 1.33-.64c.27-.13.36-.44.22-.7z"}})
 
 
 /***/ }),
@@ -78005,7 +69255,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"termi
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"text-size":{"width":18,"height":16,"d":"M13.62 9.08L12.1 3.66h-.06l-1.5 5.42h3.08zM5.7 10.13S4.68 6.52 4.53 6.02h-.08l-1.13 4.11H5.7zM17.31 14h-2.25l-.95-3.25h-4.07L9.09 14H6.84l-.69-2.33H2.87L2.17 14H0l3.3-9.59h2.5l2.17 6.34L10.86 2h2.52l3.94 12h-.01z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"terminal":{"width":14,"height":16,"d":"M7 10h4v1H7v-1zm-3 1l3-3-3-3-.75.75L5.5 8l-2.25 2.25L4 11zm10-8v10c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h12c.55 0 1 .45 1 1zm-1 0H1v10h12V3z"}})
 
 
 /***/ }),
@@ -78017,7 +69267,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"text-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"three-bars":{"width":12,"height":16,"d":"M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"text-size":{"width":18,"height":16,"d":"M13.62 9.08L12.1 3.66h-.06l-1.5 5.42h3.08zM5.7 10.13S4.68 6.52 4.53 6.02h-.08l-1.13 4.11H5.7zM17.31 14h-2.25l-.95-3.25h-4.07L9.09 14H6.84l-.69-2.33H2.87L2.17 14H0l3.3-9.59h2.5l2.17 6.34L10.86 2h2.52l3.94 12h-.01z"}})
 
 
 /***/ }),
@@ -78029,7 +69279,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"three
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"thumbsdown":{"width":16,"height":16,"d":"M15.98 7.83l-.97-5.95C14.84.5 13.13 0 12 0H5.69c-.2 0-.38.05-.53.14L3.72 1H2C.94 1 0 1.94 0 3v4c0 1.06.94 2.02 2 2h2c.91 0 1.39.45 2.39 1.55.91 1 .88 1.8.63 3.27-.08.5.06 1 .42 1.42.39.47.98.77 1.56.77 1.83 0 3-3.72 3-5.02l-.02-.98h2.04c1.16 0 1.95-.8 1.98-1.97 0-.06.02-.13-.02-.2v-.01zm-1.97 1.19h-1.99c-.7 0-1.03.28-1.03.97l.03 1.03c0 1.27-1.17 4-2 4-.5 0-1.08-.5-1-1 .25-1.58.34-2.78-.89-4.14C6.11 8.75 5.36 8 4 8V2l1.67-1H12c.73 0 1.95.31 2 1l.02.02 1 6c-.03.64-.38 1-1 1h-.01z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"three-bars":{"width":12,"height":16,"d":"M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z"}})
 
 
 /***/ }),
@@ -78041,7 +69291,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"thumb
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"thumbsup":{"width":16,"height":16,"d":"M14 14c-.05.69-1.27 1-2 1H5.67L4 14V8c1.36 0 2.11-.75 3.13-1.88 1.23-1.36 1.14-2.56.88-4.13-.08-.5.5-1 1-1 .83 0 2 2.73 2 4l-.02 1.03c0 .69.33.97 1.02.97h2c.63 0 .98.36 1 1l-1 6L14 14zm0-8h-2.02l.02-.98C12 3.72 10.83 0 9 0c-.58 0-1.17.3-1.56.77-.36.41-.5.91-.42 1.41.25 1.48.28 2.28-.63 3.28-1 1.09-1.48 1.55-2.39 1.55H2C.94 7 0 7.94 0 9v4c0 1.06.94 2 2 2h1.72l1.44.86c.16.09.33.14.52.14h6.33c1.13 0 2.84-.5 3-1.88l.98-5.95c.02-.08.02-.14.02-.2-.03-1.17-.84-1.97-2-1.97H14z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"thumbsdown":{"width":16,"height":16,"d":"M15.98 7.83l-.97-5.95C14.84.5 13.13 0 12 0H5.69c-.2 0-.38.05-.53.14L3.72 1H2C.94 1 0 1.94 0 3v4c0 1.06.94 2.02 2 2h2c.91 0 1.39.45 2.39 1.55.91 1 .88 1.8.63 3.27-.08.5.06 1 .42 1.42.39.47.98.77 1.56.77 1.83 0 3-3.72 3-5.02l-.02-.98h2.04c1.16 0 1.95-.8 1.98-1.97 0-.06.02-.13-.02-.2v-.01zm-1.97 1.19h-1.99c-.7 0-1.03.28-1.03.97l.03 1.03c0 1.27-1.17 4-2 4-.5 0-1.08-.5-1-1 .25-1.58.34-2.78-.89-4.14C6.11 8.75 5.36 8 4 8V2l1.67-1H12c.73 0 1.95.31 2 1l.02.02 1 6c-.03.64-.38 1-1 1h-.01z"}})
 
 
 /***/ }),
@@ -78053,7 +69303,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"thumb
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"tools":{"width":16,"height":16,"d":"M4.48 7.27c.26.26 1.28 1.33 1.28 1.33l.56-.58-.88-.91 1.69-1.8s-.76-.74-.43-.45c.32-1.19.03-2.51-.87-3.44C4.93.5 3.66.2 2.52.51l1.93 2-.51 1.96-1.89.52-1.93-2C-.19 4.17.1 5.48 1 6.4c.94.98 2.29 1.26 3.48.87zm6.44 1.94l-2.33 2.3 3.84 3.98c.31.33.73.49 1.14.49.41 0 .82-.16 1.14-.49.63-.65.63-1.7 0-2.35l-3.79-3.93zM16 2.53L13.55 0 6.33 7.46l.88.91-4.31 4.46-.99.53-1.39 2.27.35.37 2.2-1.44.51-1.02L7.9 9.08l.88.91L16 2.53z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"thumbsup":{"width":16,"height":16,"d":"M14 14c-.05.69-1.27 1-2 1H5.67L4 14V8c1.36 0 2.11-.75 3.13-1.88 1.23-1.36 1.14-2.56.88-4.13-.08-.5.5-1 1-1 .83 0 2 2.73 2 4l-.02 1.03c0 .69.33.97 1.02.97h2c.63 0 .98.36 1 1l-1 6L14 14zm0-8h-2.02l.02-.98C12 3.72 10.83 0 9 0c-.58 0-1.17.3-1.56.77-.36.41-.5.91-.42 1.41.25 1.48.28 2.28-.63 3.28-1 1.09-1.48 1.55-2.39 1.55H2C.94 7 0 7.94 0 9v4c0 1.06.94 2 2 2h1.72l1.44.86c.16.09.33.14.52.14h6.33c1.13 0 2.84-.5 3-1.88l.98-5.95c.02-.08.02-.14.02-.2-.03-1.17-.84-1.97-2-1.97H14z"}})
 
 
 /***/ }),
@@ -78065,7 +69315,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"tools
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"trashcan":{"width":12,"height":16,"d":"M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"tools":{"width":16,"height":16,"d":"M4.48 7.27c.26.26 1.28 1.33 1.28 1.33l.56-.58-.88-.91 1.69-1.8s-.76-.74-.43-.45c.32-1.19.03-2.51-.87-3.44C4.93.5 3.66.2 2.52.51l1.93 2-.51 1.96-1.89.52-1.93-2C-.19 4.17.1 5.48 1 6.4c.94.98 2.29 1.26 3.48.87zm6.44 1.94l-2.33 2.3 3.84 3.98c.31.33.73.49 1.14.49.41 0 .82-.16 1.14-.49.63-.65.63-1.7 0-2.35l-3.79-3.93zM16 2.53L13.55 0 6.33 7.46l.88.91-4.31 4.46-.99.53-1.39 2.27.35.37 2.2-1.44.51-1.02L7.9 9.08l.88.91L16 2.53z"}})
 
 
 /***/ }),
@@ -78077,7 +69327,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"trash
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"triangle-down":{"width":12,"height":16,"d":"M0 5l6 6 6-6z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"trashcan":{"width":12,"height":16,"d":"M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"}})
 
 
 /***/ }),
@@ -78089,7 +69339,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"trian
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"triangle-left":{"width":6,"height":16,"d":"M6 2L0 8l6 6z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"triangle-down":{"width":12,"height":16,"d":"M0 5l6 6 6-6z"}})
 
 
 /***/ }),
@@ -78101,7 +69351,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"trian
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"triangle-right":{"width":6,"height":16,"d":"M0 14l6-6-6-6z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"triangle-left":{"width":6,"height":16,"d":"M6 2L0 8l6 6z"}})
 
 
 /***/ }),
@@ -78113,7 +69363,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"trian
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"triangle-up":{"width":12,"height":16,"d":"M12 11L6 5l-6 6z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"triangle-right":{"width":6,"height":16,"d":"M0 14l6-6-6-6z"}})
 
 
 /***/ }),
@@ -78125,7 +69375,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"trian
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"unfold":{"width":14,"height":16,"d":"M11.5 7.5L14 10c0 .55-.45 1-1 1H9v-1h3.5l-2-2h-7l-2 2H5v1H1c-.55 0-1-.45-1-1l2.5-2.5L0 5c0-.55.45-1 1-1h4v1H1.5l2 2h7l2-2H9V4h4c.55 0 1 .45 1 1l-2.5 2.5zM6 6h2V3h2L7 0 4 3h2v3zm2 3H6v3H4l3 3 3-3H8V9z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"triangle-up":{"width":12,"height":16,"d":"M12 11L6 5l-6 6z"}})
 
 
 /***/ }),
@@ -78137,7 +69387,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"unfol
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"unmute":{"width":16,"height":16,"d":"M12 8.02c0 1.09-.45 2.09-1.17 2.83l-.67-.67c.55-.56.89-1.31.89-2.16 0-.85-.34-1.61-.89-2.16l.67-.67A3.99 3.99 0 0 1 12 8.02zM7.72 2.28L4 6H2c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h2l3.72 3.72c.47.47 1.28.14 1.28-.53V2.81c0-.67-.81-1-1.28-.53zm5.94.08l-.67.67a6.996 6.996 0 0 1 2.06 4.98c0 1.94-.78 3.7-2.06 4.98l.67.67A7.973 7.973 0 0 0 16 8c0-2.22-.89-4.22-2.34-5.66v.02zm-1.41 1.41l-.69.67a5.05 5.05 0 0 1 1.48 3.58c0 1.39-.56 2.66-1.48 3.56l.69.67A5.971 5.971 0 0 0 14 8.02c0-1.65-.67-3.16-1.75-4.25z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"unfold":{"width":14,"height":16,"d":"M11.5 7.5L14 10c0 .55-.45 1-1 1H9v-1h3.5l-2-2h-7l-2 2H5v1H1c-.55 0-1-.45-1-1l2.5-2.5L0 5c0-.55.45-1 1-1h4v1H1.5l2 2h7l2-2H9V4h4c.55 0 1 .45 1 1l-2.5 2.5zM6 6h2V3h2L7 0 4 3h2v3zm2 3H6v3H4l3 3 3-3H8V9z"}})
 
 
 /***/ }),
@@ -78149,7 +69399,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"unmut
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"unverified":{"width":16,"height":16,"d":"M15.67 7.06l-1.08-1.34c-.17-.22-.28-.48-.31-.77l-.19-1.7a1.51 1.51 0 0 0-1.33-1.33l-1.7-.19c-.3-.03-.56-.16-.78-.33L8.94.32c-.55-.44-1.33-.44-1.88 0L5.72 1.4c-.22.17-.48.28-.77.31l-1.7.19c-.7.08-1.25.63-1.33 1.33l-.19 1.7c-.03.3-.16.56-.33.78L.32 7.05c-.44.55-.44 1.33 0 1.88l1.08 1.34c.17.22.28.48.31.77l.19 1.7c.08.7.63 1.25 1.33 1.33l1.7.19c.3.03.56.16.78.33l1.34 1.08c.55.44 1.33.44 1.88 0l1.34-1.08c.22-.17.48-.28.77-.31l1.7-.19c.7-.08 1.25-.63 1.33-1.33l.19-1.7c.03-.3.16-.56.33-.78l1.08-1.34c.44-.55.44-1.33 0-1.88zM9 11.5c0 .28-.22.5-.5.5h-1c-.27 0-.5-.22-.5-.5v-1c0-.28.23-.5.5-.5h1c.28 0 .5.22.5.5v1zm1.56-4.89c-.06.17-.17.33-.3.47-.13.16-.14.19-.33.38-.16.17-.31.3-.52.45-.11.09-.2.19-.28.27-.08.08-.14.17-.19.27-.05.1-.08.19-.11.3-.03.11-.03.13-.03.25H7.13c0-.22 0-.31.03-.48.03-.19.08-.36.14-.52.06-.14.14-.28.25-.42.11-.13.23-.25.41-.38.27-.19.36-.3.48-.52.12-.22.2-.38.2-.59 0-.27-.06-.45-.2-.58-.13-.13-.31-.19-.58-.19-.09 0-.19.02-.3.05-.11.03-.17.09-.25.16-.08.07-.14.11-.2.2a.41.41 0 0 0-.09.28h-2c0-.38.13-.56.27-.83.16-.27.36-.5.61-.67.25-.17.55-.3.88-.38.33-.08.7-.13 1.09-.13.44 0 .83.05 1.17.13.34.09.63.22.88.39.23.17.41.38.55.63.13.25.19.55.19.88 0 .22 0 .42-.08.59l-.02-.01z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"unmute":{"width":16,"height":16,"d":"M12 8.02c0 1.09-.45 2.09-1.17 2.83l-.67-.67c.55-.56.89-1.31.89-2.16 0-.85-.34-1.61-.89-2.16l.67-.67A3.99 3.99 0 0 1 12 8.02zM7.72 2.28L4 6H2c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h2l3.72 3.72c.47.47 1.28.14 1.28-.53V2.81c0-.67-.81-1-1.28-.53zm5.94.08l-.67.67a6.996 6.996 0 0 1 2.06 4.98c0 1.94-.78 3.7-2.06 4.98l.67.67A7.973 7.973 0 0 0 16 8c0-2.22-.89-4.22-2.34-5.66v.02zm-1.41 1.41l-.69.67a5.05 5.05 0 0 1 1.48 3.58c0 1.39-.56 2.66-1.48 3.56l.69.67A5.971 5.971 0 0 0 14 8.02c0-1.65-.67-3.16-1.75-4.25z"}})
 
 
 /***/ }),
@@ -78161,7 +69411,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"unver
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"verified":{"width":16,"height":16,"d":"M15.67 7.06l-1.08-1.34c-.17-.22-.28-.48-.31-.77l-.19-1.7a1.51 1.51 0 0 0-1.33-1.33l-1.7-.19c-.3-.03-.56-.16-.78-.33L8.94.32c-.55-.44-1.33-.44-1.88 0L5.72 1.4c-.22.17-.48.28-.77.31l-1.7.19c-.7.08-1.25.63-1.33 1.33l-.19 1.7c-.03.3-.16.56-.33.78L.32 7.05c-.44.55-.44 1.33 0 1.88l1.08 1.34c.17.22.28.48.31.77l.19 1.7c.08.7.63 1.25 1.33 1.33l1.7.19c.3.03.56.16.78.33l1.34 1.08c.55.44 1.33.44 1.88 0l1.34-1.08c.22-.17.48-.28.77-.31l1.7-.19c.7-.08 1.25-.63 1.33-1.33l.19-1.7c.03-.3.16-.56.33-.78l1.08-1.34c.44-.55.44-1.33 0-1.88zM6.5 12L3 8.5 4.5 7l2 2 5-5L13 5.55 6.5 12z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"unverified":{"width":16,"height":16,"d":"M15.67 7.06l-1.08-1.34c-.17-.22-.28-.48-.31-.77l-.19-1.7a1.51 1.51 0 0 0-1.33-1.33l-1.7-.19c-.3-.03-.56-.16-.78-.33L8.94.32c-.55-.44-1.33-.44-1.88 0L5.72 1.4c-.22.17-.48.28-.77.31l-1.7.19c-.7.08-1.25.63-1.33 1.33l-.19 1.7c-.03.3-.16.56-.33.78L.32 7.05c-.44.55-.44 1.33 0 1.88l1.08 1.34c.17.22.28.48.31.77l.19 1.7c.08.7.63 1.25 1.33 1.33l1.7.19c.3.03.56.16.78.33l1.34 1.08c.55.44 1.33.44 1.88 0l1.34-1.08c.22-.17.48-.28.77-.31l1.7-.19c.7-.08 1.25-.63 1.33-1.33l.19-1.7c.03-.3.16-.56.33-.78l1.08-1.34c.44-.55.44-1.33 0-1.88zM9 11.5c0 .28-.22.5-.5.5h-1c-.27 0-.5-.22-.5-.5v-1c0-.28.23-.5.5-.5h1c.28 0 .5.22.5.5v1zm1.56-4.89c-.06.17-.17.33-.3.47-.13.16-.14.19-.33.38-.16.17-.31.3-.52.45-.11.09-.2.19-.28.27-.08.08-.14.17-.19.27-.05.1-.08.19-.11.3-.03.11-.03.13-.03.25H7.13c0-.22 0-.31.03-.48.03-.19.08-.36.14-.52.06-.14.14-.28.25-.42.11-.13.23-.25.41-.38.27-.19.36-.3.48-.52.12-.22.2-.38.2-.59 0-.27-.06-.45-.2-.58-.13-.13-.31-.19-.58-.19-.09 0-.19.02-.3.05-.11.03-.17.09-.25.16-.08.07-.14.11-.2.2a.41.41 0 0 0-.09.28h-2c0-.38.13-.56.27-.83.16-.27.36-.5.61-.67.25-.17.55-.3.88-.38.33-.08.7-.13 1.09-.13.44 0 .83.05 1.17.13.34.09.63.22.88.39.23.17.41.38.55.63.13.25.19.55.19.88 0 .22 0 .42-.08.59l-.02-.01z"}})
 
 
 /***/ }),
@@ -78173,7 +69423,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"verif
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"versions":{"width":14,"height":16,"d":"M13 3H7c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm-1 8H8V5h4v6zM4 4h1v1H4v6h1v1H4c-.55 0-1-.45-1-1V5c0-.55.45-1 1-1zM1 5h1v1H1v4h1v1H1c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"verified":{"width":16,"height":16,"d":"M15.67 7.06l-1.08-1.34c-.17-.22-.28-.48-.31-.77l-.19-1.7a1.51 1.51 0 0 0-1.33-1.33l-1.7-.19c-.3-.03-.56-.16-.78-.33L8.94.32c-.55-.44-1.33-.44-1.88 0L5.72 1.4c-.22.17-.48.28-.77.31l-1.7.19c-.7.08-1.25.63-1.33 1.33l-.19 1.7c-.03.3-.16.56-.33.78L.32 7.05c-.44.55-.44 1.33 0 1.88l1.08 1.34c.17.22.28.48.31.77l.19 1.7c.08.7.63 1.25 1.33 1.33l1.7.19c.3.03.56.16.78.33l1.34 1.08c.55.44 1.33.44 1.88 0l1.34-1.08c.22-.17.48-.28.77-.31l1.7-.19c.7-.08 1.25-.63 1.33-1.33l.19-1.7c.03-.3.16-.56.33-.78l1.08-1.34c.44-.55.44-1.33 0-1.88zM6.5 12L3 8.5 4.5 7l2 2 5-5L13 5.55 6.5 12z"}})
 
 
 /***/ }),
@@ -78185,7 +69435,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"versi
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"watch":{"width":12,"height":16,"d":"M6 8h2v1H5V5h1v3zm6 0c0 2.22-1.2 4.16-3 5.19V15c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1v-1.81C1.2 12.16 0 10.22 0 8s1.2-4.16 3-5.19V1c0-.55.45-1 1-1h4c.55 0 1 .45 1 1v1.81c1.8 1.03 3 2.97 3 5.19zm-1 0c0-2.77-2.23-5-5-5S1 5.23 1 8s2.23 5 5 5 5-2.23 5-5z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"versions":{"width":14,"height":16,"d":"M13 3H7c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm-1 8H8V5h4v6zM4 4h1v1H4v6h1v1H4c-.55 0-1-.45-1-1V5c0-.55.45-1 1-1zM1 5h1v1H1v4h1v1H1c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1z"}})
 
 
 /***/ }),
@@ -78197,7 +69447,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"watch
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"x":{"width":12,"height":16,"d":"M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"watch":{"width":12,"height":16,"d":"M6 8h2v1H5V5h1v3zm6 0c0 2.22-1.2 4.16-3 5.19V15c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1v-1.81C1.2 12.16 0 10.22 0 8s1.2-4.16 3-5.19V1c0-.55.45-1 1-1h4c.55 0 1 .45 1 1v1.81c1.8 1.03 3 2.97 3 5.19zm-1 0c0-2.77-2.23-5-5-5S1 5.23 1 8s2.23 5 5 5 5-2.23 5-5z"}})
 
 
 /***/ }),
@@ -78209,23 +69459,35 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"x":{"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
 
 
-__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"zap":{"width":10,"height":16,"d":"M10 7H6l3-7-9 9h4l-3 7z"}})
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"x":{"width":12,"height":16,"d":"M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"}})
 
 
 /***/ }),
 /* 360 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue__);
+
+
+__WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"zap":{"width":10,"height":16,"d":"M10 7H6l3-7-9 9h4l-3 7z"}})
+
+
+/***/ }),
+/* 361 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(361)
+  __webpack_require__(362)
 }
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(363)
+var __vue_script__ = __webpack_require__(364)
 /* template */
-var __vue_template__ = __webpack_require__(365)
+var __vue_template__ = __webpack_require__(366)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -78264,13 +69526,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 361 */
+/* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(362);
+var content = __webpack_require__(363);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -78290,7 +69552,7 @@ if(false) {
 }
 
 /***/ }),
-/* 362 */
+/* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -78304,14 +69566,14 @@ exports.push([module.i, "\n.list-item {\n  display: inline-block;\n  margin-righ
 
 
 /***/ }),
-/* 363 */
+/* 364 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_MessageService__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__MessageService__ = __webpack_require__(9);
 //
 //
 //
@@ -78351,7 +69613,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       tasks: [],
       showCompleted: false,
-      messageService: __WEBPACK_IMPORTED_MODULE_1__services_MessageService__["a" /* default */]
+      messageService: __WEBPACK_IMPORTED_MODULE_1__MessageService__["a" /* default */]
     };
   },
   mounted: function mounted() {
@@ -78419,256 +69681,256 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 364 */
+/* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 17,
-	"./af.js": 17,
-	"./ar": 18,
-	"./ar-dz": 19,
-	"./ar-dz.js": 19,
-	"./ar-kw": 20,
-	"./ar-kw.js": 20,
-	"./ar-ly": 21,
-	"./ar-ly.js": 21,
-	"./ar-ma": 22,
-	"./ar-ma.js": 22,
-	"./ar-sa": 23,
-	"./ar-sa.js": 23,
-	"./ar-tn": 24,
-	"./ar-tn.js": 24,
-	"./ar.js": 18,
-	"./az": 25,
-	"./az.js": 25,
-	"./be": 26,
-	"./be.js": 26,
-	"./bg": 27,
-	"./bg.js": 27,
-	"./bm": 28,
-	"./bm.js": 28,
-	"./bn": 29,
-	"./bn.js": 29,
-	"./bo": 30,
-	"./bo.js": 30,
-	"./br": 31,
-	"./br.js": 31,
-	"./bs": 32,
-	"./bs.js": 32,
-	"./ca": 33,
-	"./ca.js": 33,
-	"./cs": 34,
-	"./cs.js": 34,
-	"./cv": 35,
-	"./cv.js": 35,
-	"./cy": 36,
-	"./cy.js": 36,
-	"./da": 37,
-	"./da.js": 37,
-	"./de": 38,
-	"./de-at": 39,
-	"./de-at.js": 39,
-	"./de-ch": 40,
-	"./de-ch.js": 40,
-	"./de.js": 38,
-	"./dv": 41,
-	"./dv.js": 41,
-	"./el": 42,
-	"./el.js": 42,
-	"./en-au": 43,
-	"./en-au.js": 43,
-	"./en-ca": 44,
-	"./en-ca.js": 44,
-	"./en-gb": 45,
-	"./en-gb.js": 45,
-	"./en-ie": 46,
-	"./en-ie.js": 46,
-	"./en-il": 47,
-	"./en-il.js": 47,
-	"./en-nz": 48,
-	"./en-nz.js": 48,
-	"./eo": 49,
-	"./eo.js": 49,
-	"./es": 50,
-	"./es-do": 51,
-	"./es-do.js": 51,
-	"./es-us": 52,
-	"./es-us.js": 52,
-	"./es.js": 50,
-	"./et": 53,
-	"./et.js": 53,
-	"./eu": 54,
-	"./eu.js": 54,
-	"./fa": 55,
-	"./fa.js": 55,
-	"./fi": 56,
-	"./fi.js": 56,
-	"./fo": 57,
-	"./fo.js": 57,
-	"./fr": 58,
-	"./fr-ca": 59,
-	"./fr-ca.js": 59,
-	"./fr-ch": 60,
-	"./fr-ch.js": 60,
-	"./fr.js": 58,
-	"./fy": 61,
-	"./fy.js": 61,
-	"./gd": 62,
-	"./gd.js": 62,
-	"./gl": 63,
-	"./gl.js": 63,
-	"./gom-latn": 64,
-	"./gom-latn.js": 64,
-	"./gu": 65,
-	"./gu.js": 65,
-	"./he": 66,
-	"./he.js": 66,
-	"./hi": 67,
-	"./hi.js": 67,
-	"./hr": 68,
-	"./hr.js": 68,
-	"./hu": 69,
-	"./hu.js": 69,
-	"./hy-am": 70,
-	"./hy-am.js": 70,
-	"./id": 71,
-	"./id.js": 71,
-	"./is": 72,
-	"./is.js": 72,
-	"./it": 73,
-	"./it.js": 73,
-	"./ja": 74,
-	"./ja.js": 74,
-	"./jv": 75,
-	"./jv.js": 75,
-	"./ka": 76,
-	"./ka.js": 76,
-	"./kk": 77,
-	"./kk.js": 77,
-	"./km": 78,
-	"./km.js": 78,
-	"./kn": 79,
-	"./kn.js": 79,
-	"./ko": 80,
-	"./ko.js": 80,
-	"./ky": 81,
-	"./ky.js": 81,
-	"./lb": 82,
-	"./lb.js": 82,
-	"./lo": 83,
-	"./lo.js": 83,
-	"./lt": 84,
-	"./lt.js": 84,
-	"./lv": 85,
-	"./lv.js": 85,
-	"./me": 86,
-	"./me.js": 86,
-	"./mi": 87,
-	"./mi.js": 87,
-	"./mk": 88,
-	"./mk.js": 88,
-	"./ml": 89,
-	"./ml.js": 89,
-	"./mn": 90,
-	"./mn.js": 90,
-	"./mr": 91,
-	"./mr.js": 91,
-	"./ms": 92,
-	"./ms-my": 93,
-	"./ms-my.js": 93,
-	"./ms.js": 92,
-	"./mt": 94,
-	"./mt.js": 94,
-	"./my": 95,
-	"./my.js": 95,
-	"./nb": 96,
-	"./nb.js": 96,
-	"./ne": 97,
-	"./ne.js": 97,
-	"./nl": 98,
-	"./nl-be": 99,
-	"./nl-be.js": 99,
-	"./nl.js": 98,
-	"./nn": 100,
-	"./nn.js": 100,
-	"./pa-in": 101,
-	"./pa-in.js": 101,
-	"./pl": 102,
-	"./pl.js": 102,
-	"./pt": 103,
-	"./pt-br": 104,
-	"./pt-br.js": 104,
-	"./pt.js": 103,
-	"./ro": 105,
-	"./ro.js": 105,
-	"./ru": 106,
-	"./ru.js": 106,
-	"./sd": 107,
-	"./sd.js": 107,
-	"./se": 108,
-	"./se.js": 108,
-	"./si": 109,
-	"./si.js": 109,
-	"./sk": 110,
-	"./sk.js": 110,
-	"./sl": 111,
-	"./sl.js": 111,
-	"./sq": 112,
-	"./sq.js": 112,
-	"./sr": 113,
-	"./sr-cyrl": 114,
-	"./sr-cyrl.js": 114,
-	"./sr.js": 113,
-	"./ss": 115,
-	"./ss.js": 115,
-	"./sv": 116,
-	"./sv.js": 116,
-	"./sw": 117,
-	"./sw.js": 117,
-	"./ta": 118,
-	"./ta.js": 118,
-	"./te": 119,
-	"./te.js": 119,
-	"./tet": 120,
-	"./tet.js": 120,
-	"./tg": 121,
-	"./tg.js": 121,
-	"./th": 122,
-	"./th.js": 122,
-	"./tl-ph": 123,
-	"./tl-ph.js": 123,
-	"./tlh": 124,
-	"./tlh.js": 124,
-	"./tr": 125,
-	"./tr.js": 125,
-	"./tzl": 126,
-	"./tzl.js": 126,
-	"./tzm": 127,
-	"./tzm-latn": 128,
-	"./tzm-latn.js": 128,
-	"./tzm.js": 127,
-	"./ug-cn": 129,
-	"./ug-cn.js": 129,
-	"./uk": 130,
-	"./uk.js": 130,
-	"./ur": 131,
-	"./ur.js": 131,
-	"./uz": 132,
-	"./uz-latn": 133,
-	"./uz-latn.js": 133,
-	"./uz.js": 132,
-	"./vi": 134,
-	"./vi.js": 134,
-	"./x-pseudo": 135,
-	"./x-pseudo.js": 135,
-	"./yo": 136,
-	"./yo.js": 136,
-	"./zh-cn": 137,
-	"./zh-cn.js": 137,
-	"./zh-hk": 138,
-	"./zh-hk.js": 138,
-	"./zh-tw": 139,
-	"./zh-tw.js": 139
+	"./af": 18,
+	"./af.js": 18,
+	"./ar": 19,
+	"./ar-dz": 20,
+	"./ar-dz.js": 20,
+	"./ar-kw": 21,
+	"./ar-kw.js": 21,
+	"./ar-ly": 22,
+	"./ar-ly.js": 22,
+	"./ar-ma": 23,
+	"./ar-ma.js": 23,
+	"./ar-sa": 24,
+	"./ar-sa.js": 24,
+	"./ar-tn": 25,
+	"./ar-tn.js": 25,
+	"./ar.js": 19,
+	"./az": 26,
+	"./az.js": 26,
+	"./be": 27,
+	"./be.js": 27,
+	"./bg": 28,
+	"./bg.js": 28,
+	"./bm": 29,
+	"./bm.js": 29,
+	"./bn": 30,
+	"./bn.js": 30,
+	"./bo": 31,
+	"./bo.js": 31,
+	"./br": 32,
+	"./br.js": 32,
+	"./bs": 33,
+	"./bs.js": 33,
+	"./ca": 34,
+	"./ca.js": 34,
+	"./cs": 35,
+	"./cs.js": 35,
+	"./cv": 36,
+	"./cv.js": 36,
+	"./cy": 37,
+	"./cy.js": 37,
+	"./da": 38,
+	"./da.js": 38,
+	"./de": 39,
+	"./de-at": 40,
+	"./de-at.js": 40,
+	"./de-ch": 41,
+	"./de-ch.js": 41,
+	"./de.js": 39,
+	"./dv": 42,
+	"./dv.js": 42,
+	"./el": 43,
+	"./el.js": 43,
+	"./en-au": 44,
+	"./en-au.js": 44,
+	"./en-ca": 45,
+	"./en-ca.js": 45,
+	"./en-gb": 46,
+	"./en-gb.js": 46,
+	"./en-ie": 47,
+	"./en-ie.js": 47,
+	"./en-il": 48,
+	"./en-il.js": 48,
+	"./en-nz": 49,
+	"./en-nz.js": 49,
+	"./eo": 50,
+	"./eo.js": 50,
+	"./es": 51,
+	"./es-do": 52,
+	"./es-do.js": 52,
+	"./es-us": 53,
+	"./es-us.js": 53,
+	"./es.js": 51,
+	"./et": 54,
+	"./et.js": 54,
+	"./eu": 55,
+	"./eu.js": 55,
+	"./fa": 56,
+	"./fa.js": 56,
+	"./fi": 57,
+	"./fi.js": 57,
+	"./fo": 58,
+	"./fo.js": 58,
+	"./fr": 59,
+	"./fr-ca": 60,
+	"./fr-ca.js": 60,
+	"./fr-ch": 61,
+	"./fr-ch.js": 61,
+	"./fr.js": 59,
+	"./fy": 62,
+	"./fy.js": 62,
+	"./gd": 63,
+	"./gd.js": 63,
+	"./gl": 64,
+	"./gl.js": 64,
+	"./gom-latn": 65,
+	"./gom-latn.js": 65,
+	"./gu": 66,
+	"./gu.js": 66,
+	"./he": 67,
+	"./he.js": 67,
+	"./hi": 68,
+	"./hi.js": 68,
+	"./hr": 69,
+	"./hr.js": 69,
+	"./hu": 70,
+	"./hu.js": 70,
+	"./hy-am": 71,
+	"./hy-am.js": 71,
+	"./id": 72,
+	"./id.js": 72,
+	"./is": 73,
+	"./is.js": 73,
+	"./it": 74,
+	"./it.js": 74,
+	"./ja": 75,
+	"./ja.js": 75,
+	"./jv": 76,
+	"./jv.js": 76,
+	"./ka": 77,
+	"./ka.js": 77,
+	"./kk": 78,
+	"./kk.js": 78,
+	"./km": 79,
+	"./km.js": 79,
+	"./kn": 80,
+	"./kn.js": 80,
+	"./ko": 81,
+	"./ko.js": 81,
+	"./ky": 82,
+	"./ky.js": 82,
+	"./lb": 83,
+	"./lb.js": 83,
+	"./lo": 84,
+	"./lo.js": 84,
+	"./lt": 85,
+	"./lt.js": 85,
+	"./lv": 86,
+	"./lv.js": 86,
+	"./me": 87,
+	"./me.js": 87,
+	"./mi": 88,
+	"./mi.js": 88,
+	"./mk": 89,
+	"./mk.js": 89,
+	"./ml": 90,
+	"./ml.js": 90,
+	"./mn": 91,
+	"./mn.js": 91,
+	"./mr": 92,
+	"./mr.js": 92,
+	"./ms": 93,
+	"./ms-my": 94,
+	"./ms-my.js": 94,
+	"./ms.js": 93,
+	"./mt": 95,
+	"./mt.js": 95,
+	"./my": 96,
+	"./my.js": 96,
+	"./nb": 97,
+	"./nb.js": 97,
+	"./ne": 98,
+	"./ne.js": 98,
+	"./nl": 99,
+	"./nl-be": 100,
+	"./nl-be.js": 100,
+	"./nl.js": 99,
+	"./nn": 101,
+	"./nn.js": 101,
+	"./pa-in": 102,
+	"./pa-in.js": 102,
+	"./pl": 103,
+	"./pl.js": 103,
+	"./pt": 104,
+	"./pt-br": 105,
+	"./pt-br.js": 105,
+	"./pt.js": 104,
+	"./ro": 106,
+	"./ro.js": 106,
+	"./ru": 107,
+	"./ru.js": 107,
+	"./sd": 108,
+	"./sd.js": 108,
+	"./se": 109,
+	"./se.js": 109,
+	"./si": 110,
+	"./si.js": 110,
+	"./sk": 111,
+	"./sk.js": 111,
+	"./sl": 112,
+	"./sl.js": 112,
+	"./sq": 113,
+	"./sq.js": 113,
+	"./sr": 114,
+	"./sr-cyrl": 115,
+	"./sr-cyrl.js": 115,
+	"./sr.js": 114,
+	"./ss": 116,
+	"./ss.js": 116,
+	"./sv": 117,
+	"./sv.js": 117,
+	"./sw": 118,
+	"./sw.js": 118,
+	"./ta": 119,
+	"./ta.js": 119,
+	"./te": 120,
+	"./te.js": 120,
+	"./tet": 121,
+	"./tet.js": 121,
+	"./tg": 122,
+	"./tg.js": 122,
+	"./th": 123,
+	"./th.js": 123,
+	"./tl-ph": 124,
+	"./tl-ph.js": 124,
+	"./tlh": 125,
+	"./tlh.js": 125,
+	"./tr": 126,
+	"./tr.js": 126,
+	"./tzl": 127,
+	"./tzl.js": 127,
+	"./tzm": 128,
+	"./tzm-latn": 129,
+	"./tzm-latn.js": 129,
+	"./tzm.js": 128,
+	"./ug-cn": 130,
+	"./ug-cn.js": 130,
+	"./uk": 131,
+	"./uk.js": 131,
+	"./ur": 132,
+	"./ur.js": 132,
+	"./uz": 133,
+	"./uz-latn": 134,
+	"./uz-latn.js": 134,
+	"./uz.js": 133,
+	"./vi": 135,
+	"./vi.js": 135,
+	"./x-pseudo": 136,
+	"./x-pseudo.js": 136,
+	"./yo": 137,
+	"./yo.js": 137,
+	"./zh-cn": 138,
+	"./zh-cn.js": 138,
+	"./zh-hk": 139,
+	"./zh-hk.js": 139,
+	"./zh-tw": 140,
+	"./zh-tw.js": 140
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -78684,10 +69946,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 364;
+webpackContext.id = 365;
 
 /***/ }),
-/* 365 */
+/* 366 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -78831,17 +70093,17 @@ if (false) {
 }
 
 /***/ }),
-/* 366 */
+/* 367 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(367)
+  __webpack_require__(368)
 }
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(369)
+var __vue_script__ = __webpack_require__(370)
 /* template */
 var __vue_template__ = __webpack_require__(371)
 /* template functional */
@@ -78882,13 +70144,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 367 */
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(368);
+var content = __webpack_require__(369);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -78908,7 +70170,7 @@ if(false) {
 }
 
 /***/ }),
-/* 368 */
+/* 369 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -78916,98 +70178,109 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
-
-/***/ }),
-/* 369 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_MessageService__ = __webpack_require__(370);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      task: {
-        id: null,
-        description: '',
-        due_date: ''
-      },
-      messageService: __WEBPACK_IMPORTED_MODULE_0__services_MessageService__["a" /* default */]
-    };
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    if (this.$route.params.id) {
-      axios.get('/api/task/' + this.$route.params.id).then(function (response) {
-        _this.task = {
-          description: response.data.description,
-          id: response.data.id,
-          due_date: response.data.due_date
-        };
-      }).catch(function (error) {
-        _this.messageService.pushMessage('Unauthorized');
-        _this.$router.push('/');
-      });
-    }
-  },
-
-  methods: {
-    submit: function submit() {
-      var _this2 = this;
-
-      if (this.task.id !== null) {
-        axios.put('/api/task/' + this.task.id, this.task).then(function (response) {
-          _this2.$router.push('/');
-          _this2.messageService.pushMessage('Task updated successfully');
-        }).catch(function (error) {
-          _this2.messageService.pushMessage('Error creating task');
-          _this2.$router.push('/');
-        });
-      } else {
-        axios.post('/api/task', this.task).then(function (response) {
-          _this2.$router.push('/');
-        }).catch(function (error) {
-          _this2.messageService.pushMessage(error);
-        });
-      }
-    }
-  }
-});
 
 /***/ }),
 /* 370 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-// store for global state
-/* harmony default export */ __webpack_exports__["a"] = ({
-  messages: [],
-  pushMessage: function pushMessage(message) {
-    this.messages.push(message);
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MessageService__ = __webpack_require__(9);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      fields: {
+        description: { label: 'Description', errors: [] },
+        due_date: { label: 'Due Date', errors: [] }
+      },
+      task: {
+        id: null,
+        description: '',
+        due_date: ''
+      },
+      messageService: __WEBPACK_IMPORTED_MODULE_0__MessageService__["a" /* default */],
+      errors: [],
+      allowSubmit: false
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.errors = [];
+    if (this.$route.params.id) {
+      // updating
+      axios.get('/api/task/' + this.$route.params.id).then(function (response) {
+        _this.task.id = response.data.id;
+        _this.task.description = response.data.description;
+        _this.task.due_date = response.data.due_date;
+      }).catch(function (error) {
+        _this.messageService.pushError('Unauthorized');
+        _this.$router.push('/');
+      });
+    }
+  },
+
+  methods: {
+    validate: function validate(fieldname) {
+      this.allowSubmit = true;
+      var field = this.fields[fieldname];
+      field.errors = [];
+      if (!this.task[fieldname]) {
+        field.errors.push('Please enter a ' + field.label);
+        this.allowSubmit = false;
+      }
+    },
+    submit: function submit() {
+      var _this2 = this;
+
+      if (!this.allowSubmit) {
+        return false;
+      }
+      if (this.task.id !== null) {
+        axios.put('/api/task/' + this.task.id.value, this.task).then(function (response) {
+          _this2.$router.push('/');
+          _this2.messageService.pushMessage('Task updated successfully');
+        }).catch(function (error) {
+          _this2.messageService.pushError('Error creating task');
+        });
+      } else {
+        axios.post('/api/task', this.task).then(function (response) {
+          _this2.$router.push('/');
+          _this2.messageService.pushMessage('Task created successfully');
+        }).catch(function (error) {
+          _this2.messageService.pushError(error);
+        });
+      }
+    }
   }
 });
 
@@ -79023,33 +70296,49 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { staticClass: "control-label", attrs: { for: "" } }, [
-          _vm._v("I need to...")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.task.description,
-              expression: "task.description"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "text" },
-          domProps: { value: _vm.task.description },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [
+          _c("label", { staticClass: "control-label", attrs: { for: "" } }, [
+            _vm._v("I need to...")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.task.description,
+                expression: "task.description"
               }
-              _vm.$set(_vm.task, "description", $event.target.value)
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text" },
+            domProps: { value: _vm.task.description },
+            on: {
+              input: [
+                function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.task, "description", $event.target.value)
+                },
+                function($event) {
+                  _vm.validate("description")
+                }
+              ]
             }
-          }
-        })
-      ]),
+          }),
+          _vm._v(" "),
+          _vm._l(_vm.fields.description.errors, function(error) {
+            return _c("div", { staticClass: "text-danger" }, [
+              _vm._v("\n      " + _vm._s(error) + "\n    ")
+            ])
+          })
+        ],
+        2
+      ),
       _vm._v(" "),
       _c(
         "div",
@@ -79059,8 +70348,13 @@ var render = function() {
             _vm._v("By...")
           ]),
           _vm._v(" "),
-          _c("datetime", {
-            attrs: { "input-class": "form-control" },
+          _c("vuejs-datepicker", {
+            attrs: { "bootstrap-styling": true },
+            on: {
+              input: function($event) {
+                _vm.validate("due_date")
+              }
+            },
             model: {
               value: _vm.task.due_date,
               callback: function($$v) {
@@ -79068,18 +70362,20 @@ var render = function() {
               },
               expression: "task.due_date"
             }
+          }),
+          _vm._v(" "),
+          _vm._l(_vm.fields.due_date.errors, function(error) {
+            return _c("div", { staticClass: "text-danger" }, [
+              _vm._v("\n      " + _vm._s(error) + "\n    ")
+            ])
           })
         ],
-        1
+        2
       ),
       _vm._v(" "),
       _c(
         "button",
-        {
-          staticClass: "btn btn-success",
-          attrs: { role: "button" },
-          on: { click: _vm.submit }
-        },
+        { staticClass: "btn btn-success", on: { click: _vm.submit } },
         [_vm._v("Save")]
       ),
       _vm._v(" "),
@@ -79525,28 +70821,18 @@ if (false) {
 
 /***/ }),
 /* 382 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 383 */,
-/* 384 */,
-/* 385 */,
-/* 386 */,
-/* 387 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(388)
+  __webpack_require__(383)
 }
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(390)
+var __vue_script__ = __webpack_require__(385)
 /* template */
-var __vue_template__ = __webpack_require__(391)
+var __vue_template__ = __webpack_require__(386)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -79585,13 +70871,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 388 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(389);
+var content = __webpack_require__(384);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -79611,7 +70897,7 @@ if(false) {
 }
 
 /***/ }),
-/* 389 */
+/* 384 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -79625,12 +70911,15 @@ exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n  -webkit-t
 
 
 /***/ }),
-/* 390 */
+/* 385 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_MessageService__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MessageService__ = __webpack_require__(9);
+//
+//
+//
 //
 //
 //
@@ -79645,18 +70934,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      messageService: __WEBPACK_IMPORTED_MODULE_0__services_MessageService__["a" /* default */]
+      messageService: __WEBPACK_IMPORTED_MODULE_0__MessageService__["a" /* default */]
     };
   },
   methods: {
     dismissMessage: function dismissMessage() {
       this.messageService.messages.pop();
+    },
+    dismissError: function dismissError() {
+      this.messageService.errors.pop();
     }
   }
 });
 
 /***/ }),
-/* 391 */
+/* 386 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -79666,16 +70958,30 @@ var render = function() {
   return _c(
     "transition",
     { attrs: { name: "fade" } },
-    _vm._l(_vm.messageService.messages, function(message) {
-      return _c(
-        "div",
-        {
-          staticClass: "alert alert-danger",
-          on: { click: _vm.dismissMessage }
-        },
-        [_vm._v("\n    " + _vm._s(message) + "\n  ")]
-      )
-    })
+    [
+      _vm._l(_vm.messageService.errors, function(error) {
+        return _c(
+          "div",
+          {
+            staticClass: "alert alert-danger",
+            on: { click: _vm.dismissError }
+          },
+          [_vm._v("\n    " + _vm._s(error) + "\n  ")]
+        )
+      }),
+      _vm._v(" "),
+      _vm._l(_vm.messageService.messages, function(message) {
+        return _c(
+          "div",
+          {
+            staticClass: "alert alert-success",
+            on: { click: _vm.dismissMessage }
+          },
+          [_vm._v("\n    " + _vm._s(message) + "\n  ")]
+        )
+      })
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -79687,6 +70993,1513 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-16c16f8c", module.exports)
   }
 }
+
+/***/ }),
+/* 387 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 388 */,
+/* 389 */,
+/* 390 */,
+/* 391 */,
+/* 392 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/*!
+ * vuejs-datepicker v1.5.2
+ * (c) 2016-2018 Charlie Kassel
+ * Released under the MIT License.
+ */
+var Language = function Language (language, months, monthsAbbr, days) {
+  this.language = language;
+  this.months = months;
+  this.monthsAbbr = monthsAbbr;
+  this.days = days;
+  this.rtl = false;
+  this.ymd = false;
+  this.yearSuffix = '';
+};
+
+var prototypeAccessors = { language: { configurable: true },months: { configurable: true },monthsAbbr: { configurable: true },days: { configurable: true } };
+
+prototypeAccessors.language.get = function () {
+  return this._language
+};
+
+prototypeAccessors.language.set = function (language) {
+  if (typeof language !== 'string') {
+    throw new TypeError('Language must be a string')
+  }
+  this._language = language;
+};
+
+prototypeAccessors.months.get = function () {
+  return this._months
+};
+
+prototypeAccessors.months.set = function (months) {
+  if (months.length !== 12) {
+    throw new RangeError(("There must be 12 months for " + (this.language) + " language"))
+  }
+  this._months = months;
+};
+
+prototypeAccessors.monthsAbbr.get = function () {
+  return this._monthsAbbr
+};
+
+prototypeAccessors.monthsAbbr.set = function (monthsAbbr) {
+  if (monthsAbbr.length !== 12) {
+    throw new RangeError(("There must be 12 abbreviated months for " + (this.language) + " language"))
+  }
+  this._monthsAbbr = monthsAbbr;
+};
+
+prototypeAccessors.days.get = function () {
+  return this._days
+};
+
+prototypeAccessors.days.set = function (days) {
+  if (days.length !== 7) {
+    throw new RangeError(("There must be 7 days for " + (this.language) + " language"))
+  }
+  this._days = days;
+};
+
+Object.defineProperties( Language.prototype, prototypeAccessors );
+
+var en = new Language(
+  'English',
+  ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+)
+// eslint-disable-next-line
+;
+
+var utils = {
+  /**
+   * @type {Boolean}
+   */
+  useUtc: false,
+  /**
+   * Returns the full year, using UTC or not
+   * @param {Date} date
+   */
+  getFullYear: function getFullYear (date) {
+    return this.useUtc ? date.getUTCFullYear() : date.getFullYear()
+  },
+
+  /**
+   * Returns the month, using UTC or not
+   * @param {Date} date
+   */
+  getMonth: function getMonth (date) {
+    return this.useUtc ? date.getUTCMonth() : date.getMonth()
+  },
+
+  /**
+   * Returns the date, using UTC or not
+   * @param {Date} date
+   */
+  getDate: function getDate (date) {
+    return this.useUtc ? date.getUTCDate() : date.getDate()
+  },
+
+  /**
+   * Returns the day, using UTC or not
+   * @param {Date} date
+   */
+  getDay: function getDay (date) {
+    return this.useUtc ? date.getUTCDay() : date.getDay()
+  },
+
+  /**
+   * Returns the hours, using UTC or not
+   * @param {Date} date
+   */
+  getHours: function getHours (date) {
+    return this.useUtc ? date.getUTCHours() : date.getHours()
+  },
+
+  /**
+   * Returns the minutes, using UTC or not
+   * @param {Date} date
+   */
+  getMinutes: function getMinutes (date) {
+    return this.useUtc ? date.getUTCMinutes() : date.getMinutes()
+  },
+
+  /**
+   * Sets the full year, using UTC or not
+   * @param {Date} date
+   */
+  setFullYear: function setFullYear (date, value, useUtc) {
+    return this.useUtc ? date.setUTCFullYear(value) : date.setFullYear(value)
+  },
+
+  /**
+   * Sets the month, using UTC or not
+   * @param {Date} date
+   */
+  setMonth: function setMonth (date, value, useUtc) {
+    return this.useUtc ? date.setUTCMonth(value) : date.setMonth(value)
+  },
+
+  /**
+   * Sets the date, using UTC or not
+   * @param {Date} date
+   * @param {Number} value
+   */
+  setDate: function setDate (date, value, useUtc) {
+    return this.useUtc ? date.setUTCDate(value) : date.setDate(value)
+  },
+
+  /**
+   * Check if date1 is equivalent to date2, without comparing the time
+   * @see https://stackoverflow.com/a/6202196/4455925
+   * @param {Date} date1
+   * @param {Date} date2
+   */
+  compareDates: function compareDates (date1, date2) {
+    var d1 = new Date(date1.getTime());
+    var d2 = new Date(date2.getTime());
+
+    if (this.useUtc) {
+      d1.setUTCHours(0, 0, 0, 0);
+      d2.setUTCHours(0, 0, 0, 0);
+    } else {
+      d1.setHours(0, 0, 0, 0);
+      d2.setHours(0, 0, 0, 0);
+    }
+    return d1.getTime() === d2.getTime()
+  },
+
+  /**
+   * Validates a date object
+   * @param {Date} date - an object instantiated with the new Date constructor
+   * @return {Boolean}
+   */
+  isValidDate: function isValidDate (date) {
+    if (Object.prototype.toString.call(date) !== '[object Date]') {
+      return false
+    }
+    return !isNaN(date.getTime())
+  },
+
+  /**
+   * Return abbreviated week day name
+   * @param {Date}
+   * @param {Array}
+   * @return {String}
+   */
+  getDayNameAbbr: function getDayNameAbbr (date, days) {
+    if (typeof date !== 'object') {
+      throw TypeError('Invalid Type')
+    }
+    return days[this.getDay(date)]
+  },
+
+  /**
+   * Return name of the month
+   * @param {Number|Date}
+   * @param {Array}
+   * @return {String}
+   */
+  getMonthName: function getMonthName (month, months) {
+    if (!months) {
+      throw Error('missing 2nd parameter Months array')
+    }
+    if (typeof month === 'object') {
+      return months[this.getMonth(month)]
+    }
+    if (typeof month === 'number') {
+      return months[month]
+    }
+    throw TypeError('Invalid type')
+  },
+
+  /**
+   * Return an abbreviated version of the month
+   * @param {Number|Date}
+   * @return {String}
+   */
+  getMonthNameAbbr: function getMonthNameAbbr (month, monthsAbbr) {
+    if (!monthsAbbr) {
+      throw Error('missing 2nd paramter Months array')
+    }
+    if (typeof month === 'object') {
+      return monthsAbbr[this.getMonth(month)]
+    }
+    if (typeof month === 'number') {
+      return monthsAbbr[month]
+    }
+    throw TypeError('Invalid type')
+  },
+
+  /**
+   * Alternative get total number of days in month
+   * @param {Number} year
+   * @param {Number} m
+   * @return {Number}
+   */
+  daysInMonth: function daysInMonth (year, month) {
+    return /8|3|5|10/.test(month) ? 30 : month === 1 ? (!(year % 4) && year % 100) || !(year % 400) ? 29 : 28 : 31
+  },
+
+  /**
+   * Get nth suffix for date
+   * @param {Number} day
+   * @return {String}
+   */
+  getNthSuffix: function getNthSuffix (day) {
+    switch (day) {
+      case 1:
+      case 21:
+      case 31:
+        return 'st'
+      case 2:
+      case 22:
+        return 'nd'
+      case 3:
+      case 23:
+        return 'rd'
+      default:
+        return 'th'
+    }
+  },
+
+  /**
+   * Formats date object
+   * @param {Date}
+   * @param {String}
+   * @param {Object}
+   * @return {String}
+   */
+  formatDate: function formatDate (date, format, translation) {
+    translation = (!translation) ? en : translation;
+    var year = this.getFullYear(date);
+    var month = this.getMonth(date) + 1;
+    var day = this.getDate(date);
+    var str = format
+      .replace(/dd/, ('0' + day).slice(-2))
+      .replace(/d/, day)
+      .replace(/yyyy/, year)
+      .replace(/yy/, String(year).slice(2))
+      .replace(/MMMM/, this.getMonthName(this.getMonth(date), translation.months))
+      .replace(/MMM/, this.getMonthNameAbbr(this.getMonth(date), translation.monthsAbbr))
+      .replace(/MM/, ('0' + month).slice(-2))
+      .replace(/M(?!a|ä|e)/, month)
+      .replace(/su/, this.getNthSuffix(this.getDate(date)))
+      .replace(/D(?!e|é|i)/, this.getDayNameAbbr(date, translation.days));
+    return str
+  },
+
+  /**
+   * Creates an array of dates for each day in between two dates.
+   * @param {Date} start
+   * @param {Date} end
+   * @return {Array}
+   */
+  createDateArray: function createDateArray (start, end) {
+    var this$1 = this;
+
+    var dates = [];
+    while (start <= end) {
+      dates.push(new Date(start));
+      start = this$1.setDate(new Date(start), this$1.getDate(new Date(start)) + 1);
+    }
+    return dates
+  }
+};
+
+var makeDateUtils = function (useUtc) { return (Object.assign({}, utils, {useUtc: useUtc})); };
+
+Object.assign({}, utils)
+// eslint-disable-next-line
+;
+
+(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=""; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
+var DateInput = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:{'input-group' : _vm.bootstrapStyling}},[(_vm.calendarButton)?_c('span',{staticClass:"vdp-datepicker__calendar-button",class:{'input-group-prepend' : _vm.bootstrapStyling},style:({'cursor:not-allowed;' : _vm.disabled}),on:{"click":_vm.showCalendar}},[_c('span',{class:{'input-group-text' : _vm.bootstrapStyling}},[_c('i',{class:_vm.calendarButtonIcon},[_vm._v(" "+_vm._s(_vm.calendarButtonIconContent)+" "),(!_vm.calendarButtonIcon)?_c('span',[_vm._v("…")]):_vm._e()])])]):_vm._e(),_vm._v(" "),_c('input',{ref:_vm.refName,class:_vm.computedInputClass,attrs:{"type":_vm.inline ? 'hidden' : 'text',"name":_vm.name,"id":_vm.id,"open-date":_vm.openDate,"placeholder":_vm.placeholder,"clear-button":_vm.clearButton,"disabled":_vm.disabled,"required":_vm.required,"autocomplete":"off"},domProps:{"value":_vm.formattedValue},on:{"click":_vm.showCalendar,"keydown":_vm.allowTyping,"keyup":_vm.parseTypedDate,"blur":_vm.inputBlurred}}),_vm._v(" "),(_vm.clearButton && _vm.selectedDate)?_c('span',{staticClass:"vdp-datepicker__clear-button",class:{'input-group-append' : _vm.bootstrapStyling},on:{"click":function($event){_vm.clearDate();}}},[_c('span',{class:{'input-group-text' : _vm.bootstrapStyling}},[_c('i',{class:_vm.clearButtonIcon},[(!_vm.clearButtonIcon)?_c('span',[_vm._v("×")]):_vm._e()])])]):_vm._e(),_vm._v(" "),_vm._t("afterDateInput")],2)},staticRenderFns: [],
+  props: {
+    selectedDate: Date,
+    resetTypedDate: [Date],
+    format: [String, Function],
+    translation: Object,
+    inline: Boolean,
+    id: String,
+    name: String,
+    refName: String,
+    openDate: Date,
+    placeholder: String,
+    inputClass: [String, Object, Array],
+    clearButton: Boolean,
+    clearButtonIcon: String,
+    calendarButton: Boolean,
+    calendarButtonIcon: String,
+    calendarButtonIconContent: String,
+    disabled: Boolean,
+    required: Boolean,
+    typeable: Boolean,
+    bootstrapStyling: Boolean,
+    useUtc: Boolean
+  },
+  data: function data () {
+    var constructedDateUtils = makeDateUtils(this.useUtc);
+    return {
+      input: null,
+      typedDate: false,
+      utils: constructedDateUtils
+    }
+  },
+  computed: {
+    formattedValue: function formattedValue () {
+      if (!this.selectedDate) {
+        return null
+      }
+      if (this.typedDate) {
+        return this.typedDate
+      }
+      return typeof this.format === 'function'
+        ? this.format(this.selectedDate)
+        : this.utils.formatDate(new Date(this.selectedDate), this.format, this.translation)
+    },
+
+    computedInputClass: function computedInputClass () {
+      if (this.bootstrapStyling) {
+        if (typeof this.inputClass === 'string') {
+          return [this.inputClass, 'form-control'].join(' ')
+        }
+        return Object.assign({}, {'form-control': true}, this.inputClass)
+      }
+      return this.inputClass
+    }
+  },
+  watch: {
+    resetTypedDate: function resetTypedDate () {
+      this.typedDate = false;
+    }
+  },
+  methods: {
+    showCalendar: function showCalendar () {
+      this.$emit('showCalendar');
+    },
+    /**
+     * Prevent typing if not typeable
+     * @param {Event} event
+     * @return {Boolean}
+     */
+    allowTyping: function allowTyping (event) {
+      if (!this.typeable) {
+        event.preventDefault();
+        return false
+      }
+      return true
+    },
+    /**
+     * Attempt to parse a typed date
+     * @param {Event} event
+     */
+    parseTypedDate: function parseTypedDate (event) {
+      // close calendar if escape or enter are pressed
+      if ([
+        27, // escape
+        13  // enter
+      ].includes(event.keyCode)) {
+        this.input.blur();
+      }
+
+      if (this.typeable) {
+        var typedDate = Date.parse(this.input.value);
+        if (!isNaN(typedDate)) {
+          this.typedDate = this.input.value;
+          this.$emit('typedDate', new Date(this.typedDate));
+        }
+      }
+    },
+    /**
+     * nullify the typed date to defer to regular formatting
+     * called once the input is blurred
+     */
+    inputBlurred: function inputBlurred () {
+      if (this.typeable && isNaN(Date.parse(this.input.value))) {
+        this.clearDate();
+        this.input.value = null;
+        this.typedDate = null;
+      }
+
+      this.$emit('closeCalendar');
+    },
+    /**
+     * emit a clearDate event
+     */
+    clearDate: function clearDate () {
+      this.$emit('clearDate');
+    }
+  },
+  mounted: function mounted () {
+    this.input = this.$el.querySelector('input');
+  }
+}
+// eslint-disable-next-line
+;
+
+(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=""; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
+var PickerDay = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showDayView),expression:"showDayView"}],class:[_vm.calendarClass, 'vdp-datepicker__calendar'],style:(_vm.calendarStyle),on:{"mousedown":function($event){$event.preventDefault();}}},[_vm._t("beforeCalendarHeader"),_vm._v(" "),_c('header',[_c('span',{staticClass:"prev",class:{'disabled': _vm.isLeftNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.nextMonth() : _vm.previousMonth();}}},[_vm._v("<")]),_vm._v(" "),_c('span',{staticClass:"day__month_btn",class:_vm.allowedToShowView('month') ? 'up' : '',on:{"click":_vm.showMonthCalendar}},[_vm._v(_vm._s(_vm.isYmd ? _vm.currYearName : _vm.currMonthName)+" "+_vm._s(_vm.isYmd ? _vm.currMonthName : _vm.currYearName))]),_vm._v(" "),_c('span',{staticClass:"next",class:{'disabled': _vm.isRightNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.previousMonth() : _vm.nextMonth();}}},[_vm._v(">")])]),_vm._v(" "),_c('div',{class:_vm.isRtl ? 'flex-rtl' : ''},[_vm._l((_vm.daysOfWeek),function(d){return _c('span',{key:d.timestamp,staticClass:"cell day-header"},[_vm._v(_vm._s(d))])}),_vm._v(" "),(_vm.blankDays > 0)?_vm._l((_vm.blankDays),function(d){return _c('span',{key:d.timestamp,staticClass:"cell day blank"})}):_vm._e(),_vm._l((_vm.days),function(day){return _c('span',{key:day.timestamp,staticClass:"cell day",class:_vm.dayClasses(day),domProps:{"innerHTML":_vm._s(_vm.dayCellContent(day))},on:{"click":function($event){_vm.selectDate(day);}}})})],2)],2)},staticRenderFns: [],
+  props: {
+    showDayView: Boolean,
+    selectedDate: Date,
+    pageDate: Date,
+    pageTimestamp: Number,
+    fullMonthName: Boolean,
+    allowedToShowView: Function,
+    dayCellContent: {
+      type: Function,
+      default: function (day) { return day.date; }
+    },
+    disabledDates: Object,
+    highlighted: Object,
+    calendarClass: [String, Object, Array],
+    calendarStyle: Object,
+    translation: Object,
+    isRtl: Boolean,
+    mondayFirst: Boolean,
+    useUtc: Boolean
+  },
+  data: function data () {
+    var constructedDateUtils = makeDateUtils(this.useUtc);
+    return {
+      utils: constructedDateUtils
+    }
+  },
+  computed: {
+    /**
+     * Returns an array of day names
+     * @return {String[]}
+     */
+    daysOfWeek: function daysOfWeek () {
+      if (this.mondayFirst) {
+        var tempDays = this.translation.days.slice();
+        tempDays.push(tempDays.shift());
+        return tempDays
+      }
+      return this.translation.days
+    },
+    /**
+     * Returns the day number of the week less one for the first of the current month
+     * Used to show amount of empty cells before the first in the day calendar layout
+     * @return {Number}
+     */
+    blankDays: function blankDays () {
+      var d = this.pageDate;
+      var dObj = this.useUtc
+        ? new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1))
+        : new Date(d.getFullYear(), d.getMonth(), 1, d.getHours(), d.getMinutes());
+      if (this.mondayFirst) {
+        return this.utils.getDay(dObj) > 0 ? this.utils.getDay(dObj) - 1 : 6
+      }
+      return this.utils.getDay(dObj)
+    },
+    /**
+     * @return {Object[]}
+     */
+    days: function days () {
+      var this$1 = this;
+
+      var d = this.pageDate;
+      var days = [];
+      // set up a new date object to the beginning of the current 'page'
+      var dObj = this.useUtc
+        ? new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1))
+        : new Date(d.getFullYear(), d.getMonth(), 1, d.getHours(), d.getMinutes());
+      var daysInMonth = this.utils.daysInMonth(this.utils.getFullYear(dObj), this.utils.getMonth(dObj));
+      for (var i = 0; i < daysInMonth; i++) {
+        days.push({
+          date: this$1.utils.getDate(dObj),
+          timestamp: dObj.getTime(),
+          isSelected: this$1.isSelectedDate(dObj),
+          isDisabled: this$1.isDisabledDate(dObj),
+          isHighlighted: this$1.isHighlightedDate(dObj),
+          isHighlightStart: this$1.isHighlightStart(dObj),
+          isHighlightEnd: this$1.isHighlightEnd(dObj),
+          isToday: this$1.utils.compareDates(dObj, new Date()),
+          isWeekend: this$1.utils.getDay(dObj) === 0 || this$1.utils.getDay(dObj) === 6,
+          isSaturday: this$1.utils.getDay(dObj) === 6,
+          isSunday: this$1.utils.getDay(dObj) === 0
+        });
+        this$1.utils.setDate(dObj, this$1.utils.getDate(dObj) + 1);
+      }
+      return days
+    },
+    /**
+     * Gets the name of the month the current page is on
+     * @return {String}
+     */
+    currMonthName: function currMonthName () {
+      var monthName = this.fullMonthName ? this.translation.months : this.translation.monthsAbbr;
+      return this.utils.getMonthNameAbbr(this.utils.getMonth(this.pageDate), monthName)
+    },
+    /**
+     * Gets the name of the year that current page is on
+     * @return {Number}
+     */
+    currYearName: function currYearName () {
+      var yearSuffix = this.translation.yearSuffix;
+      return ("" + (this.utils.getFullYear(this.pageDate)) + yearSuffix)
+    },
+    /**
+     * Is this translation using year/month/day format?
+     * @return {Boolean}
+     */
+    isYmd: function isYmd () {
+      return this.translation.ymd && this.translation.ymd === true
+    },
+    /**
+     * Is the left hand navigation button disabled?
+     * @return {Boolean}
+     */
+    isLeftNavDisabled: function isLeftNavDisabled () {
+      return this.isRtl
+        ? this.isNextMonthDisabled(this.pageTimestamp)
+        : this.isPreviousMonthDisabled(this.pageTimestamp)
+    },
+    /**
+     * Is the right hand navigation button disabled?
+     * @return {Boolean}
+     */
+    isRightNavDisabled: function isRightNavDisabled () {
+      return this.isRtl
+        ? this.isPreviousMonthDisabled(this.pageTimestamp)
+        : this.isNextMonthDisabled(this.pageTimestamp)
+    }
+  },
+  methods: {
+    selectDate: function selectDate (date) {
+      if (date.isDisabled) {
+        this.$emit('selectedDisabled', date);
+        return false
+      }
+      this.$emit('selectDate', date);
+    },
+    /**
+     * @return {Number}
+     */
+    getPageMonth: function getPageMonth () {
+      return this.utils.getMonth(this.pageDate)
+    },
+    /**
+     * Emit an event to show the month picker
+     */
+    showMonthCalendar: function showMonthCalendar () {
+      this.$emit('showMonthCalendar');
+    },
+    /**
+     * Change the page month
+     * @param {Number} incrementBy
+     */
+    changeMonth: function changeMonth (incrementBy) {
+      var date = this.pageDate;
+      this.utils.setMonth(date, this.utils.getMonth(date) + incrementBy);
+      this.$emit('changedMonth', date);
+    },
+    /**
+     * Decrement the page month
+     */
+    previousMonth: function previousMonth () {
+      if (!this.isPreviousMonthDisabled()) {
+        this.changeMonth(-1);
+      }
+    },
+    /**
+     * Is the previous month disabled?
+     * @return {Boolean}
+     */
+    isPreviousMonthDisabled: function isPreviousMonthDisabled () {
+      if (!this.disabledDates || !this.disabledDates.to) {
+        return false
+      }
+      var d = this.pageDate;
+      return this.utils.getMonth(this.disabledDates.to) >= this.utils.getMonth(d) &&
+        this.utils.getFullYear(this.disabledDates.to) >= this.utils.getFullYear(d)
+    },
+    /**
+     * Increment the current page month
+     */
+    nextMonth: function nextMonth () {
+      if (!this.isNextMonthDisabled()) {
+        this.changeMonth(+1);
+      }
+    },
+    /**
+     * Is the next month disabled?
+     * @return {Boolean}
+     */
+    isNextMonthDisabled: function isNextMonthDisabled () {
+      if (!this.disabledDates || !this.disabledDates.from) {
+        return false
+      }
+      var d = this.pageDate;
+      return this.utils.getMonth(this.disabledDates.from) <= this.utils.getMonth(d) &&
+        this.utils.getFullYear(this.disabledDates.from) <= this.utils.getFullYear(d)
+    },
+    /**
+     * Whether a day is selected
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isSelectedDate: function isSelectedDate (dObj) {
+      return this.selectedDate && this.utils.compareDates(this.selectedDate, dObj)
+    },
+    /**
+     * Whether a day is disabled
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isDisabledDate: function isDisabledDate (date) {
+      var this$1 = this;
+
+      var disabledDates = false;
+
+      if (typeof this.disabledDates === 'undefined') {
+        return false
+      }
+
+      if (typeof this.disabledDates.dates !== 'undefined') {
+        this.disabledDates.dates.forEach(function (d) {
+          if (this$1.utils.compareDates(date, d)) {
+            disabledDates = true;
+            return true
+          }
+        });
+      }
+      if (typeof this.disabledDates.to !== 'undefined' && this.disabledDates.to && date < this.disabledDates.to) {
+        disabledDates = true;
+      }
+      if (typeof this.disabledDates.from !== 'undefined' && this.disabledDates.from && date > this.disabledDates.from) {
+        disabledDates = true;
+      }
+      if (typeof this.disabledDates.ranges !== 'undefined') {
+        this.disabledDates.ranges.forEach(function (range) {
+          if (typeof range.from !== 'undefined' && range.from && typeof range.to !== 'undefined' && range.to) {
+            if (date < range.to && date > range.from) {
+              disabledDates = true;
+              return true
+            }
+          }
+        });
+      }
+      if (typeof this.disabledDates.days !== 'undefined' && this.disabledDates.days.indexOf(this.utils.getDay(date)) !== -1) {
+        disabledDates = true;
+      }
+      if (typeof this.disabledDates.daysOfMonth !== 'undefined' && this.disabledDates.daysOfMonth.indexOf(this.utils.getDate(date)) !== -1) {
+        disabledDates = true;
+      }
+      if (typeof this.disabledDates.customPredictor === 'function' && this.disabledDates.customPredictor(date)) {
+        disabledDates = true;
+      }
+      return disabledDates
+    },
+    /**
+     * Whether a day is highlighted (only if it is not disabled already except when highlighted.includeDisabled is true)
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isHighlightedDate: function isHighlightedDate (date) {
+      var this$1 = this;
+
+      if (!(this.highlighted && this.highlighted.includeDisabled) && this.isDisabledDate(date)) {
+        return false
+      }
+
+      var highlighted = false;
+
+      if (typeof this.highlighted === 'undefined') {
+        return false
+      }
+
+      if (typeof this.highlighted.dates !== 'undefined') {
+        this.highlighted.dates.forEach(function (d) {
+          if (this$1.utils.compareDates(date, d)) {
+            highlighted = true;
+            return true
+          }
+        });
+      }
+
+      if (this.isDefined(this.highlighted.from) && this.isDefined(this.highlighted.to)) {
+        highlighted = date >= this.highlighted.from && date <= this.highlighted.to;
+      }
+
+      if (typeof this.highlighted.days !== 'undefined' && this.highlighted.days.indexOf(this.utils.getDay(date)) !== -1) {
+        highlighted = true;
+      }
+
+      if (typeof this.highlighted.daysOfMonth !== 'undefined' && this.highlighted.daysOfMonth.indexOf(this.utils.getDate(date)) !== -1) {
+        highlighted = true;
+      }
+
+      if (typeof this.highlighted.customPredictor === 'function' && this.highlighted.customPredictor(date)) {
+        highlighted = true;
+      }
+
+      return highlighted
+    },
+    dayClasses: function dayClasses (day) {
+      return {
+        'selected': day.isSelected,
+        'disabled': day.isDisabled,
+        'highlighted': day.isHighlighted,
+        'today': day.isToday,
+        'weekend': day.isWeekend,
+        'sat': day.isSaturday,
+        'sun': day.isSunday,
+        'highlight-start': day.isHighlightStart,
+        'highlight-end': day.isHighlightEnd
+      }
+    },
+    /**
+     * Whether a day is highlighted and it is the first date
+     * in the highlighted range of dates
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isHighlightStart: function isHighlightStart (date) {
+      return this.isHighlightedDate(date) &&
+        (this.highlighted.from instanceof Date) &&
+        (this.utils.getFullYear(this.highlighted.from) === this.utils.getFullYear(date)) &&
+        (this.utils.getMonth(this.highlighted.from) === this.utils.getMonth(date)) &&
+        (this.utils.getDate(this.highlighted.from) === this.utils.getDate(date))
+    },
+    /**
+     * Whether a day is highlighted and it is the first date
+     * in the highlighted range of dates
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isHighlightEnd: function isHighlightEnd (date) {
+      return this.isHighlightedDate(date) &&
+        (this.highlighted.to instanceof Date) &&
+        (this.utils.getFullYear(this.highlighted.to) === this.utils.getFullYear(date)) &&
+        (this.utils.getMonth(this.highlighted.to) === this.utils.getMonth(date)) &&
+        (this.utils.getDate(this.highlighted.to) === this.utils.getDate(date))
+    },
+    /**
+     * Helper
+     * @param  {mixed}  prop
+     * @return {Boolean}
+     */
+    isDefined: function isDefined (prop) {
+      return typeof prop !== 'undefined' && prop
+    }
+  }
+}
+// eslint-disable-next-line
+;
+
+(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=""; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
+var PickerMonth = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMonthView),expression:"showMonthView"}],class:[_vm.calendarClass, 'vdp-datepicker__calendar'],style:(_vm.calendarStyle),on:{"mousedown":function($event){$event.preventDefault();}}},[_vm._t("beforeCalendarHeader"),_vm._v(" "),_c('header',[_c('span',{staticClass:"prev",class:{'disabled': _vm.isLeftNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.nextYear() : _vm.previousYear();}}},[_vm._v("<")]),_vm._v(" "),_c('span',{staticClass:"month__year_btn",class:_vm.allowedToShowView('year') ? 'up' : '',on:{"click":_vm.showYearCalendar}},[_vm._v(_vm._s(_vm.pageYearName))]),_vm._v(" "),_c('span',{staticClass:"next",class:{'disabled': _vm.isRightNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.previousYear() : _vm.nextYear();}}},[_vm._v(">")])]),_vm._v(" "),_vm._l((_vm.months),function(month){return _c('span',{key:month.timestamp,staticClass:"cell month",class:{'selected': month.isSelected, 'disabled': month.isDisabled},on:{"click":function($event){$event.stopPropagation();_vm.selectMonth(month);}}},[_vm._v(_vm._s(month.month))])})],2)},staticRenderFns: [],
+  props: {
+    showMonthView: Boolean,
+    selectedDate: Date,
+    pageDate: Date,
+    pageTimestamp: Number,
+    disabledDates: Object,
+    calendarClass: [String, Object, Array],
+    calendarStyle: Object,
+    translation: Object,
+    isRtl: Boolean,
+    allowedToShowView: Function,
+    useUtc: Boolean
+  },
+  data: function data () {
+    var constructedDateUtils = makeDateUtils(this.useUtc);
+    return {
+      utils: constructedDateUtils
+    }
+  },
+  computed: {
+    months: function months () {
+      var this$1 = this;
+
+      var d = this.pageDate;
+      var months = [];
+      // set up a new date object to the beginning of the current 'page'
+      var dObj = this.useUtc
+        ? new Date(Date.UTC(d.getUTCFullYear(), 0, d.getUTCDate()))
+        : new Date(d.getFullYear(), 0, d.getDate(), d.getHours(), d.getMinutes());
+      for (var i = 0; i < 12; i++) {
+        months.push({
+          month: this$1.utils.getMonthName(i, this$1.translation.months),
+          timestamp: dObj.getTime(),
+          isSelected: this$1.isSelectedMonth(dObj),
+          isDisabled: this$1.isDisabledMonth(dObj)
+        });
+        this$1.utils.setMonth(dObj, this$1.utils.getMonth(dObj) + 1);
+      }
+      return months
+    },
+    /**
+     * Get year name on current page.
+     * @return {String}
+     */
+    pageYearName: function pageYearName () {
+      var yearSuffix = this.translation.yearSuffix;
+      return ("" + (this.utils.getFullYear(this.pageDate)) + yearSuffix)
+    },
+    /**
+     * Is the left hand navigation disabled
+     * @return {Boolean}
+     */
+    isLeftNavDisabled: function isLeftNavDisabled () {
+      return this.isRtl
+        ? this.isNextYearDisabled(this.pageTimestamp)
+        : this.isPreviousYearDisabled(this.pageTimestamp)
+    },
+    /**
+     * Is the right hand navigation disabled
+     * @return {Boolean}
+     */
+    isRightNavDisabled: function isRightNavDisabled () {
+      return this.isRtl
+        ? this.isPreviousYearDisabled(this.pageTimestamp)
+        : this.isNextYearDisabled(this.pageTimestamp)
+    }
+  },
+  methods: {
+    /**
+     * Emits a selectMonth event
+     * @param {Object} month
+     */
+    selectMonth: function selectMonth (month) {
+      if (month.isDisabled) {
+        return false
+      }
+      this.$emit('selectMonth', month);
+    },
+    /**
+     * Changes the year up or down
+     * @param {Number} incrementBy
+     */
+    changeYear: function changeYear (incrementBy) {
+      var date = this.pageDate;
+      this.utils.setFullYear(date, this.utils.getFullYear(date) + incrementBy);
+      this.$emit('changedYear', date);
+    },
+    /**
+     * Decrements the year
+     */
+    previousYear: function previousYear () {
+      if (!this.isPreviousYearDisabled()) {
+        this.changeYear(-1);
+      }
+    },
+    /**
+     * Checks if the previous year is disabled or not
+     * @return {Boolean}
+     */
+    isPreviousYearDisabled: function isPreviousYearDisabled () {
+      if (!this.disabledDates || !this.disabledDates.to) {
+        return false
+      }
+      return this.utils.getFullYear(this.disabledDates.to) >= this.utils.getFullYear(this.pageDate)
+    },
+    /**
+     * Increments the year
+     */
+    nextYear: function nextYear () {
+      if (!this.isNextYearDisabled()) {
+        this.changeYear(1);
+      }
+    },
+    /**
+     * Checks if the next year is disabled or not
+     * @return {Boolean}
+     */
+    isNextYearDisabled: function isNextYearDisabled () {
+      if (!this.disabledDates || !this.disabledDates.from) {
+        return false
+      }
+      return this.utils.getFullYear(this.disabledDates.from) <= this.utils.getFullYear(this.pageDate)
+    },
+    /**
+     * Emits an event that shows the year calendar
+     */
+    showYearCalendar: function showYearCalendar () {
+      this.$emit('showYearCalendar');
+    },
+    /**
+     * Whether the selected date is in this month
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isSelectedMonth: function isSelectedMonth (date) {
+      return (this.selectedDate &&
+        this.utils.getFullYear(this.selectedDate) === this.utils.getFullYear(date) &&
+        this.utils.getMonth(this.selectedDate) === this.utils.getMonth(date))
+    },
+    /**
+     * Whether a month is disabled
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isDisabledMonth: function isDisabledMonth (date) {
+      var disabledDates = false;
+
+      if (typeof this.disabledDates === 'undefined') {
+        return false
+      }
+
+      if (typeof this.disabledDates.to !== 'undefined' && this.disabledDates.to) {
+        if (
+          (this.utils.getMonth(date) < this.utils.getMonth(this.disabledDates.to) && this.utils.getFullYear(date) <= this.utils.getFullYear(this.disabledDates.to)) ||
+          this.utils.getFullYear(date) < this.utils.getFullYear(this.disabledDates.to)
+        ) {
+          disabledDates = true;
+        }
+      }
+      if (typeof this.disabledDates.from !== 'undefined' && this.disabledDates.from) {
+        if (
+          this.disabledDates.from &&
+          (this.utils.getMonth(date) > this.utils.getMonth(this.disabledDates.from) && this.utils.getFullYear(date) >= this.utils.getFullYear(this.disabledDates.from)) ||
+          this.utils.getFullYear(date) > this.utils.getFullYear(this.disabledDates.from)
+        ) {
+          disabledDates = true;
+        }
+      }
+
+      if (typeof this.disabledDates.customPredictor === 'function' && this.disabledDates.customPredictor(date)) {
+        disabledDates = true;
+      }
+      return disabledDates
+    }
+  }
+}
+// eslint-disable-next-line
+;
+
+(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=""; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
+var PickerYear = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showYearView),expression:"showYearView"}],class:[_vm.calendarClass, 'vdp-datepicker__calendar'],style:(_vm.calendarStyle),on:{"mousedown":function($event){$event.preventDefault();}}},[_vm._t("beforeCalendarHeader"),_vm._v(" "),_c('header',[_c('span',{staticClass:"prev",class:{'disabled': _vm.isLeftNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.nextDecade() : _vm.previousDecade();}}},[_vm._v("<")]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.getPageDecade))]),_vm._v(" "),_c('span',{staticClass:"next",class:{'disabled': _vm.isRightNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.previousDecade() : _vm.nextDecade();}}},[_vm._v(">")])]),_vm._v(" "),_vm._l((_vm.years),function(year){return _c('span',{key:year.timestamp,staticClass:"cell year",class:{ 'selected': year.isSelected, 'disabled': year.isDisabled },on:{"click":function($event){$event.stopPropagation();_vm.selectYear(year);}}},[_vm._v(_vm._s(year.year))])})],2)},staticRenderFns: [],
+  props: {
+    showYearView: Boolean,
+    selectedDate: Date,
+    pageDate: Date,
+    pageTimestamp: Number,
+    disabledDates: Object,
+    highlighted: Object,
+    calendarClass: [String, Object, Array],
+    calendarStyle: Object,
+    translation: Object,
+    isRtl: Boolean,
+    allowedToShowView: Function,
+    useUtc: Boolean
+  },
+  computed: {
+    years: function years () {
+      var this$1 = this;
+
+      var d = this.pageDate;
+      var years = [];
+      // set up a new date object to the beginning of the current 'page'7
+      var dObj = this.useUtc
+        ? new Date(Date.UTC(Math.floor(d.getUTCFullYear() / 10) * 10, d.getUTCMonth(), d.getUTCDate()))
+        : new Date(Math.floor(d.getFullYear() / 10) * 10, d.getMonth(), d.getDate(), d.getHours(), d.getMinutes());
+      for (var i = 0; i < 10; i++) {
+        years.push({
+          year: this$1.utils.getFullYear(dObj),
+          timestamp: dObj.getTime(),
+          isSelected: this$1.isSelectedYear(dObj),
+          isDisabled: this$1.isDisabledYear(dObj)
+        });
+        this$1.utils.setFullYear(dObj, this$1.utils.getFullYear(dObj) + 1);
+      }
+      return years
+    },
+    /**
+     * @return {String}
+     */
+    getPageDecade: function getPageDecade () {
+      var decadeStart = Math.floor(this.utils.getFullYear(this.pageDate) / 10) * 10;
+      var decadeEnd = decadeStart + 9;
+      var yearSuffix = this.translation.yearSuffix;
+      return (decadeStart + " - " + decadeEnd + yearSuffix)
+    },
+    /**
+     * Is the left hand navigation button disabled?
+     * @return {Boolean}
+     */
+    isLeftNavDisabled: function isLeftNavDisabled () {
+      return this.isRtl
+        ? this.isNextDecadeDisabled(this.pageTimestamp)
+        : this.isPreviousDecadeDisabled(this.pageTimestamp)
+    },
+    /**
+     * Is the right hand navigation button disabled?
+     * @return {Boolean}
+     */
+    isRightNavDisabled: function isRightNavDisabled () {
+      return this.isRtl
+        ? this.isPreviousDecadeDisabled(this.pageTimestamp)
+        : this.isNextDecadeDisabled(this.pageTimestamp)
+    }
+  },
+  data: function data () {
+    var constructedDateUtils = makeDateUtils(this.useUtc);
+    return {
+      utils: constructedDateUtils
+    }
+  },
+  methods: {
+    selectYear: function selectYear (year) {
+      if (year.isDisabled) {
+        return false
+      }
+      this.$emit('selectYear', year);
+    },
+    changeYear: function changeYear (incrementBy) {
+      var date = this.pageDate;
+      this.utils.setFullYear(date, this.utils.getFullYear(date) + incrementBy);
+      this.$emit('changedDecade', date);
+    },
+    previousDecade: function previousDecade () {
+      if (this.isPreviousDecadeDisabled()) {
+        return false
+      }
+      this.changeYear(-10);
+    },
+    isPreviousDecadeDisabled: function isPreviousDecadeDisabled () {
+      if (!this.disabledDates || !this.disabledDates.to) {
+        return false
+      }
+      return Math.floor(this.utils.getFullYear(this.disabledDates.to) / 10) * 10 >= Math.floor(this.utils.getFullYear(this.pageDate) / 10) * 10
+    },
+    nextDecade: function nextDecade () {
+      if (this.isNextDecadeDisabled()) {
+        return false
+      }
+      this.changeYear(10);
+    },
+    isNextDecadeDisabled: function isNextDecadeDisabled () {
+      if (!this.disabledDates || !this.disabledDates.from) {
+        return false
+      }
+      return Math.ceil(this.utils.getFullYear(this.disabledDates.from) / 10) * 10 <= Math.ceil(this.utils.getFullYear(this.pageDate) / 10) * 10
+    },
+
+    /**
+     * Whether the selected date is in this year
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isSelectedYear: function isSelectedYear (date) {
+      return this.selectedDate && this.utils.getFullYear(this.selectedDate) === this.utils.getFullYear(date)
+    },
+    /**
+     * Whether a year is disabled
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isDisabledYear: function isDisabledYear (date) {
+      var disabledDates = false;
+      if (typeof this.disabledDates === 'undefined' || !this.disabledDates) {
+        return false
+      }
+
+      if (typeof this.disabledDates.to !== 'undefined' && this.disabledDates.to) {
+        if (this.utils.getFullYear(date) < this.utils.getFullYear(this.disabledDates.to)) {
+          disabledDates = true;
+        }
+      }
+      if (typeof this.disabledDates.from !== 'undefined' && this.disabledDates.from) {
+        if (this.utils.getFullYear(date) > this.utils.getFullYear(this.disabledDates.from)) {
+          disabledDates = true;
+        }
+      }
+
+      if (typeof this.disabledDates.customPredictor === 'function' && this.disabledDates.customPredictor(date)) {
+        disabledDates = true;
+      }
+
+      return disabledDates
+    }
+  }
+}
+// eslint-disable-next-line
+;
+
+(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=".rtl { direction: rtl; } .vdp-datepicker { position: relative; text-align: left; } .vdp-datepicker * { box-sizing: border-box; } .vdp-datepicker__calendar { position: absolute; z-index: 100; background: #fff; width: 300px; border: 1px solid #ccc; } .vdp-datepicker__calendar header { display: block; line-height: 40px; } .vdp-datepicker__calendar header span { display: inline-block; text-align: center; width: 71.42857142857143%; float: left; } .vdp-datepicker__calendar header .prev, .vdp-datepicker__calendar header .next { width: 14.285714285714286%; float: left; text-indent: -10000px; position: relative; } .vdp-datepicker__calendar header .prev:after, .vdp-datepicker__calendar header .next:after { content: ''; position: absolute; left: 50%; top: 50%; -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); border: 6px solid transparent; } .vdp-datepicker__calendar header .prev:after { border-right: 10px solid #000; margin-left: -5px; } .vdp-datepicker__calendar header .prev.disabled:after { border-right: 10px solid #ddd; } .vdp-datepicker__calendar header .next:after { border-left: 10px solid #000; margin-left: 5px; } .vdp-datepicker__calendar header .next.disabled:after { border-left: 10px solid #ddd; } .vdp-datepicker__calendar header .prev:not(.disabled), .vdp-datepicker__calendar header .next:not(.disabled), .vdp-datepicker__calendar header .up:not(.disabled) { cursor: pointer; } .vdp-datepicker__calendar header .prev:not(.disabled):hover, .vdp-datepicker__calendar header .next:not(.disabled):hover, .vdp-datepicker__calendar header .up:not(.disabled):hover { background: #eee; } .vdp-datepicker__calendar .disabled { color: #ddd; cursor: default; } .vdp-datepicker__calendar .flex-rtl { display: flex; width: inherit; flex-wrap: wrap; } .vdp-datepicker__calendar .cell { display: inline-block; padding: 0 5px; width: 14.285714285714286%; height: 40px; line-height: 40px; text-align: center; vertical-align: middle; border: 1px solid transparent; } .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year { cursor: pointer; } .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover { border: 1px solid #4bd; } .vdp-datepicker__calendar .cell.selected { background: #4bd; } .vdp-datepicker__calendar .cell.selected:hover { background: #4bd; } .vdp-datepicker__calendar .cell.selected.highlighted { background: #4bd; } .vdp-datepicker__calendar .cell.highlighted { background: #cae5ed; } .vdp-datepicker__calendar .cell.highlighted.disabled { color: #a3a3a3; } .vdp-datepicker__calendar .cell.grey { color: #888; } .vdp-datepicker__calendar .cell.grey:hover { background: inherit; } .vdp-datepicker__calendar .cell.day-header { font-size: 75%; white-space: no-wrap; cursor: inherit; } .vdp-datepicker__calendar .cell.day-header:hover { background: inherit; } .vdp-datepicker__calendar .month, .vdp-datepicker__calendar .year { width: 33.333%; } .vdp-datepicker__clear-button, .vdp-datepicker__calendar-button { cursor: pointer; font-style: normal; } .vdp-datepicker__clear-button.disabled, .vdp-datepicker__calendar-button.disabled { color: #999; cursor: default; } "; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
+var Datepicker = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vdp-datepicker",class:[_vm.wrapperClass, _vm.isRtl ? 'rtl' : '']},[_c('date-input',{attrs:{"selectedDate":_vm.selectedDate,"resetTypedDate":_vm.resetTypedDate,"format":_vm.format,"translation":_vm.translation,"inline":_vm.inline,"id":_vm.id,"name":_vm.name,"refName":_vm.refName,"openDate":_vm.openDate,"placeholder":_vm.placeholder,"inputClass":_vm.inputClass,"typeable":_vm.typeable,"clearButton":_vm.clearButton,"clearButtonIcon":_vm.clearButtonIcon,"calendarButton":_vm.calendarButton,"calendarButtonIcon":_vm.calendarButtonIcon,"calendarButtonIconContent":_vm.calendarButtonIconContent,"disabled":_vm.disabled,"required":_vm.required,"bootstrapStyling":_vm.bootstrapStyling,"use-utc":_vm.useUtc},on:{"showCalendar":_vm.showCalendar,"closeCalendar":_vm.close,"typedDate":_vm.setTypedDate,"clearDate":_vm.clearDate}},[_vm._t("afterDateInput",null,{slot:"afterDateInput"})],2),_vm._v(" "),(_vm.allowedToShowView('day'))?_c('picker-day',{attrs:{"pageDate":_vm.pageDate,"selectedDate":_vm.selectedDate,"showDayView":_vm.showDayView,"fullMonthName":_vm.fullMonthName,"allowedToShowView":_vm.allowedToShowView,"disabledDates":_vm.disabledDates,"highlighted":_vm.highlighted,"calendarClass":_vm.calendarClass,"calendarStyle":_vm.calendarStyle,"translation":_vm.translation,"pageTimestamp":_vm.pageTimestamp,"isRtl":_vm.isRtl,"mondayFirst":_vm.mondayFirst,"dayCellContent":_vm.dayCellContent,"use-utc":_vm.useUtc},on:{"changedMonth":_vm.handleChangedMonthFromDayPicker,"selectDate":_vm.selectDate,"showMonthCalendar":_vm.showMonthCalendar,"selectedDisabled":_vm.selectDisabledDate}},[_vm._t("beforeCalendarHeader",null,{slot:"beforeCalendarHeader"})],2):_vm._e(),_vm._v(" "),(_vm.allowedToShowView('month'))?_c('picker-month',{attrs:{"pageDate":_vm.pageDate,"selectedDate":_vm.selectedDate,"showMonthView":_vm.showMonthView,"allowedToShowView":_vm.allowedToShowView,"disabledDates":_vm.disabledDates,"calendarClass":_vm.calendarClass,"calendarStyle":_vm.calendarStyle,"translation":_vm.translation,"isRtl":_vm.isRtl,"use-utc":_vm.useUtc},on:{"selectMonth":_vm.selectMonth,"showYearCalendar":_vm.showYearCalendar,"changedYear":_vm.setPageDate}},[_vm._t("beforeCalendarHeader",null,{slot:"beforeCalendarHeader"})],2):_vm._e(),_vm._v(" "),(_vm.allowedToShowView('year'))?_c('picker-year',{attrs:{"pageDate":_vm.pageDate,"selectedDate":_vm.selectedDate,"showYearView":_vm.showYearView,"allowedToShowView":_vm.allowedToShowView,"disabledDates":_vm.disabledDates,"calendarClass":_vm.calendarClass,"calendarStyle":_vm.calendarStyle,"translation":_vm.translation,"isRtl":_vm.isRtl,"use-utc":_vm.useUtc},on:{"selectYear":_vm.selectYear,"changedDecade":_vm.setPageDate}},[_vm._t("beforeCalendarHeader",null,{slot:"beforeCalendarHeader"})],2):_vm._e()],1)},staticRenderFns: [],
+  components: {
+    DateInput: DateInput,
+    PickerDay: PickerDay,
+    PickerMonth: PickerMonth,
+    PickerYear: PickerYear
+  },
+  props: {
+    value: {
+      validator: function (val) {
+        return val === null || val instanceof Date || typeof val === 'string' || typeof val === 'number'
+      }
+    },
+    name: String,
+    refName: String,
+    id: String,
+    format: {
+      type: [String, Function],
+      default: 'dd MMM yyyy'
+    },
+    language: {
+      type: Object,
+      default: function () { return en; }
+    },
+    openDate: {
+      validator: function (val) {
+        return val === null || val instanceof Date || typeof val === 'string' || typeof val === 'number'
+      }
+    },
+    dayCellContent: Function,
+    fullMonthName: Boolean,
+    disabledDates: Object,
+    highlighted: Object,
+    placeholder: String,
+    inline: Boolean,
+    calendarClass: [String, Object, Array],
+    inputClass: [String, Object, Array],
+    wrapperClass: [String, Object, Array],
+    mondayFirst: Boolean,
+    clearButton: Boolean,
+    clearButtonIcon: String,
+    calendarButton: Boolean,
+    calendarButtonIcon: String,
+    calendarButtonIconContent: String,
+    bootstrapStyling: Boolean,
+    initialView: String,
+    disabled: Boolean,
+    required: Boolean,
+    typeable: Boolean,
+    useUtc: Boolean,
+    minimumView: {
+      type: String,
+      default: 'day'
+    },
+    maximumView: {
+      type: String,
+      default: 'year'
+    }
+  },
+  data: function data () {
+    var startDate = this.openDate ? new Date(this.openDate) : new Date();
+    var constructedDateUtils = makeDateUtils(this.useUtc);
+    var pageTimestamp = constructedDateUtils.setDate(startDate, 1);
+    return {
+      /*
+       * Vue cannot observe changes to a Date Object so date must be stored as a timestamp
+       * This represents the first day of the current viewing month
+       * {Number}
+       */
+      pageTimestamp: pageTimestamp,
+      /*
+       * Selected Date
+       * {Date}
+       */
+      selectedDate: null,
+      /*
+       * Flags to show calendar views
+       * {Boolean}
+       */
+      showDayView: false,
+      showMonthView: false,
+      showYearView: false,
+      /*
+       * Positioning
+       */
+      calendarHeight: 0,
+      resetTypedDate: new Date(),
+      utils: constructedDateUtils
+    }
+  },
+  watch: {
+    value: function value (value$1) {
+      this.setValue(value$1);
+    },
+    openDate: function openDate () {
+      this.setPageDate();
+    },
+    initialView: function initialView () {
+      this.setInitialView();
+    }
+  },
+  computed: {
+    computedInitialView: function computedInitialView () {
+      if (!this.initialView) {
+        return this.minimumView
+      }
+
+      return this.initialView
+    },
+    pageDate: function pageDate () {
+      return new Date(this.pageTimestamp)
+    },
+
+    translation: function translation () {
+      return this.language
+    },
+
+    calendarStyle: function calendarStyle () {
+      return {
+        position: this.isInline ? 'static' : undefined
+      }
+    },
+    isOpen: function isOpen () {
+      return this.showDayView || this.showMonthView || this.showYearView
+    },
+    isInline: function isInline () {
+      return !!this.inline
+    },
+    isRtl: function isRtl () {
+      return this.translation.rtl === true
+    }
+  },
+  methods: {
+    /**
+     * Called in the event that the user navigates to date pages and
+     * closes the picker without selecting a date.
+     */
+    resetDefaultPageDate: function resetDefaultPageDate () {
+      if (this.selectedDate === null) {
+        this.setPageDate();
+        return
+      }
+      this.setPageDate(this.selectedDate);
+    },
+    /**
+     * Effectively a toggle to show/hide the calendar
+     * @return {mixed}
+     */
+    showCalendar: function showCalendar () {
+      if (this.disabled || this.isInline) {
+        return false
+      }
+      if (this.isOpen) {
+        return this.close(true)
+      }
+      this.setInitialView();
+      if (!this.isInline) {
+        this.$emit('opened');
+      }
+    },
+    /**
+     * Sets the initial picker page view: day, month or year
+     */
+    setInitialView: function setInitialView () {
+      var initialView = this.computedInitialView;
+      if (!this.allowedToShowView(initialView)) {
+        throw new Error(("initialView '" + (this.initialView) + "' cannot be rendered based on minimum '" + (this.minimumView) + "' and maximum '" + (this.maximumView) + "'"))
+      }
+      switch (initialView) {
+        case 'year':
+          this.showYearCalendar();
+          break
+        case 'month':
+          this.showMonthCalendar();
+          break
+        default:
+          this.showDayCalendar();
+          break
+      }
+    },
+    /**
+     * Are we allowed to show a specific picker view?
+     * @param {String} view
+     * @return {Boolean}
+     */
+    allowedToShowView: function allowedToShowView (view) {
+      var views = ['day', 'month', 'year'];
+      var minimumViewIndex = views.indexOf(this.minimumView);
+      var maximumViewIndex = views.indexOf(this.maximumView);
+      var viewIndex = views.indexOf(view);
+
+      return viewIndex >= minimumViewIndex && viewIndex <= maximumViewIndex
+    },
+    /**
+     * Show the day picker
+     * @return {Boolean}
+     */
+    showDayCalendar: function showDayCalendar () {
+      if (!this.allowedToShowView('day')) {
+        return false
+      }
+      this.close();
+      this.showDayView = true;
+      return true
+    },
+    /**
+     * Show the month picker
+     * @return {Boolean}
+     */
+    showMonthCalendar: function showMonthCalendar () {
+      if (!this.allowedToShowView('month')) {
+        return false
+      }
+      this.close();
+      this.showMonthView = true;
+      return true
+    },
+    /**
+     * Show the year picker
+     * @return {Boolean}
+     */
+    showYearCalendar: function showYearCalendar () {
+      if (!this.allowedToShowView('year')) {
+        return false
+      }
+      this.close();
+      this.showYearView = true;
+      return true
+    },
+    /**
+     * Set the selected date
+     * @param {Number} timestamp
+     */
+    setDate: function setDate (timestamp) {
+      var date = new Date(timestamp);
+      this.selectedDate = date;
+      this.setPageDate(date);
+      this.$emit('selected', date);
+      this.$emit('input', date);
+    },
+    /**
+     * Clear the selected date
+     */
+    clearDate: function clearDate () {
+      this.selectedDate = null;
+      this.setPageDate();
+      this.$emit('selected', null);
+      this.$emit('input', null);
+      this.$emit('cleared');
+    },
+    /**
+     * @param {Object} date
+     */
+    selectDate: function selectDate (date) {
+      this.setDate(date.timestamp);
+      if (!this.isInline) {
+        this.close(true);
+      }
+      this.resetTypedDate = new Date();
+    },
+    /**
+     * @param {Object} date
+     */
+    selectDisabledDate: function selectDisabledDate (date) {
+      this.$emit('selectedDisabled', date);
+    },
+    /**
+     * @param {Object} month
+     */
+    selectMonth: function selectMonth (month) {
+      var date = new Date(month.timestamp);
+      if (this.allowedToShowView('day')) {
+        this.setPageDate(date);
+        this.$emit('changedMonth', month);
+        this.showDayCalendar();
+      } else {
+        this.selectDate(month);
+      }
+    },
+    /**
+     * @param {Object} year
+     */
+    selectYear: function selectYear (year) {
+      var date = new Date(year.timestamp);
+      if (this.allowedToShowView('month')) {
+        this.setPageDate(date);
+        this.$emit('changedYear', year);
+        this.showMonthCalendar();
+      } else {
+        this.selectDate(year);
+      }
+    },
+    /**
+     * Set the datepicker value
+     * @param {Date|String|Number|null} date
+     */
+    setValue: function setValue (date) {
+      if (typeof date === 'string' || typeof date === 'number') {
+        var parsed = new Date(date);
+        date = isNaN(parsed.valueOf()) ? null : parsed;
+      }
+      if (!date) {
+        this.setPageDate();
+        this.selectedDate = null;
+        return
+      }
+      this.selectedDate = date;
+      this.setPageDate(date);
+    },
+    /**
+     * Sets the date that the calendar should open on
+     */
+    setPageDate: function setPageDate (date) {
+      if (!date) {
+        if (this.openDate) {
+          date = new Date(this.openDate);
+        } else {
+          date = new Date();
+        }
+      }
+      this.pageTimestamp = this.utils.setDate(new Date(date), 1);
+    },
+    /**
+     * Handles a month change from the day picker
+     */
+    handleChangedMonthFromDayPicker: function handleChangedMonthFromDayPicker (date) {
+      this.setPageDate(date);
+      this.$emit('changedMonth', date);
+    },
+    /**
+     * Set the date from a typedDate event
+     */
+    setTypedDate: function setTypedDate (date) {
+      this.setDate(date.getTime());
+    },
+    /**
+     * Close all calendar layers
+     * @param {Boolean} full - emit close event
+     */
+    close: function close (full) {
+      this.showDayView = this.showMonthView = this.showYearView = false;
+      if (!this.isInline) {
+        if (full) {
+          this.$emit('closed');
+        }
+        document.removeEventListener('click', this.clickOutside, false);
+      }
+    },
+    /**
+     * Initiate the component
+     */
+    init: function init () {
+      if (this.value) {
+        this.setValue(this.value);
+      }
+      if (this.isInline) {
+        this.setInitialView();
+      }
+    }
+  },
+  mounted: function mounted () {
+    this.init();
+  }
+}
+// eslint-disable-next-line
+;
+
+/* harmony default export */ __webpack_exports__["a"] = (Datepicker);
+
 
 /***/ })
 /******/ ]);
