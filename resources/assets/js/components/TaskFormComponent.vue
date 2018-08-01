@@ -9,13 +9,12 @@
     </div>
     <div class="form-group">
       <label for="" class="control-label">By...</label>
-      <!--<datetime input-class="form-control" v-model="task.due_date" v-on:input="validate('due_date')" v-on:touch="console.log('touched')"></datetime>-->
-      <vuejs-datepicker v-model="task.due_date" @input="validate('due_date')" :bootstrap-styling="true"></vuejs-datepicker>
+      <vuejs-datepicker v-model="task.due_date" @input="validate('due_date')" :bootstrap-styling="true" format="yyyy-MM-dd"></vuejs-datepicker>
       <div class="text-danger" v-for="error of fields.due_date.errors">
         {{ error }}
       </div>
     </div>    
-    <button class="btn btn-success" @click="submit">Save</button>
+    <button class="btn btn-success" :disabled="!allowSubmit" @click="submit">Save</button>
     <router-link to="/" class="btn btn-default">Cancel</router-link>
   </div>
 </template>
@@ -55,20 +54,25 @@ import messageService from '../MessageService';
     },
     methods: {
       validate(fieldname) {
-        this.allowSubmit = true;
         let field = this.fields[fieldname];
-        field.errors = [];
+        this.fields[fieldname].errors = [];
         if (!this.task[fieldname]) {
-          field.errors.push('Please enter a ' + field.label);
-          this.allowSubmit = false;
+          this.fields[fieldname].errors.push('Please enter a ' + field.label);
         }
+        // update form allow submit state
+        this.allowSubmit = Object.keys(this.fields).filter(field => this.fields[field].errors.length > 0).length < 1;
       },
       submit() {
+        Object.keys(this.fields).forEach(field => {
+          this.validate(field);
+        })
+
         if (!this.allowSubmit) {
           return false;
         }
+
         if (this.task.id !== null) {
-          axios.put(`/api/task/${this.task.id.value}`, this.task).then(response => {
+          axios.put(`/api/task/${this.task.id}`, this.task).then(response => {
             this.$router.push('/');
             this.messageService.pushMessage('Task updated successfully');
           }).catch(error => {
@@ -79,7 +83,7 @@ import messageService from '../MessageService';
             this.$router.push('/');
             this.messageService.pushMessage('Task created successfully');
           }).catch(error => {
-            this.messageService.pushError(error)
+            this.messageService.pushError(error);
           })
         }
       }

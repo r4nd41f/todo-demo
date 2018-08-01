@@ -70,13 +70,13 @@
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(178)
+  __webpack_require__(170)
 }
-var normalizeComponent = __webpack_require__(6)
+var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(181)
+var __vue_script__ = __webpack_require__(173)
 /* template */
-var __vue_template__ = __webpack_require__(183)
+var __vue_template__ = __webpack_require__(175)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -1953,7 +1953,7 @@ module.exports = Component.exports
             try {
                 oldLocale = globalLocale._abbr;
                 var aliasedRequire = require;
-                __webpack_require__(365)("./" + name);
+                __webpack_require__(357)("./" + name);
                 getSetGlobalLocale(oldLocale);
             } catch (e) {}
         }
@@ -4625,7 +4625,7 @@ module.exports = Component.exports
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)(module)))
 
 /***/ }),
 /* 2 */
@@ -4634,7 +4634,7 @@ module.exports = Component.exports
 "use strict";
 
 
-var bind = __webpack_require__(13);
+var bind = __webpack_require__(12);
 var isBuffer = __webpack_require__(148);
 
 /*global toString:true*/
@@ -4941,33 +4941,6 @@ module.exports = {
 /* 3 */
 /***/ (function(module, exports) {
 
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
@@ -5047,7 +5020,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -5066,7 +5039,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(180)
+var listToStyles = __webpack_require__(172)
 
 /*
 type StyleObject = {
@@ -5275,7 +5248,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -5384,6 +5357,33 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5485,200 +5485,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports) {
-
-// shim for using process in browser
-var process = module.exports = {};
-
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-
-
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-
-
-
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
-    }
-};
-
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) { return [] }
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
-
-
-/***/ }),
-/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5695,7 +5505,7 @@ process.umask = function() { return 0; };
 });
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -5723,7 +5533,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8249,10 +8059,10 @@ Popper.Defaults = Defaults;
 /* harmony default export */ __webpack_exports__["default"] = (Popper);
 //# sourceMappingURL=popper.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(6)))
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -18623,7 +18433,7 @@ return jQuery;
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18638,6 +18448,196 @@ module.exports = function bind(fn, thisArg) {
     return fn.apply(thisArg, args);
   };
 };
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
 
 
 /***/ }),
@@ -30740,7 +30740,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(142);
-module.exports = __webpack_require__(387);
+module.exports = __webpack_require__(379);
 
 
 /***/ }),
@@ -30749,11 +30749,11 @@ module.exports = __webpack_require__(387);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuejs_datepicker__ = __webpack_require__(392);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuejs_datepicker__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_octicon_components_Octicon_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_octicon_components_Octicon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_octicon_components_Octicon_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_octicon_icons__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_octicon_icons__ = __webpack_require__(176);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -30776,11 +30776,11 @@ window.Vue = __webpack_require__(165);
 
 
 
-Vue.component('task-list', __webpack_require__(361));
-Vue.component('task-form', __webpack_require__(367));
-Vue.component('calendar-view', __webpack_require__(372));
-Vue.component('list-view', __webpack_require__(377));
-Vue.component('alert-messages', __webpack_require__(382));
+Vue.component('task-list', __webpack_require__(353));
+Vue.component('task-form', __webpack_require__(359));
+Vue.component('calendar-view', __webpack_require__(364));
+Vue.component('list-view', __webpack_require__(369));
+Vue.component('alert-messages', __webpack_require__(374));
 Vue.component('vuejs-datepicker', __WEBPACK_IMPORTED_MODULE_0_vuejs_datepicker__["a" /* default */]);
 
 Vue.component('octicon', __WEBPACK_IMPORTED_MODULE_2_vue_octicon_components_Octicon_vue___default.a);
@@ -30806,7 +30806,7 @@ var app = new Vue({
 
 
 window._ = __webpack_require__(144);
-window.Popper = __webpack_require__(11).default;
+window.Popper = __webpack_require__(10).default;
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -30815,7 +30815,7 @@ window.Popper = __webpack_require__(11).default;
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(12);
+  window.$ = window.jQuery = __webpack_require__(11);
 
   __webpack_require__(145);
 } catch (e) {}
@@ -47972,7 +47972,7 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(10)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6), __webpack_require__(9)(module)))
 
 /***/ }),
 /* 145 */
@@ -47984,7 +47984,7 @@ if (token) {
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
-   true ? factory(exports, __webpack_require__(12), __webpack_require__(11)) :
+   true ? factory(exports, __webpack_require__(11), __webpack_require__(10)) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'popper.js'], factory) :
   (factory((global.bootstrap = {}),global.jQuery,global.Popper));
 }(this, (function (exports,$,Popper) { 'use strict';
@@ -51938,7 +51938,7 @@ module.exports = __webpack_require__(147);
 
 
 var utils = __webpack_require__(2);
-var bind = __webpack_require__(13);
+var bind = __webpack_require__(12);
 var Axios = __webpack_require__(149);
 var defaults = __webpack_require__(7);
 
@@ -63776,7 +63776,7 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(166).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6), __webpack_require__(166).setImmediate))
 
 /***/ }),
 /* 166 */
@@ -63846,7 +63846,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ }),
 /* 167 */
@@ -64039,19 +64039,1507 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6), __webpack_require__(13)))
 
 /***/ }),
-/* 168 */,
-/* 169 */,
-/* 170 */,
-/* 171 */,
-/* 172 */,
-/* 173 */,
-/* 174 */,
-/* 175 */,
-/* 176 */,
-/* 177 */
+/* 168 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/*!
+ * vuejs-datepicker v1.5.2
+ * (c) 2016-2018 Charlie Kassel
+ * Released under the MIT License.
+ */
+var Language = function Language (language, months, monthsAbbr, days) {
+  this.language = language;
+  this.months = months;
+  this.monthsAbbr = monthsAbbr;
+  this.days = days;
+  this.rtl = false;
+  this.ymd = false;
+  this.yearSuffix = '';
+};
+
+var prototypeAccessors = { language: { configurable: true },months: { configurable: true },monthsAbbr: { configurable: true },days: { configurable: true } };
+
+prototypeAccessors.language.get = function () {
+  return this._language
+};
+
+prototypeAccessors.language.set = function (language) {
+  if (typeof language !== 'string') {
+    throw new TypeError('Language must be a string')
+  }
+  this._language = language;
+};
+
+prototypeAccessors.months.get = function () {
+  return this._months
+};
+
+prototypeAccessors.months.set = function (months) {
+  if (months.length !== 12) {
+    throw new RangeError(("There must be 12 months for " + (this.language) + " language"))
+  }
+  this._months = months;
+};
+
+prototypeAccessors.monthsAbbr.get = function () {
+  return this._monthsAbbr
+};
+
+prototypeAccessors.monthsAbbr.set = function (monthsAbbr) {
+  if (monthsAbbr.length !== 12) {
+    throw new RangeError(("There must be 12 abbreviated months for " + (this.language) + " language"))
+  }
+  this._monthsAbbr = monthsAbbr;
+};
+
+prototypeAccessors.days.get = function () {
+  return this._days
+};
+
+prototypeAccessors.days.set = function (days) {
+  if (days.length !== 7) {
+    throw new RangeError(("There must be 7 days for " + (this.language) + " language"))
+  }
+  this._days = days;
+};
+
+Object.defineProperties( Language.prototype, prototypeAccessors );
+
+var en = new Language(
+  'English',
+  ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+)
+// eslint-disable-next-line
+;
+
+var utils = {
+  /**
+   * @type {Boolean}
+   */
+  useUtc: false,
+  /**
+   * Returns the full year, using UTC or not
+   * @param {Date} date
+   */
+  getFullYear: function getFullYear (date) {
+    return this.useUtc ? date.getUTCFullYear() : date.getFullYear()
+  },
+
+  /**
+   * Returns the month, using UTC or not
+   * @param {Date} date
+   */
+  getMonth: function getMonth (date) {
+    return this.useUtc ? date.getUTCMonth() : date.getMonth()
+  },
+
+  /**
+   * Returns the date, using UTC or not
+   * @param {Date} date
+   */
+  getDate: function getDate (date) {
+    return this.useUtc ? date.getUTCDate() : date.getDate()
+  },
+
+  /**
+   * Returns the day, using UTC or not
+   * @param {Date} date
+   */
+  getDay: function getDay (date) {
+    return this.useUtc ? date.getUTCDay() : date.getDay()
+  },
+
+  /**
+   * Returns the hours, using UTC or not
+   * @param {Date} date
+   */
+  getHours: function getHours (date) {
+    return this.useUtc ? date.getUTCHours() : date.getHours()
+  },
+
+  /**
+   * Returns the minutes, using UTC or not
+   * @param {Date} date
+   */
+  getMinutes: function getMinutes (date) {
+    return this.useUtc ? date.getUTCMinutes() : date.getMinutes()
+  },
+
+  /**
+   * Sets the full year, using UTC or not
+   * @param {Date} date
+   */
+  setFullYear: function setFullYear (date, value, useUtc) {
+    return this.useUtc ? date.setUTCFullYear(value) : date.setFullYear(value)
+  },
+
+  /**
+   * Sets the month, using UTC or not
+   * @param {Date} date
+   */
+  setMonth: function setMonth (date, value, useUtc) {
+    return this.useUtc ? date.setUTCMonth(value) : date.setMonth(value)
+  },
+
+  /**
+   * Sets the date, using UTC or not
+   * @param {Date} date
+   * @param {Number} value
+   */
+  setDate: function setDate (date, value, useUtc) {
+    return this.useUtc ? date.setUTCDate(value) : date.setDate(value)
+  },
+
+  /**
+   * Check if date1 is equivalent to date2, without comparing the time
+   * @see https://stackoverflow.com/a/6202196/4455925
+   * @param {Date} date1
+   * @param {Date} date2
+   */
+  compareDates: function compareDates (date1, date2) {
+    var d1 = new Date(date1.getTime());
+    var d2 = new Date(date2.getTime());
+
+    if (this.useUtc) {
+      d1.setUTCHours(0, 0, 0, 0);
+      d2.setUTCHours(0, 0, 0, 0);
+    } else {
+      d1.setHours(0, 0, 0, 0);
+      d2.setHours(0, 0, 0, 0);
+    }
+    return d1.getTime() === d2.getTime()
+  },
+
+  /**
+   * Validates a date object
+   * @param {Date} date - an object instantiated with the new Date constructor
+   * @return {Boolean}
+   */
+  isValidDate: function isValidDate (date) {
+    if (Object.prototype.toString.call(date) !== '[object Date]') {
+      return false
+    }
+    return !isNaN(date.getTime())
+  },
+
+  /**
+   * Return abbreviated week day name
+   * @param {Date}
+   * @param {Array}
+   * @return {String}
+   */
+  getDayNameAbbr: function getDayNameAbbr (date, days) {
+    if (typeof date !== 'object') {
+      throw TypeError('Invalid Type')
+    }
+    return days[this.getDay(date)]
+  },
+
+  /**
+   * Return name of the month
+   * @param {Number|Date}
+   * @param {Array}
+   * @return {String}
+   */
+  getMonthName: function getMonthName (month, months) {
+    if (!months) {
+      throw Error('missing 2nd parameter Months array')
+    }
+    if (typeof month === 'object') {
+      return months[this.getMonth(month)]
+    }
+    if (typeof month === 'number') {
+      return months[month]
+    }
+    throw TypeError('Invalid type')
+  },
+
+  /**
+   * Return an abbreviated version of the month
+   * @param {Number|Date}
+   * @return {String}
+   */
+  getMonthNameAbbr: function getMonthNameAbbr (month, monthsAbbr) {
+    if (!monthsAbbr) {
+      throw Error('missing 2nd paramter Months array')
+    }
+    if (typeof month === 'object') {
+      return monthsAbbr[this.getMonth(month)]
+    }
+    if (typeof month === 'number') {
+      return monthsAbbr[month]
+    }
+    throw TypeError('Invalid type')
+  },
+
+  /**
+   * Alternative get total number of days in month
+   * @param {Number} year
+   * @param {Number} m
+   * @return {Number}
+   */
+  daysInMonth: function daysInMonth (year, month) {
+    return /8|3|5|10/.test(month) ? 30 : month === 1 ? (!(year % 4) && year % 100) || !(year % 400) ? 29 : 28 : 31
+  },
+
+  /**
+   * Get nth suffix for date
+   * @param {Number} day
+   * @return {String}
+   */
+  getNthSuffix: function getNthSuffix (day) {
+    switch (day) {
+      case 1:
+      case 21:
+      case 31:
+        return 'st'
+      case 2:
+      case 22:
+        return 'nd'
+      case 3:
+      case 23:
+        return 'rd'
+      default:
+        return 'th'
+    }
+  },
+
+  /**
+   * Formats date object
+   * @param {Date}
+   * @param {String}
+   * @param {Object}
+   * @return {String}
+   */
+  formatDate: function formatDate (date, format, translation) {
+    translation = (!translation) ? en : translation;
+    var year = this.getFullYear(date);
+    var month = this.getMonth(date) + 1;
+    var day = this.getDate(date);
+    var str = format
+      .replace(/dd/, ('0' + day).slice(-2))
+      .replace(/d/, day)
+      .replace(/yyyy/, year)
+      .replace(/yy/, String(year).slice(2))
+      .replace(/MMMM/, this.getMonthName(this.getMonth(date), translation.months))
+      .replace(/MMM/, this.getMonthNameAbbr(this.getMonth(date), translation.monthsAbbr))
+      .replace(/MM/, ('0' + month).slice(-2))
+      .replace(/M(?!a|ä|e)/, month)
+      .replace(/su/, this.getNthSuffix(this.getDate(date)))
+      .replace(/D(?!e|é|i)/, this.getDayNameAbbr(date, translation.days));
+    return str
+  },
+
+  /**
+   * Creates an array of dates for each day in between two dates.
+   * @param {Date} start
+   * @param {Date} end
+   * @return {Array}
+   */
+  createDateArray: function createDateArray (start, end) {
+    var this$1 = this;
+
+    var dates = [];
+    while (start <= end) {
+      dates.push(new Date(start));
+      start = this$1.setDate(new Date(start), this$1.getDate(new Date(start)) + 1);
+    }
+    return dates
+  }
+};
+
+var makeDateUtils = function (useUtc) { return (Object.assign({}, utils, {useUtc: useUtc})); };
+
+Object.assign({}, utils)
+// eslint-disable-next-line
+;
+
+(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=""; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
+var DateInput = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:{'input-group' : _vm.bootstrapStyling}},[(_vm.calendarButton)?_c('span',{staticClass:"vdp-datepicker__calendar-button",class:{'input-group-prepend' : _vm.bootstrapStyling},style:({'cursor:not-allowed;' : _vm.disabled}),on:{"click":_vm.showCalendar}},[_c('span',{class:{'input-group-text' : _vm.bootstrapStyling}},[_c('i',{class:_vm.calendarButtonIcon},[_vm._v(" "+_vm._s(_vm.calendarButtonIconContent)+" "),(!_vm.calendarButtonIcon)?_c('span',[_vm._v("…")]):_vm._e()])])]):_vm._e(),_vm._v(" "),_c('input',{ref:_vm.refName,class:_vm.computedInputClass,attrs:{"type":_vm.inline ? 'hidden' : 'text',"name":_vm.name,"id":_vm.id,"open-date":_vm.openDate,"placeholder":_vm.placeholder,"clear-button":_vm.clearButton,"disabled":_vm.disabled,"required":_vm.required,"autocomplete":"off"},domProps:{"value":_vm.formattedValue},on:{"click":_vm.showCalendar,"keydown":_vm.allowTyping,"keyup":_vm.parseTypedDate,"blur":_vm.inputBlurred}}),_vm._v(" "),(_vm.clearButton && _vm.selectedDate)?_c('span',{staticClass:"vdp-datepicker__clear-button",class:{'input-group-append' : _vm.bootstrapStyling},on:{"click":function($event){_vm.clearDate();}}},[_c('span',{class:{'input-group-text' : _vm.bootstrapStyling}},[_c('i',{class:_vm.clearButtonIcon},[(!_vm.clearButtonIcon)?_c('span',[_vm._v("×")]):_vm._e()])])]):_vm._e(),_vm._v(" "),_vm._t("afterDateInput")],2)},staticRenderFns: [],
+  props: {
+    selectedDate: Date,
+    resetTypedDate: [Date],
+    format: [String, Function],
+    translation: Object,
+    inline: Boolean,
+    id: String,
+    name: String,
+    refName: String,
+    openDate: Date,
+    placeholder: String,
+    inputClass: [String, Object, Array],
+    clearButton: Boolean,
+    clearButtonIcon: String,
+    calendarButton: Boolean,
+    calendarButtonIcon: String,
+    calendarButtonIconContent: String,
+    disabled: Boolean,
+    required: Boolean,
+    typeable: Boolean,
+    bootstrapStyling: Boolean,
+    useUtc: Boolean
+  },
+  data: function data () {
+    var constructedDateUtils = makeDateUtils(this.useUtc);
+    return {
+      input: null,
+      typedDate: false,
+      utils: constructedDateUtils
+    }
+  },
+  computed: {
+    formattedValue: function formattedValue () {
+      if (!this.selectedDate) {
+        return null
+      }
+      if (this.typedDate) {
+        return this.typedDate
+      }
+      return typeof this.format === 'function'
+        ? this.format(this.selectedDate)
+        : this.utils.formatDate(new Date(this.selectedDate), this.format, this.translation)
+    },
+
+    computedInputClass: function computedInputClass () {
+      if (this.bootstrapStyling) {
+        if (typeof this.inputClass === 'string') {
+          return [this.inputClass, 'form-control'].join(' ')
+        }
+        return Object.assign({}, {'form-control': true}, this.inputClass)
+      }
+      return this.inputClass
+    }
+  },
+  watch: {
+    resetTypedDate: function resetTypedDate () {
+      this.typedDate = false;
+    }
+  },
+  methods: {
+    showCalendar: function showCalendar () {
+      this.$emit('showCalendar');
+    },
+    /**
+     * Prevent typing if not typeable
+     * @param {Event} event
+     * @return {Boolean}
+     */
+    allowTyping: function allowTyping (event) {
+      if (!this.typeable) {
+        event.preventDefault();
+        return false
+      }
+      return true
+    },
+    /**
+     * Attempt to parse a typed date
+     * @param {Event} event
+     */
+    parseTypedDate: function parseTypedDate (event) {
+      // close calendar if escape or enter are pressed
+      if ([
+        27, // escape
+        13  // enter
+      ].includes(event.keyCode)) {
+        this.input.blur();
+      }
+
+      if (this.typeable) {
+        var typedDate = Date.parse(this.input.value);
+        if (!isNaN(typedDate)) {
+          this.typedDate = this.input.value;
+          this.$emit('typedDate', new Date(this.typedDate));
+        }
+      }
+    },
+    /**
+     * nullify the typed date to defer to regular formatting
+     * called once the input is blurred
+     */
+    inputBlurred: function inputBlurred () {
+      if (this.typeable && isNaN(Date.parse(this.input.value))) {
+        this.clearDate();
+        this.input.value = null;
+        this.typedDate = null;
+      }
+
+      this.$emit('closeCalendar');
+    },
+    /**
+     * emit a clearDate event
+     */
+    clearDate: function clearDate () {
+      this.$emit('clearDate');
+    }
+  },
+  mounted: function mounted () {
+    this.input = this.$el.querySelector('input');
+  }
+}
+// eslint-disable-next-line
+;
+
+(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=""; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
+var PickerDay = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showDayView),expression:"showDayView"}],class:[_vm.calendarClass, 'vdp-datepicker__calendar'],style:(_vm.calendarStyle),on:{"mousedown":function($event){$event.preventDefault();}}},[_vm._t("beforeCalendarHeader"),_vm._v(" "),_c('header',[_c('span',{staticClass:"prev",class:{'disabled': _vm.isLeftNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.nextMonth() : _vm.previousMonth();}}},[_vm._v("<")]),_vm._v(" "),_c('span',{staticClass:"day__month_btn",class:_vm.allowedToShowView('month') ? 'up' : '',on:{"click":_vm.showMonthCalendar}},[_vm._v(_vm._s(_vm.isYmd ? _vm.currYearName : _vm.currMonthName)+" "+_vm._s(_vm.isYmd ? _vm.currMonthName : _vm.currYearName))]),_vm._v(" "),_c('span',{staticClass:"next",class:{'disabled': _vm.isRightNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.previousMonth() : _vm.nextMonth();}}},[_vm._v(">")])]),_vm._v(" "),_c('div',{class:_vm.isRtl ? 'flex-rtl' : ''},[_vm._l((_vm.daysOfWeek),function(d){return _c('span',{key:d.timestamp,staticClass:"cell day-header"},[_vm._v(_vm._s(d))])}),_vm._v(" "),(_vm.blankDays > 0)?_vm._l((_vm.blankDays),function(d){return _c('span',{key:d.timestamp,staticClass:"cell day blank"})}):_vm._e(),_vm._l((_vm.days),function(day){return _c('span',{key:day.timestamp,staticClass:"cell day",class:_vm.dayClasses(day),domProps:{"innerHTML":_vm._s(_vm.dayCellContent(day))},on:{"click":function($event){_vm.selectDate(day);}}})})],2)],2)},staticRenderFns: [],
+  props: {
+    showDayView: Boolean,
+    selectedDate: Date,
+    pageDate: Date,
+    pageTimestamp: Number,
+    fullMonthName: Boolean,
+    allowedToShowView: Function,
+    dayCellContent: {
+      type: Function,
+      default: function (day) { return day.date; }
+    },
+    disabledDates: Object,
+    highlighted: Object,
+    calendarClass: [String, Object, Array],
+    calendarStyle: Object,
+    translation: Object,
+    isRtl: Boolean,
+    mondayFirst: Boolean,
+    useUtc: Boolean
+  },
+  data: function data () {
+    var constructedDateUtils = makeDateUtils(this.useUtc);
+    return {
+      utils: constructedDateUtils
+    }
+  },
+  computed: {
+    /**
+     * Returns an array of day names
+     * @return {String[]}
+     */
+    daysOfWeek: function daysOfWeek () {
+      if (this.mondayFirst) {
+        var tempDays = this.translation.days.slice();
+        tempDays.push(tempDays.shift());
+        return tempDays
+      }
+      return this.translation.days
+    },
+    /**
+     * Returns the day number of the week less one for the first of the current month
+     * Used to show amount of empty cells before the first in the day calendar layout
+     * @return {Number}
+     */
+    blankDays: function blankDays () {
+      var d = this.pageDate;
+      var dObj = this.useUtc
+        ? new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1))
+        : new Date(d.getFullYear(), d.getMonth(), 1, d.getHours(), d.getMinutes());
+      if (this.mondayFirst) {
+        return this.utils.getDay(dObj) > 0 ? this.utils.getDay(dObj) - 1 : 6
+      }
+      return this.utils.getDay(dObj)
+    },
+    /**
+     * @return {Object[]}
+     */
+    days: function days () {
+      var this$1 = this;
+
+      var d = this.pageDate;
+      var days = [];
+      // set up a new date object to the beginning of the current 'page'
+      var dObj = this.useUtc
+        ? new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1))
+        : new Date(d.getFullYear(), d.getMonth(), 1, d.getHours(), d.getMinutes());
+      var daysInMonth = this.utils.daysInMonth(this.utils.getFullYear(dObj), this.utils.getMonth(dObj));
+      for (var i = 0; i < daysInMonth; i++) {
+        days.push({
+          date: this$1.utils.getDate(dObj),
+          timestamp: dObj.getTime(),
+          isSelected: this$1.isSelectedDate(dObj),
+          isDisabled: this$1.isDisabledDate(dObj),
+          isHighlighted: this$1.isHighlightedDate(dObj),
+          isHighlightStart: this$1.isHighlightStart(dObj),
+          isHighlightEnd: this$1.isHighlightEnd(dObj),
+          isToday: this$1.utils.compareDates(dObj, new Date()),
+          isWeekend: this$1.utils.getDay(dObj) === 0 || this$1.utils.getDay(dObj) === 6,
+          isSaturday: this$1.utils.getDay(dObj) === 6,
+          isSunday: this$1.utils.getDay(dObj) === 0
+        });
+        this$1.utils.setDate(dObj, this$1.utils.getDate(dObj) + 1);
+      }
+      return days
+    },
+    /**
+     * Gets the name of the month the current page is on
+     * @return {String}
+     */
+    currMonthName: function currMonthName () {
+      var monthName = this.fullMonthName ? this.translation.months : this.translation.monthsAbbr;
+      return this.utils.getMonthNameAbbr(this.utils.getMonth(this.pageDate), monthName)
+    },
+    /**
+     * Gets the name of the year that current page is on
+     * @return {Number}
+     */
+    currYearName: function currYearName () {
+      var yearSuffix = this.translation.yearSuffix;
+      return ("" + (this.utils.getFullYear(this.pageDate)) + yearSuffix)
+    },
+    /**
+     * Is this translation using year/month/day format?
+     * @return {Boolean}
+     */
+    isYmd: function isYmd () {
+      return this.translation.ymd && this.translation.ymd === true
+    },
+    /**
+     * Is the left hand navigation button disabled?
+     * @return {Boolean}
+     */
+    isLeftNavDisabled: function isLeftNavDisabled () {
+      return this.isRtl
+        ? this.isNextMonthDisabled(this.pageTimestamp)
+        : this.isPreviousMonthDisabled(this.pageTimestamp)
+    },
+    /**
+     * Is the right hand navigation button disabled?
+     * @return {Boolean}
+     */
+    isRightNavDisabled: function isRightNavDisabled () {
+      return this.isRtl
+        ? this.isPreviousMonthDisabled(this.pageTimestamp)
+        : this.isNextMonthDisabled(this.pageTimestamp)
+    }
+  },
+  methods: {
+    selectDate: function selectDate (date) {
+      if (date.isDisabled) {
+        this.$emit('selectedDisabled', date);
+        return false
+      }
+      this.$emit('selectDate', date);
+    },
+    /**
+     * @return {Number}
+     */
+    getPageMonth: function getPageMonth () {
+      return this.utils.getMonth(this.pageDate)
+    },
+    /**
+     * Emit an event to show the month picker
+     */
+    showMonthCalendar: function showMonthCalendar () {
+      this.$emit('showMonthCalendar');
+    },
+    /**
+     * Change the page month
+     * @param {Number} incrementBy
+     */
+    changeMonth: function changeMonth (incrementBy) {
+      var date = this.pageDate;
+      this.utils.setMonth(date, this.utils.getMonth(date) + incrementBy);
+      this.$emit('changedMonth', date);
+    },
+    /**
+     * Decrement the page month
+     */
+    previousMonth: function previousMonth () {
+      if (!this.isPreviousMonthDisabled()) {
+        this.changeMonth(-1);
+      }
+    },
+    /**
+     * Is the previous month disabled?
+     * @return {Boolean}
+     */
+    isPreviousMonthDisabled: function isPreviousMonthDisabled () {
+      if (!this.disabledDates || !this.disabledDates.to) {
+        return false
+      }
+      var d = this.pageDate;
+      return this.utils.getMonth(this.disabledDates.to) >= this.utils.getMonth(d) &&
+        this.utils.getFullYear(this.disabledDates.to) >= this.utils.getFullYear(d)
+    },
+    /**
+     * Increment the current page month
+     */
+    nextMonth: function nextMonth () {
+      if (!this.isNextMonthDisabled()) {
+        this.changeMonth(+1);
+      }
+    },
+    /**
+     * Is the next month disabled?
+     * @return {Boolean}
+     */
+    isNextMonthDisabled: function isNextMonthDisabled () {
+      if (!this.disabledDates || !this.disabledDates.from) {
+        return false
+      }
+      var d = this.pageDate;
+      return this.utils.getMonth(this.disabledDates.from) <= this.utils.getMonth(d) &&
+        this.utils.getFullYear(this.disabledDates.from) <= this.utils.getFullYear(d)
+    },
+    /**
+     * Whether a day is selected
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isSelectedDate: function isSelectedDate (dObj) {
+      return this.selectedDate && this.utils.compareDates(this.selectedDate, dObj)
+    },
+    /**
+     * Whether a day is disabled
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isDisabledDate: function isDisabledDate (date) {
+      var this$1 = this;
+
+      var disabledDates = false;
+
+      if (typeof this.disabledDates === 'undefined') {
+        return false
+      }
+
+      if (typeof this.disabledDates.dates !== 'undefined') {
+        this.disabledDates.dates.forEach(function (d) {
+          if (this$1.utils.compareDates(date, d)) {
+            disabledDates = true;
+            return true
+          }
+        });
+      }
+      if (typeof this.disabledDates.to !== 'undefined' && this.disabledDates.to && date < this.disabledDates.to) {
+        disabledDates = true;
+      }
+      if (typeof this.disabledDates.from !== 'undefined' && this.disabledDates.from && date > this.disabledDates.from) {
+        disabledDates = true;
+      }
+      if (typeof this.disabledDates.ranges !== 'undefined') {
+        this.disabledDates.ranges.forEach(function (range) {
+          if (typeof range.from !== 'undefined' && range.from && typeof range.to !== 'undefined' && range.to) {
+            if (date < range.to && date > range.from) {
+              disabledDates = true;
+              return true
+            }
+          }
+        });
+      }
+      if (typeof this.disabledDates.days !== 'undefined' && this.disabledDates.days.indexOf(this.utils.getDay(date)) !== -1) {
+        disabledDates = true;
+      }
+      if (typeof this.disabledDates.daysOfMonth !== 'undefined' && this.disabledDates.daysOfMonth.indexOf(this.utils.getDate(date)) !== -1) {
+        disabledDates = true;
+      }
+      if (typeof this.disabledDates.customPredictor === 'function' && this.disabledDates.customPredictor(date)) {
+        disabledDates = true;
+      }
+      return disabledDates
+    },
+    /**
+     * Whether a day is highlighted (only if it is not disabled already except when highlighted.includeDisabled is true)
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isHighlightedDate: function isHighlightedDate (date) {
+      var this$1 = this;
+
+      if (!(this.highlighted && this.highlighted.includeDisabled) && this.isDisabledDate(date)) {
+        return false
+      }
+
+      var highlighted = false;
+
+      if (typeof this.highlighted === 'undefined') {
+        return false
+      }
+
+      if (typeof this.highlighted.dates !== 'undefined') {
+        this.highlighted.dates.forEach(function (d) {
+          if (this$1.utils.compareDates(date, d)) {
+            highlighted = true;
+            return true
+          }
+        });
+      }
+
+      if (this.isDefined(this.highlighted.from) && this.isDefined(this.highlighted.to)) {
+        highlighted = date >= this.highlighted.from && date <= this.highlighted.to;
+      }
+
+      if (typeof this.highlighted.days !== 'undefined' && this.highlighted.days.indexOf(this.utils.getDay(date)) !== -1) {
+        highlighted = true;
+      }
+
+      if (typeof this.highlighted.daysOfMonth !== 'undefined' && this.highlighted.daysOfMonth.indexOf(this.utils.getDate(date)) !== -1) {
+        highlighted = true;
+      }
+
+      if (typeof this.highlighted.customPredictor === 'function' && this.highlighted.customPredictor(date)) {
+        highlighted = true;
+      }
+
+      return highlighted
+    },
+    dayClasses: function dayClasses (day) {
+      return {
+        'selected': day.isSelected,
+        'disabled': day.isDisabled,
+        'highlighted': day.isHighlighted,
+        'today': day.isToday,
+        'weekend': day.isWeekend,
+        'sat': day.isSaturday,
+        'sun': day.isSunday,
+        'highlight-start': day.isHighlightStart,
+        'highlight-end': day.isHighlightEnd
+      }
+    },
+    /**
+     * Whether a day is highlighted and it is the first date
+     * in the highlighted range of dates
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isHighlightStart: function isHighlightStart (date) {
+      return this.isHighlightedDate(date) &&
+        (this.highlighted.from instanceof Date) &&
+        (this.utils.getFullYear(this.highlighted.from) === this.utils.getFullYear(date)) &&
+        (this.utils.getMonth(this.highlighted.from) === this.utils.getMonth(date)) &&
+        (this.utils.getDate(this.highlighted.from) === this.utils.getDate(date))
+    },
+    /**
+     * Whether a day is highlighted and it is the first date
+     * in the highlighted range of dates
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isHighlightEnd: function isHighlightEnd (date) {
+      return this.isHighlightedDate(date) &&
+        (this.highlighted.to instanceof Date) &&
+        (this.utils.getFullYear(this.highlighted.to) === this.utils.getFullYear(date)) &&
+        (this.utils.getMonth(this.highlighted.to) === this.utils.getMonth(date)) &&
+        (this.utils.getDate(this.highlighted.to) === this.utils.getDate(date))
+    },
+    /**
+     * Helper
+     * @param  {mixed}  prop
+     * @return {Boolean}
+     */
+    isDefined: function isDefined (prop) {
+      return typeof prop !== 'undefined' && prop
+    }
+  }
+}
+// eslint-disable-next-line
+;
+
+(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=""; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
+var PickerMonth = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMonthView),expression:"showMonthView"}],class:[_vm.calendarClass, 'vdp-datepicker__calendar'],style:(_vm.calendarStyle),on:{"mousedown":function($event){$event.preventDefault();}}},[_vm._t("beforeCalendarHeader"),_vm._v(" "),_c('header',[_c('span',{staticClass:"prev",class:{'disabled': _vm.isLeftNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.nextYear() : _vm.previousYear();}}},[_vm._v("<")]),_vm._v(" "),_c('span',{staticClass:"month__year_btn",class:_vm.allowedToShowView('year') ? 'up' : '',on:{"click":_vm.showYearCalendar}},[_vm._v(_vm._s(_vm.pageYearName))]),_vm._v(" "),_c('span',{staticClass:"next",class:{'disabled': _vm.isRightNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.previousYear() : _vm.nextYear();}}},[_vm._v(">")])]),_vm._v(" "),_vm._l((_vm.months),function(month){return _c('span',{key:month.timestamp,staticClass:"cell month",class:{'selected': month.isSelected, 'disabled': month.isDisabled},on:{"click":function($event){$event.stopPropagation();_vm.selectMonth(month);}}},[_vm._v(_vm._s(month.month))])})],2)},staticRenderFns: [],
+  props: {
+    showMonthView: Boolean,
+    selectedDate: Date,
+    pageDate: Date,
+    pageTimestamp: Number,
+    disabledDates: Object,
+    calendarClass: [String, Object, Array],
+    calendarStyle: Object,
+    translation: Object,
+    isRtl: Boolean,
+    allowedToShowView: Function,
+    useUtc: Boolean
+  },
+  data: function data () {
+    var constructedDateUtils = makeDateUtils(this.useUtc);
+    return {
+      utils: constructedDateUtils
+    }
+  },
+  computed: {
+    months: function months () {
+      var this$1 = this;
+
+      var d = this.pageDate;
+      var months = [];
+      // set up a new date object to the beginning of the current 'page'
+      var dObj = this.useUtc
+        ? new Date(Date.UTC(d.getUTCFullYear(), 0, d.getUTCDate()))
+        : new Date(d.getFullYear(), 0, d.getDate(), d.getHours(), d.getMinutes());
+      for (var i = 0; i < 12; i++) {
+        months.push({
+          month: this$1.utils.getMonthName(i, this$1.translation.months),
+          timestamp: dObj.getTime(),
+          isSelected: this$1.isSelectedMonth(dObj),
+          isDisabled: this$1.isDisabledMonth(dObj)
+        });
+        this$1.utils.setMonth(dObj, this$1.utils.getMonth(dObj) + 1);
+      }
+      return months
+    },
+    /**
+     * Get year name on current page.
+     * @return {String}
+     */
+    pageYearName: function pageYearName () {
+      var yearSuffix = this.translation.yearSuffix;
+      return ("" + (this.utils.getFullYear(this.pageDate)) + yearSuffix)
+    },
+    /**
+     * Is the left hand navigation disabled
+     * @return {Boolean}
+     */
+    isLeftNavDisabled: function isLeftNavDisabled () {
+      return this.isRtl
+        ? this.isNextYearDisabled(this.pageTimestamp)
+        : this.isPreviousYearDisabled(this.pageTimestamp)
+    },
+    /**
+     * Is the right hand navigation disabled
+     * @return {Boolean}
+     */
+    isRightNavDisabled: function isRightNavDisabled () {
+      return this.isRtl
+        ? this.isPreviousYearDisabled(this.pageTimestamp)
+        : this.isNextYearDisabled(this.pageTimestamp)
+    }
+  },
+  methods: {
+    /**
+     * Emits a selectMonth event
+     * @param {Object} month
+     */
+    selectMonth: function selectMonth (month) {
+      if (month.isDisabled) {
+        return false
+      }
+      this.$emit('selectMonth', month);
+    },
+    /**
+     * Changes the year up or down
+     * @param {Number} incrementBy
+     */
+    changeYear: function changeYear (incrementBy) {
+      var date = this.pageDate;
+      this.utils.setFullYear(date, this.utils.getFullYear(date) + incrementBy);
+      this.$emit('changedYear', date);
+    },
+    /**
+     * Decrements the year
+     */
+    previousYear: function previousYear () {
+      if (!this.isPreviousYearDisabled()) {
+        this.changeYear(-1);
+      }
+    },
+    /**
+     * Checks if the previous year is disabled or not
+     * @return {Boolean}
+     */
+    isPreviousYearDisabled: function isPreviousYearDisabled () {
+      if (!this.disabledDates || !this.disabledDates.to) {
+        return false
+      }
+      return this.utils.getFullYear(this.disabledDates.to) >= this.utils.getFullYear(this.pageDate)
+    },
+    /**
+     * Increments the year
+     */
+    nextYear: function nextYear () {
+      if (!this.isNextYearDisabled()) {
+        this.changeYear(1);
+      }
+    },
+    /**
+     * Checks if the next year is disabled or not
+     * @return {Boolean}
+     */
+    isNextYearDisabled: function isNextYearDisabled () {
+      if (!this.disabledDates || !this.disabledDates.from) {
+        return false
+      }
+      return this.utils.getFullYear(this.disabledDates.from) <= this.utils.getFullYear(this.pageDate)
+    },
+    /**
+     * Emits an event that shows the year calendar
+     */
+    showYearCalendar: function showYearCalendar () {
+      this.$emit('showYearCalendar');
+    },
+    /**
+     * Whether the selected date is in this month
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isSelectedMonth: function isSelectedMonth (date) {
+      return (this.selectedDate &&
+        this.utils.getFullYear(this.selectedDate) === this.utils.getFullYear(date) &&
+        this.utils.getMonth(this.selectedDate) === this.utils.getMonth(date))
+    },
+    /**
+     * Whether a month is disabled
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isDisabledMonth: function isDisabledMonth (date) {
+      var disabledDates = false;
+
+      if (typeof this.disabledDates === 'undefined') {
+        return false
+      }
+
+      if (typeof this.disabledDates.to !== 'undefined' && this.disabledDates.to) {
+        if (
+          (this.utils.getMonth(date) < this.utils.getMonth(this.disabledDates.to) && this.utils.getFullYear(date) <= this.utils.getFullYear(this.disabledDates.to)) ||
+          this.utils.getFullYear(date) < this.utils.getFullYear(this.disabledDates.to)
+        ) {
+          disabledDates = true;
+        }
+      }
+      if (typeof this.disabledDates.from !== 'undefined' && this.disabledDates.from) {
+        if (
+          this.disabledDates.from &&
+          (this.utils.getMonth(date) > this.utils.getMonth(this.disabledDates.from) && this.utils.getFullYear(date) >= this.utils.getFullYear(this.disabledDates.from)) ||
+          this.utils.getFullYear(date) > this.utils.getFullYear(this.disabledDates.from)
+        ) {
+          disabledDates = true;
+        }
+      }
+
+      if (typeof this.disabledDates.customPredictor === 'function' && this.disabledDates.customPredictor(date)) {
+        disabledDates = true;
+      }
+      return disabledDates
+    }
+  }
+}
+// eslint-disable-next-line
+;
+
+(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=""; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
+var PickerYear = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showYearView),expression:"showYearView"}],class:[_vm.calendarClass, 'vdp-datepicker__calendar'],style:(_vm.calendarStyle),on:{"mousedown":function($event){$event.preventDefault();}}},[_vm._t("beforeCalendarHeader"),_vm._v(" "),_c('header',[_c('span',{staticClass:"prev",class:{'disabled': _vm.isLeftNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.nextDecade() : _vm.previousDecade();}}},[_vm._v("<")]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.getPageDecade))]),_vm._v(" "),_c('span',{staticClass:"next",class:{'disabled': _vm.isRightNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.previousDecade() : _vm.nextDecade();}}},[_vm._v(">")])]),_vm._v(" "),_vm._l((_vm.years),function(year){return _c('span',{key:year.timestamp,staticClass:"cell year",class:{ 'selected': year.isSelected, 'disabled': year.isDisabled },on:{"click":function($event){$event.stopPropagation();_vm.selectYear(year);}}},[_vm._v(_vm._s(year.year))])})],2)},staticRenderFns: [],
+  props: {
+    showYearView: Boolean,
+    selectedDate: Date,
+    pageDate: Date,
+    pageTimestamp: Number,
+    disabledDates: Object,
+    highlighted: Object,
+    calendarClass: [String, Object, Array],
+    calendarStyle: Object,
+    translation: Object,
+    isRtl: Boolean,
+    allowedToShowView: Function,
+    useUtc: Boolean
+  },
+  computed: {
+    years: function years () {
+      var this$1 = this;
+
+      var d = this.pageDate;
+      var years = [];
+      // set up a new date object to the beginning of the current 'page'7
+      var dObj = this.useUtc
+        ? new Date(Date.UTC(Math.floor(d.getUTCFullYear() / 10) * 10, d.getUTCMonth(), d.getUTCDate()))
+        : new Date(Math.floor(d.getFullYear() / 10) * 10, d.getMonth(), d.getDate(), d.getHours(), d.getMinutes());
+      for (var i = 0; i < 10; i++) {
+        years.push({
+          year: this$1.utils.getFullYear(dObj),
+          timestamp: dObj.getTime(),
+          isSelected: this$1.isSelectedYear(dObj),
+          isDisabled: this$1.isDisabledYear(dObj)
+        });
+        this$1.utils.setFullYear(dObj, this$1.utils.getFullYear(dObj) + 1);
+      }
+      return years
+    },
+    /**
+     * @return {String}
+     */
+    getPageDecade: function getPageDecade () {
+      var decadeStart = Math.floor(this.utils.getFullYear(this.pageDate) / 10) * 10;
+      var decadeEnd = decadeStart + 9;
+      var yearSuffix = this.translation.yearSuffix;
+      return (decadeStart + " - " + decadeEnd + yearSuffix)
+    },
+    /**
+     * Is the left hand navigation button disabled?
+     * @return {Boolean}
+     */
+    isLeftNavDisabled: function isLeftNavDisabled () {
+      return this.isRtl
+        ? this.isNextDecadeDisabled(this.pageTimestamp)
+        : this.isPreviousDecadeDisabled(this.pageTimestamp)
+    },
+    /**
+     * Is the right hand navigation button disabled?
+     * @return {Boolean}
+     */
+    isRightNavDisabled: function isRightNavDisabled () {
+      return this.isRtl
+        ? this.isPreviousDecadeDisabled(this.pageTimestamp)
+        : this.isNextDecadeDisabled(this.pageTimestamp)
+    }
+  },
+  data: function data () {
+    var constructedDateUtils = makeDateUtils(this.useUtc);
+    return {
+      utils: constructedDateUtils
+    }
+  },
+  methods: {
+    selectYear: function selectYear (year) {
+      if (year.isDisabled) {
+        return false
+      }
+      this.$emit('selectYear', year);
+    },
+    changeYear: function changeYear (incrementBy) {
+      var date = this.pageDate;
+      this.utils.setFullYear(date, this.utils.getFullYear(date) + incrementBy);
+      this.$emit('changedDecade', date);
+    },
+    previousDecade: function previousDecade () {
+      if (this.isPreviousDecadeDisabled()) {
+        return false
+      }
+      this.changeYear(-10);
+    },
+    isPreviousDecadeDisabled: function isPreviousDecadeDisabled () {
+      if (!this.disabledDates || !this.disabledDates.to) {
+        return false
+      }
+      return Math.floor(this.utils.getFullYear(this.disabledDates.to) / 10) * 10 >= Math.floor(this.utils.getFullYear(this.pageDate) / 10) * 10
+    },
+    nextDecade: function nextDecade () {
+      if (this.isNextDecadeDisabled()) {
+        return false
+      }
+      this.changeYear(10);
+    },
+    isNextDecadeDisabled: function isNextDecadeDisabled () {
+      if (!this.disabledDates || !this.disabledDates.from) {
+        return false
+      }
+      return Math.ceil(this.utils.getFullYear(this.disabledDates.from) / 10) * 10 <= Math.ceil(this.utils.getFullYear(this.pageDate) / 10) * 10
+    },
+
+    /**
+     * Whether the selected date is in this year
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isSelectedYear: function isSelectedYear (date) {
+      return this.selectedDate && this.utils.getFullYear(this.selectedDate) === this.utils.getFullYear(date)
+    },
+    /**
+     * Whether a year is disabled
+     * @param {Date}
+     * @return {Boolean}
+     */
+    isDisabledYear: function isDisabledYear (date) {
+      var disabledDates = false;
+      if (typeof this.disabledDates === 'undefined' || !this.disabledDates) {
+        return false
+      }
+
+      if (typeof this.disabledDates.to !== 'undefined' && this.disabledDates.to) {
+        if (this.utils.getFullYear(date) < this.utils.getFullYear(this.disabledDates.to)) {
+          disabledDates = true;
+        }
+      }
+      if (typeof this.disabledDates.from !== 'undefined' && this.disabledDates.from) {
+        if (this.utils.getFullYear(date) > this.utils.getFullYear(this.disabledDates.from)) {
+          disabledDates = true;
+        }
+      }
+
+      if (typeof this.disabledDates.customPredictor === 'function' && this.disabledDates.customPredictor(date)) {
+        disabledDates = true;
+      }
+
+      return disabledDates
+    }
+  }
+}
+// eslint-disable-next-line
+;
+
+(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=".rtl { direction: rtl; } .vdp-datepicker { position: relative; text-align: left; } .vdp-datepicker * { box-sizing: border-box; } .vdp-datepicker__calendar { position: absolute; z-index: 100; background: #fff; width: 300px; border: 1px solid #ccc; } .vdp-datepicker__calendar header { display: block; line-height: 40px; } .vdp-datepicker__calendar header span { display: inline-block; text-align: center; width: 71.42857142857143%; float: left; } .vdp-datepicker__calendar header .prev, .vdp-datepicker__calendar header .next { width: 14.285714285714286%; float: left; text-indent: -10000px; position: relative; } .vdp-datepicker__calendar header .prev:after, .vdp-datepicker__calendar header .next:after { content: ''; position: absolute; left: 50%; top: 50%; -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); border: 6px solid transparent; } .vdp-datepicker__calendar header .prev:after { border-right: 10px solid #000; margin-left: -5px; } .vdp-datepicker__calendar header .prev.disabled:after { border-right: 10px solid #ddd; } .vdp-datepicker__calendar header .next:after { border-left: 10px solid #000; margin-left: 5px; } .vdp-datepicker__calendar header .next.disabled:after { border-left: 10px solid #ddd; } .vdp-datepicker__calendar header .prev:not(.disabled), .vdp-datepicker__calendar header .next:not(.disabled), .vdp-datepicker__calendar header .up:not(.disabled) { cursor: pointer; } .vdp-datepicker__calendar header .prev:not(.disabled):hover, .vdp-datepicker__calendar header .next:not(.disabled):hover, .vdp-datepicker__calendar header .up:not(.disabled):hover { background: #eee; } .vdp-datepicker__calendar .disabled { color: #ddd; cursor: default; } .vdp-datepicker__calendar .flex-rtl { display: flex; width: inherit; flex-wrap: wrap; } .vdp-datepicker__calendar .cell { display: inline-block; padding: 0 5px; width: 14.285714285714286%; height: 40px; line-height: 40px; text-align: center; vertical-align: middle; border: 1px solid transparent; } .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year { cursor: pointer; } .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover { border: 1px solid #4bd; } .vdp-datepicker__calendar .cell.selected { background: #4bd; } .vdp-datepicker__calendar .cell.selected:hover { background: #4bd; } .vdp-datepicker__calendar .cell.selected.highlighted { background: #4bd; } .vdp-datepicker__calendar .cell.highlighted { background: #cae5ed; } .vdp-datepicker__calendar .cell.highlighted.disabled { color: #a3a3a3; } .vdp-datepicker__calendar .cell.grey { color: #888; } .vdp-datepicker__calendar .cell.grey:hover { background: inherit; } .vdp-datepicker__calendar .cell.day-header { font-size: 75%; white-space: no-wrap; cursor: inherit; } .vdp-datepicker__calendar .cell.day-header:hover { background: inherit; } .vdp-datepicker__calendar .month, .vdp-datepicker__calendar .year { width: 33.333%; } .vdp-datepicker__clear-button, .vdp-datepicker__calendar-button { cursor: pointer; font-style: normal; } .vdp-datepicker__clear-button.disabled, .vdp-datepicker__calendar-button.disabled { color: #999; cursor: default; } "; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
+var Datepicker = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vdp-datepicker",class:[_vm.wrapperClass, _vm.isRtl ? 'rtl' : '']},[_c('date-input',{attrs:{"selectedDate":_vm.selectedDate,"resetTypedDate":_vm.resetTypedDate,"format":_vm.format,"translation":_vm.translation,"inline":_vm.inline,"id":_vm.id,"name":_vm.name,"refName":_vm.refName,"openDate":_vm.openDate,"placeholder":_vm.placeholder,"inputClass":_vm.inputClass,"typeable":_vm.typeable,"clearButton":_vm.clearButton,"clearButtonIcon":_vm.clearButtonIcon,"calendarButton":_vm.calendarButton,"calendarButtonIcon":_vm.calendarButtonIcon,"calendarButtonIconContent":_vm.calendarButtonIconContent,"disabled":_vm.disabled,"required":_vm.required,"bootstrapStyling":_vm.bootstrapStyling,"use-utc":_vm.useUtc},on:{"showCalendar":_vm.showCalendar,"closeCalendar":_vm.close,"typedDate":_vm.setTypedDate,"clearDate":_vm.clearDate}},[_vm._t("afterDateInput",null,{slot:"afterDateInput"})],2),_vm._v(" "),(_vm.allowedToShowView('day'))?_c('picker-day',{attrs:{"pageDate":_vm.pageDate,"selectedDate":_vm.selectedDate,"showDayView":_vm.showDayView,"fullMonthName":_vm.fullMonthName,"allowedToShowView":_vm.allowedToShowView,"disabledDates":_vm.disabledDates,"highlighted":_vm.highlighted,"calendarClass":_vm.calendarClass,"calendarStyle":_vm.calendarStyle,"translation":_vm.translation,"pageTimestamp":_vm.pageTimestamp,"isRtl":_vm.isRtl,"mondayFirst":_vm.mondayFirst,"dayCellContent":_vm.dayCellContent,"use-utc":_vm.useUtc},on:{"changedMonth":_vm.handleChangedMonthFromDayPicker,"selectDate":_vm.selectDate,"showMonthCalendar":_vm.showMonthCalendar,"selectedDisabled":_vm.selectDisabledDate}},[_vm._t("beforeCalendarHeader",null,{slot:"beforeCalendarHeader"})],2):_vm._e(),_vm._v(" "),(_vm.allowedToShowView('month'))?_c('picker-month',{attrs:{"pageDate":_vm.pageDate,"selectedDate":_vm.selectedDate,"showMonthView":_vm.showMonthView,"allowedToShowView":_vm.allowedToShowView,"disabledDates":_vm.disabledDates,"calendarClass":_vm.calendarClass,"calendarStyle":_vm.calendarStyle,"translation":_vm.translation,"isRtl":_vm.isRtl,"use-utc":_vm.useUtc},on:{"selectMonth":_vm.selectMonth,"showYearCalendar":_vm.showYearCalendar,"changedYear":_vm.setPageDate}},[_vm._t("beforeCalendarHeader",null,{slot:"beforeCalendarHeader"})],2):_vm._e(),_vm._v(" "),(_vm.allowedToShowView('year'))?_c('picker-year',{attrs:{"pageDate":_vm.pageDate,"selectedDate":_vm.selectedDate,"showYearView":_vm.showYearView,"allowedToShowView":_vm.allowedToShowView,"disabledDates":_vm.disabledDates,"calendarClass":_vm.calendarClass,"calendarStyle":_vm.calendarStyle,"translation":_vm.translation,"isRtl":_vm.isRtl,"use-utc":_vm.useUtc},on:{"selectYear":_vm.selectYear,"changedDecade":_vm.setPageDate}},[_vm._t("beforeCalendarHeader",null,{slot:"beforeCalendarHeader"})],2):_vm._e()],1)},staticRenderFns: [],
+  components: {
+    DateInput: DateInput,
+    PickerDay: PickerDay,
+    PickerMonth: PickerMonth,
+    PickerYear: PickerYear
+  },
+  props: {
+    value: {
+      validator: function (val) {
+        return val === null || val instanceof Date || typeof val === 'string' || typeof val === 'number'
+      }
+    },
+    name: String,
+    refName: String,
+    id: String,
+    format: {
+      type: [String, Function],
+      default: 'dd MMM yyyy'
+    },
+    language: {
+      type: Object,
+      default: function () { return en; }
+    },
+    openDate: {
+      validator: function (val) {
+        return val === null || val instanceof Date || typeof val === 'string' || typeof val === 'number'
+      }
+    },
+    dayCellContent: Function,
+    fullMonthName: Boolean,
+    disabledDates: Object,
+    highlighted: Object,
+    placeholder: String,
+    inline: Boolean,
+    calendarClass: [String, Object, Array],
+    inputClass: [String, Object, Array],
+    wrapperClass: [String, Object, Array],
+    mondayFirst: Boolean,
+    clearButton: Boolean,
+    clearButtonIcon: String,
+    calendarButton: Boolean,
+    calendarButtonIcon: String,
+    calendarButtonIconContent: String,
+    bootstrapStyling: Boolean,
+    initialView: String,
+    disabled: Boolean,
+    required: Boolean,
+    typeable: Boolean,
+    useUtc: Boolean,
+    minimumView: {
+      type: String,
+      default: 'day'
+    },
+    maximumView: {
+      type: String,
+      default: 'year'
+    }
+  },
+  data: function data () {
+    var startDate = this.openDate ? new Date(this.openDate) : new Date();
+    var constructedDateUtils = makeDateUtils(this.useUtc);
+    var pageTimestamp = constructedDateUtils.setDate(startDate, 1);
+    return {
+      /*
+       * Vue cannot observe changes to a Date Object so date must be stored as a timestamp
+       * This represents the first day of the current viewing month
+       * {Number}
+       */
+      pageTimestamp: pageTimestamp,
+      /*
+       * Selected Date
+       * {Date}
+       */
+      selectedDate: null,
+      /*
+       * Flags to show calendar views
+       * {Boolean}
+       */
+      showDayView: false,
+      showMonthView: false,
+      showYearView: false,
+      /*
+       * Positioning
+       */
+      calendarHeight: 0,
+      resetTypedDate: new Date(),
+      utils: constructedDateUtils
+    }
+  },
+  watch: {
+    value: function value (value$1) {
+      this.setValue(value$1);
+    },
+    openDate: function openDate () {
+      this.setPageDate();
+    },
+    initialView: function initialView () {
+      this.setInitialView();
+    }
+  },
+  computed: {
+    computedInitialView: function computedInitialView () {
+      if (!this.initialView) {
+        return this.minimumView
+      }
+
+      return this.initialView
+    },
+    pageDate: function pageDate () {
+      return new Date(this.pageTimestamp)
+    },
+
+    translation: function translation () {
+      return this.language
+    },
+
+    calendarStyle: function calendarStyle () {
+      return {
+        position: this.isInline ? 'static' : undefined
+      }
+    },
+    isOpen: function isOpen () {
+      return this.showDayView || this.showMonthView || this.showYearView
+    },
+    isInline: function isInline () {
+      return !!this.inline
+    },
+    isRtl: function isRtl () {
+      return this.translation.rtl === true
+    }
+  },
+  methods: {
+    /**
+     * Called in the event that the user navigates to date pages and
+     * closes the picker without selecting a date.
+     */
+    resetDefaultPageDate: function resetDefaultPageDate () {
+      if (this.selectedDate === null) {
+        this.setPageDate();
+        return
+      }
+      this.setPageDate(this.selectedDate);
+    },
+    /**
+     * Effectively a toggle to show/hide the calendar
+     * @return {mixed}
+     */
+    showCalendar: function showCalendar () {
+      if (this.disabled || this.isInline) {
+        return false
+      }
+      if (this.isOpen) {
+        return this.close(true)
+      }
+      this.setInitialView();
+      if (!this.isInline) {
+        this.$emit('opened');
+      }
+    },
+    /**
+     * Sets the initial picker page view: day, month or year
+     */
+    setInitialView: function setInitialView () {
+      var initialView = this.computedInitialView;
+      if (!this.allowedToShowView(initialView)) {
+        throw new Error(("initialView '" + (this.initialView) + "' cannot be rendered based on minimum '" + (this.minimumView) + "' and maximum '" + (this.maximumView) + "'"))
+      }
+      switch (initialView) {
+        case 'year':
+          this.showYearCalendar();
+          break
+        case 'month':
+          this.showMonthCalendar();
+          break
+        default:
+          this.showDayCalendar();
+          break
+      }
+    },
+    /**
+     * Are we allowed to show a specific picker view?
+     * @param {String} view
+     * @return {Boolean}
+     */
+    allowedToShowView: function allowedToShowView (view) {
+      var views = ['day', 'month', 'year'];
+      var minimumViewIndex = views.indexOf(this.minimumView);
+      var maximumViewIndex = views.indexOf(this.maximumView);
+      var viewIndex = views.indexOf(view);
+
+      return viewIndex >= minimumViewIndex && viewIndex <= maximumViewIndex
+    },
+    /**
+     * Show the day picker
+     * @return {Boolean}
+     */
+    showDayCalendar: function showDayCalendar () {
+      if (!this.allowedToShowView('day')) {
+        return false
+      }
+      this.close();
+      this.showDayView = true;
+      return true
+    },
+    /**
+     * Show the month picker
+     * @return {Boolean}
+     */
+    showMonthCalendar: function showMonthCalendar () {
+      if (!this.allowedToShowView('month')) {
+        return false
+      }
+      this.close();
+      this.showMonthView = true;
+      return true
+    },
+    /**
+     * Show the year picker
+     * @return {Boolean}
+     */
+    showYearCalendar: function showYearCalendar () {
+      if (!this.allowedToShowView('year')) {
+        return false
+      }
+      this.close();
+      this.showYearView = true;
+      return true
+    },
+    /**
+     * Set the selected date
+     * @param {Number} timestamp
+     */
+    setDate: function setDate (timestamp) {
+      var date = new Date(timestamp);
+      this.selectedDate = date;
+      this.setPageDate(date);
+      this.$emit('selected', date);
+      this.$emit('input', date);
+    },
+    /**
+     * Clear the selected date
+     */
+    clearDate: function clearDate () {
+      this.selectedDate = null;
+      this.setPageDate();
+      this.$emit('selected', null);
+      this.$emit('input', null);
+      this.$emit('cleared');
+    },
+    /**
+     * @param {Object} date
+     */
+    selectDate: function selectDate (date) {
+      this.setDate(date.timestamp);
+      if (!this.isInline) {
+        this.close(true);
+      }
+      this.resetTypedDate = new Date();
+    },
+    /**
+     * @param {Object} date
+     */
+    selectDisabledDate: function selectDisabledDate (date) {
+      this.$emit('selectedDisabled', date);
+    },
+    /**
+     * @param {Object} month
+     */
+    selectMonth: function selectMonth (month) {
+      var date = new Date(month.timestamp);
+      if (this.allowedToShowView('day')) {
+        this.setPageDate(date);
+        this.$emit('changedMonth', month);
+        this.showDayCalendar();
+      } else {
+        this.selectDate(month);
+      }
+    },
+    /**
+     * @param {Object} year
+     */
+    selectYear: function selectYear (year) {
+      var date = new Date(year.timestamp);
+      if (this.allowedToShowView('month')) {
+        this.setPageDate(date);
+        this.$emit('changedYear', year);
+        this.showMonthCalendar();
+      } else {
+        this.selectDate(year);
+      }
+    },
+    /**
+     * Set the datepicker value
+     * @param {Date|String|Number|null} date
+     */
+    setValue: function setValue (date) {
+      if (typeof date === 'string' || typeof date === 'number') {
+        var parsed = new Date(date);
+        date = isNaN(parsed.valueOf()) ? null : parsed;
+      }
+      if (!date) {
+        this.setPageDate();
+        this.selectedDate = null;
+        return
+      }
+      this.selectedDate = date;
+      this.setPageDate(date);
+    },
+    /**
+     * Sets the date that the calendar should open on
+     */
+    setPageDate: function setPageDate (date) {
+      if (!date) {
+        if (this.openDate) {
+          date = new Date(this.openDate);
+        } else {
+          date = new Date();
+        }
+      }
+      this.pageTimestamp = this.utils.setDate(new Date(date), 1);
+    },
+    /**
+     * Handles a month change from the day picker
+     */
+    handleChangedMonthFromDayPicker: function handleChangedMonthFromDayPicker (date) {
+      this.setPageDate(date);
+      this.$emit('changedMonth', date);
+    },
+    /**
+     * Set the date from a typedDate event
+     */
+    setTypedDate: function setTypedDate (date) {
+      this.setDate(date.getTime());
+    },
+    /**
+     * Close all calendar layers
+     * @param {Boolean} full - emit close event
+     */
+    close: function close (full) {
+      this.showDayView = this.showMonthView = this.showYearView = false;
+      if (!this.isInline) {
+        if (full) {
+          this.$emit('closed');
+        }
+        document.removeEventListener('click', this.clickOutside, false);
+      }
+    },
+    /**
+     * Initiate the component
+     */
+    init: function init () {
+      if (this.value) {
+        this.setValue(this.value);
+      }
+      if (this.isInline) {
+        this.setInitialView();
+      }
+    }
+  },
+  mounted: function mounted () {
+    this.init();
+  }
+}
+// eslint-disable-next-line
+;
+
+/* harmony default export */ __webpack_exports__["a"] = (Datepicker);
+
+
+/***/ }),
+/* 169 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66681,17 +68169,17 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 178 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(179);
+var content = __webpack_require__(171);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("af8f5c54", content, false, {});
+var update = __webpack_require__(4)("af8f5c54", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -66707,10 +68195,10 @@ if(false) {
 }
 
 /***/ }),
-/* 179 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)(false);
+exports = module.exports = __webpack_require__(3)(false);
 // imports
 
 
@@ -66721,7 +68209,7 @@ exports.push([module.i, "\n.octicon {\n  display: inline-block;\n  fill: current
 
 
 /***/ }),
-/* 180 */
+/* 172 */
 /***/ (function(module, exports) {
 
 /**
@@ -66754,12 +68242,12 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 181 */
+/* 173 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(174);
 //
 //
 //
@@ -66920,7 +68408,7 @@ var icons = {};
 });
 
 /***/ }),
-/* 182 */
+/* 174 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66962,7 +68450,7 @@ if (true) {
 
 
 /***/ }),
-/* 183 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -67004,186 +68492,186 @@ if (false) {
 }
 
 /***/ }),
-/* 184 */
+/* 176 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__alert__ = __webpack_require__(185);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__arrow_down__ = __webpack_require__(186);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__arrow_left__ = __webpack_require__(187);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__arrow_right__ = __webpack_require__(188);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__arrow_small_down__ = __webpack_require__(189);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__arrow_small_left__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__arrow_small_right__ = __webpack_require__(191);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__arrow_small_up__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__arrow_up__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__beaker__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__bell__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__bold__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__book__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__bookmark__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__briefcase__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__broadcast__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__browser__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__bug__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__calendar__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__check__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__checklist__ = __webpack_require__(205);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__chevron_down__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__chevron_left__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__chevron_right__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__chevron_up__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__circle_slash__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__circuit_board__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__clippy__ = __webpack_require__(212);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__clock__ = __webpack_require__(213);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__cloud_download__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__cloud_upload__ = __webpack_require__(215);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__code__ = __webpack_require__(216);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__comment__ = __webpack_require__(217);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__comment_discussion__ = __webpack_require__(218);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__credit_card__ = __webpack_require__(219);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__dash__ = __webpack_require__(220);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__dashboard__ = __webpack_require__(221);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__database__ = __webpack_require__(222);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__desktop_download__ = __webpack_require__(223);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__device_camera__ = __webpack_require__(224);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__device_camera_video__ = __webpack_require__(225);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__device_desktop__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__device_mobile__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__diff__ = __webpack_require__(228);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__diff_added__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__diff_ignored__ = __webpack_require__(230);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__diff_modified__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__diff_removed__ = __webpack_require__(232);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__diff_renamed__ = __webpack_require__(233);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__ellipses__ = __webpack_require__(234);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__ellipsis__ = __webpack_require__(235);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__eye__ = __webpack_require__(236);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__file__ = __webpack_require__(237);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__file_binary__ = __webpack_require__(238);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__file_code__ = __webpack_require__(239);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__file_directory__ = __webpack_require__(240);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__file_media__ = __webpack_require__(241);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__file_pdf__ = __webpack_require__(242);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__file_submodule__ = __webpack_require__(243);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__file_symlink_directory__ = __webpack_require__(244);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__file_symlink_file__ = __webpack_require__(245);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__file_text__ = __webpack_require__(246);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__file_zip__ = __webpack_require__(247);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__flame__ = __webpack_require__(248);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__fold__ = __webpack_require__(249);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__gear__ = __webpack_require__(250);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__gift__ = __webpack_require__(251);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__gist__ = __webpack_require__(252);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__gist_secret__ = __webpack_require__(253);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__git_branch__ = __webpack_require__(254);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__git_commit__ = __webpack_require__(255);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__git_compare__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__git_merge__ = __webpack_require__(257);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__git_pull_request__ = __webpack_require__(258);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__globe__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__grabber__ = __webpack_require__(260);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__graph__ = __webpack_require__(261);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__heart__ = __webpack_require__(262);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__history__ = __webpack_require__(263);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__home__ = __webpack_require__(264);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__horizontal_rule__ = __webpack_require__(265);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__hubot__ = __webpack_require__(266);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__inbox__ = __webpack_require__(267);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__info__ = __webpack_require__(268);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_84__issue_closed__ = __webpack_require__(269);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_85__issue_opened__ = __webpack_require__(270);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_86__issue_reopened__ = __webpack_require__(271);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_87__italic__ = __webpack_require__(272);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_88__jersey__ = __webpack_require__(273);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_89__key__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_90__keyboard__ = __webpack_require__(275);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_91__law__ = __webpack_require__(276);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_92__light_bulb__ = __webpack_require__(277);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_93__link__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_94__link_external__ = __webpack_require__(279);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_95__list_ordered__ = __webpack_require__(280);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_96__list_unordered__ = __webpack_require__(281);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_97__location__ = __webpack_require__(282);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_98__lock__ = __webpack_require__(283);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_99__logo_gist__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_100__logo_github__ = __webpack_require__(285);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_101__mail__ = __webpack_require__(286);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_102__mail_read__ = __webpack_require__(287);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_103__mail_reply__ = __webpack_require__(288);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_104__mark_github__ = __webpack_require__(289);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_105__markdown__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_106__megaphone__ = __webpack_require__(291);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_107__mention__ = __webpack_require__(292);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_108__milestone__ = __webpack_require__(293);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_109__mirror__ = __webpack_require__(294);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_110__mortar_board__ = __webpack_require__(295);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_111__mute__ = __webpack_require__(296);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_112__no_newline__ = __webpack_require__(297);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_113__note__ = __webpack_require__(298);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_114__octoface__ = __webpack_require__(299);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_115__organization__ = __webpack_require__(300);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_116__package__ = __webpack_require__(301);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_117__paintcan__ = __webpack_require__(302);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_118__pencil__ = __webpack_require__(303);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_119__person__ = __webpack_require__(304);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_120__pin__ = __webpack_require__(305);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_121__plug__ = __webpack_require__(306);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_122__plus__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_123__plus_small__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_124__primitive_dot__ = __webpack_require__(309);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_125__primitive_square__ = __webpack_require__(310);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_126__project__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_127__pulse__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_128__question__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_129__quote__ = __webpack_require__(314);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_130__radio_tower__ = __webpack_require__(315);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_131__reply__ = __webpack_require__(316);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_132__repo__ = __webpack_require__(317);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_133__repo_clone__ = __webpack_require__(318);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_134__repo_force_push__ = __webpack_require__(319);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_135__repo_forked__ = __webpack_require__(320);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_136__repo_pull__ = __webpack_require__(321);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_137__repo_push__ = __webpack_require__(322);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_138__rocket__ = __webpack_require__(323);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_139__rss__ = __webpack_require__(324);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_140__ruby__ = __webpack_require__(325);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_141__screen_full__ = __webpack_require__(326);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_142__screen_normal__ = __webpack_require__(327);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_143__search__ = __webpack_require__(328);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_144__server__ = __webpack_require__(329);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_145__settings__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_146__shield__ = __webpack_require__(331);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_147__sign_in__ = __webpack_require__(332);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_148__sign_out__ = __webpack_require__(333);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_149__smiley__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_150__squirrel__ = __webpack_require__(335);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_151__star__ = __webpack_require__(336);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_152__stop__ = __webpack_require__(337);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_153__sync__ = __webpack_require__(338);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_154__tag__ = __webpack_require__(339);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_155__tasklist__ = __webpack_require__(340);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_156__telescope__ = __webpack_require__(341);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_157__terminal__ = __webpack_require__(342);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_158__text_size__ = __webpack_require__(343);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_159__three_bars__ = __webpack_require__(344);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_160__thumbsdown__ = __webpack_require__(345);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_161__thumbsup__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_162__tools__ = __webpack_require__(347);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_163__trashcan__ = __webpack_require__(348);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_164__triangle_down__ = __webpack_require__(349);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_165__triangle_left__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_166__triangle_right__ = __webpack_require__(351);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_167__triangle_up__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_168__unfold__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_169__unmute__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_170__unverified__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_171__verified__ = __webpack_require__(356);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_172__versions__ = __webpack_require__(357);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_173__watch__ = __webpack_require__(358);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_174__x__ = __webpack_require__(359);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_175__zap__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__alert__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__arrow_down__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__arrow_left__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__arrow_right__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__arrow_small_down__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__arrow_small_left__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__arrow_small_right__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__arrow_small_up__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__arrow_up__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__beaker__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__bell__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__bold__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__book__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__bookmark__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__briefcase__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__broadcast__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__browser__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__bug__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__calendar__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__check__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__checklist__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__chevron_down__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__chevron_left__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__chevron_right__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__chevron_up__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__circle_slash__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__circuit_board__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__clippy__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__clock__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__cloud_download__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__cloud_upload__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__code__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__comment__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__comment_discussion__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__credit_card__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__dash__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__dashboard__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__database__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__desktop_download__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__device_camera__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__device_camera_video__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__device_desktop__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__device_mobile__ = __webpack_require__(219);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__diff__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__diff_added__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__diff_ignored__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__diff_modified__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__diff_removed__ = __webpack_require__(224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__diff_renamed__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__ellipses__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__ellipsis__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__eye__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__file__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__file_binary__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__file_code__ = __webpack_require__(231);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__file_directory__ = __webpack_require__(232);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__file_media__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__file_pdf__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__file_submodule__ = __webpack_require__(235);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__file_symlink_directory__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__file_symlink_file__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__file_text__ = __webpack_require__(238);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__file_zip__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__flame__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__fold__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__gear__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__gift__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__gist__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__gist_secret__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__git_branch__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__git_commit__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__git_compare__ = __webpack_require__(248);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__git_merge__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__git_pull_request__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__globe__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__grabber__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__graph__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__heart__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__history__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__home__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__horizontal_rule__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__hubot__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__inbox__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__info__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_84__issue_closed__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_85__issue_opened__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_86__issue_reopened__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_87__italic__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_88__jersey__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_89__key__ = __webpack_require__(266);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_90__keyboard__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_91__law__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_92__light_bulb__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_93__link__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_94__link_external__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_95__list_ordered__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_96__list_unordered__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_97__location__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_98__lock__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_99__logo_gist__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_100__logo_github__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_101__mail__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_102__mail_read__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_103__mail_reply__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_104__mark_github__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_105__markdown__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_106__megaphone__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_107__mention__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_108__milestone__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_109__mirror__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_110__mortar_board__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_111__mute__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_112__no_newline__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_113__note__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_114__octoface__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_115__organization__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_116__package__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_117__paintcan__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_118__pencil__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_119__person__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_120__pin__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_121__plug__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_122__plus__ = __webpack_require__(299);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_123__plus_small__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_124__primitive_dot__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_125__primitive_square__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_126__project__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_127__pulse__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_128__question__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_129__quote__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_130__radio_tower__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_131__reply__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_132__repo__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_133__repo_clone__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_134__repo_force_push__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_135__repo_forked__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_136__repo_pull__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_137__repo_push__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_138__rocket__ = __webpack_require__(315);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_139__rss__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_140__ruby__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_141__screen_full__ = __webpack_require__(318);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_142__screen_normal__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_143__search__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_144__server__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_145__settings__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_146__shield__ = __webpack_require__(323);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_147__sign_in__ = __webpack_require__(324);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_148__sign_out__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_149__smiley__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_150__squirrel__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_151__star__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_152__stop__ = __webpack_require__(329);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_153__sync__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_154__tag__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_155__tasklist__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_156__telescope__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_157__terminal__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_158__text_size__ = __webpack_require__(335);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_159__three_bars__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_160__thumbsdown__ = __webpack_require__(337);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_161__thumbsup__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_162__tools__ = __webpack_require__(339);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_163__trashcan__ = __webpack_require__(340);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_164__triangle_down__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_165__triangle_left__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_166__triangle_right__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_167__triangle_up__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_168__unfold__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_169__unmute__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_170__unverified__ = __webpack_require__(347);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_171__verified__ = __webpack_require__(348);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_172__versions__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_173__watch__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_174__x__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_175__zap__ = __webpack_require__(352);
 
 
 
@@ -67363,7 +68851,7 @@ if (false) {
 
 
 /***/ }),
-/* 185 */
+/* 177 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67375,7 +68863,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"alert
 
 
 /***/ }),
-/* 186 */
+/* 178 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67387,7 +68875,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 
 
 /***/ }),
-/* 187 */
+/* 179 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67399,7 +68887,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 
 
 /***/ }),
-/* 188 */
+/* 180 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67411,7 +68899,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 
 
 /***/ }),
-/* 189 */
+/* 181 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67423,7 +68911,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 
 
 /***/ }),
-/* 190 */
+/* 182 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67435,7 +68923,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 
 
 /***/ }),
-/* 191 */
+/* 183 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67447,7 +68935,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 
 
 /***/ }),
-/* 192 */
+/* 184 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67459,7 +68947,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 
 
 /***/ }),
-/* 193 */
+/* 185 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67471,7 +68959,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"arrow
 
 
 /***/ }),
-/* 194 */
+/* 186 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67483,7 +68971,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"beake
 
 
 /***/ }),
-/* 195 */
+/* 187 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67495,7 +68983,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bell"
 
 
 /***/ }),
-/* 196 */
+/* 188 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67507,7 +68995,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bold"
 
 
 /***/ }),
-/* 197 */
+/* 189 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67519,7 +69007,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"book"
 
 
 /***/ }),
-/* 198 */
+/* 190 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67531,7 +69019,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bookm
 
 
 /***/ }),
-/* 199 */
+/* 191 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67543,7 +69031,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"brief
 
 
 /***/ }),
-/* 200 */
+/* 192 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67555,7 +69043,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"broad
 
 
 /***/ }),
-/* 201 */
+/* 193 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67567,7 +69055,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"brows
 
 
 /***/ }),
-/* 202 */
+/* 194 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67579,7 +69067,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"bug":
 
 
 /***/ }),
-/* 203 */
+/* 195 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67591,7 +69079,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"calen
 
 
 /***/ }),
-/* 204 */
+/* 196 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67603,7 +69091,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"check
 
 
 /***/ }),
-/* 205 */
+/* 197 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67615,7 +69103,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"check
 
 
 /***/ }),
-/* 206 */
+/* 198 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67627,7 +69115,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevr
 
 
 /***/ }),
-/* 207 */
+/* 199 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67639,7 +69127,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevr
 
 
 /***/ }),
-/* 208 */
+/* 200 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67651,7 +69139,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevr
 
 
 /***/ }),
-/* 209 */
+/* 201 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67663,7 +69151,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"chevr
 
 
 /***/ }),
-/* 210 */
+/* 202 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67675,7 +69163,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"circl
 
 
 /***/ }),
-/* 211 */
+/* 203 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67687,7 +69175,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"circu
 
 
 /***/ }),
-/* 212 */
+/* 204 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67699,7 +69187,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"clipp
 
 
 /***/ }),
-/* 213 */
+/* 205 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67711,7 +69199,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"clock
 
 
 /***/ }),
-/* 214 */
+/* 206 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67723,7 +69211,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"cloud
 
 
 /***/ }),
-/* 215 */
+/* 207 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67735,7 +69223,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"cloud
 
 
 /***/ }),
-/* 216 */
+/* 208 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67747,7 +69235,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"code"
 
 
 /***/ }),
-/* 217 */
+/* 209 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67759,7 +69247,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"comme
 
 
 /***/ }),
-/* 218 */
+/* 210 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67771,7 +69259,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"comme
 
 
 /***/ }),
-/* 219 */
+/* 211 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67783,7 +69271,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"credi
 
 
 /***/ }),
-/* 220 */
+/* 212 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67795,7 +69283,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"dash"
 
 
 /***/ }),
-/* 221 */
+/* 213 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67807,7 +69295,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"dashb
 
 
 /***/ }),
-/* 222 */
+/* 214 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67819,7 +69307,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"datab
 
 
 /***/ }),
-/* 223 */
+/* 215 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67831,7 +69319,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"deskt
 
 
 /***/ }),
-/* 224 */
+/* 216 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67843,7 +69331,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"devic
 
 
 /***/ }),
-/* 225 */
+/* 217 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67855,7 +69343,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"devic
 
 
 /***/ }),
-/* 226 */
+/* 218 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67867,7 +69355,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"devic
 
 
 /***/ }),
-/* 227 */
+/* 219 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67879,7 +69367,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"devic
 
 
 /***/ }),
-/* 228 */
+/* 220 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67891,7 +69379,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff"
 
 
 /***/ }),
-/* 229 */
+/* 221 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67903,7 +69391,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-
 
 
 /***/ }),
-/* 230 */
+/* 222 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67915,7 +69403,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-
 
 
 /***/ }),
-/* 231 */
+/* 223 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67927,7 +69415,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-
 
 
 /***/ }),
-/* 232 */
+/* 224 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67939,7 +69427,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-
 
 
 /***/ }),
-/* 233 */
+/* 225 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67951,7 +69439,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"diff-
 
 
 /***/ }),
-/* 234 */
+/* 226 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67963,7 +69451,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"ellip
 
 
 /***/ }),
-/* 235 */
+/* 227 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67975,7 +69463,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"ellip
 
 
 /***/ }),
-/* 236 */
+/* 228 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67987,7 +69475,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"eye":
 
 
 /***/ }),
-/* 237 */
+/* 229 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67999,7 +69487,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file"
 
 
 /***/ }),
-/* 238 */
+/* 230 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68011,7 +69499,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 
 
 /***/ }),
-/* 239 */
+/* 231 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68023,7 +69511,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 
 
 /***/ }),
-/* 240 */
+/* 232 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68035,7 +69523,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 
 
 /***/ }),
-/* 241 */
+/* 233 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68047,7 +69535,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 
 
 /***/ }),
-/* 242 */
+/* 234 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68059,7 +69547,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 
 
 /***/ }),
-/* 243 */
+/* 235 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68071,7 +69559,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 
 
 /***/ }),
-/* 244 */
+/* 236 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68083,7 +69571,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 
 
 /***/ }),
-/* 245 */
+/* 237 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68095,7 +69583,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 
 
 /***/ }),
-/* 246 */
+/* 238 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68107,7 +69595,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 
 
 /***/ }),
-/* 247 */
+/* 239 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68119,7 +69607,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"file-
 
 
 /***/ }),
-/* 248 */
+/* 240 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68131,7 +69619,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"flame
 
 
 /***/ }),
-/* 249 */
+/* 241 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68143,7 +69631,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"fold"
 
 
 /***/ }),
-/* 250 */
+/* 242 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68155,7 +69643,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gear"
 
 
 /***/ }),
-/* 251 */
+/* 243 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68167,7 +69655,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gift"
 
 
 /***/ }),
-/* 252 */
+/* 244 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68179,7 +69667,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gist"
 
 
 /***/ }),
-/* 253 */
+/* 245 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68191,7 +69679,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"gist-
 
 
 /***/ }),
-/* 254 */
+/* 246 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68203,7 +69691,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-b
 
 
 /***/ }),
-/* 255 */
+/* 247 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68215,7 +69703,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-c
 
 
 /***/ }),
-/* 256 */
+/* 248 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68227,7 +69715,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-c
 
 
 /***/ }),
-/* 257 */
+/* 249 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68239,7 +69727,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-m
 
 
 /***/ }),
-/* 258 */
+/* 250 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68251,7 +69739,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"git-p
 
 
 /***/ }),
-/* 259 */
+/* 251 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68263,7 +69751,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"globe
 
 
 /***/ }),
-/* 260 */
+/* 252 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68275,7 +69763,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"grabb
 
 
 /***/ }),
-/* 261 */
+/* 253 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68287,7 +69775,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"graph
 
 
 /***/ }),
-/* 262 */
+/* 254 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68299,7 +69787,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"heart
 
 
 /***/ }),
-/* 263 */
+/* 255 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68311,7 +69799,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"histo
 
 
 /***/ }),
-/* 264 */
+/* 256 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68323,7 +69811,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"home"
 
 
 /***/ }),
-/* 265 */
+/* 257 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68335,7 +69823,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"horiz
 
 
 /***/ }),
-/* 266 */
+/* 258 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68347,7 +69835,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"hubot
 
 
 /***/ }),
-/* 267 */
+/* 259 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68359,7 +69847,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"inbox
 
 
 /***/ }),
-/* 268 */
+/* 260 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68371,7 +69859,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"info"
 
 
 /***/ }),
-/* 269 */
+/* 261 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68383,7 +69871,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"issue
 
 
 /***/ }),
-/* 270 */
+/* 262 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68395,7 +69883,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"issue
 
 
 /***/ }),
-/* 271 */
+/* 263 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68407,7 +69895,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"issue
 
 
 /***/ }),
-/* 272 */
+/* 264 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68419,7 +69907,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"itali
 
 
 /***/ }),
-/* 273 */
+/* 265 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68431,7 +69919,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"jerse
 
 
 /***/ }),
-/* 274 */
+/* 266 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68443,7 +69931,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"key":
 
 
 /***/ }),
-/* 275 */
+/* 267 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68455,7 +69943,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"keybo
 
 
 /***/ }),
-/* 276 */
+/* 268 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68467,7 +69955,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"law":
 
 
 /***/ }),
-/* 277 */
+/* 269 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68479,7 +69967,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"light
 
 
 /***/ }),
-/* 278 */
+/* 270 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68491,7 +69979,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"link"
 
 
 /***/ }),
-/* 279 */
+/* 271 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68503,7 +69991,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"link-
 
 
 /***/ }),
-/* 280 */
+/* 272 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68515,7 +70003,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"list-
 
 
 /***/ }),
-/* 281 */
+/* 273 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68527,7 +70015,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"list-
 
 
 /***/ }),
-/* 282 */
+/* 274 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68539,7 +70027,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"locat
 
 
 /***/ }),
-/* 283 */
+/* 275 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68551,7 +70039,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"lock"
 
 
 /***/ }),
-/* 284 */
+/* 276 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68563,7 +70051,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"logo-
 
 
 /***/ }),
-/* 285 */
+/* 277 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68575,7 +70063,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"logo-
 
 
 /***/ }),
-/* 286 */
+/* 278 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68587,7 +70075,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mail"
 
 
 /***/ }),
-/* 287 */
+/* 279 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68599,7 +70087,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mail-
 
 
 /***/ }),
-/* 288 */
+/* 280 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68611,7 +70099,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mail-
 
 
 /***/ }),
-/* 289 */
+/* 281 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68623,7 +70111,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mark-
 
 
 /***/ }),
-/* 290 */
+/* 282 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68635,7 +70123,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"markd
 
 
 /***/ }),
-/* 291 */
+/* 283 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68647,7 +70135,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"megap
 
 
 /***/ }),
-/* 292 */
+/* 284 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68659,7 +70147,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"menti
 
 
 /***/ }),
-/* 293 */
+/* 285 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68671,7 +70159,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"miles
 
 
 /***/ }),
-/* 294 */
+/* 286 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68683,7 +70171,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mirro
 
 
 /***/ }),
-/* 295 */
+/* 287 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68695,7 +70183,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"morta
 
 
 /***/ }),
-/* 296 */
+/* 288 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68707,7 +70195,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"mute"
 
 
 /***/ }),
-/* 297 */
+/* 289 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68719,7 +70207,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"no-ne
 
 
 /***/ }),
-/* 298 */
+/* 290 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68731,7 +70219,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"note"
 
 
 /***/ }),
-/* 299 */
+/* 291 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68743,7 +70231,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"octof
 
 
 /***/ }),
-/* 300 */
+/* 292 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68755,7 +70243,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"organ
 
 
 /***/ }),
-/* 301 */
+/* 293 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68767,7 +70255,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"packa
 
 
 /***/ }),
-/* 302 */
+/* 294 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68779,7 +70267,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"paint
 
 
 /***/ }),
-/* 303 */
+/* 295 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68791,7 +70279,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"penci
 
 
 /***/ }),
-/* 304 */
+/* 296 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68803,7 +70291,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"perso
 
 
 /***/ }),
-/* 305 */
+/* 297 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68815,7 +70303,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"pin":
 
 
 /***/ }),
-/* 306 */
+/* 298 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68827,7 +70315,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"plug"
 
 
 /***/ }),
-/* 307 */
+/* 299 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68839,7 +70327,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"plus"
 
 
 /***/ }),
-/* 308 */
+/* 300 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68851,7 +70339,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"plus-
 
 
 /***/ }),
-/* 309 */
+/* 301 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68863,7 +70351,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"primi
 
 
 /***/ }),
-/* 310 */
+/* 302 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68875,7 +70363,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"primi
 
 
 /***/ }),
-/* 311 */
+/* 303 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68887,7 +70375,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"proje
 
 
 /***/ }),
-/* 312 */
+/* 304 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68899,7 +70387,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"pulse
 
 
 /***/ }),
-/* 313 */
+/* 305 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68911,7 +70399,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"quest
 
 
 /***/ }),
-/* 314 */
+/* 306 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68923,7 +70411,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"quote
 
 
 /***/ }),
-/* 315 */
+/* 307 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68935,7 +70423,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"radio
 
 
 /***/ }),
-/* 316 */
+/* 308 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68947,7 +70435,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"reply
 
 
 /***/ }),
-/* 317 */
+/* 309 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68959,7 +70447,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo"
 
 
 /***/ }),
-/* 318 */
+/* 310 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68971,7 +70459,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-
 
 
 /***/ }),
-/* 319 */
+/* 311 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68983,7 +70471,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-
 
 
 /***/ }),
-/* 320 */
+/* 312 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68995,7 +70483,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-
 
 
 /***/ }),
-/* 321 */
+/* 313 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69007,7 +70495,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-
 
 
 /***/ }),
-/* 322 */
+/* 314 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69019,7 +70507,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"repo-
 
 
 /***/ }),
-/* 323 */
+/* 315 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69031,7 +70519,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"rocke
 
 
 /***/ }),
-/* 324 */
+/* 316 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69043,7 +70531,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"rss":
 
 
 /***/ }),
-/* 325 */
+/* 317 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69055,7 +70543,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"ruby"
 
 
 /***/ }),
-/* 326 */
+/* 318 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69067,7 +70555,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"scree
 
 
 /***/ }),
-/* 327 */
+/* 319 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69079,7 +70567,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"scree
 
 
 /***/ }),
-/* 328 */
+/* 320 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69091,7 +70579,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"searc
 
 
 /***/ }),
-/* 329 */
+/* 321 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69103,7 +70591,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"serve
 
 
 /***/ }),
-/* 330 */
+/* 322 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69115,7 +70603,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"setti
 
 
 /***/ }),
-/* 331 */
+/* 323 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69127,7 +70615,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"shiel
 
 
 /***/ }),
-/* 332 */
+/* 324 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69139,7 +70627,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"sign-
 
 
 /***/ }),
-/* 333 */
+/* 325 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69151,7 +70639,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"sign-
 
 
 /***/ }),
-/* 334 */
+/* 326 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69163,7 +70651,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"smile
 
 
 /***/ }),
-/* 335 */
+/* 327 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69175,7 +70663,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"squir
 
 
 /***/ }),
-/* 336 */
+/* 328 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69187,7 +70675,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"star"
 
 
 /***/ }),
-/* 337 */
+/* 329 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69199,7 +70687,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"stop"
 
 
 /***/ }),
-/* 338 */
+/* 330 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69211,7 +70699,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"sync"
 
 
 /***/ }),
-/* 339 */
+/* 331 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69223,7 +70711,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"tag":
 
 
 /***/ }),
-/* 340 */
+/* 332 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69235,7 +70723,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"taskl
 
 
 /***/ }),
-/* 341 */
+/* 333 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69247,7 +70735,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"teles
 
 
 /***/ }),
-/* 342 */
+/* 334 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69259,7 +70747,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"termi
 
 
 /***/ }),
-/* 343 */
+/* 335 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69271,7 +70759,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"text-
 
 
 /***/ }),
-/* 344 */
+/* 336 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69283,7 +70771,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"three
 
 
 /***/ }),
-/* 345 */
+/* 337 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69295,7 +70783,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"thumb
 
 
 /***/ }),
-/* 346 */
+/* 338 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69307,7 +70795,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"thumb
 
 
 /***/ }),
-/* 347 */
+/* 339 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69319,7 +70807,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"tools
 
 
 /***/ }),
-/* 348 */
+/* 340 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69331,7 +70819,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"trash
 
 
 /***/ }),
-/* 349 */
+/* 341 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69343,7 +70831,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"trian
 
 
 /***/ }),
-/* 350 */
+/* 342 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69355,7 +70843,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"trian
 
 
 /***/ }),
-/* 351 */
+/* 343 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69367,7 +70855,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"trian
 
 
 /***/ }),
-/* 352 */
+/* 344 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69379,7 +70867,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"trian
 
 
 /***/ }),
-/* 353 */
+/* 345 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69391,7 +70879,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"unfol
 
 
 /***/ }),
-/* 354 */
+/* 346 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69403,7 +70891,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"unmut
 
 
 /***/ }),
-/* 355 */
+/* 347 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69415,7 +70903,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"unver
 
 
 /***/ }),
-/* 356 */
+/* 348 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69427,7 +70915,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"verif
 
 
 /***/ }),
-/* 357 */
+/* 349 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69439,7 +70927,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"versi
 
 
 /***/ }),
-/* 358 */
+/* 350 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69451,7 +70939,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"watch
 
 
 /***/ }),
-/* 359 */
+/* 351 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69463,7 +70951,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"x":{"
 
 
 /***/ }),
-/* 360 */
+/* 352 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69475,19 +70963,19 @@ __WEBPACK_IMPORTED_MODULE_0__components_Octicon_vue___default.a.register({"zap":
 
 
 /***/ }),
-/* 361 */
+/* 353 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(362)
+  __webpack_require__(354)
 }
-var normalizeComponent = __webpack_require__(6)
+var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(364)
+var __vue_script__ = __webpack_require__(356)
 /* template */
-var __vue_template__ = __webpack_require__(366)
+var __vue_template__ = __webpack_require__(358)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -69526,17 +71014,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 362 */
+/* 354 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(363);
+var content = __webpack_require__(355);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("4b7c8208", content, false, {});
+var update = __webpack_require__(4)("4b7c8208", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -69552,10 +71040,10 @@ if(false) {
 }
 
 /***/ }),
-/* 363 */
+/* 355 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)(false);
+exports = module.exports = __webpack_require__(3)(false);
 // imports
 
 
@@ -69566,14 +71054,14 @@ exports.push([module.i, "\n.list-item {\n  display: inline-block;\n  margin-righ
 
 
 /***/ }),
-/* 364 */
+/* 356 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__MessageService__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__MessageService__ = __webpack_require__(8);
 //
 //
 //
@@ -69681,7 +71169,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 365 */
+/* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -69946,10 +71434,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 365;
+webpackContext.id = 357;
 
 /***/ }),
-/* 366 */
+/* 358 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -70093,19 +71581,19 @@ if (false) {
 }
 
 /***/ }),
-/* 367 */
+/* 359 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(368)
+  __webpack_require__(360)
 }
-var normalizeComponent = __webpack_require__(6)
+var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(370)
+var __vue_script__ = __webpack_require__(362)
 /* template */
-var __vue_template__ = __webpack_require__(371)
+var __vue_template__ = __webpack_require__(363)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -70144,17 +71632,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 368 */
+/* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(369);
+var content = __webpack_require__(361);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("27a2889e", content, false, {});
+var update = __webpack_require__(4)("27a2889e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -70170,27 +71658,26 @@ if(false) {
 }
 
 /***/ }),
-/* 369 */
+/* 361 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)(false);
+exports = module.exports = __webpack_require__(3)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 370 */
+/* 362 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MessageService__ = __webpack_require__(9);
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MessageService__ = __webpack_require__(8);
 //
 //
 //
@@ -70251,33 +71738,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     validate: function validate(fieldname) {
-      this.allowSubmit = true;
+      var _this2 = this;
+
       var field = this.fields[fieldname];
-      field.errors = [];
+      this.fields[fieldname].errors = [];
       if (!this.task[fieldname]) {
-        field.errors.push('Please enter a ' + field.label);
-        this.allowSubmit = false;
+        this.fields[fieldname].errors.push('Please enter a ' + field.label);
       }
+      // update form allow submit state
+      this.allowSubmit = Object.keys(this.fields).filter(function (field) {
+        return _this2.fields[field].errors.length > 0;
+      }).length < 1;
     },
     submit: function submit() {
-      var _this2 = this;
+      var _this3 = this;
+
+      Object.keys(this.fields).forEach(function (field) {
+        _this3.validate(field);
+      });
 
       if (!this.allowSubmit) {
         return false;
       }
+
       if (this.task.id !== null) {
-        axios.put('/api/task/' + this.task.id.value, this.task).then(function (response) {
-          _this2.$router.push('/');
-          _this2.messageService.pushMessage('Task updated successfully');
+        axios.put('/api/task/' + this.task.id, this.task).then(function (response) {
+          _this3.$router.push('/');
+          _this3.messageService.pushMessage('Task updated successfully');
         }).catch(function (error) {
-          _this2.messageService.pushError('Error creating task');
+          _this3.messageService.pushError('Error creating task');
         });
       } else {
         axios.post('/api/task', this.task).then(function (response) {
-          _this2.$router.push('/');
-          _this2.messageService.pushMessage('Task created successfully');
+          _this3.$router.push('/');
+          _this3.messageService.pushMessage('Task created successfully');
         }).catch(function (error) {
-          _this2.messageService.pushError(error);
+          _this3.messageService.pushError(error);
         });
       }
     }
@@ -70285,7 +71781,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 371 */
+/* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -70349,7 +71845,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("vuejs-datepicker", {
-            attrs: { "bootstrap-styling": true },
+            attrs: { "bootstrap-styling": true, format: "yyyy-MM-dd" },
             on: {
               input: function($event) {
                 _vm.validate("due_date")
@@ -70375,7 +71871,11 @@ var render = function() {
       _vm._v(" "),
       _c(
         "button",
-        { staticClass: "btn btn-success", on: { click: _vm.submit } },
+        {
+          staticClass: "btn btn-success",
+          attrs: { disabled: !_vm.allowSubmit },
+          on: { click: _vm.submit }
+        },
         [_vm._v("Save")]
       ),
       _vm._v(" "),
@@ -70399,19 +71899,19 @@ if (false) {
 }
 
 /***/ }),
-/* 372 */
+/* 364 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(373)
+  __webpack_require__(365)
 }
-var normalizeComponent = __webpack_require__(6)
+var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(375)
+var __vue_script__ = __webpack_require__(367)
 /* template */
-var __vue_template__ = __webpack_require__(376)
+var __vue_template__ = __webpack_require__(368)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -70450,17 +71950,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 373 */
+/* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(374);
+var content = __webpack_require__(366);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("a5c93482", content, false, {});
+var update = __webpack_require__(4)("a5c93482", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -70476,10 +71976,10 @@ if(false) {
 }
 
 /***/ }),
-/* 374 */
+/* 366 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)(false);
+exports = module.exports = __webpack_require__(3)(false);
 // imports
 
 
@@ -70490,7 +71990,7 @@ exports.push([module.i, "\n.table {\n  table-layout: fixed;\n}\n.table tbody tr 
 
 
 /***/ }),
-/* 375 */
+/* 367 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -70580,7 +72080,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 376 */
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -70666,19 +72166,19 @@ if (false) {
 }
 
 /***/ }),
-/* 377 */
+/* 369 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(378)
+  __webpack_require__(370)
 }
-var normalizeComponent = __webpack_require__(6)
+var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(380)
+var __vue_script__ = __webpack_require__(372)
 /* template */
-var __vue_template__ = __webpack_require__(381)
+var __vue_template__ = __webpack_require__(373)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -70717,17 +72217,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 378 */
+/* 370 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(379);
+var content = __webpack_require__(371);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("31a72692", content, false, {});
+var update = __webpack_require__(4)("31a72692", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -70743,10 +72243,10 @@ if(false) {
 }
 
 /***/ }),
-/* 379 */
+/* 371 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)(false);
+exports = module.exports = __webpack_require__(3)(false);
 // imports
 
 
@@ -70757,7 +72257,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 
 /***/ }),
-/* 380 */
+/* 372 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -70778,7 +72278,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 381 */
+/* 373 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -70820,19 +72320,19 @@ if (false) {
 }
 
 /***/ }),
-/* 382 */
+/* 374 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(383)
+  __webpack_require__(375)
 }
-var normalizeComponent = __webpack_require__(6)
+var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(385)
+var __vue_script__ = __webpack_require__(377)
 /* template */
-var __vue_template__ = __webpack_require__(386)
+var __vue_template__ = __webpack_require__(378)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -70871,17 +72371,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 383 */
+/* 375 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(384);
+var content = __webpack_require__(376);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("256ef9e5", content, false, {});
+var update = __webpack_require__(4)("256ef9e5", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -70897,10 +72397,10 @@ if(false) {
 }
 
 /***/ }),
-/* 384 */
+/* 376 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)(false);
+exports = module.exports = __webpack_require__(3)(false);
 // imports
 
 
@@ -70911,12 +72411,16 @@ exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n  -webkit-t
 
 
 /***/ }),
-/* 385 */
+/* 377 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MessageService__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MessageService__ = __webpack_require__(8);
+//
+//
+//
+//
 //
 //
 //
@@ -70948,7 +72452,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 386 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -70956,32 +72460,42 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "transition",
-    { attrs: { name: "fade" } },
+    "div",
+    { staticClass: "container" },
     [
-      _vm._l(_vm.messageService.errors, function(error) {
-        return _c(
-          "div",
-          {
-            staticClass: "alert alert-danger",
-            on: { click: _vm.dismissError }
-          },
-          [_vm._v("\n    " + _vm._s(error) + "\n  ")]
-        )
-      }),
+      _c(
+        "transition-group",
+        { attrs: { name: "fade" } },
+        _vm._l(_vm.messageService.errors, function(error, index) {
+          return _c(
+            "div",
+            {
+              key: index,
+              staticClass: "alert alert-danger",
+              on: { click: _vm.dismissError }
+            },
+            [_vm._v("\n    " + _vm._s(error) + "\n  ")]
+          )
+        })
+      ),
       _vm._v(" "),
-      _vm._l(_vm.messageService.messages, function(message) {
-        return _c(
-          "div",
-          {
-            staticClass: "alert alert-success",
-            on: { click: _vm.dismissMessage }
-          },
-          [_vm._v("\n    " + _vm._s(message) + "\n  ")]
-        )
-      })
+      _c(
+        "transition-group",
+        { attrs: { name: "fade" } },
+        _vm._l(_vm.messageService.messages, function(message, index) {
+          return _c(
+            "div",
+            {
+              key: index,
+              staticClass: "alert alert-success",
+              on: { click: _vm.dismissMessage }
+            },
+            [_vm._v("\n    " + _vm._s(message) + "\n  ")]
+          )
+        })
+      )
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []
@@ -70995,1511 +72509,10 @@ if (false) {
 }
 
 /***/ }),
-/* 387 */
+/* 379 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 388 */,
-/* 389 */,
-/* 390 */,
-/* 391 */,
-/* 392 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/*!
- * vuejs-datepicker v1.5.2
- * (c) 2016-2018 Charlie Kassel
- * Released under the MIT License.
- */
-var Language = function Language (language, months, monthsAbbr, days) {
-  this.language = language;
-  this.months = months;
-  this.monthsAbbr = monthsAbbr;
-  this.days = days;
-  this.rtl = false;
-  this.ymd = false;
-  this.yearSuffix = '';
-};
-
-var prototypeAccessors = { language: { configurable: true },months: { configurable: true },monthsAbbr: { configurable: true },days: { configurable: true } };
-
-prototypeAccessors.language.get = function () {
-  return this._language
-};
-
-prototypeAccessors.language.set = function (language) {
-  if (typeof language !== 'string') {
-    throw new TypeError('Language must be a string')
-  }
-  this._language = language;
-};
-
-prototypeAccessors.months.get = function () {
-  return this._months
-};
-
-prototypeAccessors.months.set = function (months) {
-  if (months.length !== 12) {
-    throw new RangeError(("There must be 12 months for " + (this.language) + " language"))
-  }
-  this._months = months;
-};
-
-prototypeAccessors.monthsAbbr.get = function () {
-  return this._monthsAbbr
-};
-
-prototypeAccessors.monthsAbbr.set = function (monthsAbbr) {
-  if (monthsAbbr.length !== 12) {
-    throw new RangeError(("There must be 12 abbreviated months for " + (this.language) + " language"))
-  }
-  this._monthsAbbr = monthsAbbr;
-};
-
-prototypeAccessors.days.get = function () {
-  return this._days
-};
-
-prototypeAccessors.days.set = function (days) {
-  if (days.length !== 7) {
-    throw new RangeError(("There must be 7 days for " + (this.language) + " language"))
-  }
-  this._days = days;
-};
-
-Object.defineProperties( Language.prototype, prototypeAccessors );
-
-var en = new Language(
-  'English',
-  ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-  ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-  ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-)
-// eslint-disable-next-line
-;
-
-var utils = {
-  /**
-   * @type {Boolean}
-   */
-  useUtc: false,
-  /**
-   * Returns the full year, using UTC or not
-   * @param {Date} date
-   */
-  getFullYear: function getFullYear (date) {
-    return this.useUtc ? date.getUTCFullYear() : date.getFullYear()
-  },
-
-  /**
-   * Returns the month, using UTC or not
-   * @param {Date} date
-   */
-  getMonth: function getMonth (date) {
-    return this.useUtc ? date.getUTCMonth() : date.getMonth()
-  },
-
-  /**
-   * Returns the date, using UTC or not
-   * @param {Date} date
-   */
-  getDate: function getDate (date) {
-    return this.useUtc ? date.getUTCDate() : date.getDate()
-  },
-
-  /**
-   * Returns the day, using UTC or not
-   * @param {Date} date
-   */
-  getDay: function getDay (date) {
-    return this.useUtc ? date.getUTCDay() : date.getDay()
-  },
-
-  /**
-   * Returns the hours, using UTC or not
-   * @param {Date} date
-   */
-  getHours: function getHours (date) {
-    return this.useUtc ? date.getUTCHours() : date.getHours()
-  },
-
-  /**
-   * Returns the minutes, using UTC or not
-   * @param {Date} date
-   */
-  getMinutes: function getMinutes (date) {
-    return this.useUtc ? date.getUTCMinutes() : date.getMinutes()
-  },
-
-  /**
-   * Sets the full year, using UTC or not
-   * @param {Date} date
-   */
-  setFullYear: function setFullYear (date, value, useUtc) {
-    return this.useUtc ? date.setUTCFullYear(value) : date.setFullYear(value)
-  },
-
-  /**
-   * Sets the month, using UTC or not
-   * @param {Date} date
-   */
-  setMonth: function setMonth (date, value, useUtc) {
-    return this.useUtc ? date.setUTCMonth(value) : date.setMonth(value)
-  },
-
-  /**
-   * Sets the date, using UTC or not
-   * @param {Date} date
-   * @param {Number} value
-   */
-  setDate: function setDate (date, value, useUtc) {
-    return this.useUtc ? date.setUTCDate(value) : date.setDate(value)
-  },
-
-  /**
-   * Check if date1 is equivalent to date2, without comparing the time
-   * @see https://stackoverflow.com/a/6202196/4455925
-   * @param {Date} date1
-   * @param {Date} date2
-   */
-  compareDates: function compareDates (date1, date2) {
-    var d1 = new Date(date1.getTime());
-    var d2 = new Date(date2.getTime());
-
-    if (this.useUtc) {
-      d1.setUTCHours(0, 0, 0, 0);
-      d2.setUTCHours(0, 0, 0, 0);
-    } else {
-      d1.setHours(0, 0, 0, 0);
-      d2.setHours(0, 0, 0, 0);
-    }
-    return d1.getTime() === d2.getTime()
-  },
-
-  /**
-   * Validates a date object
-   * @param {Date} date - an object instantiated with the new Date constructor
-   * @return {Boolean}
-   */
-  isValidDate: function isValidDate (date) {
-    if (Object.prototype.toString.call(date) !== '[object Date]') {
-      return false
-    }
-    return !isNaN(date.getTime())
-  },
-
-  /**
-   * Return abbreviated week day name
-   * @param {Date}
-   * @param {Array}
-   * @return {String}
-   */
-  getDayNameAbbr: function getDayNameAbbr (date, days) {
-    if (typeof date !== 'object') {
-      throw TypeError('Invalid Type')
-    }
-    return days[this.getDay(date)]
-  },
-
-  /**
-   * Return name of the month
-   * @param {Number|Date}
-   * @param {Array}
-   * @return {String}
-   */
-  getMonthName: function getMonthName (month, months) {
-    if (!months) {
-      throw Error('missing 2nd parameter Months array')
-    }
-    if (typeof month === 'object') {
-      return months[this.getMonth(month)]
-    }
-    if (typeof month === 'number') {
-      return months[month]
-    }
-    throw TypeError('Invalid type')
-  },
-
-  /**
-   * Return an abbreviated version of the month
-   * @param {Number|Date}
-   * @return {String}
-   */
-  getMonthNameAbbr: function getMonthNameAbbr (month, monthsAbbr) {
-    if (!monthsAbbr) {
-      throw Error('missing 2nd paramter Months array')
-    }
-    if (typeof month === 'object') {
-      return monthsAbbr[this.getMonth(month)]
-    }
-    if (typeof month === 'number') {
-      return monthsAbbr[month]
-    }
-    throw TypeError('Invalid type')
-  },
-
-  /**
-   * Alternative get total number of days in month
-   * @param {Number} year
-   * @param {Number} m
-   * @return {Number}
-   */
-  daysInMonth: function daysInMonth (year, month) {
-    return /8|3|5|10/.test(month) ? 30 : month === 1 ? (!(year % 4) && year % 100) || !(year % 400) ? 29 : 28 : 31
-  },
-
-  /**
-   * Get nth suffix for date
-   * @param {Number} day
-   * @return {String}
-   */
-  getNthSuffix: function getNthSuffix (day) {
-    switch (day) {
-      case 1:
-      case 21:
-      case 31:
-        return 'st'
-      case 2:
-      case 22:
-        return 'nd'
-      case 3:
-      case 23:
-        return 'rd'
-      default:
-        return 'th'
-    }
-  },
-
-  /**
-   * Formats date object
-   * @param {Date}
-   * @param {String}
-   * @param {Object}
-   * @return {String}
-   */
-  formatDate: function formatDate (date, format, translation) {
-    translation = (!translation) ? en : translation;
-    var year = this.getFullYear(date);
-    var month = this.getMonth(date) + 1;
-    var day = this.getDate(date);
-    var str = format
-      .replace(/dd/, ('0' + day).slice(-2))
-      .replace(/d/, day)
-      .replace(/yyyy/, year)
-      .replace(/yy/, String(year).slice(2))
-      .replace(/MMMM/, this.getMonthName(this.getMonth(date), translation.months))
-      .replace(/MMM/, this.getMonthNameAbbr(this.getMonth(date), translation.monthsAbbr))
-      .replace(/MM/, ('0' + month).slice(-2))
-      .replace(/M(?!a|ä|e)/, month)
-      .replace(/su/, this.getNthSuffix(this.getDate(date)))
-      .replace(/D(?!e|é|i)/, this.getDayNameAbbr(date, translation.days));
-    return str
-  },
-
-  /**
-   * Creates an array of dates for each day in between two dates.
-   * @param {Date} start
-   * @param {Date} end
-   * @return {Array}
-   */
-  createDateArray: function createDateArray (start, end) {
-    var this$1 = this;
-
-    var dates = [];
-    while (start <= end) {
-      dates.push(new Date(start));
-      start = this$1.setDate(new Date(start), this$1.getDate(new Date(start)) + 1);
-    }
-    return dates
-  }
-};
-
-var makeDateUtils = function (useUtc) { return (Object.assign({}, utils, {useUtc: useUtc})); };
-
-Object.assign({}, utils)
-// eslint-disable-next-line
-;
-
-(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=""; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
-var DateInput = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:{'input-group' : _vm.bootstrapStyling}},[(_vm.calendarButton)?_c('span',{staticClass:"vdp-datepicker__calendar-button",class:{'input-group-prepend' : _vm.bootstrapStyling},style:({'cursor:not-allowed;' : _vm.disabled}),on:{"click":_vm.showCalendar}},[_c('span',{class:{'input-group-text' : _vm.bootstrapStyling}},[_c('i',{class:_vm.calendarButtonIcon},[_vm._v(" "+_vm._s(_vm.calendarButtonIconContent)+" "),(!_vm.calendarButtonIcon)?_c('span',[_vm._v("…")]):_vm._e()])])]):_vm._e(),_vm._v(" "),_c('input',{ref:_vm.refName,class:_vm.computedInputClass,attrs:{"type":_vm.inline ? 'hidden' : 'text',"name":_vm.name,"id":_vm.id,"open-date":_vm.openDate,"placeholder":_vm.placeholder,"clear-button":_vm.clearButton,"disabled":_vm.disabled,"required":_vm.required,"autocomplete":"off"},domProps:{"value":_vm.formattedValue},on:{"click":_vm.showCalendar,"keydown":_vm.allowTyping,"keyup":_vm.parseTypedDate,"blur":_vm.inputBlurred}}),_vm._v(" "),(_vm.clearButton && _vm.selectedDate)?_c('span',{staticClass:"vdp-datepicker__clear-button",class:{'input-group-append' : _vm.bootstrapStyling},on:{"click":function($event){_vm.clearDate();}}},[_c('span',{class:{'input-group-text' : _vm.bootstrapStyling}},[_c('i',{class:_vm.clearButtonIcon},[(!_vm.clearButtonIcon)?_c('span',[_vm._v("×")]):_vm._e()])])]):_vm._e(),_vm._v(" "),_vm._t("afterDateInput")],2)},staticRenderFns: [],
-  props: {
-    selectedDate: Date,
-    resetTypedDate: [Date],
-    format: [String, Function],
-    translation: Object,
-    inline: Boolean,
-    id: String,
-    name: String,
-    refName: String,
-    openDate: Date,
-    placeholder: String,
-    inputClass: [String, Object, Array],
-    clearButton: Boolean,
-    clearButtonIcon: String,
-    calendarButton: Boolean,
-    calendarButtonIcon: String,
-    calendarButtonIconContent: String,
-    disabled: Boolean,
-    required: Boolean,
-    typeable: Boolean,
-    bootstrapStyling: Boolean,
-    useUtc: Boolean
-  },
-  data: function data () {
-    var constructedDateUtils = makeDateUtils(this.useUtc);
-    return {
-      input: null,
-      typedDate: false,
-      utils: constructedDateUtils
-    }
-  },
-  computed: {
-    formattedValue: function formattedValue () {
-      if (!this.selectedDate) {
-        return null
-      }
-      if (this.typedDate) {
-        return this.typedDate
-      }
-      return typeof this.format === 'function'
-        ? this.format(this.selectedDate)
-        : this.utils.formatDate(new Date(this.selectedDate), this.format, this.translation)
-    },
-
-    computedInputClass: function computedInputClass () {
-      if (this.bootstrapStyling) {
-        if (typeof this.inputClass === 'string') {
-          return [this.inputClass, 'form-control'].join(' ')
-        }
-        return Object.assign({}, {'form-control': true}, this.inputClass)
-      }
-      return this.inputClass
-    }
-  },
-  watch: {
-    resetTypedDate: function resetTypedDate () {
-      this.typedDate = false;
-    }
-  },
-  methods: {
-    showCalendar: function showCalendar () {
-      this.$emit('showCalendar');
-    },
-    /**
-     * Prevent typing if not typeable
-     * @param {Event} event
-     * @return {Boolean}
-     */
-    allowTyping: function allowTyping (event) {
-      if (!this.typeable) {
-        event.preventDefault();
-        return false
-      }
-      return true
-    },
-    /**
-     * Attempt to parse a typed date
-     * @param {Event} event
-     */
-    parseTypedDate: function parseTypedDate (event) {
-      // close calendar if escape or enter are pressed
-      if ([
-        27, // escape
-        13  // enter
-      ].includes(event.keyCode)) {
-        this.input.blur();
-      }
-
-      if (this.typeable) {
-        var typedDate = Date.parse(this.input.value);
-        if (!isNaN(typedDate)) {
-          this.typedDate = this.input.value;
-          this.$emit('typedDate', new Date(this.typedDate));
-        }
-      }
-    },
-    /**
-     * nullify the typed date to defer to regular formatting
-     * called once the input is blurred
-     */
-    inputBlurred: function inputBlurred () {
-      if (this.typeable && isNaN(Date.parse(this.input.value))) {
-        this.clearDate();
-        this.input.value = null;
-        this.typedDate = null;
-      }
-
-      this.$emit('closeCalendar');
-    },
-    /**
-     * emit a clearDate event
-     */
-    clearDate: function clearDate () {
-      this.$emit('clearDate');
-    }
-  },
-  mounted: function mounted () {
-    this.input = this.$el.querySelector('input');
-  }
-}
-// eslint-disable-next-line
-;
-
-(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=""; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
-var PickerDay = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showDayView),expression:"showDayView"}],class:[_vm.calendarClass, 'vdp-datepicker__calendar'],style:(_vm.calendarStyle),on:{"mousedown":function($event){$event.preventDefault();}}},[_vm._t("beforeCalendarHeader"),_vm._v(" "),_c('header',[_c('span',{staticClass:"prev",class:{'disabled': _vm.isLeftNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.nextMonth() : _vm.previousMonth();}}},[_vm._v("<")]),_vm._v(" "),_c('span',{staticClass:"day__month_btn",class:_vm.allowedToShowView('month') ? 'up' : '',on:{"click":_vm.showMonthCalendar}},[_vm._v(_vm._s(_vm.isYmd ? _vm.currYearName : _vm.currMonthName)+" "+_vm._s(_vm.isYmd ? _vm.currMonthName : _vm.currYearName))]),_vm._v(" "),_c('span',{staticClass:"next",class:{'disabled': _vm.isRightNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.previousMonth() : _vm.nextMonth();}}},[_vm._v(">")])]),_vm._v(" "),_c('div',{class:_vm.isRtl ? 'flex-rtl' : ''},[_vm._l((_vm.daysOfWeek),function(d){return _c('span',{key:d.timestamp,staticClass:"cell day-header"},[_vm._v(_vm._s(d))])}),_vm._v(" "),(_vm.blankDays > 0)?_vm._l((_vm.blankDays),function(d){return _c('span',{key:d.timestamp,staticClass:"cell day blank"})}):_vm._e(),_vm._l((_vm.days),function(day){return _c('span',{key:day.timestamp,staticClass:"cell day",class:_vm.dayClasses(day),domProps:{"innerHTML":_vm._s(_vm.dayCellContent(day))},on:{"click":function($event){_vm.selectDate(day);}}})})],2)],2)},staticRenderFns: [],
-  props: {
-    showDayView: Boolean,
-    selectedDate: Date,
-    pageDate: Date,
-    pageTimestamp: Number,
-    fullMonthName: Boolean,
-    allowedToShowView: Function,
-    dayCellContent: {
-      type: Function,
-      default: function (day) { return day.date; }
-    },
-    disabledDates: Object,
-    highlighted: Object,
-    calendarClass: [String, Object, Array],
-    calendarStyle: Object,
-    translation: Object,
-    isRtl: Boolean,
-    mondayFirst: Boolean,
-    useUtc: Boolean
-  },
-  data: function data () {
-    var constructedDateUtils = makeDateUtils(this.useUtc);
-    return {
-      utils: constructedDateUtils
-    }
-  },
-  computed: {
-    /**
-     * Returns an array of day names
-     * @return {String[]}
-     */
-    daysOfWeek: function daysOfWeek () {
-      if (this.mondayFirst) {
-        var tempDays = this.translation.days.slice();
-        tempDays.push(tempDays.shift());
-        return tempDays
-      }
-      return this.translation.days
-    },
-    /**
-     * Returns the day number of the week less one for the first of the current month
-     * Used to show amount of empty cells before the first in the day calendar layout
-     * @return {Number}
-     */
-    blankDays: function blankDays () {
-      var d = this.pageDate;
-      var dObj = this.useUtc
-        ? new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1))
-        : new Date(d.getFullYear(), d.getMonth(), 1, d.getHours(), d.getMinutes());
-      if (this.mondayFirst) {
-        return this.utils.getDay(dObj) > 0 ? this.utils.getDay(dObj) - 1 : 6
-      }
-      return this.utils.getDay(dObj)
-    },
-    /**
-     * @return {Object[]}
-     */
-    days: function days () {
-      var this$1 = this;
-
-      var d = this.pageDate;
-      var days = [];
-      // set up a new date object to the beginning of the current 'page'
-      var dObj = this.useUtc
-        ? new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1))
-        : new Date(d.getFullYear(), d.getMonth(), 1, d.getHours(), d.getMinutes());
-      var daysInMonth = this.utils.daysInMonth(this.utils.getFullYear(dObj), this.utils.getMonth(dObj));
-      for (var i = 0; i < daysInMonth; i++) {
-        days.push({
-          date: this$1.utils.getDate(dObj),
-          timestamp: dObj.getTime(),
-          isSelected: this$1.isSelectedDate(dObj),
-          isDisabled: this$1.isDisabledDate(dObj),
-          isHighlighted: this$1.isHighlightedDate(dObj),
-          isHighlightStart: this$1.isHighlightStart(dObj),
-          isHighlightEnd: this$1.isHighlightEnd(dObj),
-          isToday: this$1.utils.compareDates(dObj, new Date()),
-          isWeekend: this$1.utils.getDay(dObj) === 0 || this$1.utils.getDay(dObj) === 6,
-          isSaturday: this$1.utils.getDay(dObj) === 6,
-          isSunday: this$1.utils.getDay(dObj) === 0
-        });
-        this$1.utils.setDate(dObj, this$1.utils.getDate(dObj) + 1);
-      }
-      return days
-    },
-    /**
-     * Gets the name of the month the current page is on
-     * @return {String}
-     */
-    currMonthName: function currMonthName () {
-      var monthName = this.fullMonthName ? this.translation.months : this.translation.monthsAbbr;
-      return this.utils.getMonthNameAbbr(this.utils.getMonth(this.pageDate), monthName)
-    },
-    /**
-     * Gets the name of the year that current page is on
-     * @return {Number}
-     */
-    currYearName: function currYearName () {
-      var yearSuffix = this.translation.yearSuffix;
-      return ("" + (this.utils.getFullYear(this.pageDate)) + yearSuffix)
-    },
-    /**
-     * Is this translation using year/month/day format?
-     * @return {Boolean}
-     */
-    isYmd: function isYmd () {
-      return this.translation.ymd && this.translation.ymd === true
-    },
-    /**
-     * Is the left hand navigation button disabled?
-     * @return {Boolean}
-     */
-    isLeftNavDisabled: function isLeftNavDisabled () {
-      return this.isRtl
-        ? this.isNextMonthDisabled(this.pageTimestamp)
-        : this.isPreviousMonthDisabled(this.pageTimestamp)
-    },
-    /**
-     * Is the right hand navigation button disabled?
-     * @return {Boolean}
-     */
-    isRightNavDisabled: function isRightNavDisabled () {
-      return this.isRtl
-        ? this.isPreviousMonthDisabled(this.pageTimestamp)
-        : this.isNextMonthDisabled(this.pageTimestamp)
-    }
-  },
-  methods: {
-    selectDate: function selectDate (date) {
-      if (date.isDisabled) {
-        this.$emit('selectedDisabled', date);
-        return false
-      }
-      this.$emit('selectDate', date);
-    },
-    /**
-     * @return {Number}
-     */
-    getPageMonth: function getPageMonth () {
-      return this.utils.getMonth(this.pageDate)
-    },
-    /**
-     * Emit an event to show the month picker
-     */
-    showMonthCalendar: function showMonthCalendar () {
-      this.$emit('showMonthCalendar');
-    },
-    /**
-     * Change the page month
-     * @param {Number} incrementBy
-     */
-    changeMonth: function changeMonth (incrementBy) {
-      var date = this.pageDate;
-      this.utils.setMonth(date, this.utils.getMonth(date) + incrementBy);
-      this.$emit('changedMonth', date);
-    },
-    /**
-     * Decrement the page month
-     */
-    previousMonth: function previousMonth () {
-      if (!this.isPreviousMonthDisabled()) {
-        this.changeMonth(-1);
-      }
-    },
-    /**
-     * Is the previous month disabled?
-     * @return {Boolean}
-     */
-    isPreviousMonthDisabled: function isPreviousMonthDisabled () {
-      if (!this.disabledDates || !this.disabledDates.to) {
-        return false
-      }
-      var d = this.pageDate;
-      return this.utils.getMonth(this.disabledDates.to) >= this.utils.getMonth(d) &&
-        this.utils.getFullYear(this.disabledDates.to) >= this.utils.getFullYear(d)
-    },
-    /**
-     * Increment the current page month
-     */
-    nextMonth: function nextMonth () {
-      if (!this.isNextMonthDisabled()) {
-        this.changeMonth(+1);
-      }
-    },
-    /**
-     * Is the next month disabled?
-     * @return {Boolean}
-     */
-    isNextMonthDisabled: function isNextMonthDisabled () {
-      if (!this.disabledDates || !this.disabledDates.from) {
-        return false
-      }
-      var d = this.pageDate;
-      return this.utils.getMonth(this.disabledDates.from) <= this.utils.getMonth(d) &&
-        this.utils.getFullYear(this.disabledDates.from) <= this.utils.getFullYear(d)
-    },
-    /**
-     * Whether a day is selected
-     * @param {Date}
-     * @return {Boolean}
-     */
-    isSelectedDate: function isSelectedDate (dObj) {
-      return this.selectedDate && this.utils.compareDates(this.selectedDate, dObj)
-    },
-    /**
-     * Whether a day is disabled
-     * @param {Date}
-     * @return {Boolean}
-     */
-    isDisabledDate: function isDisabledDate (date) {
-      var this$1 = this;
-
-      var disabledDates = false;
-
-      if (typeof this.disabledDates === 'undefined') {
-        return false
-      }
-
-      if (typeof this.disabledDates.dates !== 'undefined') {
-        this.disabledDates.dates.forEach(function (d) {
-          if (this$1.utils.compareDates(date, d)) {
-            disabledDates = true;
-            return true
-          }
-        });
-      }
-      if (typeof this.disabledDates.to !== 'undefined' && this.disabledDates.to && date < this.disabledDates.to) {
-        disabledDates = true;
-      }
-      if (typeof this.disabledDates.from !== 'undefined' && this.disabledDates.from && date > this.disabledDates.from) {
-        disabledDates = true;
-      }
-      if (typeof this.disabledDates.ranges !== 'undefined') {
-        this.disabledDates.ranges.forEach(function (range) {
-          if (typeof range.from !== 'undefined' && range.from && typeof range.to !== 'undefined' && range.to) {
-            if (date < range.to && date > range.from) {
-              disabledDates = true;
-              return true
-            }
-          }
-        });
-      }
-      if (typeof this.disabledDates.days !== 'undefined' && this.disabledDates.days.indexOf(this.utils.getDay(date)) !== -1) {
-        disabledDates = true;
-      }
-      if (typeof this.disabledDates.daysOfMonth !== 'undefined' && this.disabledDates.daysOfMonth.indexOf(this.utils.getDate(date)) !== -1) {
-        disabledDates = true;
-      }
-      if (typeof this.disabledDates.customPredictor === 'function' && this.disabledDates.customPredictor(date)) {
-        disabledDates = true;
-      }
-      return disabledDates
-    },
-    /**
-     * Whether a day is highlighted (only if it is not disabled already except when highlighted.includeDisabled is true)
-     * @param {Date}
-     * @return {Boolean}
-     */
-    isHighlightedDate: function isHighlightedDate (date) {
-      var this$1 = this;
-
-      if (!(this.highlighted && this.highlighted.includeDisabled) && this.isDisabledDate(date)) {
-        return false
-      }
-
-      var highlighted = false;
-
-      if (typeof this.highlighted === 'undefined') {
-        return false
-      }
-
-      if (typeof this.highlighted.dates !== 'undefined') {
-        this.highlighted.dates.forEach(function (d) {
-          if (this$1.utils.compareDates(date, d)) {
-            highlighted = true;
-            return true
-          }
-        });
-      }
-
-      if (this.isDefined(this.highlighted.from) && this.isDefined(this.highlighted.to)) {
-        highlighted = date >= this.highlighted.from && date <= this.highlighted.to;
-      }
-
-      if (typeof this.highlighted.days !== 'undefined' && this.highlighted.days.indexOf(this.utils.getDay(date)) !== -1) {
-        highlighted = true;
-      }
-
-      if (typeof this.highlighted.daysOfMonth !== 'undefined' && this.highlighted.daysOfMonth.indexOf(this.utils.getDate(date)) !== -1) {
-        highlighted = true;
-      }
-
-      if (typeof this.highlighted.customPredictor === 'function' && this.highlighted.customPredictor(date)) {
-        highlighted = true;
-      }
-
-      return highlighted
-    },
-    dayClasses: function dayClasses (day) {
-      return {
-        'selected': day.isSelected,
-        'disabled': day.isDisabled,
-        'highlighted': day.isHighlighted,
-        'today': day.isToday,
-        'weekend': day.isWeekend,
-        'sat': day.isSaturday,
-        'sun': day.isSunday,
-        'highlight-start': day.isHighlightStart,
-        'highlight-end': day.isHighlightEnd
-      }
-    },
-    /**
-     * Whether a day is highlighted and it is the first date
-     * in the highlighted range of dates
-     * @param {Date}
-     * @return {Boolean}
-     */
-    isHighlightStart: function isHighlightStart (date) {
-      return this.isHighlightedDate(date) &&
-        (this.highlighted.from instanceof Date) &&
-        (this.utils.getFullYear(this.highlighted.from) === this.utils.getFullYear(date)) &&
-        (this.utils.getMonth(this.highlighted.from) === this.utils.getMonth(date)) &&
-        (this.utils.getDate(this.highlighted.from) === this.utils.getDate(date))
-    },
-    /**
-     * Whether a day is highlighted and it is the first date
-     * in the highlighted range of dates
-     * @param {Date}
-     * @return {Boolean}
-     */
-    isHighlightEnd: function isHighlightEnd (date) {
-      return this.isHighlightedDate(date) &&
-        (this.highlighted.to instanceof Date) &&
-        (this.utils.getFullYear(this.highlighted.to) === this.utils.getFullYear(date)) &&
-        (this.utils.getMonth(this.highlighted.to) === this.utils.getMonth(date)) &&
-        (this.utils.getDate(this.highlighted.to) === this.utils.getDate(date))
-    },
-    /**
-     * Helper
-     * @param  {mixed}  prop
-     * @return {Boolean}
-     */
-    isDefined: function isDefined (prop) {
-      return typeof prop !== 'undefined' && prop
-    }
-  }
-}
-// eslint-disable-next-line
-;
-
-(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=""; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
-var PickerMonth = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMonthView),expression:"showMonthView"}],class:[_vm.calendarClass, 'vdp-datepicker__calendar'],style:(_vm.calendarStyle),on:{"mousedown":function($event){$event.preventDefault();}}},[_vm._t("beforeCalendarHeader"),_vm._v(" "),_c('header',[_c('span',{staticClass:"prev",class:{'disabled': _vm.isLeftNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.nextYear() : _vm.previousYear();}}},[_vm._v("<")]),_vm._v(" "),_c('span',{staticClass:"month__year_btn",class:_vm.allowedToShowView('year') ? 'up' : '',on:{"click":_vm.showYearCalendar}},[_vm._v(_vm._s(_vm.pageYearName))]),_vm._v(" "),_c('span',{staticClass:"next",class:{'disabled': _vm.isRightNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.previousYear() : _vm.nextYear();}}},[_vm._v(">")])]),_vm._v(" "),_vm._l((_vm.months),function(month){return _c('span',{key:month.timestamp,staticClass:"cell month",class:{'selected': month.isSelected, 'disabled': month.isDisabled},on:{"click":function($event){$event.stopPropagation();_vm.selectMonth(month);}}},[_vm._v(_vm._s(month.month))])})],2)},staticRenderFns: [],
-  props: {
-    showMonthView: Boolean,
-    selectedDate: Date,
-    pageDate: Date,
-    pageTimestamp: Number,
-    disabledDates: Object,
-    calendarClass: [String, Object, Array],
-    calendarStyle: Object,
-    translation: Object,
-    isRtl: Boolean,
-    allowedToShowView: Function,
-    useUtc: Boolean
-  },
-  data: function data () {
-    var constructedDateUtils = makeDateUtils(this.useUtc);
-    return {
-      utils: constructedDateUtils
-    }
-  },
-  computed: {
-    months: function months () {
-      var this$1 = this;
-
-      var d = this.pageDate;
-      var months = [];
-      // set up a new date object to the beginning of the current 'page'
-      var dObj = this.useUtc
-        ? new Date(Date.UTC(d.getUTCFullYear(), 0, d.getUTCDate()))
-        : new Date(d.getFullYear(), 0, d.getDate(), d.getHours(), d.getMinutes());
-      for (var i = 0; i < 12; i++) {
-        months.push({
-          month: this$1.utils.getMonthName(i, this$1.translation.months),
-          timestamp: dObj.getTime(),
-          isSelected: this$1.isSelectedMonth(dObj),
-          isDisabled: this$1.isDisabledMonth(dObj)
-        });
-        this$1.utils.setMonth(dObj, this$1.utils.getMonth(dObj) + 1);
-      }
-      return months
-    },
-    /**
-     * Get year name on current page.
-     * @return {String}
-     */
-    pageYearName: function pageYearName () {
-      var yearSuffix = this.translation.yearSuffix;
-      return ("" + (this.utils.getFullYear(this.pageDate)) + yearSuffix)
-    },
-    /**
-     * Is the left hand navigation disabled
-     * @return {Boolean}
-     */
-    isLeftNavDisabled: function isLeftNavDisabled () {
-      return this.isRtl
-        ? this.isNextYearDisabled(this.pageTimestamp)
-        : this.isPreviousYearDisabled(this.pageTimestamp)
-    },
-    /**
-     * Is the right hand navigation disabled
-     * @return {Boolean}
-     */
-    isRightNavDisabled: function isRightNavDisabled () {
-      return this.isRtl
-        ? this.isPreviousYearDisabled(this.pageTimestamp)
-        : this.isNextYearDisabled(this.pageTimestamp)
-    }
-  },
-  methods: {
-    /**
-     * Emits a selectMonth event
-     * @param {Object} month
-     */
-    selectMonth: function selectMonth (month) {
-      if (month.isDisabled) {
-        return false
-      }
-      this.$emit('selectMonth', month);
-    },
-    /**
-     * Changes the year up or down
-     * @param {Number} incrementBy
-     */
-    changeYear: function changeYear (incrementBy) {
-      var date = this.pageDate;
-      this.utils.setFullYear(date, this.utils.getFullYear(date) + incrementBy);
-      this.$emit('changedYear', date);
-    },
-    /**
-     * Decrements the year
-     */
-    previousYear: function previousYear () {
-      if (!this.isPreviousYearDisabled()) {
-        this.changeYear(-1);
-      }
-    },
-    /**
-     * Checks if the previous year is disabled or not
-     * @return {Boolean}
-     */
-    isPreviousYearDisabled: function isPreviousYearDisabled () {
-      if (!this.disabledDates || !this.disabledDates.to) {
-        return false
-      }
-      return this.utils.getFullYear(this.disabledDates.to) >= this.utils.getFullYear(this.pageDate)
-    },
-    /**
-     * Increments the year
-     */
-    nextYear: function nextYear () {
-      if (!this.isNextYearDisabled()) {
-        this.changeYear(1);
-      }
-    },
-    /**
-     * Checks if the next year is disabled or not
-     * @return {Boolean}
-     */
-    isNextYearDisabled: function isNextYearDisabled () {
-      if (!this.disabledDates || !this.disabledDates.from) {
-        return false
-      }
-      return this.utils.getFullYear(this.disabledDates.from) <= this.utils.getFullYear(this.pageDate)
-    },
-    /**
-     * Emits an event that shows the year calendar
-     */
-    showYearCalendar: function showYearCalendar () {
-      this.$emit('showYearCalendar');
-    },
-    /**
-     * Whether the selected date is in this month
-     * @param {Date}
-     * @return {Boolean}
-     */
-    isSelectedMonth: function isSelectedMonth (date) {
-      return (this.selectedDate &&
-        this.utils.getFullYear(this.selectedDate) === this.utils.getFullYear(date) &&
-        this.utils.getMonth(this.selectedDate) === this.utils.getMonth(date))
-    },
-    /**
-     * Whether a month is disabled
-     * @param {Date}
-     * @return {Boolean}
-     */
-    isDisabledMonth: function isDisabledMonth (date) {
-      var disabledDates = false;
-
-      if (typeof this.disabledDates === 'undefined') {
-        return false
-      }
-
-      if (typeof this.disabledDates.to !== 'undefined' && this.disabledDates.to) {
-        if (
-          (this.utils.getMonth(date) < this.utils.getMonth(this.disabledDates.to) && this.utils.getFullYear(date) <= this.utils.getFullYear(this.disabledDates.to)) ||
-          this.utils.getFullYear(date) < this.utils.getFullYear(this.disabledDates.to)
-        ) {
-          disabledDates = true;
-        }
-      }
-      if (typeof this.disabledDates.from !== 'undefined' && this.disabledDates.from) {
-        if (
-          this.disabledDates.from &&
-          (this.utils.getMonth(date) > this.utils.getMonth(this.disabledDates.from) && this.utils.getFullYear(date) >= this.utils.getFullYear(this.disabledDates.from)) ||
-          this.utils.getFullYear(date) > this.utils.getFullYear(this.disabledDates.from)
-        ) {
-          disabledDates = true;
-        }
-      }
-
-      if (typeof this.disabledDates.customPredictor === 'function' && this.disabledDates.customPredictor(date)) {
-        disabledDates = true;
-      }
-      return disabledDates
-    }
-  }
-}
-// eslint-disable-next-line
-;
-
-(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=""; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
-var PickerYear = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showYearView),expression:"showYearView"}],class:[_vm.calendarClass, 'vdp-datepicker__calendar'],style:(_vm.calendarStyle),on:{"mousedown":function($event){$event.preventDefault();}}},[_vm._t("beforeCalendarHeader"),_vm._v(" "),_c('header',[_c('span',{staticClass:"prev",class:{'disabled': _vm.isLeftNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.nextDecade() : _vm.previousDecade();}}},[_vm._v("<")]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.getPageDecade))]),_vm._v(" "),_c('span',{staticClass:"next",class:{'disabled': _vm.isRightNavDisabled},on:{"click":function($event){_vm.isRtl ? _vm.previousDecade() : _vm.nextDecade();}}},[_vm._v(">")])]),_vm._v(" "),_vm._l((_vm.years),function(year){return _c('span',{key:year.timestamp,staticClass:"cell year",class:{ 'selected': year.isSelected, 'disabled': year.isDisabled },on:{"click":function($event){$event.stopPropagation();_vm.selectYear(year);}}},[_vm._v(_vm._s(year.year))])})],2)},staticRenderFns: [],
-  props: {
-    showYearView: Boolean,
-    selectedDate: Date,
-    pageDate: Date,
-    pageTimestamp: Number,
-    disabledDates: Object,
-    highlighted: Object,
-    calendarClass: [String, Object, Array],
-    calendarStyle: Object,
-    translation: Object,
-    isRtl: Boolean,
-    allowedToShowView: Function,
-    useUtc: Boolean
-  },
-  computed: {
-    years: function years () {
-      var this$1 = this;
-
-      var d = this.pageDate;
-      var years = [];
-      // set up a new date object to the beginning of the current 'page'7
-      var dObj = this.useUtc
-        ? new Date(Date.UTC(Math.floor(d.getUTCFullYear() / 10) * 10, d.getUTCMonth(), d.getUTCDate()))
-        : new Date(Math.floor(d.getFullYear() / 10) * 10, d.getMonth(), d.getDate(), d.getHours(), d.getMinutes());
-      for (var i = 0; i < 10; i++) {
-        years.push({
-          year: this$1.utils.getFullYear(dObj),
-          timestamp: dObj.getTime(),
-          isSelected: this$1.isSelectedYear(dObj),
-          isDisabled: this$1.isDisabledYear(dObj)
-        });
-        this$1.utils.setFullYear(dObj, this$1.utils.getFullYear(dObj) + 1);
-      }
-      return years
-    },
-    /**
-     * @return {String}
-     */
-    getPageDecade: function getPageDecade () {
-      var decadeStart = Math.floor(this.utils.getFullYear(this.pageDate) / 10) * 10;
-      var decadeEnd = decadeStart + 9;
-      var yearSuffix = this.translation.yearSuffix;
-      return (decadeStart + " - " + decadeEnd + yearSuffix)
-    },
-    /**
-     * Is the left hand navigation button disabled?
-     * @return {Boolean}
-     */
-    isLeftNavDisabled: function isLeftNavDisabled () {
-      return this.isRtl
-        ? this.isNextDecadeDisabled(this.pageTimestamp)
-        : this.isPreviousDecadeDisabled(this.pageTimestamp)
-    },
-    /**
-     * Is the right hand navigation button disabled?
-     * @return {Boolean}
-     */
-    isRightNavDisabled: function isRightNavDisabled () {
-      return this.isRtl
-        ? this.isPreviousDecadeDisabled(this.pageTimestamp)
-        : this.isNextDecadeDisabled(this.pageTimestamp)
-    }
-  },
-  data: function data () {
-    var constructedDateUtils = makeDateUtils(this.useUtc);
-    return {
-      utils: constructedDateUtils
-    }
-  },
-  methods: {
-    selectYear: function selectYear (year) {
-      if (year.isDisabled) {
-        return false
-      }
-      this.$emit('selectYear', year);
-    },
-    changeYear: function changeYear (incrementBy) {
-      var date = this.pageDate;
-      this.utils.setFullYear(date, this.utils.getFullYear(date) + incrementBy);
-      this.$emit('changedDecade', date);
-    },
-    previousDecade: function previousDecade () {
-      if (this.isPreviousDecadeDisabled()) {
-        return false
-      }
-      this.changeYear(-10);
-    },
-    isPreviousDecadeDisabled: function isPreviousDecadeDisabled () {
-      if (!this.disabledDates || !this.disabledDates.to) {
-        return false
-      }
-      return Math.floor(this.utils.getFullYear(this.disabledDates.to) / 10) * 10 >= Math.floor(this.utils.getFullYear(this.pageDate) / 10) * 10
-    },
-    nextDecade: function nextDecade () {
-      if (this.isNextDecadeDisabled()) {
-        return false
-      }
-      this.changeYear(10);
-    },
-    isNextDecadeDisabled: function isNextDecadeDisabled () {
-      if (!this.disabledDates || !this.disabledDates.from) {
-        return false
-      }
-      return Math.ceil(this.utils.getFullYear(this.disabledDates.from) / 10) * 10 <= Math.ceil(this.utils.getFullYear(this.pageDate) / 10) * 10
-    },
-
-    /**
-     * Whether the selected date is in this year
-     * @param {Date}
-     * @return {Boolean}
-     */
-    isSelectedYear: function isSelectedYear (date) {
-      return this.selectedDate && this.utils.getFullYear(this.selectedDate) === this.utils.getFullYear(date)
-    },
-    /**
-     * Whether a year is disabled
-     * @param {Date}
-     * @return {Boolean}
-     */
-    isDisabledYear: function isDisabledYear (date) {
-      var disabledDates = false;
-      if (typeof this.disabledDates === 'undefined' || !this.disabledDates) {
-        return false
-      }
-
-      if (typeof this.disabledDates.to !== 'undefined' && this.disabledDates.to) {
-        if (this.utils.getFullYear(date) < this.utils.getFullYear(this.disabledDates.to)) {
-          disabledDates = true;
-        }
-      }
-      if (typeof this.disabledDates.from !== 'undefined' && this.disabledDates.from) {
-        if (this.utils.getFullYear(date) > this.utils.getFullYear(this.disabledDates.from)) {
-          disabledDates = true;
-        }
-      }
-
-      if (typeof this.disabledDates.customPredictor === 'function' && this.disabledDates.customPredictor(date)) {
-        disabledDates = true;
-      }
-
-      return disabledDates
-    }
-  }
-}
-// eslint-disable-next-line
-;
-
-(function(){ if(typeof document !== 'undefined'){ var head=document.head||document.getElementsByTagName('head')[0], style=document.createElement('style'), css=".rtl { direction: rtl; } .vdp-datepicker { position: relative; text-align: left; } .vdp-datepicker * { box-sizing: border-box; } .vdp-datepicker__calendar { position: absolute; z-index: 100; background: #fff; width: 300px; border: 1px solid #ccc; } .vdp-datepicker__calendar header { display: block; line-height: 40px; } .vdp-datepicker__calendar header span { display: inline-block; text-align: center; width: 71.42857142857143%; float: left; } .vdp-datepicker__calendar header .prev, .vdp-datepicker__calendar header .next { width: 14.285714285714286%; float: left; text-indent: -10000px; position: relative; } .vdp-datepicker__calendar header .prev:after, .vdp-datepicker__calendar header .next:after { content: ''; position: absolute; left: 50%; top: 50%; -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); border: 6px solid transparent; } .vdp-datepicker__calendar header .prev:after { border-right: 10px solid #000; margin-left: -5px; } .vdp-datepicker__calendar header .prev.disabled:after { border-right: 10px solid #ddd; } .vdp-datepicker__calendar header .next:after { border-left: 10px solid #000; margin-left: 5px; } .vdp-datepicker__calendar header .next.disabled:after { border-left: 10px solid #ddd; } .vdp-datepicker__calendar header .prev:not(.disabled), .vdp-datepicker__calendar header .next:not(.disabled), .vdp-datepicker__calendar header .up:not(.disabled) { cursor: pointer; } .vdp-datepicker__calendar header .prev:not(.disabled):hover, .vdp-datepicker__calendar header .next:not(.disabled):hover, .vdp-datepicker__calendar header .up:not(.disabled):hover { background: #eee; } .vdp-datepicker__calendar .disabled { color: #ddd; cursor: default; } .vdp-datepicker__calendar .flex-rtl { display: flex; width: inherit; flex-wrap: wrap; } .vdp-datepicker__calendar .cell { display: inline-block; padding: 0 5px; width: 14.285714285714286%; height: 40px; line-height: 40px; text-align: center; vertical-align: middle; border: 1px solid transparent; } .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year { cursor: pointer; } .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover { border: 1px solid #4bd; } .vdp-datepicker__calendar .cell.selected { background: #4bd; } .vdp-datepicker__calendar .cell.selected:hover { background: #4bd; } .vdp-datepicker__calendar .cell.selected.highlighted { background: #4bd; } .vdp-datepicker__calendar .cell.highlighted { background: #cae5ed; } .vdp-datepicker__calendar .cell.highlighted.disabled { color: #a3a3a3; } .vdp-datepicker__calendar .cell.grey { color: #888; } .vdp-datepicker__calendar .cell.grey:hover { background: inherit; } .vdp-datepicker__calendar .cell.day-header { font-size: 75%; white-space: no-wrap; cursor: inherit; } .vdp-datepicker__calendar .cell.day-header:hover { background: inherit; } .vdp-datepicker__calendar .month, .vdp-datepicker__calendar .year { width: 33.333%; } .vdp-datepicker__clear-button, .vdp-datepicker__calendar-button { cursor: pointer; font-style: normal; } .vdp-datepicker__clear-button.disabled, .vdp-datepicker__calendar-button.disabled { color: #999; cursor: default; } "; style.type='text/css'; if (style.styleSheet){ style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } head.appendChild(style); } })();
-var Datepicker = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vdp-datepicker",class:[_vm.wrapperClass, _vm.isRtl ? 'rtl' : '']},[_c('date-input',{attrs:{"selectedDate":_vm.selectedDate,"resetTypedDate":_vm.resetTypedDate,"format":_vm.format,"translation":_vm.translation,"inline":_vm.inline,"id":_vm.id,"name":_vm.name,"refName":_vm.refName,"openDate":_vm.openDate,"placeholder":_vm.placeholder,"inputClass":_vm.inputClass,"typeable":_vm.typeable,"clearButton":_vm.clearButton,"clearButtonIcon":_vm.clearButtonIcon,"calendarButton":_vm.calendarButton,"calendarButtonIcon":_vm.calendarButtonIcon,"calendarButtonIconContent":_vm.calendarButtonIconContent,"disabled":_vm.disabled,"required":_vm.required,"bootstrapStyling":_vm.bootstrapStyling,"use-utc":_vm.useUtc},on:{"showCalendar":_vm.showCalendar,"closeCalendar":_vm.close,"typedDate":_vm.setTypedDate,"clearDate":_vm.clearDate}},[_vm._t("afterDateInput",null,{slot:"afterDateInput"})],2),_vm._v(" "),(_vm.allowedToShowView('day'))?_c('picker-day',{attrs:{"pageDate":_vm.pageDate,"selectedDate":_vm.selectedDate,"showDayView":_vm.showDayView,"fullMonthName":_vm.fullMonthName,"allowedToShowView":_vm.allowedToShowView,"disabledDates":_vm.disabledDates,"highlighted":_vm.highlighted,"calendarClass":_vm.calendarClass,"calendarStyle":_vm.calendarStyle,"translation":_vm.translation,"pageTimestamp":_vm.pageTimestamp,"isRtl":_vm.isRtl,"mondayFirst":_vm.mondayFirst,"dayCellContent":_vm.dayCellContent,"use-utc":_vm.useUtc},on:{"changedMonth":_vm.handleChangedMonthFromDayPicker,"selectDate":_vm.selectDate,"showMonthCalendar":_vm.showMonthCalendar,"selectedDisabled":_vm.selectDisabledDate}},[_vm._t("beforeCalendarHeader",null,{slot:"beforeCalendarHeader"})],2):_vm._e(),_vm._v(" "),(_vm.allowedToShowView('month'))?_c('picker-month',{attrs:{"pageDate":_vm.pageDate,"selectedDate":_vm.selectedDate,"showMonthView":_vm.showMonthView,"allowedToShowView":_vm.allowedToShowView,"disabledDates":_vm.disabledDates,"calendarClass":_vm.calendarClass,"calendarStyle":_vm.calendarStyle,"translation":_vm.translation,"isRtl":_vm.isRtl,"use-utc":_vm.useUtc},on:{"selectMonth":_vm.selectMonth,"showYearCalendar":_vm.showYearCalendar,"changedYear":_vm.setPageDate}},[_vm._t("beforeCalendarHeader",null,{slot:"beforeCalendarHeader"})],2):_vm._e(),_vm._v(" "),(_vm.allowedToShowView('year'))?_c('picker-year',{attrs:{"pageDate":_vm.pageDate,"selectedDate":_vm.selectedDate,"showYearView":_vm.showYearView,"allowedToShowView":_vm.allowedToShowView,"disabledDates":_vm.disabledDates,"calendarClass":_vm.calendarClass,"calendarStyle":_vm.calendarStyle,"translation":_vm.translation,"isRtl":_vm.isRtl,"use-utc":_vm.useUtc},on:{"selectYear":_vm.selectYear,"changedDecade":_vm.setPageDate}},[_vm._t("beforeCalendarHeader",null,{slot:"beforeCalendarHeader"})],2):_vm._e()],1)},staticRenderFns: [],
-  components: {
-    DateInput: DateInput,
-    PickerDay: PickerDay,
-    PickerMonth: PickerMonth,
-    PickerYear: PickerYear
-  },
-  props: {
-    value: {
-      validator: function (val) {
-        return val === null || val instanceof Date || typeof val === 'string' || typeof val === 'number'
-      }
-    },
-    name: String,
-    refName: String,
-    id: String,
-    format: {
-      type: [String, Function],
-      default: 'dd MMM yyyy'
-    },
-    language: {
-      type: Object,
-      default: function () { return en; }
-    },
-    openDate: {
-      validator: function (val) {
-        return val === null || val instanceof Date || typeof val === 'string' || typeof val === 'number'
-      }
-    },
-    dayCellContent: Function,
-    fullMonthName: Boolean,
-    disabledDates: Object,
-    highlighted: Object,
-    placeholder: String,
-    inline: Boolean,
-    calendarClass: [String, Object, Array],
-    inputClass: [String, Object, Array],
-    wrapperClass: [String, Object, Array],
-    mondayFirst: Boolean,
-    clearButton: Boolean,
-    clearButtonIcon: String,
-    calendarButton: Boolean,
-    calendarButtonIcon: String,
-    calendarButtonIconContent: String,
-    bootstrapStyling: Boolean,
-    initialView: String,
-    disabled: Boolean,
-    required: Boolean,
-    typeable: Boolean,
-    useUtc: Boolean,
-    minimumView: {
-      type: String,
-      default: 'day'
-    },
-    maximumView: {
-      type: String,
-      default: 'year'
-    }
-  },
-  data: function data () {
-    var startDate = this.openDate ? new Date(this.openDate) : new Date();
-    var constructedDateUtils = makeDateUtils(this.useUtc);
-    var pageTimestamp = constructedDateUtils.setDate(startDate, 1);
-    return {
-      /*
-       * Vue cannot observe changes to a Date Object so date must be stored as a timestamp
-       * This represents the first day of the current viewing month
-       * {Number}
-       */
-      pageTimestamp: pageTimestamp,
-      /*
-       * Selected Date
-       * {Date}
-       */
-      selectedDate: null,
-      /*
-       * Flags to show calendar views
-       * {Boolean}
-       */
-      showDayView: false,
-      showMonthView: false,
-      showYearView: false,
-      /*
-       * Positioning
-       */
-      calendarHeight: 0,
-      resetTypedDate: new Date(),
-      utils: constructedDateUtils
-    }
-  },
-  watch: {
-    value: function value (value$1) {
-      this.setValue(value$1);
-    },
-    openDate: function openDate () {
-      this.setPageDate();
-    },
-    initialView: function initialView () {
-      this.setInitialView();
-    }
-  },
-  computed: {
-    computedInitialView: function computedInitialView () {
-      if (!this.initialView) {
-        return this.minimumView
-      }
-
-      return this.initialView
-    },
-    pageDate: function pageDate () {
-      return new Date(this.pageTimestamp)
-    },
-
-    translation: function translation () {
-      return this.language
-    },
-
-    calendarStyle: function calendarStyle () {
-      return {
-        position: this.isInline ? 'static' : undefined
-      }
-    },
-    isOpen: function isOpen () {
-      return this.showDayView || this.showMonthView || this.showYearView
-    },
-    isInline: function isInline () {
-      return !!this.inline
-    },
-    isRtl: function isRtl () {
-      return this.translation.rtl === true
-    }
-  },
-  methods: {
-    /**
-     * Called in the event that the user navigates to date pages and
-     * closes the picker without selecting a date.
-     */
-    resetDefaultPageDate: function resetDefaultPageDate () {
-      if (this.selectedDate === null) {
-        this.setPageDate();
-        return
-      }
-      this.setPageDate(this.selectedDate);
-    },
-    /**
-     * Effectively a toggle to show/hide the calendar
-     * @return {mixed}
-     */
-    showCalendar: function showCalendar () {
-      if (this.disabled || this.isInline) {
-        return false
-      }
-      if (this.isOpen) {
-        return this.close(true)
-      }
-      this.setInitialView();
-      if (!this.isInline) {
-        this.$emit('opened');
-      }
-    },
-    /**
-     * Sets the initial picker page view: day, month or year
-     */
-    setInitialView: function setInitialView () {
-      var initialView = this.computedInitialView;
-      if (!this.allowedToShowView(initialView)) {
-        throw new Error(("initialView '" + (this.initialView) + "' cannot be rendered based on minimum '" + (this.minimumView) + "' and maximum '" + (this.maximumView) + "'"))
-      }
-      switch (initialView) {
-        case 'year':
-          this.showYearCalendar();
-          break
-        case 'month':
-          this.showMonthCalendar();
-          break
-        default:
-          this.showDayCalendar();
-          break
-      }
-    },
-    /**
-     * Are we allowed to show a specific picker view?
-     * @param {String} view
-     * @return {Boolean}
-     */
-    allowedToShowView: function allowedToShowView (view) {
-      var views = ['day', 'month', 'year'];
-      var minimumViewIndex = views.indexOf(this.minimumView);
-      var maximumViewIndex = views.indexOf(this.maximumView);
-      var viewIndex = views.indexOf(view);
-
-      return viewIndex >= minimumViewIndex && viewIndex <= maximumViewIndex
-    },
-    /**
-     * Show the day picker
-     * @return {Boolean}
-     */
-    showDayCalendar: function showDayCalendar () {
-      if (!this.allowedToShowView('day')) {
-        return false
-      }
-      this.close();
-      this.showDayView = true;
-      return true
-    },
-    /**
-     * Show the month picker
-     * @return {Boolean}
-     */
-    showMonthCalendar: function showMonthCalendar () {
-      if (!this.allowedToShowView('month')) {
-        return false
-      }
-      this.close();
-      this.showMonthView = true;
-      return true
-    },
-    /**
-     * Show the year picker
-     * @return {Boolean}
-     */
-    showYearCalendar: function showYearCalendar () {
-      if (!this.allowedToShowView('year')) {
-        return false
-      }
-      this.close();
-      this.showYearView = true;
-      return true
-    },
-    /**
-     * Set the selected date
-     * @param {Number} timestamp
-     */
-    setDate: function setDate (timestamp) {
-      var date = new Date(timestamp);
-      this.selectedDate = date;
-      this.setPageDate(date);
-      this.$emit('selected', date);
-      this.$emit('input', date);
-    },
-    /**
-     * Clear the selected date
-     */
-    clearDate: function clearDate () {
-      this.selectedDate = null;
-      this.setPageDate();
-      this.$emit('selected', null);
-      this.$emit('input', null);
-      this.$emit('cleared');
-    },
-    /**
-     * @param {Object} date
-     */
-    selectDate: function selectDate (date) {
-      this.setDate(date.timestamp);
-      if (!this.isInline) {
-        this.close(true);
-      }
-      this.resetTypedDate = new Date();
-    },
-    /**
-     * @param {Object} date
-     */
-    selectDisabledDate: function selectDisabledDate (date) {
-      this.$emit('selectedDisabled', date);
-    },
-    /**
-     * @param {Object} month
-     */
-    selectMonth: function selectMonth (month) {
-      var date = new Date(month.timestamp);
-      if (this.allowedToShowView('day')) {
-        this.setPageDate(date);
-        this.$emit('changedMonth', month);
-        this.showDayCalendar();
-      } else {
-        this.selectDate(month);
-      }
-    },
-    /**
-     * @param {Object} year
-     */
-    selectYear: function selectYear (year) {
-      var date = new Date(year.timestamp);
-      if (this.allowedToShowView('month')) {
-        this.setPageDate(date);
-        this.$emit('changedYear', year);
-        this.showMonthCalendar();
-      } else {
-        this.selectDate(year);
-      }
-    },
-    /**
-     * Set the datepicker value
-     * @param {Date|String|Number|null} date
-     */
-    setValue: function setValue (date) {
-      if (typeof date === 'string' || typeof date === 'number') {
-        var parsed = new Date(date);
-        date = isNaN(parsed.valueOf()) ? null : parsed;
-      }
-      if (!date) {
-        this.setPageDate();
-        this.selectedDate = null;
-        return
-      }
-      this.selectedDate = date;
-      this.setPageDate(date);
-    },
-    /**
-     * Sets the date that the calendar should open on
-     */
-    setPageDate: function setPageDate (date) {
-      if (!date) {
-        if (this.openDate) {
-          date = new Date(this.openDate);
-        } else {
-          date = new Date();
-        }
-      }
-      this.pageTimestamp = this.utils.setDate(new Date(date), 1);
-    },
-    /**
-     * Handles a month change from the day picker
-     */
-    handleChangedMonthFromDayPicker: function handleChangedMonthFromDayPicker (date) {
-      this.setPageDate(date);
-      this.$emit('changedMonth', date);
-    },
-    /**
-     * Set the date from a typedDate event
-     */
-    setTypedDate: function setTypedDate (date) {
-      this.setDate(date.getTime());
-    },
-    /**
-     * Close all calendar layers
-     * @param {Boolean} full - emit close event
-     */
-    close: function close (full) {
-      this.showDayView = this.showMonthView = this.showYearView = false;
-      if (!this.isInline) {
-        if (full) {
-          this.$emit('closed');
-        }
-        document.removeEventListener('click', this.clickOutside, false);
-      }
-    },
-    /**
-     * Initiate the component
-     */
-    init: function init () {
-      if (this.value) {
-        this.setValue(this.value);
-      }
-      if (this.isInline) {
-        this.setInitialView();
-      }
-    }
-  },
-  mounted: function mounted () {
-    this.init();
-  }
-}
-// eslint-disable-next-line
-;
-
-/* harmony default export */ __webpack_exports__["a"] = (Datepicker);
-
 
 /***/ })
 /******/ ]);

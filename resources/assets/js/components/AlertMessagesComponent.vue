@@ -1,12 +1,16 @@
 <template>
-  <transition name="fade">    
-    <div class="alert alert-danger" v-for="error in messageService.errors" v-on:click="dismissError">
+  <div class="container">
+  <transition-group name="fade">
+    <div class="alert alert-danger" v-for="(error, index) in messageService.errors" :key="index" @click="dismissError">
       {{ error }}
     </div>
-    <div class="alert alert-success" v-for="message in messageService.messages" v-on:click="dismissMessage">
+  </transition-group>
+  <transition-group name="fade">
+    <div class="alert alert-success" v-for="(message, index) in messageService.messages" :key="index" @click="dismissMessage">
       {{ message }}
     </div>
-  </transition>
+  </transition-group>
+  </div>
 </template>
 
 <script>
